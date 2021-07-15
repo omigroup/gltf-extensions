@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "OMI_audio_emitter node extension",
+  "type": "object",
+  "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+  "properties": {
+      "audioEmitter": {
+          "allOf": [
+              {
+                  "$ref": "glTFid.schema.json"
+              }
+          ],
+          "description": "The id of the audioEmitter referenced by this node."
+      },
+      "extensions": { },
+      "extras": { }
+  },
+  "required": [
+      "audioEmitter"
+  ]
+}

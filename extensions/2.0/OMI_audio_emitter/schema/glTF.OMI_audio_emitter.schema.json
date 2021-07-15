@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "OMI_audio_emitter glTF extension",
+  "type": "object",
+  "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+  "properties": {
+      "audioClips": {
+          "type": "array",
+          "items": {
+              "type": "object",
+              "$ref": "audioClip.schema.json"
+          },
+          "minItems": 1
+      },
+      "audioEmitters": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "$ref": "audioEmitter.schema.json"
+        },
+        "minItems": 1
+    },
+      "extensions": { },
+      "extras": { }
+  },
+  "required": [
+      "audio"
+  ]
+}

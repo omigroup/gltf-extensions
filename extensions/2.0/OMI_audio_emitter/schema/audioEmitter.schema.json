@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Audio Emitter",
+  "type": "object",
+  "description": "A positional or global audio emitter.",
+  "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+  "properties": {
+      "type": {
+          "type": "string",
+          "description": "Specifies the audio emitter type.",
+          "anyOf": [
+              {
+                  "enum": [ "positional" ],
+                  "description": "Positional audio emitters "
+              },
+              {
+                  "enum": [ "global" ],
+                  "description": "Global audio emitters are not affected by the position of audio listeners."
+              },
+              {
+                  "type": "string"
+              }
+          ]
+      },
+      "volume": {
+        "type": "number",
+        "minimum": 0,
+        "default": 1
+      },
+      "loop": {
+        "type": "boolean",
+        "default": false
+      },
+      "autoPlay": {
+        "type": "boolean",
+        "default": false
+      },
+      "muted": {
+        "type": "boolean",
+        "default": false
+      },
+      "clip": {
+          "allOf": [
+              {
+                  "$ref": "glTFid.schema.json"
+              }
+          ],
+          "description": "The id of the audio clip referenced by this audio emitter."
+      },
+      "coneInnerAngle": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 360,
+        "default": 360
+      },
+      "coneOuterAngle": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 360,
+        "default": 360
+      },
+      "coneOuterGain": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1,
+        "default": 0
+      },
+      "distanceModel": {
+          "type": "string",
+          "description": "Specifies the distance model for the audio emitter.",
+          "anyOf": [
+              {
+                  "enum": [ "linear" ],
+                  "description": "A linear distance model calculating the gain induced by the distance according to: 1 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)"
+              },
+              {
+                  "enum": [ "inverse" ],
+                  "description": "An inverse distance model calculating the gain induced by the distance according to: refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))"
+              },
+              {
+                "enum": [ "exponential" ],
+                "description": "An exponential distance model calculating the gain induced by the distance according to: pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor)"
+              },
+              {
+                  "type": "string"
+              }
+          ],
+          "default": "inverse"
+      },
+      "maxDistance": {
+        "type": "number",
+        "minimum": 0,
+        "exclusiveMinimum": true,
+        "default": 10000
+      },
+      "refDistance": {
+        "type": "number",
+        "minimum": 0,
+        "default": 1
+      },
+      "rolloffFactor": {
+        "type": "number",
+        "description": "When distanceModel is set to linear, the maximum value is 1.",
+        "minimum": 0,
+        "default": 1
+      },
+      "name": { },
+      "extensions": { },
+      "extras": { }
+  },
+  "required": [
+      "type",
+      "clip"
+  ]
+}
