@@ -35,10 +35,6 @@
         "type": "boolean",
         "default": false
       },
-      "muted": {
-        "type": "boolean",
-        "default": false
-      },
       "clip": {
           "allOf": [
               {
