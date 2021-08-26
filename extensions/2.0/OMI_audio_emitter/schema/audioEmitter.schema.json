@@ -46,8 +46,8 @@
       "coneInnerAngle": {
         "type": "number",
         "minimum": 0,
-        "maximum": 360,
-        "default": 360
+        "maximum": 6.283185307179586,
+        "default": 6.283185307179586
       },
       "coneOuterAngle": {
         "type": "number",
@@ -76,9 +76,6 @@
               {
                 "enum": [ "exponential" ],
                 "description": "An exponential distance model calculating the gain induced by the distance according to: pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor)"
-              },
-              {
-                  "type": "string"
               }
           ],
           "default": "inverse"
@@ -87,7 +84,8 @@
         "type": "number",
         "minimum": 0,
         "exclusiveMinimum": true,
-        "default": 10000
+        "default": 10000,
+        "description": "maximumDistance may only be applied when the distanceModel is set to linear. Otherwise, it should be ignored."
       },
       "refDistance": {
         "type": "number",

@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "Audio",
+  "title": "Audio Clip Source",
   "type": "object",
-  "description": "Audio data used for audio emitters. Audio can be referenced by URI or `bufferView` index. `mimeType` is required.",
+  "description": "A source for audio data referenced in Audio Clips. Audio can be referenced by URI or `bufferView` index. `mimeType` is required.",
   "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
   "properties": {
       "uri": {
@@ -14,7 +14,15 @@
       },
       "mimeType": {
           "type": "string",
-          "description": "The audio's MIME type. Used to determine if the client supports the given audio."
+          "description": "The audio's MIME type. Used to determine if the client supports the given audio. Unless specified by another extension, the only supported mimeType is audio/mpeg.",
+          "anyOf": [
+                {
+                    "enum": [ "audio/mpeg" ]
+                },
+                {
+                    "type": "string"
+                }
+            ]
       },
       "bufferView": {
           "allOf": [ { "$ref": "glTFid.schema.json" } ],

@@ -11,14 +11,6 @@
           "name": "environment",
           "sources": [
             {
-              "mimeType": "audio/ogg",
-              "uri": "./environment.ogg"
-            },
-            {
-              "mimeType": "audio/wav",
-              "uri": "./environment.wav"
-            },
-            {
               "mimeType": "audio/mpeg",
               "uri": "./environment.mp3"
             }
@@ -27,14 +19,6 @@
         {
           "name": "quack",
           "sources": [
-            {
-              "mimeType": "audio/ogg",
-              "bufferView": 3
-            },
-            {
-              "mimeType": "audio/wav",
-              "bufferView": 4
-            },
             {
               "mimeType": "audio/mpeg",
               "bufferView": 5
@@ -60,8 +44,8 @@
           "autoPlay": false,
           "muted": false,
           "clip": 1,
-          "coneInnerAngle": 360,
-          "coneOuterAngle": 360,
+          "coneInnerAngle": 6.283185307179586,
+          "coneOuterAngle": 6.283185307179586,
           "coneOuterGain": 0,
           "distanceModel": "inverse",
           "maxDistance": 10,

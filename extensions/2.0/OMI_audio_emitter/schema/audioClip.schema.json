@@ -17,6 +17,6 @@
         "extras": { }
     },
     "required": [
-        "audio"
+        "sources"
     ]
   }

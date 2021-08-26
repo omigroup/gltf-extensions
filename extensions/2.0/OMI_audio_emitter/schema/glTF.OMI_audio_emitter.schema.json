@@ -24,6 +24,7 @@
       "extras": { }
   },
   "required": [
-      "audio"
+      "audioClips",
+      "audioEmitters"
   ]
 }
