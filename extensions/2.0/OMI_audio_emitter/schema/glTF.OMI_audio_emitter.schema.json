@@ -4,11 +4,11 @@
   "type": "object",
   "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
   "properties": {
-      "audioClips": {
+      "audioSources": {
           "type": "array",
           "items": {
               "type": "object",
-              "$ref": "audioClip.schema.json"
+              "$ref": "audioSource.schema.json"
           },
           "minItems": 1
       },
@@ -24,7 +24,7 @@
       "extras": { }
   },
   "required": [
-      "audioClips",
+      "audioSources",
       "audioEmitters"
   ]
 }

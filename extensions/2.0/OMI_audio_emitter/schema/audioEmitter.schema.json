@@ -35,13 +35,13 @@
         "type": "boolean",
         "default": false
       },
-      "clip": {
+      "source": {
           "allOf": [
               {
                   "$ref": "glTFid.schema.json"
               }
           ],
-          "description": "The id of the audio clip referenced by this audio emitter."
+          "description": "The id of the audio source referenced by this audio emitter."
       },
       "coneInnerAngle": {
         "type": "number",
@@ -104,6 +104,6 @@
   },
   "required": [
       "type",
-      "clip"
+      "source"
   ]
 }

@@ -1,20 +1,20 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "Audio Clip Source",
+  "title": "Audio Source",
   "type": "object",
-  "description": "A source for audio data referenced in Audio Clips. Audio can be referenced by URI or `bufferView` index. `mimeType` is required.",
+  "description": "A source for audio data referenced in Audio Emitters Audio can be referenced by URI or `bufferView` index. `mimeType` is required when `bufferView` is used.",
   "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
   "properties": {
       "uri": {
           "type": "string",
-          "description": "The uri of the image.",
+          "description": "The uri of the audio file.",
           "format": "uriref",
-          "gltf_detailedDescription": "The uri of the audio. Relative paths are relative to the .gltf file.",
+          "gltf_detailedDescription": "The uri of the audio file. Relative paths are relative to the .gltf file.",
           "gltf_uriType": "audio"
       },
       "mimeType": {
           "type": "string",
-          "description": "The audio's MIME type. Used to determine if the client supports the given audio. Unless specified by another extension, the only supported mimeType is audio/mpeg.",
+          "description": "The audio's MIME type. Required if `bufferView` is defined. Unless specified by another extension, the only supported mimeType is audio/mpeg.",
           "anyOf": [
                 {
                     "enum": [ "audio/mpeg" ]
@@ -32,11 +32,11 @@
       "extensions": { },
       "extras": { }
   },
+  "dependencies": {
+    "bufferView": [ "mimeType" ]
+  },
   "oneOf": [
       { "required": [ "uri" ] },
       { "required": [ "bufferView" ] }
-  ],
-  "required": [
-    "mimeType"
   ]
 }

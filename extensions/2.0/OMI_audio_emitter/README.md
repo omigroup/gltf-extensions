@@ -6,24 +6,15 @@
 {
   "extensions": {
     "OMI_audio_emitter": {
-      "audioClips": [
+      "audioSources": [
         {
           "name": "environment",
-          "sources": [
-            {
-              "mimeType": "audio/mpeg",
-              "uri": "./environment.mp3"
-            }
-          ]
+          "uri": "./environment.mp3"
         },
         {
           "name": "quack",
-          "sources": [
-            {
-              "mimeType": "audio/mpeg",
-              "bufferView": 5
-            }
-          ]
+          "mimeType": "audio/mpeg",
+          "bufferView": 5
         }
       ],
       "audioEmitters": [
@@ -33,8 +24,7 @@
           "volume": 1,
           "loop": true,
           "autoPlay": true,
-          "muted": false,
-          "clip": 0
+          "source": 0
         },
         {
           "name": "duck emitter",
@@ -42,8 +32,7 @@
           "volume": 0.8,
           "loop": false,
           "autoPlay": false,
-          "muted": false,
-          "clip": 1,
+          "source": 1,
           "coneInnerAngle": 6.283185307179586,
           "coneOuterAngle": 6.283185307179586,
           "coneOuterGain": 0,
