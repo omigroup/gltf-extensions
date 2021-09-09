@@ -5,6 +5,7 @@
   "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
   "properties": {
       "audioSources": {
+          "description": "An array of audio sources to be used in audio emitters.",
           "type": "array",
           "items": {
               "type": "object",
@@ -13,6 +14,7 @@
           "minItems": 1
       },
       "audioEmitters": {
+        "description": "An array of positional or global audio emitters that can be referenced by nodes or scenes.",
         "type": "array",
         "items": {
             "type": "object",
