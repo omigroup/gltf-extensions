@@ -21,7 +21,7 @@
         {
           "name": "environment emitter",
           "type": "global",
-          "volume": 1,
+          "gain": 1,
           "loop": true,
           "autoPlay": true,
           "source": 0
@@ -29,7 +29,7 @@
         {
           "name": "duck emitter",
           "type": "positional",
-          "volume": 0.8,
+          "gain": 0.8,
           "loop": false,
           "autoPlay": false,
           "source": 1,
