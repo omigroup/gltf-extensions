@@ -16,6 +16,10 @@ You can add these meetings to your calendar [here](https://calendar.google.com/c
 
 Our sub-group has drafted a working agreement that highlights who we are, our purpose, how we communicate, and when we meet. Working agreements are living documents meant to be revisited and revised as needed. To view our working agreement, please visit this [figjam by figma file](https://www.figma.com/file/ns8eBTPfq330lZR3DfsOvD/OMI-gLTFgroup-WorkingAgreement?node-id=0%3A1)
 
+## glTF Working Group Mission
+
+We aim to create an ecosystem of specifications and tooling for accessible creation and use of durable and portable 3D content.
+
 ## OMI glTF Working Group Process
 
 OMI uses 4 stages to represent the maturity of an extension:
@@ -26,15 +30,15 @@ A draft proposal has been submitted to the working group and is receiving feedba
 
 ### Stage 2
 
-The draft proposal should precisely describe the extension in it's initial form and there should be at least one runtime implementation of the extension in development and valid sample assets for testing by other potential implementors. This implementation will be used to test the viability of the extension and provide an example for other implementors. Edits to the extension should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
+The draft proposal should precisely describe the extension in it's initial form and there should be at least one metaverse implementation of the extension in development and valid sample assets for testing by other potential implementors. This implementation will be used to test the viability of the extension and provide an example for other implementors. Edits to the extension should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
 
 ### Stage 3
 
-The extension has multiple runtime implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. The extension at this stage is ready for a vote for ratification. Final modifications should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
+The extension has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. The extension at this stage is ready for a vote for ratification. Final modifications should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
 
 ### Stage 4
 
-The extension has been ratified. It has multiple runtime implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension.
+The extension has been ratified. It has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension.
 
 ## OMI glTF Vendor Extensions
 
