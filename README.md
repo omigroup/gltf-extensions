@@ -12,15 +12,126 @@ Our next meeting is on Thursday July 29th at 2:30 PM PDT in the [AngellXR Discor
 
 You can add these meetings to your calendar [here](https://calendar.google.com/calendar/u/1?cid=Y18wZHB1Z2Y5ZjgzZXE0cWVrbWI2b21xYmptZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
 
-### Working agreement 
+## Working agreement 
 
 Our sub-group has drafted a working agreement that highlights who we are, our purpose, how we communicate, and when we meet. Working agreements are living documents meant to be revisited and revised as needed. To view our working agreement, please visit this [figjam by figma file](https://www.figma.com/file/ns8eBTPfq330lZR3DfsOvD/OMI-gLTFgroup-WorkingAgreement?node-id=0%3A1)
 
-## Approved OMI Vendor Extensions
-TBD
+## OMI glTF Working Group Process
 
-## Proposed OMI Vendor Extensions
+OMI uses 4 stages to represent the maturity of an extension:
 
-You can view the proposed vendor extensions [here](https://github.com/omigroup/gltf-extensions/labels/proposal)
+### Stage 1
 
-Proposals can be created as pull requests in this repository.
+A draft proposal has been submitted to the working group and is receiving feedback. It must have at least one "champion" who are responsible for advancing the proposal to the further stages. At this stage a high-level outline of the extension should be published as a GitHub Pull Request to this repository. The champion(s) should be focused on describing why this extension should be developed further and they should be working on finding additional stakeholders.
+
+### Stage 2
+
+The draft proposal should precisely describe the extension in it's initial form and there should be at least one runtime implementation of the extension in development and valid sample assets for testing by other potential implementors. This implementation will be used to test the viability of the extension and provide an example for other implementors. Edits to the extension should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
+
+### Stage 3
+
+The extension has multiple runtime implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. The extension at this stage is ready for a vote for ratification. Final modifications should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
+
+### Stage 4
+
+The extension has been ratified. It has multiple runtime implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension.
+
+## OMI glTF Vendor Extensions
+
+### Stage 1
+
+### Stage 2
+- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
+
+### Stage 3
+
+### Stage 4
+
+### Extension Support Table
+
+<table>
+  <thead>
+    <tr>
+      <th>Extension</th>
+      <th>Stage</th>
+      <th>Validation</th>
+      <th>Content Authoring Tools</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>Game / Rendering Engines</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>Applications / Metaverse Clients</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>glTF Validator</th>
+      <th>Blender</th>
+      <th>&nbsp;</th>
+      <th>omi-gltf-transform</th>
+      <th>Three.js</th>
+      <th>&nbsp;</th>
+      <th>Godot</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>Unity</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>Third Room</th>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>Import</th>
+      <th>Export</th>
+      <th>MOZ_hubs_components -> OMI</th>
+      <th>Loader</th>
+      <th>Exporter</th>
+      <th>Runtime Import</th>
+      <th>Runtime Export</th>
+      <th>Editor Import</th>
+      <th>Editor Export</th>
+      <th>Runtime Import</th>
+      <th>Runtime Export</th>
+      <th>Editor Import</th>
+      <th>Editor Export</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/pull/1">
+          OMI_audio_emitter
+        </a>
+      </td>
+      <td>Stage 2</td>
+      <td>✅</td>
+      <td>🚧</td>
+      <td>🚧</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>❓</td>
+      <td>❓</td>
+      <td>❓</td>
+      <td>❓</td>
+      <td>❓</td>
+      <td>❓</td>
+      <td>❓</td>
+      <td>❓</td>
+      <td>🚧</td>
+    </tr>
+  </tbody>
+</table>
