@@ -38,7 +38,7 @@ The extension has multiple metaverse implementations, a glTF Validator implement
 
 ### Stage 4
 
-The extension has been ratified. It has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension.
+The extension has been ratified. It has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. Once ratified, non-substantive changes to a specification via a consensus vote. However, breaking changes to an extension are not allowed and should be addressed by creating a proposal for a new extension with a different extension identifier.
 
 ## OMI glTF Vendor Extensions
 
