@@ -30,11 +30,11 @@ A draft proposal has been submitted to the working group and is receiving feedba
 
 ### Stage 2
 
-The draft proposal should precisely describe the extension in it's initial form and there should be at least one metaverse implementation of the extension in development and valid sample assets for testing by other potential implementors. This implementation will be used to test the viability of the extension and provide an example for other implementors. Edits to the extension should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
+The draft proposal should precisely describe the extension in it's initial form and there should be at least one metaverse implementation of the extension in development and valid sample assets for testing by other potential implementors. The proposal should contain valid a JSON schema describing the extension in its entirety as well as a markdown document explaining the purpose, features, and properties of the extension. This implementation will be used to test the viability of the extension and provide an example for other implementors. Edits to the extension should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
 
 ### Stage 3
 
-The extension has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. The extension at this stage is ready for a vote for ratification. Final modifications should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
+The extension has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. The implementations, sample assets, and content creation tool should all consume or produce assets that can be verified by the glTF Validator. The extension at this stage is ready for a vote for ratification. Final proposal modifications should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
 
 ### Stage 4
 
