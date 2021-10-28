@@ -26,7 +26,7 @@ OMI uses 4 stages to represent the maturity of an extension:
 
 ### Stage 1
 
-A draft proposal has been submitted to the working group and is receiving feedback. It must have at least one "champion" who are responsible for advancing the proposal to the further stages. At this stage a high-level outline of the extension should be published as a GitHub Pull Request to this repository. The champion(s) should be focused on describing why this extension should be developed further and they should be working on finding additional stakeholders.
+A draft proposal has been submitted to the working group and is receiving feedback. It must have at least one "champion" who are responsible for advancing the proposal to the further stages. At this stage a high-level outline of the extension should be published as a GitHub Pull Request to this repository. The champion(s) should be focused on describing why this extension should be developed further and they should be working on finding additional stakeholders. The [W3C Community Contributor License Agreement](https://www.w3.org/community/about/process/cla/) must be signed by all contributors before the proposal can enter Stage 1.
 
 ### Stage 2
 
