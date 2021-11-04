@@ -28,24 +28,52 @@ OMI uses 4 stages to represent the maturity of an extension:
 
 A draft proposal has been submitted to the working group and is receiving feedback. It must have at least one "champion" who are responsible for advancing the proposal to the further stages. At this stage a high-level outline of the extension should be published as a GitHub Pull Request to this repository. The champion(s) should be focused on describing why this extension should be developed further and they should be working on finding additional stakeholders. The [W3C Community Contributor License Agreement](https://www.w3.org/community/about/process/cla/) must be signed by all contributors before the proposal can enter Stage 1.
 
+#### Requirements
+
+- [ ] High level outline published as a GitHub PR in this repository
+- [ ] [Signed W3C CLA](https://www.w3.org/community/about/process/cla/)
+
 ### Stage 2
 
 The draft proposal should precisely describe the extension in it's initial form and there should be at least one metaverse implementation of the extension in development and valid sample assets for testing by other potential implementors. The proposal should contain valid a JSON schema describing the extension in its entirety as well as a markdown document explaining the purpose, features, and properties of the extension. This implementation will be used to test the viability of the extension and provide an example for other implementors. Edits to the extension should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
+
+#### Requirements
+
+- [ ] Previous requirements from Stage 1
+- [ ] One metaverse implementation of the extension in development.
+- [ ] Valid and publicly acessible sample assets
+- [ ] Valid JSON schema describing the extension in its entirety
+- [ ] Markdown document explaining the purpose, features, and properties of the extension
 
 ### Stage 3
 
 The extension has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. The implementations, sample assets, and content creation tool should all consume or produce assets that can be verified by the glTF Validator. The extension at this stage is ready for a vote for ratification. Final proposal modifications should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
 
+
+#### Requirements
+
+- [ ] Previous requirements from Stage 2
+- [ ] Two or more metaverse implementations
+- [ ] glTF Validator implementation
+- [ ] Publicly availible content creation tool for generating assets for this extension
+- [ ] All implementations, sample assets, and content creation tools should consume or produce assets that pass validation.
+
 ### Stage 4
 
 The extension has been ratified. It has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. Once ratified, non-substantive changes to a specification via a consensus vote. However, breaking changes to an extension are not allowed and should be addressed by creating a proposal for a new extension with a different extension identifier.
 
+#### Requirements
+
+- [ ] Previous requirements from Stage 3
+- [ ] The extension has passed a consensus vote for ratification.
+
+
 ## OMI glTF Vendor Extensions
 
 ### Stage 1
+- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 2
-- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 3
 
@@ -120,7 +148,7 @@ The extension has been ratified. It has multiple metaverse implementations, a gl
           OMI_audio_emitter
         </a>
       </td>
-      <td>Stage 2</td>
+      <td>Stage 1</td>
       <td>✅</td>
       <td>🚧</td>
       <td>🚧</td>
