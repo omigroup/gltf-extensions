@@ -2,7 +2,23 @@
 
 ## Contributors
 
-## Example
+* Robert Long, Element Inc.
+
+## Status
+
+Open Metaverse Interoperability Group Stage 1 Proposal
+
+## Dependencies
+
+Written against the glTF 2.0 spec.
+
+## Overview
+
+This extension allows for the addition of spatialized and non-spatialized audio to glTF scenes.
+
+Audio emitter objects may be added to 3D nodes for positional audio or to the scene for environmental or ambient audio such as background music.
+
+### Example:
 
 ```json
 {
@@ -69,27 +85,170 @@
   ]
 }
 ```
-# OMI_audio_emitter
-
-## Contributors
-
-* Robert Long, Element Inc.
-
-## Status
-
-Open Metaverse Interoperability Group Stage 1 Proposal
-
-## Dependencies
-
-Written against the glTF 2.0 spec.
-
-## Overview
-
-TODO
 
 ## glTF Schema Updates
 
-TODO
+This extension consists of two primary data structures: Audio Sources and Audio Emitters. Both sources and emitters are defined on an `OMI_audio_emitter` object added to the `extensions`
+ object on the document root.
+
+The extension must be added to the file's `extensionsUsed` array and because it is optional, it does not need to be added to the `extensionsRequired` array.
+
+#### Example:
+
+```json
+{
+    "asset": {
+        "version": "2.0"
+    }
+    "extensionsUsed" : [
+        "OMI_audio_emitter"
+    ],
+    "scenes": [...],
+    "nodes": [...],
+    "extensions": {
+        "OMI_audio_emitter": {
+            "audioSources": [...],
+            "audioEmitters": [...]
+        }
+    }
+}
+```
+
+### Audio Sources
+
+Audio source objects define audio data to be used in audio emitters. Multiple audio emitters may use the same audio source.
+
+Audio sources can store their data in either a buffer view or reference an external file via uri.
+
+When storing audio data in a buffer view, the `mimeType` field must be specified. Currently the only supported mime type is `audio/mpeg`.
+
+#### `bufferView`
+
+The index of the bufferView that contains the audio data. Use this instead of the image's uri property.
+
+#### `mimeType`
+
+The audio's MIME type. Required if `bufferView` is defined. Unless specified by another extension, the only supported mimeType is audio/mpeg.
+
+#### `uri`
+
+The uri of the audio file. Relative paths are relative to the glTF file.
+
+#### MP3 Audio Format
+
+Provides a space efficient format that can also be tuned to satisfy audio engineers.
+
+The MPEG3 Audio Format is commonly available and freely licensed.
+
+### Audio Emitter
+
+#### `type`
+
+Specifies the audio emitter type.
+
+- `positional` Positional audio emitters
+- `global ` Global audio emitters are not affected by the position of audio listeners. `coneInnerAngle`, `coneOuterAngle`, `coneOuterGain`, `distanceModel`, `maxDistance`, `refDistance`, and `rolloffFactor` should all be ignored when set.
+
+#### `gain`
+
+Unitless multiplier against original source volume for determining emitter loudness.
+
+#### `loop`
+
+Whether or not to loop the specified audio clip when finished.
+
+#### `autoPlay`
+
+Whether or not to play the specified audio clip when this scene is loaded.
+
+#### `source`
+
+The id of the audio source referenced by this audio emitter.
+
+#### `coneInnerAngle`
+
+The angle, in radians, of a cone inside of which there will be no volume reduction.
+
+#### `coneOuterAngle`
+
+The angle, in radians, of a cone outside of which the volume will be reduced to a constant value of`coneOuterGain`.
+
+#### `coneOuterGain`
+
+The gain of the audio emitter set when outside the cone defined by the `coneOuterAngle` property. It is a linear value (not dB).
+
+#### `distanceModel`
+
+Specifies the distance model for the audio emitter.
+
+- `linear` A linear distance model calculating the gain induced by the distance according to: 
+    `1 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
+- `inverse ` (default) An inverse distance model calculating the gain induced by the distance according to:
+    `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
+- `exponential` An exponential distance model calculating the gain induced by the distance according to:
+    `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor)`
+
+#### `maxDistance`
+
+The maximum distance between the emitter and listener, after which the volume will not be reduced any further. `maximumDistance` may only be applied when the distanceModel is set to linear. Otherwise, it should be ignored.
+
+#### `refDistance`
+
+A reference distance for reducing volume as the emitter moves further from the listener. For distances less than this, the volume is not reduced.
+
+#### `rolloffFactor`
+
+Describes how quickly the volume is reduced as the emitter moves away from listener. When distanceModel is set to linear, the maximum value is 1 otherwise there is no upper limit.
+
+### Using Audio Emitters
+
+Audio emitters of type `global` may be added to scenes using the following syntax:
+
+```json
+{
+    "scenes": [
+        {
+            "extensions": {
+                "OMI_audio_emitter": {
+                    "audioEmitters": [0, 1]
+                }
+            }
+        }
+    ]
+}
+```
+
+Audio emitters of type `positional` may be added to nodes using the following syntax:
+
+```json
+{
+    "nodes": [
+        {
+            "extensions": {
+                "OMI_audio_emitter": {
+                    "audioEmitter": 2
+                }
+            }
+        }
+    ]
+}
+```
+
+Note that multiple global audio emitters are allowed on the scene, but only a single audio emitter may be added to a node.
+
+<!-- include audio formula for rolloff -->
+
+<!-- include audio formula for gain -->
+
+<!-- include audio formula for cone -->
+
+### Audio Gain Units
+
+
+
+### Units for Rotations 
+
+Radians are used for rotations matching glTF2.
 
 ### JSON Schema
 
@@ -98,7 +257,9 @@ TODO
 ## Known Implementations
 
 * TODO: List of known implementations, with links to each if available.
+* 
 
 ## Resources
 
-* TODO: Resources, if any.
+Prior Art:
+* [W3C Web Audio API](https://www.w3.org/TR/webaudio/)
