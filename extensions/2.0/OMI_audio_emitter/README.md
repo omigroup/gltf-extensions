@@ -1,5 +1,7 @@
 # OMI_audio_emitter
 
+## Contributors
+
 ## Example
 
 ```json
@@ -67,3 +69,36 @@
   ]
 }
 ```
+# OMI_audio_emitter
+
+## Contributors
+
+* Robert Long, Element Inc.
+
+## Status
+
+Open Metaverse Interoperability Group Stage 1 Proposal
+
+## Dependencies
+
+Written against the glTF 2.0 spec.
+
+## Overview
+
+TODO
+
+## glTF Schema Updates
+
+TODO
+
+### JSON Schema
+
+[glTF.OMI_audio_emitter.schema.json](/extensions/2.0/OMI_audio_emitter/schema/glTF.OMI_audio_emitter.schema.json)
+
+## Known Implementations
+
+* TODO: List of known implementations, with links to each if available.
+
+## Resources
+
+* TODO: Resources, if any.
