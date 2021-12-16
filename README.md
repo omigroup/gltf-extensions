@@ -8,7 +8,7 @@ Vendor extensions are developed and approved via the W3C Metaverse Interoperabil
 
 ## Meetings
 
-Our next meeting is on Thursday July 29th at 2:30 PM PDT in the [AngellXR Discord](https://discord.gg/NJtT9grz5E)
+Our meetings are on Thursdays at 2:30 PM PDT in the omi-weekly-meeting channel in the [AngellXR Discord](https://discord.gg/NJtT9grz5E)
 
 You can add these meetings to your calendar [here](https://calendar.google.com/calendar/u/1?cid=Y18wZHB1Z2Y5ZjgzZXE0cWVrbWI2b21xYmptZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
 
