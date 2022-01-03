@@ -41,7 +41,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
           "type": "global",
           "gain": 1,
           "loop": true,
-          "autoPlay": true,
+          "playing": true,
           "source": 0
         },
         {
@@ -49,7 +49,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
           "type": "positional",
           "gain": 0.8,
           "loop": false,
-          "autoPlay": false,
+          "playing": false,
           "source": 1,
           "coneInnerAngle": 6.283185307179586,
           "coneOuterAngle": 6.283185307179586,
@@ -157,9 +157,9 @@ Unitless multiplier against original source volume for determining emitter loudn
 
 Whether or not to loop the specified audio clip when finished.
 
-#### `autoPlay`
+#### `playing`
 
-Whether or not to play the specified audio clip when this scene is loaded.
+Whether or not the specified audio clip is playing.
 
 #### `source`
 
