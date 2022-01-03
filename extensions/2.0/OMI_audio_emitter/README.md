@@ -159,7 +159,7 @@ Whether or not to loop the specified audio clip when finished.
 
 #### `playing`
 
-Whether or not the specified audio clip is playing. Saving this property `true` will set the audio clip to play on load (autoplay).
+Whether or not the specified audio clip is playing. Setting this property `true` will set the audio clip to play on load (autoplay).
 
 #### `source`
 
