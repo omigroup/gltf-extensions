@@ -34,7 +34,7 @@
         "default": false
       },
       "playing": {
-        "description": "Whether or not the specified audio clip is playing. Saving this property to true will set the audio clip to play on load (autoplay).",
+        "description": "Whether or not the specified audio clip is playing. Saving this property true will set the audio clip to play on load (autoplay).",
         "type": "boolean",
         "default": false
       },
