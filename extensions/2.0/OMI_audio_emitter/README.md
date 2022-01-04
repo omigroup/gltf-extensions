@@ -255,7 +255,9 @@ The gain unit range is (0,+∞). The default is 1.
 The cone properties relate to the `PannerNode` interface and determine the amount of volume relative to a listeners position within the defined cone area.
 
 The gain relative to cone properties is determined as follows:
-```function coneGain() {
+
+```
+function coneGain() {
   const sourceOrientation =
       new Vec3(source.orientationX, source.orientationY, source.orientationZ);
   if (sourceOrientation.magnitude == 0 ||
