@@ -236,15 +236,64 @@ Audio emitters of type `positional` may be added to nodes using the following sy
 
 Note that multiple global audio emitters are allowed on the scene, but only a single audio emitter may be added to a node.
 
-<!-- include audio formula for rolloff -->
+### Audio Rolloff Formula
+The Audio Rolloff range is (0, +∞). The default is 1.
 
-<!-- include audio formula for gain -->
+The rolloff formula is dependant on the distance model defined. The available distance models are `linear`, `inverse`, and `exponential`.
 
-<!-- include audio formula for cone -->
+- linear formula: `1 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
+- inverse formula: `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
+- exponential formula: `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor)`
 
 ### Audio Gain Units
+The gain unit range is (0,+∞). The default is 1.
+- gain formula: `originalVolume * gain`
 
+### Audio Cone Vizualized
+![Audio cone showing how cone parameters impact volume based on relative distance to the source.](https://webaudio.github.io/web-audio-api/images/cone-diagram.svg)
 
+The cone properties relate to the `PannerNode` interface and determine the amount of volume relative to a listeners position within the defined cone area.
+
+The gain relative to cone properties is determined as follows:
+```function coneGain() {
+  const sourceOrientation =
+      new Vec3(source.orientationX, source.orientationY, source.orientationZ);
+  if (sourceOrientation.magnitude == 0 ||
+      ((source.coneInnerAngle == 360) && (source.coneOuterAngle == 360)))
+    return 1; // no cone specified - unity gain
+  // Normalized source-listener vector
+  const sourcePosition = new Vec3(panner.positionX.value, panner.positionY.value,
+                                  panner.positionZ.value);
+  const listenerPosition =
+      new Vec3(listener.positionX.value, listener.positionY.value,
+               listener.positionZ.value);
+  const sourceToListener = sourcePosition.diff(listenerPosition).normalize();
+  const normalizedSourceOrientation = sourceOrientation.normalize();
+  // Angle between the source orientation vector and the source-listener vector
+  const angle = 180 *
+                Math.acos(sourceToListener.dot(normalizedSourceOrientation)) /
+                Math.PI;
+  const absAngle = Math.abs(angle);
+  // Divide by 2 here since API is entire angle (not half-angle)
+  const absInnerAngle = Math.abs(source.coneInnerAngle) / 2;
+  const absOuterAngle = Math.abs(source.coneOuterAngle) / 2;
+  let gain = 1;
+  if (absAngle <= absInnerAngle) {
+    // No attenuation
+    gain = 1;
+  } else if (absAngle >= absOuterAngle) {
+    // Max attenuation
+    gain = source.coneOuterGain;
+  } else {
+    // Between inner and outer cones
+    // inner -> outer, x goes from 0 -> 1
+    const x = (absAngle - absInnerAngle) / (absOuterAngle - absInnerAngle);
+    gain = (1 - x) + source.coneOuterGain * x;
+  }
+  return gain;
+}
+```
+[Cone Gain Algorithm Source](https://webaudio.github.io/web-audio-api/#Spatialization-sound-cones)
 
 ### Units for Rotations 
 
