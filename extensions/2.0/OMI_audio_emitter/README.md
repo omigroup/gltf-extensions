@@ -267,8 +267,7 @@ Radians are used for rotations matching glTF2.
 
 ## Known Implementations
 
-* TODO: List of known implementations, with links to each if available.
-* 
+* Third Room - https://github.com/thirdroom/thirdroom
 
 ## Resources
 
