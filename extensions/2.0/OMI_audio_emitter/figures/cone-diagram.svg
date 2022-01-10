@@ -2,6 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 1328 1047" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
     <g id="Canvas_1">
+        <rect x="-7.036" y="-2.557" width="1333.9" height="1055.17" style="fill:white;"/>
         <g id="Canvas_1:-Layer-1" serif:id="Canvas_1: Layer 1">
             <g id="Graphic_6">
                 <path d="M614.148,593.332L223.265,367.656C347.903,151.778 623.946,77.812 839.824,202.45C908.438,242.064 965.416,299.042 1005.03,367.656L614.148,593.332Z" style="fill:none;fill-rule:nonzero;stroke:rgb(255,38,0);stroke-width:3px;"/>
@@ -56,7 +57,12 @@
             <g transform="matrix(1,0,0,1,5.782,210.5)">
                 <g id="Graphic_16">
                     <g>
-                        <text x="0px" y="0px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">forwar<tspan x="67.512px " y="0px ">d</tspan></text>
+                        <g>
+                            <text x="0px" y="0px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">forwar</text>
+                            <g transform="matrix(1,0,0,1,67.512,0)">
+                                <text x="0px" y="0px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">d</text>
+                            </g>
+                        </g>
                     </g>
                 </g>
             </g>
@@ -91,7 +97,12 @@
             <g transform="matrix(1,0,0,1,914.05,244.5)">
                 <g id="Graphic_22">
                     <g>
-                        <text x="0px" y="0px" style="font-family:'HelveticaNeue-Italic', 'Helvetica Neue';font-style:italic;font-size:24px;">V<tspan x="13.344px 25.8px " y="0px 0px ">ar</tspan>iable gain</text>
+                        <g>
+                            <text x="0px" y="0px" style="font-family:'HelveticaNeue-Italic', 'Helvetica Neue';font-style:italic;font-size:24px;">V</text>
+                            <g transform="matrix(1,0,0,1,13.344,0)">
+                                <text x="0px" y="0px" style="font-family:'HelveticaNeue-Italic', 'Helvetica Neue';font-style:italic;font-size:24px;">ariable gain</text>
+                            </g>
+                        </g>
                     </g>
                 </g>
             </g>
