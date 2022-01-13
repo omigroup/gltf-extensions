@@ -3,6 +3,7 @@
 ## Contributors
 
 * Robert Long, Element Inc.
+* Anthony Burchell, Individual Contributor
 
 ## Status
 
