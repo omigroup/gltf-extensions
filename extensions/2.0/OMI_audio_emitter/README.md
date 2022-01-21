@@ -253,7 +253,7 @@ The gain unit range is (0,+∞). The default is 1.
 ### Audio Cone Vizualized
 <figure>
 <img alt="Audio cone showing how cone parameters impact volume based on relative distance to the source." src="./figures/cone-diagram.svg" width="500px" />
-<figcaption>Figure 1 is a modified graphic based on the <a href="https://webaudio.github.io/web-audio-api/#Spatialization-sound-cones">W3C Web Audio API Audio cone Figure</a></figcaption>
+<figcaption>Figure 1 is a modified graphic based on the <a href="https://webaudio.github.io/web-audio-api/#Spatialization-sound-cones" target="_blank">W3C Web Audio API Audio cone Figure</a></figcaption>
 </figure>
 
 The cone properties relate to the `PannerNode` interface and determine the amount of volume relative to a listeners position within the defined cone area.
