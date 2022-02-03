@@ -3,6 +3,7 @@
 ## Contributors
 
 * Robert Long, Element Inc.
+* Anthony Burchell, Individual Contributor
 
 ## Status
 
@@ -236,15 +237,27 @@ Audio emitters of type `positional` may be added to nodes using the following sy
 
 Note that multiple global audio emitters are allowed on the scene, but only a single audio emitter may be added to a node.
 
-<!-- include audio formula for rolloff -->
+### Audio Rolloff Formula
+The Audio Rolloff range is (0, +∞). The default is 1.
 
-<!-- include audio formula for gain -->
+The rolloff formula is dependant on the distance model defined. The available distance models are `linear`, `inverse`, and `exponential`.
 
-<!-- include audio formula for cone -->
+- linear formula: `1 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
+- inverse formula: `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
+- exponential formula: `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor)`
 
 ### Audio Gain Units
+The gain unit range is (0,+∞). The default is 1.
+- gain formula: `originalVolume * gain`
 
+### Audio Cone Vizualized
+<img alt="Audio cone showing how cone parameters impact volume based on relative distance to the source." src="./figures/cone-diagram.svg" width="500px" />
 
+Figure 1. A modified graphic based on the <a href="https://webaudio.github.io/web-audio-api/#Spatialization-sound-cones" target="_blank">W3C Web Audio API Audio cone Figure</a>
+
+The cone properties relate to the `PannerNode` interface and determine the amount of volume relative to a listeners position within the defined cone area.
+
+The gain relative to cone properties is determined in a similar way as described in the web audio api with the difference that this audio emitter extension uses radians in place of degrees. [Cone Gain Algorithm Example](https://webaudio.github.io/web-audio-api/#Spatialization-sound-cones)
 
 ### Units for Rotations 
 
@@ -256,8 +269,7 @@ Radians are used for rotations matching glTF2.
 
 ## Known Implementations
 
-* TODO: List of known implementations, with links to each if available.
-* 
+* Third Room - https://github.com/thirdroom/thirdroom
 
 ## Resources
 
