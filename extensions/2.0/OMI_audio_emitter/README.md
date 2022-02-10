@@ -5,6 +5,7 @@
 * Robert Long, Element Inc.
 * Anthony Burchell, Individual Contributor
 * K. S. Ernest (iFire) Lee, Individual Contributor
+* Michael Nisbet, Individual Contributor
 * humbletim, Individual Contributor
 
 ## Status
