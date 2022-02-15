@@ -164,7 +164,7 @@ A `Node` set to be a `compund` collider will use any direct child nodes with the
             "default": 1
         },
         "mesh": {
-            "description": "A reference to the mesh from the `meshes` array to use for either the Hull or Mesh shapes. The mest MUST be a trimesh. Make sure your mesh is actually a convex hull if you use Hull, and try to avoid a full Mesh since they are very slow.",
+            "description": "A reference to the mesh from the `meshes` array to use for either the Hull or Mesh shapes. The mesh MUST be a trimesh. Make sure your mesh is actually a convex hull if you use Hull, and try to avoid a full Mesh since they are very slow.",
             "allOf": [
                 {
                     "$ref": "glTFid.schema.json"
