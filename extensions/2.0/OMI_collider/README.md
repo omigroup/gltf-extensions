@@ -150,12 +150,12 @@ A `Node` set to be a `compund` collider will use any direct child nodes with the
         },
         "radius": {
             "type": "number",
-            "description": "The radius to use for the collision shape. Applies to box/sphere/capsule",
+            "description": "The radius to use for the collision shape. Applies to sphere/capsule",
             "default": 0.5
         },
         "extents": {
             "type": "array",
-            "description": "half-extents for a Box (width/height/depth). Overwrites the radius field if set.",
+            "description": "half-extents for a Box (x, y, z).",
             "default": [0.5, 0.5, 0.5]
         },
         "height": {
