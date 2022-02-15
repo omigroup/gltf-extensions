@@ -91,7 +91,7 @@ Here is a table of what the shapes can be represented with in different game eng
 
 #### Box
 
-This represents a "box" shape which can either be a cube or an arbitrary rectangular prism. You can specify an `extents` property which is an array that contains the `[width, height, depth]`. TODO: Relate these values to specific axis?
+This represents a "box" shape which can either be a cube or an arbitrary rectangular prism. You can specify an `extents` property which is an array that contains the `[x, y, z]` sizes.
 
 #### Sphere
 
@@ -107,7 +107,7 @@ This type represents "convex hull" meshes which can be used to represent complex
 
 The `mesh` property of the extension must be used to link to an element in the `meshes` array. Note that the mesh MUST be a `trimesh` to work.
 
-Due to limitations of some game engines, authors MUST limit the polygon count to 255 vertexes. TODO: Check if there's a lower limit for this somewhere
+Due to limitations of some game engines (e.g. Unity), authors SHOULD limit the polygon count to 255 vertexes.
 
 #### Mesh
 
