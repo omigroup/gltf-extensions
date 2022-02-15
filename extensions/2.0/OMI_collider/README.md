@@ -61,7 +61,7 @@ The extension must also be added to the glTF's `extensionsUsed` array and becaus
             "extensions": {
                 "OMI_collider": {
                     "type": "sphere",
-                    "sphereRadius": 0.5
+                    "radius": 0.5
                 }
             }
         }
