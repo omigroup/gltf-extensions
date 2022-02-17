@@ -69,7 +69,7 @@ The extension has been ratified. It has multiple metaverse implementations, a gl
 
 ### Stage 5
 
-The extension has been submitted and merged as an OMI vendor extension or submitted and ratified as a KHR or EXT extension within the [Khronos 3D Formats Working Group](https://github.com/KhronosGroup/glTF).
+The extension has been submitted and merged as an OMI vendor extension. Alternately, if the extension is intended to be used outside the scope of OMI, it can be submitted and ratified as a KHR or EXT extension. The extension must be published to the [Khronos 3D Formats Working Group](https://github.com/KhronosGroup/glTF) repository to enter stage 5.
 
 #### Requirements
 
