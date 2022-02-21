@@ -275,6 +275,7 @@ Radians are used for rotations matching glTF2.
 
 * Third Room - https://github.com/thirdroom/thirdroom
 * Three Object Viewer (WordPress Plugin) - https://wordpress.org/plugins/three-object-viewer/
+* UX3D Experimental C++ implementation - https://github.com/ux3d/OMI
 
 ## Resources
 
