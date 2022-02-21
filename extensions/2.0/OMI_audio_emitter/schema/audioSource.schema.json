@@ -14,7 +14,7 @@
       },
       "mimeType": {
           "type": "string",
-          "description": "The audio's MIME type. Required if `bufferView` is defined. Unless specified by another extension, the only supported mimeType is audio/mpeg.",
+          "description": "The audio's MIME type. Required if `bufferView` is defined. Unless specified by another extension, the only supported mimeType is `audio/mpeg`.",
           "anyOf": [
                 {
                     "enum": [ "audio/mpeg" ]
@@ -26,7 +26,7 @@
       },
       "bufferView": {
           "allOf": [ { "$ref": "glTFid.schema.json" } ],
-          "description": "The index of the bufferView that contains the audio data. Use this instead of the image's uri property."
+          "description": "The index of the bufferView that contains the audio data. Use this instead of the audio source's uri property."
       },
       "name": { },
       "extensions": { },

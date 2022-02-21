@@ -7,6 +7,7 @@
 * K. S. Ernest (iFire) Lee, Individual Contributor
 * Michael Nisbet, Individual Contributor
 * humbletim, Individual Contributor
+* Norbert Nopper, UX3D [@UX3DGpuSoftware](https://twitter.com/UX3DGpuSoftware)
 
 ## Status
 
@@ -43,7 +44,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
         {
           "name": "environment emitter",
           "type": "global",
-          "gain": 1,
+          "gain": 1.9,
           "loop": true,
           "playing": true,
           "source": 0
@@ -57,10 +58,10 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
           "source": 1,
           "coneInnerAngle": 6.283185307179586,
           "coneOuterAngle": 6.283185307179586,
-          "coneOuterGain": 0,
+          "coneOuterGain": 0.0,
           "distanceModel": "inverse",
-          "maxDistance": 10,
-          "refDistance": 1,
+          "maxDistance": 10.0,
+          "refDistance": 1.0,
           "rolloffFactor": 0.8
         }
       ]
@@ -79,7 +80,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
   "nodes": [
     {
       "name": "Duck",
-      "translation": [1, 2, 3],
+      "translation": [1.0, 2.0, 3.0],
       "extensions": {
         "OMI_audio_emitter": {
           "audioEmitter": 1
@@ -128,11 +129,11 @@ When storing audio data in a buffer view, the `mimeType` field must be specified
 
 #### `bufferView`
 
-The index of the bufferView that contains the audio data. Use this instead of the image's uri property.
+The index of the bufferView that contains the audio data. Use this instead of the audio source's uri property.
 
 #### `mimeType`
 
-The audio's MIME type. Required if `bufferView` is defined. Unless specified by another extension, the only supported mimeType is audio/mpeg.
+The audio's MIME type. Required if `bufferView` is defined. Unless specified by another extension, the only supported mimeType is `audio/mpeg`.
 
 #### `uri`
 
@@ -150,7 +151,7 @@ The MPEG3 Audio Format is commonly available and freely licensed.
 
 Specifies the audio emitter type.
 
-- `positional` Positional audio emitters
+- `positional` Positional audio emitters. Using sound cones, the orientation is `+Z` having the same front side for a [glTF asset](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html#coordinate-system-and-units). 
 - `global ` Global audio emitters are not affected by the position of audio listeners. `coneInnerAngle`, `coneOuterAngle`, `coneOuterGain`, `distanceModel`, `maxDistance`, `refDistance`, and `rolloffFactor` should all be ignored when set.
 
 #### `gain`
@@ -186,11 +187,11 @@ The gain of the audio emitter set when outside the cone defined by the `coneOute
 Specifies the distance model for the audio emitter.
 
 - `linear` A linear distance model calculating the gain induced by the distance according to: 
-    `1 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
+    `1.0 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
 - `inverse ` (default) An inverse distance model calculating the gain induced by the distance according to:
     `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
 - `exponential` An exponential distance model calculating the gain induced by the distance according to:
-    `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor)`
+    `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor))`
 
 #### `maxDistance`
 
@@ -241,16 +242,16 @@ Audio emitters of type `positional` may be added to nodes using the following sy
 Note that multiple global audio emitters are allowed on the scene, but only a single audio emitter may be added to a node.
 
 ### Audio Rolloff Formula
-The Audio Rolloff range is (0, +∞). The default is 1.
+The Audio Rolloff range is `(0.0, +∞)`. The default is `1.0`.
 
 The rolloff formula is dependant on the distance model defined. The available distance models are `linear`, `inverse`, and `exponential`.
 
-- linear formula: `1 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
+- linear formula: `1.0 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
 - inverse formula: `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
-- exponential formula: `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor)`
+- exponential formula: `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor))`
 
 ### Audio Gain Units
-The gain unit range is (0,+∞). The default is 1.
+The gain unit range is `(0.0, +∞)`. The default is `1.0`.
 - gain formula: `originalVolume * gain`
 
 ### Audio Cone Vizualized
