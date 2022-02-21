@@ -44,7 +44,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
         {
           "name": "environment emitter",
           "type": "global",
-          "gain": 1.9,
+          "gain": 1.0,
           "loop": true,
           "playing": true,
           "source": 0
