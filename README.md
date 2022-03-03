@@ -80,9 +80,9 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ## OMI glTF Vendor Extensions
 
 ### Stage 1
-- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 2
+- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 3
 
@@ -159,7 +159,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
           OMI_audio_emitter
         </a>
       </td>
-      <td>Stage 1</td>
+      <td>Stage 2</td>
       <td>✅</td>
       <td>🚧</td>
       <td>🚧</td>
