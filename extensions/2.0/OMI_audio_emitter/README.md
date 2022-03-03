@@ -10,7 +10,7 @@
 
 ## Status
 
-Open Metaverse Interoperability Group Stage 1 Proposal
+Open Metaverse Interoperability Group Stage 2 Proposal
 
 ## Dependencies
 
