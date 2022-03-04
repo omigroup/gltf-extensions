@@ -21,7 +21,8 @@ This extension allows for the addition of colliders to gLTF scenes.
 
 Colliders can be added to GLTF nodes along with information about the "type" of collider it is representing.
 
-This extension does not perscribe what Colliders should do within a scene.
+This extension does not perscribe what Colliders should do within a scene, but engines may choose to treat colliders as Static physics bodies by default.
+For a more thorough physics body specification, implement the `OMI_physics_body` extension.
 
 ### Example:
 
@@ -69,6 +70,10 @@ The extension must also be added to the glTF's `extensionsUsed` array and becaus
 }
 ```
 
+### `isTrigger`
+
+Specifying `isTrigger: true` in the collider hints to engines that this collider should not be used for physics interactions and should exist as a "trigger volume" which emits events when an entity intersects with it.
+By default an engine may assume that the collider is a static (or rigid) physics body.
 
 ### Collider Types
 
@@ -88,6 +93,7 @@ Here is a table of what the shapes can be represented with in different game eng
 | Hull     | Mesh(convex) | ConvexPolygonShape    | Mesh?   | ConvexHull |
 | Mesh     | Mesh         | ConcavePolygonShape   | Mesh    | Mesh       |
 | Compound | Compound     | Add mutiple colliders | ???     | ???        |
+
 
 #### Box
 
@@ -131,47 +137,111 @@ A `Node` set to be a `compund` collider will use any direct child nodes with the
 ### JSON Schema
 ```json=
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
-    "title": "Collider",
-    "type": "object",
-    "required": ["type"]
-    "properties": {
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Collider",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of collider this node represents",
+      "enum": [
+        "box",
+        "sphere",
+        "capsule",
+        "hull",
+        "mesh",
+        "compound"
+      ]
+    },
+    "isTrigger": {
+      "type": "boolean",
+      "description": "When true this collider will not collide with physics bodies in the scene",
+      "default": false
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "required": [
+          "type",
+          "extents"
+        ],
         "type": {
-            "type": "string",
-            "description": "The type of collider this node represents",
-            "enum": [
-                "box",
-                "sphere",
-                "capsule",
-                "hull",
-                "mesh",
-                "compound"
-            ]
-        },
-        "radius": {
-            "type": "number",
-            "description": "The radius to use for the collision shape. Applies to sphere/capsule",
-            "default": 0.5
+          "const": "box"
         },
         "extents": {
-            "type": "array",
-            "description": "half-extents for a Box (x, y, z).",
-            "default": [0.5, 0.5, 0.5]
+          "type": "array",
+          "description": "half-extents for a Box (x, y, z)."
+        }
+      }
+    },
+    {
+      "properties": {
+        "required": [
+          "type",
+          "radius",
+          "height"
+        ],
+        "type": {
+          "const": "sphere"
+        },
+        "radius": {
+          "type": "number",
+          "description": "The radius to use for the collision shape. Applies to sphere/capsule"
         },
         "height": {
-            "type": "number",
-            "description": "The height of the capsule shape.",
-            "default": 1
+          "type": "number",
+          "description": "The height of the capsule shape."
+        }
+      }
+    },
+    {
+      "properties": {
+        "required": [
+          "type",
+          "mesh"
+        ],
+        "type": {
+          "const": "capsule"
+        }
+      }
+    },
+    {
+      "properties": {
+        "required": [
+          "type",
+          "mesh"
+        ],
+        "type": {
+          "enum": [
+            "mesh",
+            "hull"
+          ]
         },
         "mesh": {
-            "description": "A reference to the mesh from the `meshes` array to use for either the Hull or Mesh shapes. The mesh MUST be a trimesh. Make sure your mesh is actually a convex hull if you use Hull, and try to avoid a full Mesh since they are very slow.",
-            "allOf": [
-                {
-                    "$ref": "glTFid.schema.json"
-                }
-            ]
+          "description": "A reference to the mesh from the `meshes` array to use for either the Hull or Mesh shapes. The mesh MUST be a trimesh. Make sure your mesh is actually a convex hull if you use Hull, and try to avoid a full Mesh since they are very slow.",
+          "allOf": [
+            {
+              "$ref": "glTFid.schema.json"
+            }
+          ]
         }
+      }
+    },
+    {
+      "properties": {
+        "required": [
+          "type"
+        ],
+        "type": {
+          "const": "compound"
+        }
+      }
     }
+  ]
 }
 ```
 
