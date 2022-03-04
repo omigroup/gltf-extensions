@@ -22,7 +22,7 @@ We aim to create an ecosystem of specifications and tooling for accessible creat
 
 ## OMI glTF Working Group Process
 
-OMI uses 4 stages to represent the maturity of an extension:
+OMI uses 5 stages to represent the maturity of an extension:
 
 ### Stage 1
 
@@ -67,17 +67,28 @@ The extension has been ratified. It has multiple metaverse implementations, a gl
 - [ ] Previous requirements from Stage 3
 - [ ] The extension has passed a consensus vote for ratification.
 
+### Stage 5
+
+The extension has been submitted and merged as an OMI vendor extension. Alternately, if the extension is intended to be used outside the scope of OMI, it can be submitted and ratified as a KHR or EXT extension. The extension must be published to the [Khronos 3D Formats Working Group](https://github.com/KhronosGroup/glTF) repository to enter stage 5.
+
+#### Requirements
+
+- [ ] Previous requirements from Stage 4
+- [ ] Listing on the [Khronos glTF repository](https://github.com/KhronosGroup/glTF/tree/main/extensions) proving the extension has been approved or ratified.
+
 
 ## OMI glTF Vendor Extensions
 
 ### Stage 1
-- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 2
+- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 3
 
 ### Stage 4
+
+### Stage 5
 
 ### Extension Support Table
 
@@ -148,7 +159,7 @@ The extension has been ratified. It has multiple metaverse implementations, a gl
           OMI_audio_emitter
         </a>
       </td>
-      <td>Stage 1</td>
+      <td>Stage 2</td>
       <td>✅</td>
       <td>🚧</td>
       <td>🚧</td>
