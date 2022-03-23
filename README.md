@@ -82,7 +82,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ### Stage 1
 
 ### Stage 2
-- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
+- [KHR_audio](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 3
 
@@ -156,7 +156,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
     <tr>
       <td>
         <a href="https://github.com/omigroup/gltf-extensions/pull/1">
-          OMI_audio_emitter
+          KHR_audio
         </a>
       </td>
       <td>Stage 2</td>

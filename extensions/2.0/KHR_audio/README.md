@@ -1,4 +1,4 @@
-# OMI_audio_emitter
+# KHR_audio
 
 ## Contributors
 
@@ -28,7 +28,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
 ```json
 {
   "extensions": {
-    "OMI_audio_emitter": {
+    "KHR_audio": {
       "sources": [
         {
           "name": "environment",
@@ -73,7 +73,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
     {
       "name": "Default Scene",
       "extensions": {
-        "OMI_audio_emitter": {
+        "KHR_audio": {
           "emitters": [0]
         }
       }
@@ -84,7 +84,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
       "name": "Duck",
       "translation": [1.0, 2.0, 3.0],
       "extensions": {
-        "OMI_audio_emitter": {
+        "KHR_audio": {
           "emitter": 1
         }
       }
@@ -95,7 +95,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
 
 ## glTF Schema Updates
 
-This extension consists of two primary data structures: Audio Sources and Audio Emitters. Both sources and emitters are defined on an `OMI_audio_emitter` object added to the `extensions`
+This extension consists of two primary data structures: Audio Sources and Audio Emitters. Both sources and emitters are defined on an `KHR_audio` object added to the `extensions`
  object on the document root.
 
 The extension must be added to the file's `extensionsUsed` array and because it is optional, it does not need to be added to the `extensionsRequired` array.
@@ -108,12 +108,12 @@ The extension must be added to the file's `extensionsUsed` array and because it 
         "version": "2.0"
     }
     "extensionsUsed" : [
-        "OMI_audio_emitter"
+        "KHR_audio"
     ],
     "scenes": [...],
     "nodes": [...],
     "extensions": {
-        "OMI_audio_emitter": {
+        "KHR_audio": {
             "sources": [...],
             "emitters": [...]
         }
@@ -222,7 +222,7 @@ Audio emitters of type `global` may be added to scenes using the following synta
     "scenes": [
         {
             "extensions": {
-                "OMI_audio_emitter": {
+                "KHR_audio": {
                     "emitters": [0, 1]
                 }
             }
@@ -238,7 +238,7 @@ Audio emitters of type `positional` may be added to nodes using the following sy
     "nodes": [
         {
             "extensions": {
-                "OMI_audio_emitter": {
+                "KHR_audio": {
                     "emitter": 2
                 }
             }
@@ -277,7 +277,7 @@ Radians are used for rotations matching glTF2.
 
 ### JSON Schema
 
-[glTF.OMI_audio_emitter.schema.json](/extensions/2.0/OMI_audio_emitter/schema/glTF.OMI_audio_emitter.schema.json)
+[glTF.KHR_audio.schema.json](/extensions/2.0/KHR_audio/schema/glTF.KHR_audio.schema.json)
 
 ## Known Implementations
 
