@@ -4,7 +4,7 @@
   "type": "object",
   "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
   "properties": {
-    "nodes": {
+    "emitters": {
       "type": "array",
           "description": "The indices of each global audio emitter. Positional audio emitters may not be added to the scene node.",
           "items": {
@@ -17,6 +17,6 @@
       "extras": { }
   },
   "required": [
-      "audioEmitter"
+      "emitters"
   ]
 }

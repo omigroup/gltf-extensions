@@ -4,8 +4,8 @@
   "type": "object",
   "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
   "properties": {
-      "audioEmitter": {
-        "description": "The id of the positional audioEmitter referenced by this node. Global audio emitters may not be added to nodes.",
+      "emitter": {
+        "description": "The id of the positional audio emitter referenced by this node. Global audio emitters may not be added to nodes.",
         "allOf": [
             {
                 "$ref": "glTFid.schema.json"
@@ -16,6 +16,6 @@
       "extras": { }
   },
   "required": [
-      "audioEmitter"
+      "emitter"
   ]
 }

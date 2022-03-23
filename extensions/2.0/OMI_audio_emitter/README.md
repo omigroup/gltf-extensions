@@ -29,7 +29,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
 {
   "extensions": {
     "OMI_audio_emitter": {
-      "audioSources": [
+      "sources": [
         {
           "name": "environment",
           "uri": "./environment.mp3"
@@ -40,7 +40,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
           "bufferView": 5
         }
       ],
-      "audioEmitters": [
+      "emitters": [
         {
           "name": "environment emitter",
           "type": "global",
@@ -114,8 +114,8 @@ The extension must be added to the file's `extensionsUsed` array and because it 
     "nodes": [...],
     "extensions": {
         "OMI_audio_emitter": {
-            "audioSources": [...],
-            "audioEmitters": [...]
+            "sources": [...],
+            "emitters": [...]
         }
     }
 }
@@ -223,7 +223,7 @@ Audio emitters of type `global` may be added to scenes using the following synta
         {
             "extensions": {
                 "OMI_audio_emitter": {
-                    "audioEmitters": [0, 1]
+                    "emitters": [0, 1]
                 }
             }
         }
@@ -239,7 +239,7 @@ Audio emitters of type `positional` may be added to nodes using the following sy
         {
             "extensions": {
                 "OMI_audio_emitter": {
-                    "audioEmitter": 2
+                    "emitter": 2
                 }
             }
         }

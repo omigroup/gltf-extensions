@@ -48,7 +48,7 @@
       },
       "positional": {
         "type": "object",
-        "$ref": "audioEmitter.positional.schema.json"
+        "$ref": "emitter.positional.schema.json"
       },
       "name": { },
       "extensions": { },
