@@ -56,13 +56,15 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
           "loop": false,
           "playing": false,
           "source": 1,
-          "coneInnerAngle": 6.283185307179586,
-          "coneOuterAngle": 6.283185307179586,
-          "coneOuterGain": 0.0,
-          "distanceModel": "inverse",
-          "maxDistance": 10.0,
-          "refDistance": 1.0,
-          "rolloffFactor": 0.8
+          "positional": {
+            "coneInnerAngle": 6.283185307179586,
+            "coneOuterAngle": 6.283185307179586,
+            "coneOuterGain": 0.0,
+            "distanceModel": "inverse",
+            "maxDistance": 10.0,
+            "refDistance": 1.0,
+            "rolloffFactor": 0.8
+          }
         }
       ]
     }
@@ -72,7 +74,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
       "name": "Default Scene",
       "extensions": {
         "OMI_audio_emitter": {
-          "audioEmitters": [0]
+          "emitters": [0]
         }
       }
     }
@@ -83,7 +85,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
       "translation": [1.0, 2.0, 3.0],
       "extensions": {
         "OMI_audio_emitter": {
-          "audioEmitter": 1
+          "emitter": 1
         }
       }
     }
@@ -169,6 +171,12 @@ Whether or not the specified audio clip is playing. Setting this property `true`
 #### `source`
 
 The id of the audio source referenced by this audio emitter.
+
+#### `positional`
+
+An object containing the positional audio emitter properties. This may only be defined if `type` is set to `positional`.
+
+### Positional Audio Emitter Properties
 
 #### `coneInnerAngle`
 
