@@ -11,6 +11,30 @@
               "type": "object",
               "$ref": "source.schema.json"
           },
+          "playing": {
+            "description": "Whether or not the specified audio clip is playing. Setting this property true will set the audio clip to play on load (autoplay).",
+            "type": "boolean",
+            "default": false
+          },
+          "gain": {
+            "description": "Unitless multiplier against original source volume for determining emitter loudness.",
+            "type": "number",
+            "minimum": 0.0,
+            "default": 1.0
+          },
+          "loop": {
+            "description": "Whether or not to loop the specified audio clip when finished.",
+            "type": "boolean",
+            "default": false
+          },
+          "audio": {
+            "description": "The id of the audio file assigned to this clip.",
+            "allOf": [
+                {
+                    "$ref": "glTFid.schema.json"
+                }
+            ]
+          },
           "minItems": 1
       },
       "emitters": {
@@ -22,11 +46,21 @@
         },
         "minItems": 1
     },
+    "audio": {
+        "description": "An array of audio that can be referenced by nodes.",
+        "type": "array",
+        "items": {
+            "type": "object",
+            "$ref": "source.schema.json"
+        },
+        "minItems": 1
+    },
       "extensions": { },
       "extras": { }
   },
   "required": [
       "sources",
-      "emitters"
+      "emitters",
+      "audio"
   ]
 }
