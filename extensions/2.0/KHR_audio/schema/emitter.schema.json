@@ -28,13 +28,13 @@
         "minimum": 0.0,
         "default": 1.0
       },
-      "inputs": {
+      "sources": {
         "description": "An array of audio sources used by the audio emitter.",
         "type": "array",
         "allOf": [
-              {
-                  "$ref": "glTFid.schema.json"
-              }
+          {
+              "$ref": "glTFid.schema.json"
+          }
         ]
       },
       "positional": {

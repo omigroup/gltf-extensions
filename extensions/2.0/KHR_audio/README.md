@@ -34,7 +34,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
           "name": "Positional Emitter",
           "type": "positional",
           "gain": 0.8,
-          "inputs": [0, 1],
+          "sources": [0, 1],
           "positional": {
             "coneInnerAngle": 6.283185307179586,
             "coneOuterAngle": 6.283185307179586,
@@ -50,14 +50,14 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
         {
           "name": "Clip 1",
           "gain": 0.6,
-          "playing": true,
+          "autoPlay": true,
           "loop": true,
           "audio": 0
         },
         {
           "name": "Clip 2",
           "gain": 0.6,
-          "playing": true,
+          "autoPlay": true,
           "loop": true,
           "audio": 1
         }
@@ -65,6 +65,8 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
       "audio": [
         {
           "uri": "audio1.mp3",
+        },
+        {
           "bufferView": 0,
           "mimeType": "audio/mpeg"
         }
