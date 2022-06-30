@@ -79,6 +79,9 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 
 ## OMI glTF Vendor Extensions
 
+### Stage 0
+- [OMI_collider](https://github.com/omigroup/gltf-extensions/pull/63)
+
 ### Stage 1
 
 ### Stage 2
