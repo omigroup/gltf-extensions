@@ -177,4 +177,29 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>🚧</td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/pull/63">
+          OMI_collider
+        </a>
+      </td>
+      <td>Stage 0</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>🚧</td>
+    </tr>
+  </tbody>
 </table>
