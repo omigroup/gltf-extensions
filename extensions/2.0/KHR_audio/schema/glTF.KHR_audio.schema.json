@@ -1,24 +1,33 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "OMI_audio_emitter glTF extension",
+  "title": "KHR_audio glTF extension",
   "type": "object",
   "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
   "properties": {
-      "audioSources": {
+      "sources": {
           "description": "An array of audio sources to be used in audio emitters.",
           "type": "array",
           "items": {
               "type": "object",
-              "$ref": "audioSource.schema.json"
+              "$ref": "source.schema.json"
           },
           "minItems": 1
       },
-      "audioEmitters": {
+      "emitters": {
         "description": "An array of positional or global audio emitters that can be referenced by nodes or scenes.",
         "type": "array",
         "items": {
             "type": "object",
-            "$ref": "audioEmitter.schema.json"
+            "$ref": "emitter.schema.json"
+        },
+        "minItems": 1
+    },
+    "audio": {
+        "description": "An array of audio that can be referenced by nodes.",
+        "type": "array",
+        "items": {
+            "type": "object",
+            "$ref": "audio.schema.json"
         },
         "minItems": 1
     },
@@ -26,7 +35,8 @@
       "extras": { }
   },
   "required": [
-      "audioSources",
-      "audioEmitters"
+      "sources",
+      "emitters",
+      "audio"
   ]
 }
