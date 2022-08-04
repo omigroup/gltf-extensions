@@ -134,6 +134,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <th>&nbsp;</th>
       <th>&nbsp;</th>
       <th>Third Room</th>
+      <th>Three Object Viewer </th>
     </tr>
     <tr>
       <th>&nbsp;</th>
@@ -178,6 +179,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>❓</td>
       <td>❓</td>
       <td>🚧</td>
+      <td>✅</td>
     </tr>
   </tbody>
   <tbody>
