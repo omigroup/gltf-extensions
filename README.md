@@ -85,13 +85,15 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ### Stage 1
 
 ### Stage 2
-- [KHR_audio](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 3
 
 ### Stage 4
 
 ### Stage 5
+
+### Graduated to Khronos Extension
+- [KHR_audio](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Extension Support Table
 
@@ -163,7 +165,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
           KHR_audio
         </a>
       </td>
-      <td>Stage 2</td>
+      <td>KHR</td>
       <td>✅</td>
       <td>🚧</td>
       <td>🚧</td>
