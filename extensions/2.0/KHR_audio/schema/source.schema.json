@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Source",
+  "type": "object",
+  "description": "A source audio clip with defined properties about the behavior of that audio.",
+  "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+  "properties": {
+    "autoPlay": {
+        "description": "Whether or not the specified audio clip is playing. Setting this property true will set the audio clip to play on load (autoplay).",
+        "type": "boolean",
+        "default": false
+    },
+    "gain": {
+        "description": "Unitless multiplier against original source volume for determining emitter loudness.",
+        "type": "number",
+        "minimum": 0.0,
+        "default": 1.0
+    },
+    "loop": {
+        "description": "Whether or not to loop the specified audio clip when finished.",
+        "type": "boolean",
+        "default": false
+    },
+    "audio": {
+        "description": "The id of the audio file assigned to this clip.",
+        "allOf": [
+            {
+                "$ref": "glTFid.schema.json"
+            }
+        ]
+    },
+    "name": { },
+    "extensions": { },
+    "extras": { }
+  }
+}
