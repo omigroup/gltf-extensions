@@ -2,10 +2,13 @@
 
 ## Contributors
 
+* OMI glTF Extensions Group
 * Robert Long, The Matrix.org Foundation
 * Anthony Burchell, Individual Contributor
 
 ## Status
+
+Draft Specification
 
 Open Metaverse Interoperability Group Stage 1 Proposal
 
