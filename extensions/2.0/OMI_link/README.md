@@ -48,7 +48,19 @@ A collider attached to the same node as an OMI_link object can be assumed to be 
 
 ## glTF Schema Updates
 
-TODO
+### `uri`
+
+Must be a valid uri, relative path, or fragment.
+
+Valid `uri` field values:
+
+```
+https://omigroup.org/worlds/meetup
+https://omigroup.org/worlds/meetup#portal1
+https://omigroup.org/worlds/meetup?autojoin=true#portal1
+./breakoutroom1
+#portal1
+```
 
 ### JSON Schema
 
