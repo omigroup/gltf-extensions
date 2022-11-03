@@ -2,7 +2,7 @@
 
 ## Contributors
 
-* Robert Long, Element Inc.
+* Robert Long, The Matrix.org Foundation
 * Anthony Burchell, Individual Contributor
 
 ## Status
