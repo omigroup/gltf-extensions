@@ -58,6 +58,7 @@ Valid `uri` field values:
 https://omigroup.org/worlds/meetup
 https://omigroup.org/worlds/meetup#portal1
 https://omigroup.org/worlds/meetup?autojoin=true#portal1
+vrchat://launch?id=wrld_hjdksahgklfshjfgjklsd
 ./breakoutroom1
 #portal1
 ```
