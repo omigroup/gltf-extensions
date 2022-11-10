@@ -79,16 +79,21 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 
 ## OMI glTF Vendor Extensions
 
+### Stage 0
+- [OMI_collider](https://github.com/omigroup/gltf-extensions/pull/63)
+
 ### Stage 1
 
 ### Stage 2
-- [OMI_audio_emitter](https://github.com/omigroup/gltf-extensions/pull/1)
 
 ### Stage 3
 
 ### Stage 4
 
 ### Stage 5
+
+### Graduated to Khronos Extension
+- [KHR_audio](https://github.com/KhronosGroup/glTF/pull/2137)
 
 ### Extension Support Table
 
@@ -131,6 +136,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <th>&nbsp;</th>
       <th>&nbsp;</th>
       <th>Third Room</th>
+      <th>Three Object Viewer </th>
     </tr>
     <tr>
       <th>&nbsp;</th>
@@ -155,11 +161,11 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
   <tbody>
     <tr>
       <td>
-        <a href="https://github.com/omigroup/gltf-extensions/pull/1">
-          OMI_audio_emitter
+        <a href="https://github.com/KhronosGroup/glTF/pull/2137">
+          KHR_audio
         </a>
       </td>
-      <td>Stage 2</td>
+      <td>KHR</td>
       <td>✅</td>
       <td>🚧</td>
       <td>🚧</td>
@@ -174,6 +180,32 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>❓</td>
       <td>❓</td>
       <td>❓</td>
+      <td>🚧</td>
+      <td>✅</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/pull/63">
+          OMI_collider
+        </a>
+      </td>
+      <td>Stage 0</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
       <td>🚧</td>
     </tr>
   </tbody>

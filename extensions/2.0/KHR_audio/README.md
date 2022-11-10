@@ -1,4 +1,4 @@
-# OMI_audio_emitter
+# KHR_audio
 
 ## Contributors
 
@@ -28,41 +28,47 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
 ```json
 {
   "extensions": {
-    "OMI_audio_emitter": {
-      "audioSources": [
+    "KHR_audio": {
+      "emitters": [
         {
-          "name": "environment",
-          "uri": "./environment.mp3"
-        },
-        {
-          "name": "quack",
-          "mimeType": "audio/mpeg",
-          "bufferView": 5
-        }
-      ],
-      "audioEmitters": [
-        {
-          "name": "environment emitter",
-          "type": "global",
-          "gain": 1.0,
-          "loop": true,
-          "playing": true,
-          "source": 0
-        },
-        {
-          "name": "duck emitter",
+          "name": "Positional Emitter",
           "type": "positional",
           "gain": 0.8,
-          "loop": false,
-          "playing": false,
-          "source": 1,
-          "coneInnerAngle": 6.283185307179586,
-          "coneOuterAngle": 6.283185307179586,
-          "coneOuterGain": 0.0,
-          "distanceModel": "inverse",
-          "maxDistance": 10.0,
-          "refDistance": 1.0,
-          "rolloffFactor": 0.8
+          "sources": [0, 1],
+          "positional": {
+            "coneInnerAngle": 6.283185307179586,
+            "coneOuterAngle": 6.283185307179586,
+            "coneOuterGain": 0.0,
+            "distanceModel": "inverse",
+            "maxDistance": 10.0,
+            "refDistance": 1.0,
+            "rolloffFactor": 0.8
+          }
+        }
+      ],
+      "sources": [
+        {
+          "name": "Clip 1",
+          "gain": 0.6,
+          "autoPlay": true,
+          "loop": true,
+          "audio": 0
+        },
+        {
+          "name": "Clip 2",
+          "gain": 0.6,
+          "autoPlay": true,
+          "loop": true,
+          "audio": 1
+        }
+      ],
+      "audio": [
+        {
+          "uri": "audio1.mp3",
+        },
+        {
+          "bufferView": 0,
+          "mimeType": "audio/mpeg"
         }
       ]
     }
@@ -71,8 +77,8 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
     {
       "name": "Default Scene",
       "extensions": {
-        "OMI_audio_emitter": {
-          "audioEmitters": [0]
+        "KHR_audio": {
+          "emitters": [0]
         }
       }
     }
@@ -82,8 +88,8 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
       "name": "Duck",
       "translation": [1.0, 2.0, 3.0],
       "extensions": {
-        "OMI_audio_emitter": {
-          "audioEmitter": 1
+        "KHR_audio": {
+          "emitter": 1
         }
       }
     }
@@ -93,7 +99,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
 
 ## glTF Schema Updates
 
-This extension consists of two primary data structures: Audio Sources and Audio Emitters. Both sources and emitters are defined on an `OMI_audio_emitter` object added to the `extensions`
+This extension consists of two primary data structures: Audio Sources and Audio Emitters. Both sources and emitters are defined on an `KHR_audio` object added to the `extensions`
  object on the document root.
 
 The extension must be added to the file's `extensionsUsed` array and because it is optional, it does not need to be added to the `extensionsRequired` array.
@@ -106,14 +112,14 @@ The extension must be added to the file's `extensionsUsed` array and because it 
         "version": "2.0"
     }
     "extensionsUsed" : [
-        "OMI_audio_emitter"
+        "KHR_audio"
     ],
     "scenes": [...],
     "nodes": [...],
     "extensions": {
-        "OMI_audio_emitter": {
-            "audioSources": [...],
-            "audioEmitters": [...]
+        "KHR_audio": {
+            "sources": [...],
+            "emitters": [...]
         }
     }
 }
@@ -170,6 +176,12 @@ Whether or not the specified audio clip is playing. Setting this property `true`
 
 The id of the audio source referenced by this audio emitter.
 
+#### `positional`
+
+An object containing the positional audio emitter properties. This may only be defined if `type` is set to `positional`.
+
+### Positional Audio Emitter Properties
+
 #### `coneInnerAngle`
 
 The angle, in radians, of a cone inside of which there will be no volume reduction.
@@ -214,8 +226,8 @@ Audio emitters of type `global` may be added to scenes using the following synta
     "scenes": [
         {
             "extensions": {
-                "OMI_audio_emitter": {
-                    "audioEmitters": [0, 1]
+                "KHR_audio": {
+                    "emitters": [0, 1]
                 }
             }
         }
@@ -230,8 +242,8 @@ Audio emitters of type `positional` may be added to nodes using the following sy
     "nodes": [
         {
             "extensions": {
-                "OMI_audio_emitter": {
-                    "audioEmitter": 2
+                "KHR_audio": {
+                    "emitter": 2
                 }
             }
         }
@@ -269,7 +281,7 @@ Radians are used for rotations matching glTF2.
 
 ### JSON Schema
 
-[glTF.OMI_audio_emitter.schema.json](/extensions/2.0/OMI_audio_emitter/schema/glTF.OMI_audio_emitter.schema.json)
+[glTF.KHR_audio.schema.json](/extensions/2.0/KHR_audio/schema/glTF.KHR_audio.schema.json)
 
 ## Known Implementations
 

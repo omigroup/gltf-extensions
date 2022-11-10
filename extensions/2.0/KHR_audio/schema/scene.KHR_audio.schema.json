@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "OMI_audio_emitter node extension",
+  "title": "KHR_audio node extension",
   "type": "object",
   "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
   "properties": {
-    "nodes": {
+    "emitters": {
       "type": "array",
           "description": "The indices of each global audio emitter. Positional audio emitters may not be added to the scene node.",
           "items": {
@@ -17,6 +17,6 @@
       "extras": { }
   },
   "required": [
-      "audioEmitter"
+      "emitters"
   ]
 }
