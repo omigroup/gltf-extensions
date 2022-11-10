@@ -38,6 +38,7 @@ A collider attached to the same node as an OMI_link object can be assumed to be 
       "translation": [1.0, 2.0, 3.0],
       "extensions": {
         "OMI_link": {
+          "title": "Meetup World",
           "uri": "https://omigroup.org/worlds/meetup"
         },
         "OMI_collider": {
@@ -65,6 +66,10 @@ vrchat://launch?id=wrld_hjdksahgklfshjfgjklsd
 ./breakoutroom1
 #portal1
 ```
+
+### `title`
+
+Optional field that describes the destination of the uri. Implementations can show this title if it exists or fallback to showing the uri.
 
 ### JSON Schema
 
