@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Collider",
+  "type": "object",
+  "required": ["type"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of collider this node represents",
+      "enum": ["box", "sphere", "capsule", "hull", "mesh", "compound"]
+    },
+    "isTrigger": {
+      "type": "boolean",
+      "description": "When true this collider will not collide with physics bodies in the scene",
+      "default": false
+    }
+  },
+  "oneOf": [
+    {
+      "required": ["type", "size"],
+      "properties": {
+        "type": {
+          "const": "box"
+        },
+        "size": {
+          "type": "array",
+          "description": "width, height, and depth of the Box (x, y, z)."
+        }
+      }
+    },
+    {
+      "required": ["type", "radius"],
+      "properties": {
+        "type": {
+          "const": "sphere"
+        },
+        "radius": {
+          "type": "number",
+          "description": "The radius to use for the collision shape. Applies to sphere/capsule"
+        }
+      }
+    },
+    {
+      "required": ["type", "radius", "height"],
+      "properties": {
+        "type": {
+          "const": "capsule"
+        },
+        "radius": {
+          "type": "number",
+          "description": "The radius to use for the collision shape. Applies to sphere/capsule"
+        },
+        "height": {
+          "type": "number",
+          "description": "The full height of the capsule shape."
+        }
+      }
+    },
+    {
+      "required": ["type", "mesh"],
+      "properties": {
+        "type": {
+          "const": "mesh"
+        },
+        "mesh": {
+          "description": "A reference to the mesh from the `meshes` array to use for Mesh shapes. The mesh MUST be a trimesh.",
+          "allOf": [
+            {
+              "$ref": "glTFid.schema.json"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "const": "hull"
+        }
+      }
+    },
+    {
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "const": "compound"
+        }
+      }
+    }
+  ]
+}

@@ -5,7 +5,7 @@
 ## Contributors
 
 * Mauve Signweaver, Mauve Software Inc.
-* YOUR NAME HERE
+* Robert Long, The Matrix.org Foundation
 
 ## Status
 
@@ -26,53 +26,49 @@ For a more thorough physics body specification, implement the `OMI_physics_body`
 
 ### Example:
 
-```json=
+```json
 {
-    "nodes": [
-        {
-            "name": "ball",
-            "extensions": {
-                "OMI_collider": {
-                    "type": "sphere",
-                    "radius": 0.5
-                }
-            }
+  "extensionsUsed": [
+    "OMI_collider"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "ball",
+      "extensions": {
+        "OMI_collider": {
+          "collider": 0
         }
-    ]
+      }
+    }
+  ],
+  "extensions": {
+    "OMI_collider": {
+      "colliders": [
+        {
+          "type": "sphere",
+          "radius": 0.5
+        }
+      ]
+    }
+  }
 }
 ```
 
-## glTF Scheme Updates
+## glTF Schema Updates
 
-This extension consists of a new `Collider` data structure which can be added to a glTF `Node` in an an object called `OMI_collider` added to the `extensions` object within the `Node` object.
+This extension consists of a new `Collider` data structure which can be added to the root glTF and referenced on a glTF `Node`.
 
 The extension must also be added to the glTF's `extensionsUsed` array and because it is optional, it does not need to be added to the `extensionsRequired` array.
 
-### Example:
-
-
-```json=
-{
-    "extensionsUsed": [
-        "OMI_collider"
-    ],
-    "nodes": [
-        {
-            "name": "ball",
-            "extensions": {
-                "OMI_collider": {
-                    "type": "sphere",
-                    "radius": 0.5
-                }
-            }
-        }
-    ]
-}
-```
-
 ### `isTrigger`
 
-Specifying `isTrigger: true` in the collider hints to engines that this collider should not be used for physics interactions and should exist as a "trigger volume" which emits events when an entity intersects with it.
+Specifying `"isTrigger": true` in the collider hints to engines that this collider should not be used for physics interactions and should exist as a "trigger volume" which emits events when an entity intersects with it.
 By default an engine may assume that the collider is a static (or rigid) physics body.
 
 ### Collider Types
@@ -109,11 +105,9 @@ This represents a "pill" shape which has a `radius` and `height` property. By de
 
 #### Hull
 
-This type represents "convex hull" meshes which can be used to represent complex shapes in 3D. Note that it being "convex" means that it cannot have "holes" or divets that lead inside. This use can can be optimized by most if not all physics engines to improve speeds compared to doing collision detection on all faces within the mesh.
+This type represents "convex hull" meshes which can be used to represent complex shapes in 3D. Note that it being "convex" means that it cannot have "holes" or divots that lead inside. This use can can be optimized by most if not all physics engines to improve speeds compared to doing collision detection on all faces within the mesh. Hulls are computed automatically at runtime using the specified algorithm.
 
-The `mesh` property of the extension must be used to link to an element in the `meshes` array. Note that the mesh MUST be a `trimesh` to work.
-
-Due to limitations of some game engines (e.g. Unity), authors SHOULD limit the polygon count to 255 vertexes.
+**TODO:** Specify hull algorithm
 
 #### Mesh
 
@@ -124,7 +118,7 @@ This type represents an arbitrary 3D mesh for collision detection which can be u
 
 The `mesh` property of the extension must be used to link to an element in the `meshes` array. Note that the mesh MUST be a `trimesh` to work.
 
-TODO: Same limits as regular meshes in GLTF
+TODO: Same limits as regular meshes in glTF
 
 #### Compound
 
@@ -134,120 +128,13 @@ A `Node` set to be a `compund` collider will use any direct child nodes with the
 
 ### Using Colliders
 
-### JSON Schema
-```json=
-{
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "Collider",
-  "type": "object",
-  "required": [
-    "type"
-  ],
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "The type of collider this node represents",
-      "enum": [
-        "box",
-        "sphere",
-        "capsule",
-        "hull",
-        "mesh",
-        "compound"
-      ]
-    },
-    "isTrigger": {
-      "type": "boolean",
-      "description": "When true this collider will not collide with physics bodies in the scene",
-      "default": false
-    }
-  },
-  "oneOf": [
-    {
-      "properties": {
-        "required": [
-          "type",
-          "extents"
-        ],
-        "type": {
-          "const": "box"
-        },
-        "extents": {
-          "type": "array",
-          "description": "half-extents for a Box (x, y, z)."
-        }
-      }
-    },
-    {
-      "properties": {
-        "required": [
-          "type",
-          "radius",
-          "height"
-        ],
-        "type": {
-          "const": "sphere"
-        },
-        "radius": {
-          "type": "number",
-          "description": "The radius to use for the collision shape. Applies to sphere/capsule"
-        },
-        "height": {
-          "type": "number",
-          "description": "The height of the capsule shape."
-        }
-      }
-    },
-    {
-      "properties": {
-        "required": [
-          "type",
-          "mesh"
-        ],
-        "type": {
-          "const": "capsule"
-        }
-      }
-    },
-    {
-      "properties": {
-        "required": [
-          "type",
-          "mesh"
-        ],
-        "type": {
-          "enum": [
-            "mesh",
-            "hull"
-          ]
-        },
-        "mesh": {
-          "description": "A reference to the mesh from the `meshes` array to use for either the Hull or Mesh shapes. The mesh MUST be a trimesh. Make sure your mesh is actually a convex hull if you use Hull, and try to avoid a full Mesh since they are very slow.",
-          "allOf": [
-            {
-              "$ref": "glTFid.schema.json"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "properties": {
-        "required": [
-          "type"
-        ],
-        "type": {
-          "const": "compound"
-        }
-      }
-    }
-  ]
-}
-```
+TODO
 
 ## Known Implementations
 
-TODO
+[Third Room Unity Exporter](https://github.com/matrix-org/thirdroom-unity-exporter/blob/main/Runtime/Scripts/OMI_collider/OMI_ColliderExtension.cs)
+[Third Room glTF Transform](https://github.com/matrix-org/thirdroom/blob/main/src/asset-pipeline/extensions/OMIColliderExtension.ts)
+[Third Room glTF Loader](https://github.com/matrix-org/thirdroom/blob/main/src/engine/gltf/OMI_collider.ts)
 
 ## Resources:
 
