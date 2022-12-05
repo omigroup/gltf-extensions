@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "OMI_spawn_point",
+	"description": "An extension for the glTF format that defines a spawn point in a scene.",
+	"type": "object",
+	"properties": {
+	  "OMI_spawn_point": {
+		"type": "object",
+		"properties": {
+		  "position": {
+			"type": "array",
+			"description": "The XYZ coordinates of the spawn point in the scene.",
+			"items": {
+			  "type": "number"
+			},
+			"minItems": 3,
+			"maxItems": 3
+		  },
+		  "rotation": {
+			"type": "array",
+			"description": "The XYZW components of the quaternion that defines the rotation of the spawn point.",
+			"items": {
+			  "type": "number"
+			},
+			"minItems": 4,
+			"maxItems": 4
+		  }
+		},
+		"required": ["position", "rotation"],
+		"additionalProperties": false
+	  }
+	},
+	"required": ["OMI_spawn_point"],
+	"additionalProperties": false
+  }
+  
