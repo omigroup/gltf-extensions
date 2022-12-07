@@ -26,7 +26,7 @@ To use the "OMI_spawn_point" extension, you must first specify it in the extensi
 
 ```json
 {
-  "extensionsUsed": ["OMI_spawn_point"]
+	"extensionsUsed": ["OMI_spawn_point"]
 }
 ```
 
@@ -34,19 +34,19 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 
 ```json
 {
-  "nodes": [
-    {
-      "name": "spawn_point_node",
-      "translation": [0, 0, 1],
-      "rotation": [0, 0, 0, 1],
-      "extensions": {
-        "OMI_spawn_point": {
-          "name": "Spawn Point 1",
-          "team": "Red Team"
-        }
-      }
-    }
-  ]
+"nodes": [
+	{
+	"name": "spawn_point_node",
+	"translation": [0, 0, 1],
+	"rotation": [0, 0, 0, 1],
+	"extensions": {
+		"OMI_spawn_point": {
+		"name": "Spawn Point 1",
+		"team": "Red Team"
+		}
+	}
+	}
+]
 }
 ```
 
@@ -96,37 +96,36 @@ The OMI_spawn_point extension is defined by the following JSON schema:
 Example Three.js implementation - probably not to be included in final proposal
 
 ```js
-  // Create a new Three.js scene
-  const scene = new THREE.Scene();
+// Create a new Three.js scene
+const scene = new THREE.Scene();
 
-  // Set up a perspective camera
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
+// Set up a perspective camera
+const camera = new THREE.PerspectiveCamera(
+	75,
+	window.innerWidth / window.innerHeight,
+	0.1,
+	1000
+);
 
-  // Load the glTF file
-  const gltfLoader = new THREE.GLTFLoader();
-  gltfLoader.load('my-omi-spawn-file.gltf', (gltf) => {
-    // Add the scene from the glTF file to the Three.js scene
-    scene.add(gltf.scene);
+// Load the glTF file
+const gltfLoader = new THREE.GLTFLoader();
+gltfLoader.load('my-omi-spawn-file.gltf', (gltf) => {
+	// Add the scene from the glTF file to the Three.js scene
+	scene.add(gltf.scene);
 
-    // Find the "OMI_spawn_point" node
-    let spawnPointNode = null;
-    scene.traverse((node) => {
-      if (node.isObject3D && node.userData.OMI_spawn_point) {
-        spawnPointNode = node;
-      }
-    });
+	// Find the "OMI_spawn_point" node
+	let spawnPointNode = null;
+	scene.traverse((node) => {
+	if (node.isObject3D && node.userData.OMI_spawn_point) {
+		spawnPointNode = node;
+	}
+	});
 
-    // Set the position of the camera to the spawn point position from the source node data.
-    if (spawnPointNode) {
-      camera.position.copy(spawnPointNode.position);
-    }
+	// Set the position of the camera to the spawn point position from the source node data.
+	if (spawnPointNode) {
+	camera.position.copy(spawnPointNode.position);
+	}
 ```
-
 
 ## Known Implementations
 Interested Implementations:

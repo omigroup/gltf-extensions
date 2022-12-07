@@ -4,24 +4,23 @@
 	"description": "An extension for the glTF format that defines a spawn point in a scene.",
 	"type": "object",
 	"properties": {
-	  "OMI_spawn_point": {
+		"OMI_spawn_point": {
 		"type": "object",
 		"properties": {
-		  "name": {
+			"name": {
 			"type": "string",
 			"description": "The name of the spawn point.",
 			"maxLength": 128
-		  },
-		  "team": {
+			},
+			"team": {
 			"type": "string",
 			"description": "The team that this spawn point belongs to, if any.",
 			"maxLength": 128
-		  }
+			}
 		},
 		"additionalProperties": false
-	  }
+		}
 	},
 	"required": ["OMI_spawn_point"],
 	"additionalProperties": false
-  }
-  
+}
