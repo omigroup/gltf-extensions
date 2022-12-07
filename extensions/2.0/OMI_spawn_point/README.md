@@ -21,34 +21,43 @@ Written against the glTF 2.0 spec.
 The OMI_spawn_point extension allows you to specify a spawn point in a glTF scene, which defines the initial position and orientation of a visitor in the scene. This can be useful for VR or AR experiences, where the viewer's starting position and orientation can have a significant impact on the overall experience.
 
 ### Example / Usage
-To use the OMI_spawn_point extension, you need to add the "OMI_spawn_point" property to the "extensions" object in the glTF file. The "OMI_spawn_point" property should be an object that contains the "position" and "rotation" property, which specifies the XYZ and XYZW coordinates of the spawn point in the scene.
+
+To use the "OMI_spawn_point" extension, you must first specify it in the extensionsUsed property of your glTF file.
 
 ```json
 {
-  "asset": {
-    "version": "2.0"
-  },
-  "extensions": {
-    "OMI_spawn_point": {
-      "position": [0, 1, 0],
-      "rotation": [0, 0, 0, 1]
-    }
-  }
+  "extensionsUsed": ["OMI_spawn_point"]
 }
 ```
 
-In this example, the OMI_spawn_point extension is added to the "extensions" object in the glTF file. The "position" and "rotation" properties are added to the "OMI_spawn_point" object, which specifies the position and orientation of the spawn point in the global coordinate system of the scene.
+Next, apply the extension to a child node of the glTF file. The node's position and rotation data can be used to determine the location of the spawn point in the scene.
 
-The "position" property is set to [0, 1, 0], which specifies that the spawn point is located at the origin (0, 0, 0) and is one unit above the ground plane (0, 1, 0) in the global coordinate system of the scene. The "rotation" property is set to [0, 0, 0, 1], which specifies that the spawn point has no rotation.
+```json
+{
+  "nodes": [
+    {
+      "name": "spawn_point_node",
+      "translation": [0, 0, 1],
+      "rotation": [0, 0, 0, 1],
+      "extensions": {
+        "OMI_spawn_point": {
+          "name": "Spawn Point 1",
+          "team": "Red Team"
+        }
+      }
+    }
+  ]
+}
+```
 
+In the example above, the "OMI_spawn_point" extension is applied to a node named "spawn_point_node". The node's position and rotation data can be used to determine the location of the spawn point in the scene. The name and team properties are optional and can be used to provide additional information about the spawn point.
 
-### `position`
+## Properties
 
-The "position" property is a required property that is an array of three numbers, which represent the X, Y, and Z coordinates of the spawn point in the scene. The coordinates are defined in the local coordinate system of the node that contains the "position" property, so they may need to be transformed to the global coordinate system of the scene in order to properly place the visitor at the spawn point.
+The "OMI_spawn_point" extension includes the following properties:
 
-### `rotation`
-
-The "rotation" property is a required property that is an array of four numbers, which represent the X, Y, Z, and W components of a quaternion that defines the rotation of the spawn point. This quaternion defines the orientation of the spawn point in the local coordinate system of the node that contains the "rotation" property, so it may need to be transformed to the global coordinate system of the scene in order to properly orient the visitor at the spawn point.
+- `name` (string, optional): The name of the spawn point, if specified.
+- `team` (string, optional): The team that the spawn point is associated with, if specified.
 
 ### JSON Schema
 
@@ -64,26 +73,17 @@ The OMI_spawn_point extension is defined by the following JSON schema:
 	  "OMI_spawn_point": {
 		"type": "object",
 		"properties": {
-		  "position": {
-			"type": "array",
-			"description": "The XYZ coordinates of the spawn point in the scene.",
-			"items": {
-			  "type": "number"
-			},
-			"minItems": 3,
-			"maxItems": 3
+		  "name": {
+			"type": "string",
+			"description": "The name of the spawn point.",
+			"maxLength": 128
 		  },
-		  "rotation": {
-			"type": "array",
-			"description": "The XYZW components of the quaternion that defines the rotation of the spawn point.",
-			"items": {
-			  "type": "number"
-			},
-			"minItems": 4,
-			"maxItems": 4
+		  "team": {
+			"type": "string",
+			"description": "The team that this spawn point belongs to, if any.",
+			"maxLength": 128
 		  }
 		},
-		"required": ["position", "rotation"],
 		"additionalProperties": false
 	  }
 	},
@@ -92,7 +92,40 @@ The OMI_spawn_point extension is defined by the following JSON schema:
   }
 ```
 
-This schema defines the structure and attributes of the OMI_spawn_point extension, including the "position" and "rotation" properties that specifies the XYZ position and XYZW rotation coordinates of the spawn point in the scene. It also includes constraints and requirements that ensure that the "position" and "rotation" propertues are properly defined and used in a glTF file.
+
+Example Three.js implementation - probably not to be included in final proposal
+
+```js
+  // Create a new Three.js scene
+  const scene = new THREE.Scene();
+
+  // Set up a perspective camera
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
+
+  // Load the glTF file
+  const gltfLoader = new THREE.GLTFLoader();
+  gltfLoader.load('my-omi-spawn-file.gltf', (gltf) => {
+    // Add the scene from the glTF file to the Three.js scene
+    scene.add(gltf.scene);
+
+    // Find the "OMI_spawn_point" node
+    let spawnPointNode = null;
+    scene.traverse((node) => {
+      if (node.isObject3D && node.userData.OMI_spawn_point) {
+        spawnPointNode = node;
+      }
+    });
+
+    // Set the position of the camera to the spawn point position from the source node data.
+    if (spawnPointNode) {
+      camera.position.copy(spawnPointNode.position);
+    }
+```
 
 
 ## Known Implementations

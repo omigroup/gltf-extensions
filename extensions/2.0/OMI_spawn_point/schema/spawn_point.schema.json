@@ -7,26 +7,17 @@
 	  "OMI_spawn_point": {
 		"type": "object",
 		"properties": {
-		  "position": {
-			"type": "array",
-			"description": "The XYZ coordinates of the spawn point in the scene.",
-			"items": {
-			  "type": "number"
-			},
-			"minItems": 3,
-			"maxItems": 3
+		  "name": {
+			"type": "string",
+			"description": "The name of the spawn point.",
+			"maxLength": 128
 		  },
-		  "rotation": {
-			"type": "array",
-			"description": "The XYZW components of the quaternion that defines the rotation of the spawn point.",
-			"items": {
-			  "type": "number"
-			},
-			"minItems": 4,
-			"maxItems": 4
+		  "team": {
+			"type": "string",
+			"description": "The team that this spawn point belongs to, if any.",
+			"maxLength": 128
 		  }
 		},
-		"required": ["position", "rotation"],
 		"additionalProperties": false
 	  }
 	},
