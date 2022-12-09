@@ -80,11 +80,11 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ## OMI glTF Vendor Extensions
 
 ### Stage 0
-- [OMI_collider](https://github.com/omigroup/gltf-extensions/pull/63)
 
 ### Stage 1
 
 ### Stage 2
+- [OMI_collider](extensions/2.0/OMI_collider/README.md)
 
 ### Stage 3
 
@@ -187,26 +187,26 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
   <tbody>
     <tr>
       <td>
-        <a href="https://github.com/omigroup/gltf-extensions/pull/63">
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_collider">
           OMI_collider
         </a>
       </td>
-      <td>Stage 0</td>
+      <td>Stage 2</td>
+      <td><a href="https://github.com/KhronosGroup/glTF-Validator/pull/202">✅</a></td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
+      <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
+      <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
+      <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
+      <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>🚧</td>
+      <td><a href="https://github.com/matrix-org/thirdroom-unity-exporter/blob/main/Runtime/Scripts/OMI_collider/OMI_ColliderExtension.cs">🚧</a></td>
     </tr>
   </tbody>
 </table>
