@@ -41,7 +41,7 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 	"rotation": [0, 0, 0, 1],
 	"extensions": {
 		"OMI_spawn_point": {
-		"name": "Spawn Point 1",
+		"title": "Spawn Point 1",
 		"team": "Red Team"
 		}
 	}
@@ -50,13 +50,13 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 }
 ```
 
-In the example above, the "OMI_spawn_point" extension is applied to a node named "spawn_point_node". The node's position and rotation data can be used to determine the location of the spawn point in the scene. The name and team properties are optional and can be used to provide additional information about the spawn point.
+In the example above, the "OMI_spawn_point" extension is applied to a node named "spawn_point_node". The node's position and rotation data can be used to determine the location of the spawn point in the scene. The title and team properties are optional and can be used to provide additional information about the spawn point.
 
 ## Properties
 
 The "OMI_spawn_point" extension includes the following properties:
 
-- `name` (string, optional): The name of the spawn point, if specified.
+- `title` (string, optional): The title of the spawn point, if specified.
 - `team` (string, optional): The team that the spawn point is associated with, if specified.
 
 ### JSON Schema
@@ -73,9 +73,9 @@ The OMI_spawn_point extension is defined by the following JSON schema:
 	  "OMI_spawn_point": {
 		"type": "object",
 		"properties": {
-		  "name": {
+		  "title": {
 			"type": "string",
-			"description": "The name of the spawn point.",
+			"description": "The title of the spawn point.",
 			"maxLength": 128
 		  },
 		  "team": {
