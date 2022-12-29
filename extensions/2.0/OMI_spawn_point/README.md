@@ -41,8 +41,9 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 	"rotation": [0, 0, 0, 1],
 	"extensions": {
 		"OMI_spawn_point": {
-		"title": "Spawn Point 1",
-		"team": "Red Team"
+		"title": "Hill East",
+		"team": "Red",
+		"group": "Hill"
 		}
 	}
 	}
@@ -50,7 +51,7 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 }
 ```
 
-In the example above, the "OMI_spawn_point" extension is applied to a node named "spawn_point_node". The node's position and rotation data can be used to determine the location of the spawn point in the scene. The title and team properties are optional and can be used to provide additional information about the spawn point.
+In the example above, the "OMI_spawn_point" extension is applied to a node named "spawn_point_node". The node's position and rotation data can be used to determine the location of the spawn point in the scene. The title, team, and group properties are optional and can be used to provide additional information about the spawn point.
 
 ## Properties
 
@@ -58,6 +59,7 @@ The "OMI_spawn_point" extension includes the following properties:
 
 - `title` (string, optional): The title of the spawn point, if specified.
 - `team` (string, optional): The team that the spawn point is associated with, if specified.
+- `group` (string, optional): The group that the spawn point is associated with, if specified.
 
 ### JSON Schema
 
@@ -70,26 +72,31 @@ The OMI_spawn_point extension is defined by the following JSON schema:
 	"description": "An extension for the glTF format that defines a spawn point in a scene.",
 	"type": "object",
 	"properties": {
-	  "OMI_spawn_point": {
+		"OMI_spawn_point": {
 		"type": "object",
 		"properties": {
-		  "title": {
+			"title": {
 			"type": "string",
 			"description": "The title of the spawn point.",
 			"maxLength": 128
-		  },
-		  "team": {
+			},
+			"team": {
 			"type": "string",
 			"description": "The team that this spawn point belongs to, if any.",
 			"maxLength": 128
-		  }
+			},
+			"group": {
+				"type": "string",
+				"description": "The group that this spawn point belongs to, if any.",
+				"maxLength": 128
+			}
 		},
 		"additionalProperties": false
-	  }
+		}
 	},
 	"required": ["OMI_spawn_point"],
 	"additionalProperties": false
-  }
+}
 ```
 
 

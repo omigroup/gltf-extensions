@@ -16,6 +16,11 @@
 			"type": "string",
 			"description": "The team that this spawn point belongs to, if any.",
 			"maxLength": 128
+			},
+			"group": {
+				"type": "string",
+				"description": "The group that this spawn point belongs to, if any.",
+				"maxLength": 128
 			}
 		},
 		"additionalProperties": false
