@@ -5,6 +5,7 @@
 * OMI glTF Extensions Group
 * Robert Long, The Matrix.org Foundation
 * Anthony Burchell, Individual Contributor
+* Aaron Franke, The Mirror Megaverse Inc.
 
 ## Status
 
@@ -16,11 +17,11 @@ Open Metaverse Interoperability Group Stage 1 Proposal
 
 Written against the glTF 2.0 spec.
 
-## Introduction
+## Overview
 
-The OMI_spawn_point extension allows you to specify a spawn point in a glTF scene, which defines the initial position and orientation of a visitor in the scene. This can be useful for VR or AR experiences, where the viewer's starting position and orientation can have a significant impact on the overall experience.
+The OMI_spawn_point extension allows you to specify a spawn point in a glTF scene, which is a place where spawnable objects can be created, such as characters. This extension can be used on game maps to mark a room or any other location as a spawn point by placing an OMI_spawn_point glTF node at the desired location. This can be useful for VR or AR experiences, where the viewer's starting position and orientation can have a significant impact on the overall experience.
 
-### Example / Usage
+### Example
 
 To use the "OMI_spawn_point" extension, you must first specify it in the extensionsUsed property of your glTF file.
 
@@ -34,20 +35,20 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 
 ```json
 {
-"nodes": [
-	{
-	"name": "spawn_point_node",
-	"translation": [0, 0, 1],
-	"rotation": [0, 0, 0, 1],
-	"extensions": {
-		"OMI_spawn_point": {
-		"title": "Hill East",
-		"team": "Red",
-		"group": "Hill"
+	"nodes": [
+		{
+			"name": "spawn_point_node",
+			"translation": [0, 0, 1],
+			"rotation": [0, 0, 0, 1],
+			"extensions": {
+				"OMI_spawn_point": {
+					"title": "Hill East",
+					"team": "Red",
+					"group": "Hill"
+				}
+			}
 		}
-	}
-	}
-]
+	]
 }
 ```
 
@@ -55,11 +56,21 @@ In the example above, the "OMI_spawn_point" extension is applied to a node named
 
 ## Properties
 
-The "OMI_spawn_point" extension includes the following properties:
+All of the properties are optional. An empty JSON object is a valid spawn point. All properties have a default value of null.
 
-- `title` (string, optional): The title of the spawn point, if specified.
-- `team` (string, optional): The team that the spawn point is associated with, if specified.
-- `group` (string, optional): The group that the spawn point is associated with, if specified.
+|           | Type     | Description                                                                                                   |
+| ----------| -------- | ------------------------------------------------------------------------------------------------------------- |
+| **title** | `string` | The title of the spawn point. This can be used as a user-facing name for the spawn point.                     |
+| **team**  | `string` | The team that the spawn point is associated with. Ex: "Red", "Blue", "Humans", "Aliens", "Axis", "Allies".    |
+| **group** | `string` | The group that the spawn point is associated with. This can be used to combine together related spawn points. |
+
+How each application decides to use the properties, or if they are used at all, is up to that specific implementation's needs.
+
+* A game that does not display a menu for spawning does not have to display the title.
+* A game that displays a menu for spawning can generate custom text from the team, group, and/or node name if the title is not specified.
+* A game with no teams does not need to read or use the team property.
+* A game with teams can consider a spawn point without a team assigned as a fallback for when a player is not on a team.
+* A game with no reason to group together spawn points can ignore the group property.
 
 ### JSON Schema
 
@@ -72,30 +83,22 @@ The OMI_spawn_point extension is defined by the following JSON schema:
 	"description": "An extension for the glTF format that defines a spawn point in a scene.",
 	"type": "object",
 	"properties": {
-		"OMI_spawn_point": {
-		"type": "object",
-		"properties": {
-			"title": {
+		"title": {
 			"type": "string",
 			"description": "The title of the spawn point.",
 			"maxLength": 128
-			},
-			"team": {
+		},
+		"team": {
 			"type": "string",
 			"description": "The team that this spawn point belongs to, if any.",
 			"maxLength": 128
-			},
-			"group": {
-				"type": "string",
-				"description": "The group that this spawn point belongs to, if any.",
-				"maxLength": 128
-			}
 		},
-		"additionalProperties": false
+		"group": {
+			"type": "string",
+			"description": "The group that this spawn point belongs to, if any.",
+			"maxLength": 128
 		}
-	},
-	"required": ["OMI_spawn_point"],
-	"additionalProperties": false
+	}
 }
 ```
 
@@ -123,18 +126,21 @@ gltfLoader.load('my-omi-spawn-file.gltf', (gltf) => {
 	// Find the "OMI_spawn_point" node
 	let spawnPointNode = null;
 	scene.traverse((node) => {
-	if (node.isObject3D && node.userData.OMI_spawn_point) {
-		spawnPointNode = node;
-	}
+		if (node.isObject3D && node.userData.OMI_spawn_point) {
+			spawnPointNode = node;
+		}
 	});
 
 	// Set the position of the camera to the spawn point position from the source node data.
 	if (spawnPointNode) {
-	camera.position.copy(spawnPointNode.position);
+		camera.position.copy(spawnPointNode.position);
 	}
+});
 ```
 
 ## Known Implementations
+
 Interested Implementations:
 * INTERESTED AND PENDING - Third Room - https://github.com/thirdroom/thirdroom
 * INTERESTED AND PENDING - Three Object Viewer (WordPress Plugin) - https://wordpress.org/plugins/three-object-viewer/
+* NOT YET PUBLIC - The Mirror https://www.themirror.space/
