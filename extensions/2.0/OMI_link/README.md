@@ -16,7 +16,7 @@ Open Metaverse Interoperability Group Stage 1 Proposal
 
 Written against the glTF 2.0 spec.
 
-OMI_collider extension
+This extension specification currently depends on the draft OMI_collider extension.
 
 ## Overview
 
