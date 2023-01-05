@@ -16,11 +16,15 @@ Open Metaverse Interoperability Group Stage 1 Proposal
 
 Written against the glTF 2.0 spec.
 
+This extension specification currently depends on the draft OMI_collider extension.
+
 ## Overview
 
 This extension allows for objects to add world traversal behavior in the form of links. This specification does not contain any definitions in how the link data is used and it is up to the client builder to decide how the link is activated.
 
-A collider attached to the same node as an OMI_link object can be assumed to be collidable or clickable for activating the traversal behavior.
+Currently this spec depends on the OMI_collider spec. The OMI_collider extension must be attached to the same node as an OMI_link. The client may decide to use the collider for activating the link behavior on click and/or on collision. If OMI_collider is not defined on the node the link the behavior is undefined and can be ignored.
+
+Clients may choose to have application-specific behaviors for URIs otherwise the default platform / browser URI handler should be used. Applications should perform any necessary URI security checks and may decide to present a dialog to inform the user of how the URI is handled.
 
 ### Example:
 
