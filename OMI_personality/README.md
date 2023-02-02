@@ -12,7 +12,7 @@ Open Metaverse interoperability Group Stage 1 proposal
 Written against the glTF 2.0 spec.
 
 ## Overview
-The OMI_personality extension allows you to specify a personality for a glTF node, and an endpoint where it can be queried for additional information about the node. This extension can be used in virtual worlds, where characters can have unique personalities, and interactions with them can be enhanced by providing additional information about their behavior and dialogue.
+The OMI_personality extension allows you to specify a personality for a glTF node representing a entity. This extension can be used in virtual worlds, where characters can have unique personalities, and interactions with them can be enhanced by providing additional information about their behavior and dialogue.
 
 ## Example
 
@@ -34,7 +34,6 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 			"extensions": {
 				"OMI_personality": {
 					"agent": "cat",
-					"endpoint": "https://localhost:8001",
 					"personality": "#agent has a cheerful personality.",
 					"defaultMessage": "nya nya!"
 				}
@@ -44,16 +43,15 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 }
 ```
 
-In the example above, the "OMI_personality" extension is applied to a node named "cat". The agent property is used to specify the type of agent associated with the node, in this case, it's a cat. The endpoint property is used to specify the URL where additional information about the agent can be queried. The personality property describes the agent's personality, and the defaultMessage property is the message that the agent will send as a default.
+In the example above, the "OMI_personality" extension is applied to a node named "cat". The agent property is used to specify the type of agent associated with the node, in this case, it's a cat. The personality property describes the agent's personality, and the defaultMessage property is the message that the agent will send as a default.
 
 ## Properties
 
-The `endpoint`, and `defaultMessage` parameters are optional. The `agent` and `personality` options are required and provide context about the avatars name and default personality description.
+The `defaultMessage` parameter is optional. The `agent` and `personality` options are required and provide context about the avatars name and default personality description.
 
 |           | Type     | Description                                                                                                   |
 | ----------| -------- | ------------------------------------------------------------------------------------------------------------- |
 | **agent** | `string` | The name of the agent or NPC.                     |
-| **endpoint**  | `string` | The url that a client can use to query with the asssociated personality data.    |
 | **personality** | `string` | A default description of the personality of the agent allowing clients to inject that context into language model logic. |
 | **defaultMessage** | `string` | A default message for this agent to initialize with. |
 
@@ -71,11 +69,6 @@ The OMI_personality extension is defined by the following JSON schema:
 			"type": "string",
 			"description": "The name of the agent associated with the node.",
 			"maxLength": 128
-		},
-		"endpoint": {
-			"type": "string",
-			"description": "The endpoint where additional information about the agent can be queried.",
-			"format": "uri"
 		},
 		"personality": {
 			"type": "string",
