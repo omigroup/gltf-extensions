@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "OMI_physics_gravity glTF Document Extension",
+    "type": "object",
+    "required": [
+        "gravity"
+    ],
+    "properties": {
+        "gravity": {
+            "type": "number",
+            "description": "The gravity amount in meters per second squared. Can be zero or negative. Required."
+        },
+        "direction": {
+            "type": "array",
+            "description": "The direction of the global gravity. Should be normalized.",
+            "default": [0.0, -1.0, 0.0],
+            "minItems": 3,
+            "maxItems": 3
+        }
+    }
+}

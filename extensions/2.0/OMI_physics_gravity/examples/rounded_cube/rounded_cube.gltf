@@ -1,0 +1,142 @@
+{
+    "asset": {
+        "version": "2.0"
+    },
+    "extensionsUsed": [
+        "OMI_physics_body",
+        "OMI_physics_gravity",
+        "OMI_physics_shape"
+    ],
+    "extensions": {
+        "OMI_physics_shape": {
+            "shapes": [
+                {
+                    "type": "box",
+                    "box": {
+                        "size": [6, 6, 6]
+                    }
+                },
+                {
+                    "type": "box",
+                    "box": {
+                        "size": [1, 1, 1]
+                    }
+                },
+                {
+                    "type": "convex",
+                    "convex": {
+                        "mesh": 0
+                    }
+                }
+            ]
+        }
+    },
+    "nodes": [
+        {
+            "name": "RoundedCube",
+            "children": [1, 2, 3],
+            "extensions": {
+                "OMI_physics_body": {
+                    "motion": {
+                        "type": "static"
+                    }
+                }
+            }
+        },
+        {
+            "name": "RoundedCubeGravity",
+            "extensions": {
+                "OMI_physics_body": {
+                    "trigger": {
+                        "shape": 0
+                    }
+                },
+                "OMI_physics_gravity": {
+                    "type": "shaped",
+                    "gravity": 9.80665,
+                    "stop": true,
+                    "shaped": {
+                        "shape": 1
+                    }
+                }
+            }
+        },
+        {
+            "name": "RoundedCubeMesh",
+            "mesh": 0
+        },
+        {
+            "name": "RoundedCubeShape",
+            "extensions": {
+                "OMI_physics_body": {
+                    "collider": {
+                        "shape": 2
+                    }
+                }
+            }
+        }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
+    "accessors": [
+        {
+            "type": "VEC3",
+            "componentType": 5126,
+            "count": 1844,
+            "max": [0.75, 0.75, 0.75],
+            "min": [-0.75, -0.75, -0.75],
+            "bufferView": 0,
+            "byteOffset": 0
+        },
+        {
+            "type": "VEC3",
+            "componentType": 5126,
+            "count": 1844,
+            "bufferView": 0,
+            "byteOffset": 12
+        },
+        {
+            "type": "SCALAR",
+            "componentType": 5123,
+            "count": 10344,
+            "bufferView": 1,
+            "byteOffset": 0
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 44256,
+            "byteStride": 24,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 44256,
+            "byteLength": 20688,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "rounded_cube.bin",
+            "byteLength": 64944
+        }
+    ],
+    "meshes": [
+        {
+            "name": "RoundedCubeMeshData",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1
+                    },
+                    "mode": 4,
+                    "indices": 2
+                }
+            ]
+        }
+    ]
+}

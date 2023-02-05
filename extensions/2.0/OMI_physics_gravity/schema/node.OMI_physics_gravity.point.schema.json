@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "OMI_physics_gravity Point Gravity",
+    "type": "object",
+    "properties": {
+        "unitDistance": {
+            "type": "number",
+            "description": "The distance from the origin point at which the gravity equals the gravity property. If zero or not specified, the gravity strength is constant.",
+            "default": 0.0
+        },
+        "extensions": { },
+        "extras": { }
+    }
+}
