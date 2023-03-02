@@ -82,3 +82,51 @@ The OMI_personality extension is defined by the following JSON schema:
 	"required": ["agent", "personality"]
 }
 ```
+
+## Implementation Details
+
+The OMI_personality extension allows users to inject a unique personality into their virtual representations and adheres to a simple set of properties that aim to be compatible with lots of AI software to come. In the below example implementation, the data for personality is used to combine with the input from the user talking to the NPC. The final prompt is being sent to the OpenAI Davinci model to allow for completion of the agent's response.
+
+```js
+	// Request coming from three.js frontend that is querying this endpoint making a call to the GPT-3 model. Contains the Personality data embeded in the NPC file.
+    const data = await request.json();
+    let prompt = data.inputs.personality;
+    let prompt = data.Input.personality;
+
+    let finalPrompt = prompt
+        .replaceAll('#speaker', data.Input.Speaker)
+        .replaceAll('#input', data.Input.Input)
+        .replaceAll('#agent', data.Input.Agent)
+        .replaceAll('#conversation', data.Input.Conversation)
+        .replaceAll('undefined\n','' ).replaceAll('undefined','')
+        .slice(-5000)
+
+    const token = authorization.split(' ')[1];
+    const postData = {
+        prompt: finalPrompt	,
+        max_tokens: 500,
+        stop : ["###"],
+        temperature: 0.7,
+    };
+
+    // Make the first request to the Davinci model
+    const davinciResponse = await fetch('https://api.openai.com/v1/engines/text-davinci-003/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(postData)
+    });
+
+```
+
+ The final prompt in this examples follows a structure of:
+
+```
+Agent is cheerful and always willing to help with programming tasks. They are an entity that lives in a virtual world always looking for new and intersting ways to help humans create content in the metaverse. 
+Speaker: Hello agent! Tell me about yourself
+Agent: 
+```
+
+The above example is a final prompt that is sent to OpenAI where the model completes what the "Agent:" would write to complete this conversation factoring in the personality data above the chat log.
