@@ -130,3 +130,5 @@ Agent:
 ```
 
 The above example is a final prompt that is sent to OpenAI where the model completes what the "Agent:" would write to complete this conversation factoring in the personality data above the chat log.
+
+In this example, the text is being passed back to the Three.js scene and rendered in the scene using a Text component.
