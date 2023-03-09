@@ -94,12 +94,13 @@ The extension is intended to be used together with `OMI_collider`. Physics bodie
 
 ### Property Summary
 
-|                     | Type        | Description                                                     | Default value        |
-| ------------------- | ----------- | --------------------------------------------------------------- | -------------------- |
-| **type**            | `string`    | The type of the physics body as a string.                       | Required, no default |
-| **mass**            | `number`    | The mass of the physics body in kilograms.                      | 1.0                  |
-| **linearVelocity**  | `number[3]` | The initial linear velocity of the body in meters per second.   | [0.0, 0.0, 0.0]      |
-| **angularVelocity** | `number[3]` | The initial angular velocity of the body in radians per second. | [0.0, 0.0, 0.0]      |
+|                     | Type        | Description                                                      | Default value        |
+| ------------------- | ----------- | ---------------------------------------------------------------- | -------------------- |
+| **type**            | `string`    | The type of the physics body as a string.                        | Required, no default |
+| **mass**            | `number`    | The mass of the physics body in kilograms.                       | 1.0                  |
+| **linearVelocity**  | `number[3]` | The initial linear velocity of the body in meters per second.    | [0.0, 0.0, 0.0]      |
+| **angularVelocity** | `number[3]` | The initial angular velocity of the body in radians per second.  | [0.0, 0.0, 0.0]      |
+| **inertiaTensor**   | `number[9]` | The inertia tensor 3x3 matrix in kilogram meter squared (kg⋅m²). | [0.0, ..., 0.0]      |
 
 ### Physics Types
 
@@ -154,6 +155,14 @@ The `"linearVelocity"` property is an array of three numbers that defines how mu
 
 The `"angularVelocity"` property is an array of three numbers that defines how much angular velocity this physics body starts with in radians per second. Not all body types can make use of angular velocity, such as non-moving bodies, in which case the angular velocity can be ignored. If not specified, the default value is zero.
 
+### Inertia Tensor
+
+The `"inertiaTensor"` property is an array of 9 numbers that defines the inertia tensor 3x3 matrix of the body in kilogram meter squared (kg⋅m²). We specify "tensor" in the name because this defines inertia in multiple directions and is different from linear momentum inertia. Only "rigid" and "vehicle" body types can make use of inertia. If zero or not specified, the inertia should be automatically calculated by the physics engine.
+
+The inertia tensor matrix is a symmetric matrix. The inertia matrix represents the mass distribution of the body and determines how hard the body is to rotate. The values on the diagonal represent the inertia around the 3 principle axes (X, Y, Z), while the values not on the diagonal represent the 3 coupling values between the axes (XY, XZ, YZ). For more information, refer to the Wikipedia article.
+
+Some engines only support specifying the inertia around the principle axes as a Vector3. In those engines, when importing a glTF file and reading the inertia matrix, only the diagonal principle axis values should be used, and the non-diagonal coupling values should be discarded. Similarly, when exporting a glTF file while writing the inertia matrix, write the Vector3 values to the matrix diagonal principle axis values, and set the non-diagonal coupling values to zero.
+
 ### JSON Schema
 
 See [schema/node.OMI_physics_body.schema.json](schema/node.OMI_physics_body.schema.json).
@@ -168,3 +177,5 @@ See [schema/node.OMI_physics_body.schema.json](schema/node.OMI_physics_body.sche
 * Unreal Engine Physics: https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/Physics/Collision/Overview/
 * Godot Physics Body: https://docs.godotengine.org/en/stable/classes/class_physicsbody.html
 * Godot Area: https://docs.godotengine.org/en/stable/classes/class_area.html
+* Godot RigidBody3D: https://docs.godotengine.org/en/latest/classes/class_rigidbody3d.html
+* Wikipedia Moment of Inertia and Inertia Tensor https://en.wikipedia.org/wiki/Moment_of_inertia#Inertia_tensor
