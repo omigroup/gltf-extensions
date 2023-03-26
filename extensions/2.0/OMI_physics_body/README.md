@@ -102,13 +102,13 @@ The extension is intended to be used together with `OMI_collider`. Physics bodie
 | **angularVelocity** | `number[3]` | The initial angular velocity of the body in radians per second.  | [0.0, 0.0, 0.0]      |
 | **inertiaTensor**   | `number[9]` | The inertia tensor 3x3 matrix in kilogram meter squared (kg⋅m²). | [0.0, ..., 0.0]      |
 
-### Physics Types
+### Physics Body Types
 
 The `"type"` property is a lowercase string that defines what type of physics body this is. Different types of physics bodies have different interactions with physics systems and other bodies within a scene.
 
 Here is a table listing the mapping between the `OMI_physics_body` type and the equivalent types in major game engines.
 
-| Shape     | Unity                 | Godot 3       | Godot 4          | Unreal                                 |
+| Body Type | Unity                 | Godot 3       | Godot 4          | Unreal                                 |
 | --------- | --------------------- | ------------- | ---------------- | -------------------------------------- |
 | Static    | Collider              | StaticBody    | StaticBody3D     | WorldStatic, Simulate Physics = false  |
 | Kinematic | Rigidbody.isKinematic | KinematicBody | AnimatableBody3D | WorldDynamic, Simulate Physics = false |
