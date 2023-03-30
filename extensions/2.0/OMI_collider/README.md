@@ -149,6 +149,7 @@ See [schema/collider.schema.json](schema/collider.schema.json) for the main coll
 * Third Room Unity Exporter: https://github.com/matrix-org/thirdroom-unity-exporter/blob/main/Runtime/Scripts/OMI_collider/OMI_ColliderExtension.cs
 * Third Room glTF Transform: https://github.com/matrix-org/thirdroom/blob/main/src/asset-pipeline/extensions/OMIColliderExtension.ts
 * Third Room glTF Loader: https://github.com/matrix-org/thirdroom/blob/main/src/engine/gltf/OMI_collider.ts
+* Three Object Viewer WordPress Plugin: https://github.com/antpb/three-object-viewer/
 
 ## Resources:
 
