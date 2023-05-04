@@ -254,5 +254,28 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>❌</td>
       <td>❌</td>
     </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_personality">
+          OMI_personality
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
   </tbody>
 </table>
