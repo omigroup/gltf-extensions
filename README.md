@@ -82,10 +82,11 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ### Stage 0
 
 ### Stage 1
-- [OMI_physics_body](https://github.com/omigroup/gltf-extensions/pull/125)
 
 ### Stage 2
 - [OMI_collider](extensions/2.0/OMI_collider/README.md)
+- [OMI_physics_body](extensions/2.0/OMI_physics_body/README.md)
+- [OMI_seat](extensions/2.0/OMI_seat/README.md)
 
 ### Stage 3
 
@@ -184,8 +185,6 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>🚧</td>
       <td>✅</td>
     </tr>
-  </tbody>
-  <tbody>
     <tr>
       <td>
         <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_collider">
@@ -209,15 +208,13 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>❌</td>
       <td><a href="https://github.com/matrix-org/thirdroom-unity-exporter/blob/main/Runtime/Scripts/OMI_collider/OMI_ColliderExtension.cs">🚧</a></td>
     </tr>
-  </tbody>
-  <tbody>
     <tr>
       <td>
         <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_physics_body">
           OMI_physics_body
         </a>
       </td>
-      <td>Stage 1</td>
+      <td>Stage 2</td>
       <td><a href="https://github.com/aaronfranke/glTF-Validator/tree/omi_physics_body">✅</a></td>
       <td>❌</td>
       <td>❌</td>
@@ -228,6 +225,29 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
       <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
       <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_seat">
+          OMI_seat
+        </a>
+      </td>
+      <td>Stage 2</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>🚧</td>
+      <td>❌</td>
+      <td>🚧</td>
+      <td>❌</td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>

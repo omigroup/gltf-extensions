@@ -1,0 +1,130 @@
+{
+    "asset": {
+        "version": "2.0"
+    },
+    "extensionsUsed": [
+        "OMI_spawn_point"
+    ],
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [0]
+        }
+    ],
+    "nodes": [
+        {
+            "children": [1],
+            "mesh": 0,
+            "name": "BlueFlatSpawnPoint"
+        },
+        {
+            "name": "BlueSpawnPoint",
+            "extensions": {
+                "OMI_spawn_point": {
+                    "team": "Blue",
+                    "title": "Spawn Point"
+                }
+            }
+        }
+    ],
+    "materials": [
+        {
+            "doubleSided": true,
+            "name": "Material",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.0625,
+                    0.0625,
+                    0.5,
+                    1
+                ],
+                "metallicFactor": 0,
+                "roughnessFactor": 0.5
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "FlatSpawnPointMesh",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "TEXCOORD_0": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [
+                2.5,
+                -0.125,
+                2.5
+            ],
+            "min": [
+                -2.5,
+                -0.375,
+                -2.5
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 24,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 24,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5123,
+            "count": 36,
+            "type": "SCALAR"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 288,
+            "byteOffset": 0,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 192,
+            "byteOffset": 288,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 288,
+            "byteOffset": 480,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 72,
+            "byteOffset": 768,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 840,
+            "uri": "data:application/octet-stream;base64,AAAgwAAAwL4AACBAAAAgwAAAwL4AACBAAAAgwAAAwL4AACBAAAAgwAAAAL4AACBAAAAgwAAAAL4AACBAAAAgwAAAAL4AACBAAAAgwAAAwL4AACDAAAAgwAAAwL4AACDAAAAgwAAAwL4AACDAAAAgwAAAAL4AACDAAAAgwAAAAL4AACDAAAAgwAAAAL4AACDAAAAgQAAAwL4AACBAAAAgQAAAwL4AACBAAAAgQAAAwL4AACBAAAAgQAAAAL4AACBAAAAgQAAAAL4AACBAAAAgQAAAAL4AACBAAAAgQAAAwL4AACDAAAAgQAAAwL4AACDAAAAgQAAAwL4AACDAAAAgQAAAAL4AACDAAAAgQAAAAL4AACDAAAAgQAAAAL4AACDAAAAAPgAAgD4AAMA+AAAAAAAAwD4AAIA/AAAgPwAAAAAAACA/AACAPwAAYD8AAIA+AAAAPgAAAD8AAMA+AABAPwAAwD4AAEA/AAAgPwAAQD8AACA/AABAPwAAYD8AAAA/AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAACAAAAAAAAAgD8AAACAAAAAAAAAgL8AAACAAACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAPwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAPwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAgAEAAkAAgAJAAcACAAKABUACAAVABMAFAAXABEAFAARAA4ADQAPAAMADQADAAEABgASAAwABgAMAAAAFgALAAUAFgAFABAA"
+        }
+    ]
+}
