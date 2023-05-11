@@ -12,7 +12,7 @@ Our meetings are on Thursdays at 2:30 PM PDT in the omi-weekly-meeting channel i
 
 You can add these meetings to your calendar [here](https://calendar.google.com/calendar/u/1?cid=Y18wZHB1Z2Y5ZjgzZXE0cWVrbWI2b21xYmptZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
 
-## Working agreement 
+## Working agreement
 
 Our sub-group has drafted a working agreement that highlights who we are, our purpose, how we communicate, and when we meet. Working agreements are living documents meant to be revisited and revised as needed. To view our working agreement, please visit this [figjam by figma file](https://www.figma.com/file/ns8eBTPfq330lZR3DfsOvD/OMI-gLTFgroup-WorkingAgreement?node-id=0%3A1)
 
@@ -85,6 +85,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 - [OMI_link](extensions/2.0/OMI_link)
 - [OMI_spawn_point](extensions/2.0/OMI_spawn_point)
 - [OMI_personality](extensions/2.0/OMI_personality)
+- [OMI_physics_joint](extensions/2.0/OMI_physics_joint/README.md)
 
 ### Stage 2
 - [OMI_collider](extensions/2.0/OMI_collider/README.md)
@@ -228,6 +229,29 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
       <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
       <td><a href="https://github.com/godotengine/godot/pull/69266">✅</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/omi_physics_joint">
+          OMI_physics_joint
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td><a href="https://github.com/omigroup/glTF-Validator/pull/3">✅</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://github.com/omigroup/omi-godot/pull/1">✅</a></td>
+      <td><a href="https://github.com/omigroup/omi-godot/pull/1">✅</a></td>
+      <td><a href="https://github.com/omigroup/omi-godot/pull/1">✅</a></td>
+      <td><a href="https://github.com/omigroup/omi-godot/pull/1">✅</a></td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
