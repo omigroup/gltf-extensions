@@ -1,0 +1,67 @@
+{
+    "asset": {
+        "version": "2.0"
+    },
+    "extensionsUsed": ["GODOT_single_root", "OMI_physics_body", "OMI_physics_shape", "OMI_seat", "OMI_vehicle_body"],
+    "extensions": {
+        "OMI_physics_shape": {
+            "shapes": [
+                {
+                    "type": "box",
+                    "box": { "size": [0.65, 0.65, 0.65] }
+                },
+                {
+                    "type": "box",
+                    "box": { "size": [1.4, 1.5, 2.2] }
+                }
+            ]
+        }
+    },
+    "nodes": [
+        {
+            "children": [1, 2],
+            "name": "MinimalVehicle",
+            "extensions": {
+                "OMI_physics_body": {
+                    "motion": {
+                        "type": "dynamic",
+                        "mass": 1000
+                    }
+                },
+                "OMI_vehicle_body": {
+                    "gyroTorque": [1000, 1000, 1000],
+                    "pilotSeat": 1
+                }
+            }
+        },
+        {
+            "name": "SeatPilot",
+            "translation": [0.4, 0.4, 0.6],
+            "extensions": {
+                "OMI_physics_body": {
+                    "trigger": {
+                        "shape": 0
+                    }
+                },
+                "OMI_seat": {
+                    "back": [0, 0, -0.3],
+                    "foot": [0, -0.5, 0.3],
+                    "knee": [0, 0, 0.3]
+                }
+            }
+        },
+        {
+            "name": "MinimalCollider",
+            "translation": [0, 0.6, 0],
+            "extensions": {
+                "OMI_physics_body": {
+                    "collider": {
+                        "shape": 1
+                    }
+                }
+            }
+        }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }]
+}

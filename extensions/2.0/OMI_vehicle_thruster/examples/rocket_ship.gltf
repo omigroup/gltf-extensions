@@ -1,0 +1,261 @@
+{
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 980,
+            "max": [1.97742998600006, 2.2833399772644, 5.4761004447937],
+            "min": [-1.97742998600006, -1.49512994289398, -3.59999990463257],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 980,
+            "max": [0.997367382049561, 0.998750805854797, 0.981513559818268, 1],
+            "min": [-0.99995929002762, -0.99766159057617, -0.99944770336151, -1],
+            "normalized": false,
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 980,
+            "max": [1, 0.999686658382416, 0.998062670230865],
+            "min": [-1, -0.99944996833801, -0.99985074996948],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 980,
+            "max": [0.988067448139191, 0.991119265556335],
+            "min": [0.00279240100644529, 0.0032501716632396],
+            "normalized": false,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 1311,
+            "max": [755],
+            "min": [0],
+            "normalized": false,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 66,
+            "max": [0.223891004920006, 2.28324007987976, -0.56534498929977],
+            "min": [-0.22389100492001, 1.22107005119324, -3.59999990463257],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 6,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 66,
+            "max": [65],
+            "min": [0],
+            "normalized": false,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 7,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 504,
+            "max": [1.49483001232147, 1.68090999126434, 4.35096979141235],
+            "min": [-1.49512994289398, -1.49512994289398, -3.08471989631653],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 8,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 504,
+            "max": [503],
+            "min": [0],
+            "normalized": false,
+            "type": "SCALAR"
+        }
+    ],
+    "asset": {
+        "extensions": { "KHR_xmp_json_ld": { "packet": 0 } },
+        "generator": "Godot Engine v4.4.dev.custom_build@04f6321ecc2d24d08cb3368d87f483c6cc308105",
+        "version": "2.0"
+    },
+    "bufferViews": [
+        { "buffer": 0, "byteLength": 11760, "byteOffset": 0, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 15680, "byteOffset": 11760, "byteStride": 16, "target": 34962 },
+        { "buffer": 0, "byteLength": 11760, "byteOffset": 27440, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 7840, "byteOffset": 39200, "byteStride": 8, "target": 34962 },
+        { "buffer": 0, "byteLength": 2622, "byteOffset": 47040, "target": 34963 },
+        { "buffer": 0, "byteLength": 792, "byteOffset": 49664, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 132, "byteOffset": 50456, "target": 34963 },
+        { "buffer": 0, "byteLength": 6048, "byteOffset": 50588, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 1008, "byteOffset": 56636, "target": 34963 }
+    ],
+    "buffers": [{ "byteLength": 57644, "uri": "rocket_ship.bin" }],
+    "extensions": {
+        "KHR_xmp_json_ld": {
+            "packets": [
+                {
+                    "@context": { "dc": "http://purl.org/dc/elements/1.1/" },
+                    "@id": "",
+                    "dc:creator": { "@list": ["Poly by Google", "aaronfranke"] },
+                    "dc:description": "Low poly rpcket ship as a test file for the OMI_vehicle_body and OMI_vehicle_thruster extensions.",
+                    "dc:format": "model/gltf+json",
+                    "dc:rights": "CC-BY 3.0 Attribution",
+                    "dc:source": "https://poly.pizza/m/4mPkOKdzAk-",
+                    "dc:subject": { "@set": ["Space", "Spacecraft"] },
+                    "dc:title": "Low poly rocket ship vehicle",
+                    "dc:type": { "@set": ["Rocket", "Vehicle", "Demo", "Test"] }
+                }
+            ]
+        },
+        "OMI_physics_shape": {
+            "shapes": [
+                { "capsule": { "height": 1.5, "radius": 0.14 }, "type": "capsule" },
+                { "convex": { "mesh": 1 }, "type": "convex" },
+                { "convex": { "mesh": 2 }, "type": "convex" },
+                { "box": { "size": [1, 2, 1] }, "type": "box" }
+            ]
+        },
+        "OMI_vehicle_thruster": { "thrusters": [{ "maxForce": 50000, "maxGimbal": 0.125 }] }
+    },
+    "extensionsUsed": [
+        "GODOT_single_root",
+		"KHR_xmp_json_ld",
+        "OMI_physics_body",
+        "OMI_physics_shape",
+        "OMI_seat",
+        "OMI_vehicle_body",
+        "OMI_vehicle_thruster"
+    ],
+    "images": [{ "uri": "rocket_ship_base_color.png" }],
+    "materials": [
+        {
+            "extensions": {},
+            "name": "RocketShipMaterial",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [1, 1, 1, 1],
+                "baseColorTexture": { "index": 0 },
+                "metallicFactor": 0,
+                "roughnessFactor": 1
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "extras": { "targetNames": [] },
+            "primitives": [
+                {
+                    "attributes": { "NORMAL": 2, "POSITION": 0, "TANGENT": 1, "TEXCOORD_0": 3 },
+                    "indices": 4,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "extras": { "targetNames": [] },
+            "primitives": [{ "attributes": { "POSITION": 5 }, "indices": 6, "mode": 4 }]
+        },
+        {
+            "extras": { "targetNames": [] },
+            "primitives": [{ "attributes": { "POSITION": 7 }, "indices": 8, "mode": 4 }]
+        }
+    ],
+    "nodes": [
+        {
+            "children": [1, 2, 3, 4, 5, 6, 7, 8],
+            "extensions": {
+                "OMI_physics_body": {
+					"motion": {
+						"mass": 20000,
+						"type": "dynamic"
+					}
+				},
+                "OMI_vehicle_body": {
+					"gyroTorque": [10000, 10000, 10000],
+					"pilotSeat": 8,
+					"useThrottle": true
+				}
+            },
+            "name": "RocketShipBody"
+        },
+        {
+			"mesh": 0,
+			"name": "RocketShipMesh"
+		},
+        {
+            "extensions": { "OMI_physics_body": { "collider": { "shape": 0 } } },
+            "name": "RocketShipShapeAntenna",
+            "rotation": [0.70710676908493, 0, 0, 0.70710676908493],
+            "translation": [0, 0, 4.71999979019165]
+        },
+        {
+            "extensions": { "OMI_physics_body": { "collider": { "shape": 1 } } },
+            "name": "RocketShipShapeFinLeft",
+            "rotation": [0, 0, 0.866025447845459, -0.5]
+        },
+        {
+            "extensions": { "OMI_physics_body": { "collider": { "shape": 1 } } },
+            "name": "RocketShipShapeFinRight",
+            "rotation": [0, 0, 0.866025447845459, 0.5]
+        },
+        {
+			"extensions": { "OMI_physics_body": { "collider": { "shape": 1 } } },
+			"name": "RocketShipShapeFinTop"
+		},
+        {
+			"extensions": { "OMI_physics_body": { "collider": { "shape": 2 } } },
+			"name": "RocketShipShapeMainHull"
+		},
+        {
+            "extensions": {
+				"OMI_vehicle_thruster": {
+					"thruster": 0
+				}
+			},
+            "name": "RocketShipThruster",
+            "translation": [0, 0, -2.8]
+        },
+        {
+            "children": [9],
+            "extensions": {
+                "OMI_physics_body": {
+					"trigger": { "nodes": [9] }
+				},
+                "OMI_seat": {
+					"back": [0, 0, -0.25],
+					"foot": [0, -0.5, 0.25],
+					"knee": [0, 0, 0.25]
+				}
+            },
+            "name": "RocketShipPilotSeat3D",
+            "translation": [0, 0, 2]
+        },
+        {
+            "extensions": { "OMI_physics_body": { "trigger": { "shape": 3 } } },
+            "name": "RocketShipPilotSeatShape",
+            "translation": [0, 1, 0]
+        }
+    ],
+    "samplers": [{ "magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497 }],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
+    "textures": [{ "sampler": 0, "source": 0 }]
+}

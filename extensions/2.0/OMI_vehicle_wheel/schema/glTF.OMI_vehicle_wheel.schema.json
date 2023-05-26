@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_vehicle_wheel.schema.json",
+    "title": "OMI_vehicle_wheel glTF Document Extension",
+    "type": "object",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+    "properties": {
+        "wheels": {
+            "type": "array",
+            "description": "An array of wheel parameters that can be referenced by nodes.",
+            "items": {
+                "type": "object",
+                "$ref": "glTF.OMI_vehicle_wheel.wheel.schema.json"
+            },
+            "minItems": 1
+        },
+        "extensions": {},
+        "extras": {}
+    },
+    "required": [
+        "wheels"
+    ]
+}

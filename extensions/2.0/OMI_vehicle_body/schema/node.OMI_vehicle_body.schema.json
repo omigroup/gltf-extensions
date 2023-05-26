@@ -1,0 +1,65 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_vehicle_body.schema.json",
+    "title": "OMI_vehicle_body glTF Node Extension",
+    "type": "object",
+    "properties": {
+        "angularActivation": {
+            "type": "array",
+            "description": "The input value controlling the ratio of the vehicle's angular forces as a Vector3.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [0.0, 0.0, 0.0]
+        },
+        "linearActivation": {
+            "type": "array",
+            "description": "The input value controlling the ratio of the vehicle's linear forces as a Vector3.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [0.0, 0.0, 0.0]
+        },
+        "gyroTorque": {
+            "type": "array",
+            "description": "The gyroscope torque intrinsic to the vehicle, measured in Newton-meters per radian (kg⋅m²/s²/rad). Does not include torque from parts such as thrusters.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [0.0, 0.0, 0.0]
+        },
+        "maxSpeed": {
+            "type": "number",
+            "description": "If non-negative, the speed in meters per second at which the vehicle should stop driving acceleration further.",
+            "default": -1.0
+        },
+        "pilotSeat": {
+            "allOf": [{ "$ref": "glTFid.schema.json" }],
+            "description": "The index of the OMI_seat glTF node to use as the pilot seat / driver seat.",
+            "default": -1
+        },
+        "angularDampeners": {
+            "type": "boolean",
+            "description": "If true, the vehicle should slow its rotation down when not given angular activation input for a specific rotation.",
+            "default": true
+        },
+        "linearDampeners": {
+            "type": "boolean",
+            "description": "If true, the vehicle should slow itself down when not given linear activation input for a specific direction.",
+            "default": false
+        },
+        "useThrottle": {
+            "type": "boolean",
+            "description": "If true, the vehicle should use a throttle for forward movement. If maxSpeed is non-negative, the throttle should be a ratio of that speed, otherwise it should be a ratio of thrust power.",
+            "default": false
+        },
+        "extensions": { },
+        "extras": { }
+    }
+}
