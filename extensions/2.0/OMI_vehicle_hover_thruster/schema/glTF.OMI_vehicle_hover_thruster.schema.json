@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_vehicle_hover_thruster.schema.json",
+    "title": "OMI_vehicle_hover_thruster glTF Document Extension",
+    "type": "object",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+    "properties": {
+        "hoverThrusters": {
+            "type": "array",
+            "description": "An array of hover thruster parameters that can be referenced by nodes.",
+            "items": {
+                "type": "object",
+                "$ref": "glTF.OMI_vehicle_hover_thruster.thruster.schema.json"
+            },
+            "minItems": 1
+        },
+        "extensions": {},
+        "extras": {}
+    },
+    "required": [
+        "hoverThrusters"
+    ]
+}

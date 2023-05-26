@@ -1,0 +1,65 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_vehicle_wheel.wheel.schema.json",
+    "title": "OMI_vehicle_wheel Wheel Parameters",
+    "type": "object",
+    "properties": {
+        "currentForceRatio": {
+            "type": "number",
+            "description": "The ratio of the maximum force the wheel is using for propulsion.",
+            "default": 0.0
+        },
+        "currentSteeringRatio": {
+            "type": "number",
+            "description": "The ratio of the maximum steering angle the wheel is rotated to.",
+            "default": 0.0
+        },
+        "maxForce": {
+            "type": "number",
+            "description": "The maximum force in Newtons (kg⋅m/s²) that the wheel can provide.",
+            "default": 0.0
+        },
+        "maxSteeringAngle": {
+            "type": "number",
+            "description": "The maximum angle in radians that the wheel can steer.",
+            "default": 0.0
+        },
+        "physicsMaterial": {
+            "allOf": [ { "$ref": "glTFid.schema.json" } ],
+            "description": "The index of the physics material in the top level physicsMaterials array.",
+            "default": -1
+        },
+        "radius": {
+            "type": "number",
+            "description": "The radius of the wheel in meters. This is the radius of a circle in the local YZ plane.",
+            "default": 0.25
+        },
+        "suspensionDampingCompression": {
+            "type": "number",
+            "description": "The damping of the suspension during compression, the resistance to the velocity of the suspension. It is measured in Newton-seconds per meter (N⋅s/m), or kilograms per second (kg/s) in SI base units.",
+            "default": 2000.0
+        },
+        "suspensionDampingRebound": {
+            "type": "number",
+            "description": "The damping of the suspension during rebound/relaxation, the resistance to the velocity of the suspension. It is measured in Newton-seconds per meter (N⋅s/m), or kilograms per second (kg/s) in SI base units.",
+            "default": 2000.0
+        },
+        "suspensionStiffness": {
+            "type": "number",
+            "description": "The stiffness of the suspension, the resistance to traveling away from the start point. It is measured in Newtons per meter (N/m), or kilograms per second squared (kg/s²) in SI base units.",
+            "default": 20000.0
+        },
+        "suspensionTravel": {
+            "type": "number",
+            "description": "The maximum distance the suspension can move up or down in meters.",
+            "default": 0.25
+        },
+        "width": {
+            "type": "number",
+            "description": "The width of the wheel in meters. This is the width of the wheel in the local X axis.",
+            "default": 0.125
+        },
+        "extensions": { },
+        "extras": { }
+    }
+}
