@@ -24,6 +24,8 @@
             "type": "number",
             "description": "The angle between the spine and back-knee line in radians.",
             "default": 1.57079632679489662
-        }
+        },
+        "extensions": { },
+        "extras": { }
     }
 }

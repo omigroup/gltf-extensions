@@ -22,7 +22,9 @@
             "type": "boolean",
             "description": "When true this collider will not be solid to physics bodies in the scene, and instead the shape will act as a trigger detection area.",
             "default": false
-        }
+        },
+        "extensions": { },
+        "extras": { }
     },
     "oneOf": [
         {
