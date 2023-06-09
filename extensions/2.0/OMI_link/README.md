@@ -16,13 +16,13 @@ Open Metaverse Interoperability Group Stage 1 Proposal
 
 Written against the glTF 2.0 spec.
 
-This extension specification currently depends on the draft OMI_collider extension.
+Optionally depends on the `OMI_physics_body` spec for triggers.
 
 ## Overview
 
 This extension allows for objects to add world traversal behavior in the form of links. This specification does not contain any definitions in how the link data is used and it is up to the client builder to decide how the link is activated.
 
-Currently this spec depends on the OMI_collider spec. The OMI_collider extension must be attached to the same node as an OMI_link. The client may decide to use the collider for activating the link behavior on click and/or on collision. If OMI_collider is not defined on the node the link the behavior is undefined and can be ignored.
+In addition to being defined independently, the `OMI_link` extension can be defined on an `OMI_physics_body` node with the type set to trigger. When `OMI_link` is on a trigger, the trigger should be treated as an activator for the link, such that a player activating that trigger should cause that player to activate the link.
 
 Clients may choose to have application-specific behaviors for URIs otherwise the default platform / browser URI handler should be used. Applications should perform any necessary URI security checks and may decide to present a dialog to inform the user of how the URI is handled.
 
@@ -30,27 +30,27 @@ Clients may choose to have application-specific behaviors for URIs otherwise the
 
 ```json
 {
-  "scenes": [
-    {
-      "name": "Default Scene",
-      "nodes": [0]
-    }
-  ],
-  "nodes": [
-    {
-      "name": "OMI Group meetup space",
-      "translation": [1.0, 2.0, 3.0],
-      "extensions": {
-        "OMI_link": {
-          "title": "Meetup World",
-          "uri": "https://omigroup.org/worlds/meetup"
-        },
-        "OMI_collider": {
-          ...
+    "scenes": [
+        {
+            "name": "Default Scene",
+            "nodes": [0]
         }
-      }
-    }
-  ]
+    ],
+    "nodes": [
+        {
+            "name": "OMI Group meetup space",
+            "translation": [1.0, 2.0, 3.0],
+            "extensions": {
+                "OMI_link": {
+                    "title": "Meetup World",
+                    "uri": "https://omigroup.org/worlds/meetup"
+                },
+                "OMI_physics_body": {
+                    "type": "trigger"
+                }
+            }
+        }
+    ]
 }
 ```
 

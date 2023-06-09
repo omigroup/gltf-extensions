@@ -3,18 +3,13 @@
         "version": "2.0"
     },
     "extensions": {
-        "OMI_collider": {
-            "colliders": [
+        "OMI_physics_shape": {
+            "shapes": [
                 {
-                    "size": [
-                        1,
-                        1,
-                        1
-                    ],
+                    "size": [1, 1, 1],
                     "type": "box"
                 },
                 {
-                    "isTrigger": true,
                     "radius": 2,
                     "type": "sphere"
                 }
@@ -22,15 +17,12 @@
         }
     },
     "extensionsUsed": [
-        "OMI_collider",
-        "OMI_physics_body"
+        "OMI_physics_body",
+        "OMI_physics_shape"
     ],
     "nodes": [
         {
-            "children": [
-                1,
-                2
-            ],
+            "children": [1, 2],
             "extensions": {
                 "OMI_physics_body": {
                     "type": "static"
@@ -40,27 +32,34 @@
         },
         {
             "extensions": {
-                "OMI_collider": {
-                    "collider": 0
+                "OMI_physics_shape": {
+                    "shape": 0
                 }
             },
-            "name": "StaticCollider"
+            "name": "StaticShape"
+        },
+        {
+            "children": [3],
+            "extensions": {
+                "OMI_physics_body": {
+                    "type": "trigger"
+                }
+            },
+            "name": "TriggerBody"
         },
         {
             "extensions": {
-                "OMI_collider": {
-                    "collider": 1
+                "OMI_physics_shape": {
+                    "shape": 1
                 }
             },
-            "name": "TriggerCollider"
+            "name": "TriggerShape"
         }
     ],
     "scene": 0,
     "scenes": [
         {
-            "nodes": [
-                0
-            ]
+            "nodes": [0]
         }
     ]
 }

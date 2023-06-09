@@ -7,21 +7,21 @@
 
 ## Status
 
-Open Metaverse Interoperability Group Stage 2 Proposal
+Open Metaverse Interoperability Group Stage 1 Proposal
 
 ## Dependencies
 
 Written against the glTF 2.0 spec.
 
-Depends on the `OMI_collider` spec to be useful.
+Depends on the `OMI_physics_shape` spec to be useful.
 
 ## Overview
 
 This extension allows for specifying the type of physics body in glTF scenes.
 
-Physics bodies are defined with a string enum for the type. Nodes with collider shapes defined using the `OMI_collider` spec should be added as direct children of physics bodies. In order to be associated with a `OMI_physics_body` glTF node, `OMI_collider` glTF nodes must be direct children, not indirect children.
+Physics bodies are defined with a string enum for the type. Nodes with physics shapes defined using the `OMI_physics_shape` spec should be added as direct children of physics bodies. In order to be associated with a `OMI_physics_body` glTF node, `OMI_physics_shape` glTF nodes must be direct children, not indirect children.
 
-Each glTF node with `OMI_collider` may be associated with zero or one `OMI_physics_body` glTF node as its direct parent. Each glTF node with `OMI_physics_body` should have one or many `OMI_collider` glTF node direct children (zero is valid but not recommended, since physics bodies have no function if they have zero collider shape children). Multiple `OMI_collider` direct children of a body with the same `isTrigger` setting may be treated as a single "compound collider" in game engines that support them.
+Each glTF node with `OMI_physics_shape` may be associated with zero or one `OMI_physics_body` glTF node as its direct parent. Each glTF node with `OMI_physics_body` should have one or many `OMI_physics_shape` glTF node direct children (zero is valid but not recommended, since physics bodies will not collide with anything if they have zero physics shape children).
 
 ### Example:
 
@@ -33,8 +33,8 @@ This example defines a static body node which has a single box collider as a chi
         "version": "2.0"
     },
     "extensions": {
-        "OMI_collider": {
-            "colliders": [
+        "OMI_physics_shape": {
+            "shapes": [
                 {
                     "size": [
                         1,
@@ -47,8 +47,8 @@ This example defines a static body node which has a single box collider as a chi
         }
     },
     "extensionsUsed": [
-        "OMI_collider",
-        "OMI_physics_body"
+        "OMI_physics_body",
+        "OMI_physics_shape"
     ],
     "nodes": [
         {
@@ -64,8 +64,8 @@ This example defines a static body node which has a single box collider as a chi
         },
         {
             "extensions": {
-                "OMI_collider": {
-                    "collider": 0
+                "OMI_physics_shape": {
+                    "shape": 0
                 }
             },
             "name": "StaticShape"
@@ -82,7 +82,7 @@ This example defines a static body node which has a single box collider as a chi
 }
 ```
 
-More example assets can be found in the [examples/](examples/) folder. All of these examples use both `OMI_collider` and `OMI_physics_body`.
+More example assets can be found in the [examples/](examples/) folder. All of these examples use both `OMI_physics_shape` and `OMI_physics_body`.
 
 ## glTF Schema Updates
 
@@ -90,7 +90,7 @@ This extension consists of a new `OMI_physics_body` data structure which can be 
 
 The extension must also be added to the glTF's `extensionsUsed` array and because it is optional, it does not need to be added to the `extensionsRequired` array.
 
-The extension is intended to be used together with `OMI_collider`. Physics bodies without collision shapes on them will not have any function.
+The extension is intended to be used together with `OMI_physics_shape`. Physics bodies without collision shapes on them are valid but will not collide with anything.
 
 ### Property Summary
 
@@ -140,9 +140,7 @@ Vehicle bodies are like rigid bodies, except are designed for vehicles. If an en
 
 #### Trigger
 
-Trigger bodies do not collide with other objects, but can generate events when another physics body "enters" them. For example, a "goal" area which triggers whenever a ball gets thrown into it.
-
-If an `OMI_collider`'s `"isTrigger"` setting does not match the body it's a part of, implementations should ensure the per-collider setting is preserved.
+Trigger bodies do not collide with other objects, but can generate events when another physics body "enters" them. For example, a "goal" area which triggers whenever a ball gets thrown into it. Trigger bodies can be added as children of other bodies to attach a trigger volume to another body.
 
 ### Mass
 
