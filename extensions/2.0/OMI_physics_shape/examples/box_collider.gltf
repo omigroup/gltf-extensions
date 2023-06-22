@@ -24,7 +24,7 @@
                     "type": "static"
                 }
             },
-            "name": "StaticBox"
+            "name": "StaticBody"
         },
         {
             "extensions": {

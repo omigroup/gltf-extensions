@@ -12,7 +12,7 @@ Open Metaverse Interoperability Group Stage 2 Proposal
 
 Written against the glTF 2.0 spec.
 
-Optionally depends on the `OMI_collider` and `OMI_physics_body` specs for triggers.
+Optionally depends on the `OMI_physics_body` spec for triggers.
 
 ## Overview
 
@@ -20,7 +20,7 @@ This extension allows defining a glTF node as a seat which a humanoid character 
 
 A seat is defined by specifying the back, foot, and knee positions on the seat from which can be derived the IK positions and directions for placing a humanoid character on that seat. Optionally, the angle between the upper leg and spine can also be defined. This definition supports seats placed in any orientation and supports characters of any size sitting on them.
 
-In addition to being defined independently, the `OMI_seat` extension can be defined on either a `OMI_physics_body` node with the type set to trigger, or in the case of a trigger collider without a trigger body, on a `OMI_collider` node with isTrigger set to true. Only one definition of `OMI_seat` is allowed per trigger body, so if a trigger collider node is part of a trigger body, you MUST NOT define `OMI_seat` on that collider node. When `OMI_seat` is on a trigger, the trigger should be treated as entry for the seat, such that a player activating that trigger should cause that player to enter the seat.
+In addition to being defined independently, the `OMI_seat` extension can be defined on an `OMI_physics_body` node with the type set to trigger. When `OMI_seat` is on a trigger, the trigger should be treated as an entry for the seat, such that a player activating that trigger should cause that player to enter the seat.
 
 Alternate seated positions, such as a tiny character with straight legs on top of the seat, or a character with their legs crossed on top of the seat, are not the recommended use cases of the seat definition, but are not forbidden if an app wants a character to sit in an unusual position. The primary purpose of this spec is to define the seat itself; how characters sit on that seat is secondary, and the fine details are up to the implementation.
 

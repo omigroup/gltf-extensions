@@ -6,8 +6,9 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [1, 1, 1],
-                    "type": "box"
+                    "height": 2.0,
+                    "radius": 0.5,
+                    "type": "cylinder"
                 }
             ]
         }
@@ -24,7 +25,7 @@
                     "type": "static"
                 }
             },
-            "name": "StaticBox"
+            "name": "StaticBody"
         },
         {
             "extensions": {
@@ -32,7 +33,7 @@
                     "shape": 0
                 }
             },
-            "name": "BoxShape"
+            "name": "CylinderShape"
         }
     ],
     "scene": 0,

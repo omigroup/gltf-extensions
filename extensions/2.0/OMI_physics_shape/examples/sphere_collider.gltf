@@ -6,8 +6,8 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [1, 1, 1],
-                    "type": "box"
+                    "radius": 0.5,
+                    "type": "sphere"
                 }
             ]
         }
@@ -24,7 +24,7 @@
                     "type": "static"
                 }
             },
-            "name": "StaticBox"
+            "name": "StaticBody"
         },
         {
             "extensions": {
@@ -32,7 +32,7 @@
                     "shape": 0
                 }
             },
-            "name": "BoxShape"
+            "name": "SphereShape"
         }
     ],
     "scene": 0,
