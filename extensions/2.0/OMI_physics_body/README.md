@@ -19,7 +19,7 @@ Depends on the `OMI_collider` spec to be useful.
 
 This extension allows for specifying the type of physics body in glTF scenes.
 
-Physics bodies are defined with a type and a mass. Nodes with collider shapes defined using the `OMI_collider` spec should be added as direct children of physics bodies. In order to be associated with a `OMI_physics_body` glTF node, `OMI_collider` glTF nodes must be direct children, not indirect children.
+Physics bodies are defined with a string enum for the type. Nodes with collider shapes defined using the `OMI_collider` spec should be added as direct children of physics bodies. In order to be associated with a `OMI_physics_body` glTF node, `OMI_collider` glTF nodes must be direct children, not indirect children.
 
 Each glTF node with `OMI_collider` may be associated with zero or one `OMI_physics_body` glTF node as its direct parent. Each glTF node with `OMI_physics_body` should have one or many `OMI_collider` glTF node direct children (zero is valid but not recommended, since physics bodies have no function if they have zero collider shape children). Multiple `OMI_collider` direct children of a body with the same `isTrigger` setting may be treated as a single "compound collider" in game engines that support them.
 
@@ -100,6 +100,7 @@ The extension is intended to be used together with `OMI_collider`. Physics bodie
 | **mass**            | `number`    | The mass of the physics body in kilograms.                       | 1.0                  |
 | **linearVelocity**  | `number[3]` | The initial linear velocity of the body in meters per second.    | [0.0, 0.0, 0.0]      |
 | **angularVelocity** | `number[3]` | The initial angular velocity of the body in radians per second.  | [0.0, 0.0, 0.0]      |
+| **centerOfMass**    | `number[3]` | The center of mass offset from the origin in meters.             | [0.0, 0.0, 0.0]      |
 | **inertiaTensor**   | `number[9]` | The inertia tensor 3x3 matrix in kilogram meter squared (kg⋅m²). | [0.0, ..., 0.0]      |
 
 ### Physics Body Types
@@ -154,6 +155,12 @@ The `"linearVelocity"` property is an array of three numbers that defines how mu
 ### Angular Velocity
 
 The `"angularVelocity"` property is an array of three numbers that defines how much angular velocity this physics body starts with in radians per second. Not all body types can make use of angular velocity, such as non-moving bodies, in which case the angular velocity can be ignored. If not specified, the default value is zero.
+
+### Center of Mass
+
+The `"centerOfMass"` property is an array of three numbers that defines the position offset in meters of the center of mass in the body's local space.
+
+This property is useful when converting assets with a center of mass, but when creating new assets it is recommended to leave the center of mass at the body's origin. Some physics engines support the center of mass being offset from the origin, but not all of them do. Implementations without support for a center of mass offset would have to adjust the node positions to make this work, which may be undesired.
 
 ### Inertia Tensor
 
