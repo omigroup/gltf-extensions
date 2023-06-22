@@ -93,7 +93,7 @@ The rest of the document, including this summary, defines the properties for the
 | **size**      | `number[3]` | The size of the box shape in meters.                                       | [1.0, 1.0, 1.0]      | Box                       |
 | **radius**    | `number`    | The radius of the shape in meters.                                         | 0.5                  | Sphere, capsule, cylinder |
 | **height**    | `number`    | The height of the shape in meters.                                         | 2.0                  | Capsule, cylinder         |
-| **mesh**      | `number`    | The index of the glTF mesh in the document to use as a trimesh shape.      | -1                   | Trimesh, hull             |
+| **mesh**      | `number`    | The index of the glTF mesh in the document to use as a mesh shape.         | -1                   | Trimesh, convex           |
 
 ### Shape Types
 
@@ -109,7 +109,7 @@ Here is a table listing the mapping between the `OMI_physics_shape` type and the
 | Sphere   | Sphere        | Sphere        | SphereShape3D         | Sphere      | Sphere Shape                |
 | Capsule  | Capsule       | Capsule       | CapsuleShape3D        | Capsule     | Capsule Shape               |
 | Cylinder | Approximation | Approximation | CylinderShape3D       | Cylinder    | Cylinder Shape              |
-| Hull     | Mesh (Convex) | Convex        | ConvexPolygonShape3D  | Convex Hull | Convex Shape                |
+| Convex   | Mesh (Convex) | Convex        | ConvexPolygonShape3D  | Convex Hull | Convex Shape                |
 | Trimesh  | Mesh          | Mesh          | ConcavePolygonShape3D | Mesh        | Mesh Shape                  |
 
 #### Box
@@ -130,11 +130,13 @@ Cylinder shapes describe a "tall circle" shape. They are similar in structure to
 
 The use of cylinder is discouraged if another shape would work well in its place. Cylinders are harder to calculate than boxes, spheres, and capsules. Not all game engines support cylinder shapes. Engines that do not support cylinder shapes should use an approximation, such as a convex hull roughly shaped like a cylinder. Cylinders over twice as tall as they are wide can use another approximation: a convex hull combined with an embedded capsule (to allow for smooth rolling), by copying the cylinder's values into a new capsule shape.
 
-#### Hull
+#### Convex
 
-Hull shapes represent a convex hull. Being "convex" means that the shape cannot have any holes or divots. Hulls are defined with a `mesh` property with an index of a mesh in the glTF `meshes` array. The glTF mesh in the array MUST be a `trimesh` to work, and should be made of only one glTF mesh primitive (one surface). Valid hulls must contain at least one triangle, which becomes three points on the convex hull. Hulls are recommended to have at least four points so that they have 3D volume. The final hull shape should have no more than 255 points in total.
+Convex shapes represent a convex hull. Being "convex" means that the shape cannot have any holes or divots, and that all line segments connecting points on the surface stay within the shape. Convex hulls are defined with a `mesh` property with an index of a mesh in the glTF `meshes` array. The glTF mesh in the array MUST be a `trimesh` to work, and should be made of only one glTF mesh primitive (one surface). Valid convex hulls must contain at least one triangle, which becomes three points on the convex hull. Convex hulls are recommended to have at least four points so that they have 3D volume.
 
-Hulls can be used to represent complex convex shapes that are not easy to represent with other primitives. If a shape can be represented with a few primitives, prefer using those primitives instead of convex hulls. Hulls are much faster than trimesh shapes.
+Convex hulls can be used to represent complex convex shapes that are not easy to represent with other primitives. If a shape can be represented with a few primitives, prefer using those primitives instead of convex hulls. Convex hulls are much faster than trimesh shapes.
+
+When convex hulls are used, asset creators should try to limit the number of vertices in the shape for improved performance and compatibility. Some game engines limit the amount of vertices that can be in a convex hull, which may caused the actual imported shape to be simplified if the shape in the glTF file is too complex.
 
 #### Trimesh
 

@@ -59,7 +59,7 @@
             "shapes": [
                 {
                     "mesh": 0,
-                    "type": "hull"
+                    "type": "convex"
                 }
             ]
         }
