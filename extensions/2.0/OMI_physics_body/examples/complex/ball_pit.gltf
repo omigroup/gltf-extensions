@@ -1025,32 +1025,28 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [
-                        8,
-                        0.1,
-                        8
-                    ],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [8, 0.1, 8]
+                    }
                 },
                 {
-                    "size": [
-                        0.1,
-                        1,
-                        8
-                    ],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [0.1, 1, 8]
+                    }
                 },
                 {
-                    "size": [
-                        8,
-                        1,
-                        0.1
-                    ],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [8, 1, 0.1]
+                    }
                 },
                 {
-                    "radius": 0.5,
-                    "type": "sphere"
+                    "type": "sphere",
+                    "sphere": {
+                        "radius": 0.5
+                    }
                 }
             ]
         }

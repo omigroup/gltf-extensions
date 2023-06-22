@@ -804,17 +804,17 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [
-                        0.150000005960464,
-                        1.10000002384186,
-                        0.150000005960464
-                    ],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [0.15, 1.1, 0.15]
+                    }
                 },
                 {
-                    "height": 0.5,
-                    "radius": 0.0500000007450581,
-                    "type": "capsule"
+                    "type": "capsule",
+                    "capsule": {
+                        "height": 0.5,
+                        "radius": 0.05
+                    }
                 }
             ]
         },

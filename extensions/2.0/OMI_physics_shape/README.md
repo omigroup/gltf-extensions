@@ -37,8 +37,10 @@ This example defines a single box shape with a size of 1 meter in all dimensions
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [1, 1, 1],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [1, 1, 1]
+                    }
                 }
             ]
         }
@@ -79,21 +81,28 @@ More example assets can be found in the [examples/](examples/) folder.
 
 ## glTF Schema Updates
 
-This extension consists of three new data structures for defining physics shapes on the root glTF document and referencing them on a glTF node. The main data structure defines a physics shape and is what most of this document describes. The second data structure uses the key `"OMI_physics_shape"` in the document-level `"extensions"` which contains a list of the main physics shape data structures. The third data structure uses the key `"OMI_physics_shape"` in the node-level `"extensions"` which contains an index of the physics shape to use from the list document-level physics shape list.
+This extension consists of many new data structures for defining physics shapes on the root glTF document and referencing them on a glTF node. The main data structure `glTF.OMI_physics_shape.shape.schema.json` uses several smaller data structures to define a physics shape. The `glTF.OMI_physics_shape.schema.json` data structure uses the key `"OMI_physics_shape"` in the document-level `"extensions"` which contains a list of the main physics shape data structures. The `node.OMI_physics_shape.schema.json` data structure uses the key `"OMI_physics_shape"` in the node-level `"extensions"` which contains an index of the physics shape to use from the list document-level physics shape list.
 
 The extension must also be added to the glTF's `extensionsUsed` array and because it is optional, it does not need to be added to the `extensionsRequired` array.
 
 ### Property Summary
 
-The rest of the document, including this summary, defines the properties for the main data structure.
+The main data structure `glTF.OMI_physics_shape.shape.schema.json` defines a type property.
+
+|               | Type        | Description                                                                | Default value        |
+| --------------| ----------- | -------------------------------------------------------------------------- | -------------------- |
+| **type**      | `string`    | The type of the physics shape as a string.                                 | Required, no default |
+
+In addition to the type, a key with the same name as the type can be used to define a sub-JSON with the details of the shape. Which sub-properties are allowed depend on which shape type is being used. The possible properties are described in the following table.
 
 |               | Type        | Description                                                                | Default value        | Valid on                  |
 | --------------| ----------- | -------------------------------------------------------------------------- | -------------------- | ------------------------- |
-| **type**      | `string`    | The type of the physics shape as a string.                                 | Required, no default | Always valid              |
 | **size**      | `number[3]` | The size of the box shape in meters.                                       | [1.0, 1.0, 1.0]      | Box                       |
 | **radius**    | `number`    | The radius of the shape in meters.                                         | 0.5                  | Sphere, capsule, cylinder |
 | **height**    | `number`    | The height of the shape in meters.                                         | 2.0                  | Capsule, cylinder         |
 | **mesh**      | `number`    | The index of the glTF mesh in the document to use as a mesh shape.         | -1                   | Trimesh, convex           |
+
+If a key for the type is missing, or a sub-JSON key is missing, implementations should use the default value. A mesh index of -1 means invalid.
 
 ### Shape Types
 
@@ -146,7 +155,7 @@ Avoid using a trimesh shape for most objects, they are the slowest shapes to cal
 
 ### JSON Schema
 
-See [schema/shape.schema.json](schema/shape.schema.json) for the main shape schema, [schema/glTF.OMI_physics_shape.schema.json](schema/glTF.OMI_physics_shape.schema.json) for the document-level list of shapes, and [schema/node.OMI_physics_shape.schema.json](schema/node.OMI_physics_shape.schema.json) for the node-level shape.
+See [schema/glTF.OMI_physics_shape.shape.schema.json](schema/glTF.OMI_physics_shape.shape.schema.json) for the main shape schema, [schema/glTF.OMI_physics_shape.schema.json](schema/glTF.OMI_physics_shape.schema.json) for the document-level list of shapes, and [schema/node.OMI_physics_shape.schema.json](schema/node.OMI_physics_shape.schema.json) for the node-level shape.
 
 ## Known Implementations
 

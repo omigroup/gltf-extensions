@@ -36,12 +36,10 @@ This example defines a static body node which has a single box collider as a chi
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [
-                        1,
-                        1,
-                        1
-                    ],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [1, 2, 3]
+                    }
                 }
             ]
         }
@@ -52,9 +50,7 @@ This example defines a static body node which has a single box collider as a chi
     ],
     "nodes": [
         {
-            "children": [
-                1
-            ],
+            "children": [1],
             "extensions": {
                 "OMI_physics_body": {
                     "type": "static"
@@ -74,9 +70,7 @@ This example defines a static body node which has a single box collider as a chi
     "scene": 0,
     "scenes": [
         {
-            "nodes": [
-                0
-            ]
+            "nodes": [0]
         }
     ]
 }

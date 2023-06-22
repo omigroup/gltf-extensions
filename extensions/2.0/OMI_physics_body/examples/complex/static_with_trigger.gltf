@@ -6,12 +6,16 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [1, 1, 1],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [1, 1, 1]
+                    }
                 },
                 {
-                    "radius": 2,
-                    "type": "sphere"
+                    "type": "sphere",
+                    "sphere": {
+                        "radius": 2
+                    }
                 }
             ]
         }

@@ -6,8 +6,10 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "radius": 0.5,
-                    "type": "sphere"
+                    "type": "sphere",
+                    "sphere": {
+                        "radius": 0.5
+                    }
                 }
             ]
         }

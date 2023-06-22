@@ -351,7 +351,7 @@
             "perspective": {
                 "yfov": 1.30899691581726,
                 "zfar": 4000,
-                "znear": 0.0500000007450581
+                "znear": 0.05
             },
             "type": "perspective"
         }
@@ -360,17 +360,17 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "height": 0.5,
-                    "radius": 0.0500000007450581,
-                    "type": "capsule"
+                    "type": "capsule",
+                    "capsule": {
+                        "height": 0.5,
+                        "radius": 0.05
+                    }
                 },
                 {
-                    "size": [
-                        1,
-                        0.25,
-                        1
-                    ],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [1, 0.25, 1]
+                    }
                 }
             ]
         },
