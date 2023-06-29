@@ -6,9 +6,11 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "height": 2.0,
-                    "radius": 0.5,
-                    "type": "cylinder"
+                    "type": "cylinder",
+                    "cylinder": {
+                        "height": 2.0,
+                        "radius": 0.5
+                    }
                 }
             ]
         }

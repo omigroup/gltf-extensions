@@ -12,8 +12,10 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [0.5, 1, 1],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [0.5, 1, 1]
+                    }
                 }
             ]
         }

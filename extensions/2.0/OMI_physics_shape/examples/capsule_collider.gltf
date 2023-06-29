@@ -6,9 +6,11 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "height": 2.0,
-                    "radius": 0.5,
-                    "type": "capsule"
+                    "type": "capsule",
+                    "capsule": {
+                        "height": 2.0,
+                        "radius": 0.5
+                    }
                 }
             ]
         }

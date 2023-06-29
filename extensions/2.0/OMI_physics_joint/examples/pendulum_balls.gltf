@@ -804,16 +804,16 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "size": [
-                        2,
-                        0.200000002980232,
-                        0.200000002980232
-                    ],
-                    "type": "box"
+                    "type": "box",
+                    "box": {
+                        "size": [2, 0.2, 0.2]
+                    }
                 },
                 {
-                    "radius": 0.25,
-                    "type": "sphere"
+                    "type": "sphere",
+                    "sphere": {
+                        "radius": 0.25
+                    }
                 }
             ]
         },

@@ -127,8 +127,10 @@
         "OMI_physics_shape": {
             "shapes": [
                 {
-                    "mesh": 0,
-                    "type": "trimesh"
+                    "type": "trimesh",
+                    "trimesh": {
+                        "mesh": 0
+                    }
                 }
             ]
         }
