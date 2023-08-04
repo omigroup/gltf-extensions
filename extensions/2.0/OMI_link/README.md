@@ -46,7 +46,7 @@ Clients may choose to have application-specific behaviors for URIs otherwise the
                     "uri": "https://omigroup.org/worlds/meetup"
                 },
                 "OMI_physics_body": {
-                    "type": "trigger"
+                    "trigger": {}
                 }
             }
         }
