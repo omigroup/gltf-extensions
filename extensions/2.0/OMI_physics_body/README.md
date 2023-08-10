@@ -19,9 +19,11 @@ Depends on the `OMI_physics_shape` spec to be useful.
 
 This extension allows for specifying the type of physics body in glTF scenes.
 
-Physics bodies are defined with a string enum for the type. Nodes with physics shapes defined using the `OMI_physics_shape` spec should be added as direct children of physics bodies. In order to be associated with a `OMI_physics_body` glTF node, `OMI_physics_shape` glTF nodes must be direct children, not indirect children.
+Physics bodies are defined with a string enum for the type. Nodes with physics shapes defined using the `OMI_physics_shape` spec should be added as children of a `OMI_physics_body` glTF node.
 
-Each glTF node with `OMI_physics_shape` may be associated with zero or one `OMI_physics_body` glTF node as its direct parent. Each glTF node with `OMI_physics_body` should have one or many `OMI_physics_shape` glTF node direct children (zero is valid but not recommended, since physics bodies will not collide with anything if they have zero physics shape children).
+Each glTF node with `OMI_physics_shape` may be associated with zero or one `OMI_physics_body` glTF node as its ancestor. Each glTF node with `OMI_physics_body` should have one or many `OMI_physics_shape` glTF node descendants (zero is valid but not recommended, since physics bodies without collision shapes on them will not collide with anything). If a glTF node with `OMI_physics_shape` does not have a body, it should be a static solid object that does not move.
+
+Nodes with `OMI_physics_shape` are recommended to be direct child nodes of physics bodies they apply to, since this results in a very clear and portable document structure, and allows colliders to be transformed relative to the parent body via glTF node transforms. However, `OMI_physics_shape` may also be placed on the same glTF node as the physics body to accomodate very simple use cases, and may be placed on indirect descendants to allow for more complex objects with colliders on separate levels in the node hierarchy. A glTF node with `OMI_physics_shape` may only apply to one body, which is the `OMI_physics_body` on the same glTF node, or the nearest ancestor with `OMI_physics_body`.
 
 ### Example:
 
