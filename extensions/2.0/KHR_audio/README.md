@@ -11,7 +11,7 @@
 
 ## Status
 
-Open Metaverse Interoperability Group Stage 2 Proposal
+Draft
 
 ## Dependencies
 
@@ -99,8 +99,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
 
 ## glTF Schema Updates
 
-This extension consists of two primary data structures: Audio Sources and Audio Emitters. Both sources and emitters are defined on an `KHR_audio` object added to the `extensions`
- object on the document root.
+This extension consists of three primary data structures: Audio Data, Audio Sources, and Audio Emitters. Data, sources and emitters are defined on an `KHR_audio` object added to the `extensions` object on the document root.
 
 The extension must be added to the file's `extensionsUsed` array and because it is optional, it does not need to be added to the `extensionsRequired` array.
 
@@ -118,6 +117,7 @@ The extension must be added to the file's `extensionsUsed` array and because it 
     "nodes": [...],
     "extensions": {
         "KHR_audio": {
+            "audio": [...],
             "sources": [...],
             "emitters": [...]
         }
@@ -125,13 +125,13 @@ The extension must be added to the file's `extensionsUsed` array and because it 
 }
 ```
 
-### Audio Sources
+### Audio Data
 
-Audio source objects define audio data to be used in audio emitters. Multiple audio emitters may use the same audio source.
+Audio data objects define where audio data is located. Data is either accessed via a bufferView or uri.
 
-Audio sources can store their data in either a buffer view or reference an external file via uri.
+When storing audio data in a buffer view, the `mimeType` field must be specified. Currently the only supported mime type is `audio/mpeg` for use with MP3 files. MP3 was chosen due to its wide support across browsers and 3D engines as well as its lossy compression with variable bitrate. Other supported audio formats may be added via another extension.
 
-When storing audio data in a buffer view, the `mimeType` field must be specified. Currently the only supported mime type is `audio/mpeg`.
+Note that in tools that process glTF files, but do not implement the KHR_audio extension, external files referenced via the `uri` field may not be properly copied to their final destination or baked into the final binary glTF file. In these cases, using the `bufferView` property may be a better choice assuming the referenced `bufferView` index is not changed by the tool. The `uri` field might be a better choice when you want to be able to quickly change the referenced audio asset.
 
 #### `bufferView`
 
@@ -143,22 +143,38 @@ The audio's MIME type. Required if `bufferView` is defined. Unless specified by 
 
 #### `uri`
 
-The uri of the audio file. Relative paths are relative to the glTF file.
+The uri of the audio file. Relative paths are relative to the .gltf file.
 
-#### MP3 Audio Format
+### Audio Sources
 
-Provides a space efficient format that can also be tuned to satisfy audio engineers.
+Audio sources define the playing state for a given audio data. They connect one audio data to zero to many audio emitters.
 
-The MPEG3 Audio Format is commonly available and freely licensed.
+#### `gain`
+
+Unitless multiplier against original audio file volume for determining audio source loudness.
+
+#### `loop`
+
+Whether or not to loop the specified audio when finished.
+
+#### `autoPlay`
+
+Whether or not to play the specified audio when the glTF is loaded.
+
+#### `audio`
+
+The index of the audio data assigned to this clip.
 
 ### Audio Emitter
+
+Positional or global sinks for playing back audio sources.
 
 #### `type`
 
 Specifies the audio emitter type.
 
 - `positional` Positional audio emitters. Using sound cones, the orientation is `+Z` having the same front side for a [glTF asset](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html#coordinate-system-and-units). 
-- `global ` Global audio emitters are not affected by the position of audio listeners. `coneInnerAngle`, `coneOuterAngle`, `coneOuterGain`, `distanceModel`, `maxDistance`, `refDistance`, and `rolloffFactor` should all be ignored when set.
+- `global` Global audio emitters are not affected by the position of audio listeners. `coneInnerAngle`, `coneOuterAngle`, `coneOuterGain`, `distanceModel`, `maxDistance`, `refDistance`, and `rolloffFactor` should all be ignored when set.
 
 #### `gain`
 
@@ -172,9 +188,9 @@ Whether or not to loop the specified audio clip when finished.
 
 Whether or not the specified audio clip is playing. Setting this property `true` will set the audio clip to play on load (autoplay).
 
-#### `source`
+#### `sources`
 
-The id of the audio source referenced by this audio emitter.
+An array of audio source indices used by the audio emitter. This array may be empty.
 
 #### `positional`
 
@@ -200,7 +216,7 @@ Specifies the distance model for the audio emitter.
 
 - `linear` A linear distance model calculating the gain induced by the distance according to: 
     `1.0 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
-- `inverse ` (default) An inverse distance model calculating the gain induced by the distance according to:
+- `inverse` (default) An inverse distance model calculating the gain induced by the distance according to:
     `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
 - `exponential` An exponential distance model calculating the gain induced by the distance according to:
     `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor))`
@@ -293,5 +309,6 @@ Radians are used for rotations matching glTF2.
 
 Prior Art:
 * [W3C Web Audio API](https://www.w3.org/TR/webaudio/)
+* [MSFT_audio_emitter](https://github.com/KhronosGroup/glTF/pull/1400)
 * [MOZ_hubs_components Audio](https://github.com/MozillaReality/hubs-blender-exporter/blob/04fc1d1/default-config.json#L298-L324)
 
