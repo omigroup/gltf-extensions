@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
-    "title": "OMI_physics_shape Shape",
+    "title": "OMI_physics_shape Shape Resource",
     "type": "object",
     "required": [
         "type"

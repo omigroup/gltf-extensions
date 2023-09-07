@@ -36,10 +36,10 @@
                 0,
                 2
             ],
-            "name": "ReclinerChairFullWithBody",
+            "name": "ReclinerChairFullWithTrigger",
             "extensions": {
                 "OMI_physics_body": {
-                    "type": "trigger"
+                    "trigger": {}
                 },
                 "OMI_seat": {
                     "back": [0, 0.33, -0.247],
@@ -53,8 +53,10 @@
             "name": "ReclinerChairShape",
             "translation": [0, 0.5, 0],
             "extensions": {
-                "OMI_physics_shape": {
-                    "shape": 0
+                "OMI_physics_body": {
+                    "trigger": {
+                        "shape": 0
+                    }
                 }
             }
         }

@@ -62,7 +62,9 @@ This example defines 2 rigid bodies that are connected with a joint that constra
         {
             "extensions": {
                 "OMI_physics_body": {
-                    "type": "dynamic"
+                    "motion": {
+                        "type": "dynamic"
+                    }
                 }
             },
             "name": "BodyA",
@@ -72,7 +74,9 @@ This example defines 2 rigid bodies that are connected with a joint that constra
         {
             "extensions": {
                 "OMI_physics_body": {
-                    "type": "dynamic"
+                    "motion": {
+                        "type": "dynamic"
+                    }
                 }
             },
             "name": "BodyB",
@@ -178,7 +182,7 @@ In this chart, "fixed" means "constrained with lower and upper limits set to zer
 
 ### JSON Schema
 
-See [schema/joint_constraint.schema.json](schema/joint_constraint.schema.json), [schema/node.OMI_physics_joint.schema.json](schema/node.OMI_physics_joint.schema.json), and [schema/glTF.OMI_physics_joint.schema.json](schema/glTF.OMI_physics_joint.schema.json) for the schemas.
+See [joint_constraint.schema.json](schema/joint_constraint.schema.json), [node.OMI_physics_joint.schema.json](schema/node.OMI_physics_joint.schema.json), and [glTF.OMI_physics_joint.schema.json](schema/glTF.OMI_physics_joint.schema.json) for the schemas.
 
 ## Known Implementations
 
