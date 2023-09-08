@@ -21,7 +21,7 @@ This extension allows for specifying physics bodies in glTF scenes.
 
 Nodes with the `OMI_physics_body` extension may define motion, collider, and trigger properties.
 
-If a node with a collider shape does not have a motion property, , it should be a static solid object that does not move.
+If a node with a collider shape does not have a motion property, it should be a static solid object that does not move.
 
 ### Example:
 
