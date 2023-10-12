@@ -268,8 +268,8 @@ Audio emitters of type `positional` may be added to nodes using the following sy
                     "emitter": 2
                 }
             }
-        ]
-        }
+		}
+    ]
 }
 ```
 
