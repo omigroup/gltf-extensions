@@ -23,7 +23,7 @@
           ]
       },
       "gain": {
-        "description": "Unitless multiplier against original source volume for determining emitter loudness.",
+        "description": "Unitless linear multiplier against original source volume for determining emitter loudness.",
         "type": "number",
         "minimum": 0.0,
         "default": 1.0

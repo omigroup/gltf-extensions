@@ -2,12 +2,13 @@
 
 ## Contributors
 
-* Robert Long, Element Inc.
-* Anthony Burchell, Individual Contributor
-* K. S. Ernest (iFire) Lee, Individual Contributor
-* Michael Nisbet, Individual Contributor
-* humbletim, Individual Contributor
-* Norbert Nopper, UX3D [@UX3DGpuSoftware](https://twitter.com/UX3DGpuSoftware)
+- Robert Long, Element Inc.
+- Anthony Burchell, Individual Contributor
+- K. S. Ernest (iFire) Lee, Individual Contributor
+- Michael Nisbet, Individual Contributor
+- humbletim, Individual Contributor
+- Norbert Nopper, UX3D [@UX3DGpuSoftware](https://twitter.com/UX3DGpuSoftware)
+- Aaron Franke, The Mirror Megaverse Inc.
 
 ## Status
 
@@ -34,7 +35,10 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
           "name": "Positional Emitter",
           "type": "positional",
           "gain": 0.8,
-          "sources": [0, 1],
+          "sources": [
+            0,
+            1
+          ],
           "positional": {
             "coneInnerAngle": 6.283185307179586,
             "coneOuterAngle": 6.283185307179586,
@@ -78,7 +82,9 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
       "name": "Default Scene",
       "extensions": {
         "KHR_audio": {
-          "emitters": [0]
+          "emitters": [
+            0
+          ]
         }
       }
     }
@@ -86,7 +92,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
   "nodes": [
     {
       "name": "Duck",
-      "translation": [1.0, 2.0, 3.0],
+      "translation": [ 1.0, 2.0, 3.0 ],
       "extensions": {
         "KHR_audio": {
           "emitter": 1
@@ -129,7 +135,7 @@ The extension must be added to the file's `extensionsUsed` array and because it 
 
 Audio data objects define where audio data is located. Data is either accessed via a bufferView or uri.
 
-When storing audio data in a buffer view, the `mimeType` field must be specified. Currently the only supported mime type is `audio/mpeg` for use with MP3 files. MP3 was chosen due to its wide support across browsers and 3D engines as well as its lossy compression with variable bitrate. Other supported audio formats may be added via another extension.
+When storing audio data in a buffer view, the `mimeType` field must be specified. The base specification supports `audio/mpeg` and `audio/wav` MIME types. These were chosen with consideration for the wide support for these types acrosss 3D engines and common use cases. Other supported audio formats may be added via extensions.
 
 Note that in tools that process glTF files, but do not implement the KHR_audio extension, external files referenced via the `uri` field may not be properly copied to their final destination or baked into the final binary glTF file. In these cases, using the `bufferView` property may be a better choice assuming the referenced `bufferView` index is not changed by the tool. The `uri` field might be a better choice when you want to be able to quickly change the referenced audio asset.
 
@@ -151,7 +157,7 @@ Audio sources define the playing state for a given audio data. They connect one 
 
 #### `gain`
 
-Unitless multiplier against original audio file volume for determining audio source loudness.
+Unitless linear multiplier against original audio file volume used for determining audio source loudness.
 
 #### `loop`
 
@@ -173,7 +179,7 @@ Positional or global sinks for playing back audio sources.
 
 Specifies the audio emitter type.
 
-- `positional` Positional audio emitters. Using sound cones, the orientation is `+Z` having the same front side for a [glTF asset](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html#coordinate-system-and-units). 
+- `positional` Positional audio emitters. Using sound cones, the orientation is `-Z` having the same front side for a [glTF asset](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html#coordinate-system-and-units). 
 - `global` Global audio emitters are not affected by the position of audio listeners. `coneInnerAngle`, `coneOuterAngle`, `coneOuterGain`, `distanceModel`, `maxDistance`, `refDistance`, and `rolloffFactor` should all be ignored when set.
 
 #### `gain`
@@ -243,7 +249,15 @@ Audio emitters of type `global` may be added to scenes using the following synta
         {
             "extensions": {
                 "KHR_audio": {
-                    "emitters": [0, 1]
+                    "emitters": [
+                        {
+                        "name": "Positional Emitter",
+                        "type": "global",
+                        "gain": 0.8,
+                        "sources": [0, 1],
+                        "positional": { }
+                        }
+                    ]
                 }
             }
         }
@@ -262,6 +276,7 @@ Audio emitters of type `positional` may be added to nodes using the following sy
                     "emitter": 2
                 }
             }
+            ]
         }
     ]
 }
@@ -301,14 +316,14 @@ Radians are used for rotations matching glTF2.
 
 ## Known Implementations
 
-* Third Room - https://github.com/thirdroom/thirdroom
-* Three Object Viewer (WordPress Plugin) - https://wordpress.org/plugins/three-object-viewer/
-* UX3D Experimental C++ implementation - https://github.com/ux3d/OMI
+- Third Room - https://github.com/thirdroom/thirdroom
+- Three Object Viewer (WordPress Plugin) - https://wordpress.org/plugins/three-object-viewer/
+- UX3D Experimental C++ implementation - https://github.com/ux3d/OMI
 
 ## Resources
 
 Prior Art:
-* [W3C Web Audio API](https://www.w3.org/TR/webaudio/)
-* [MSFT_audio_emitter](https://github.com/KhronosGroup/glTF/pull/1400)
-* [MOZ_hubs_components Audio](https://github.com/MozillaReality/hubs-blender-exporter/blob/04fc1d1/default-config.json#L298-L324)
+- [W3C Web Audio API](https://www.w3.org/TR/webaudio/)
+- [MSFT_audio_emitter](https://github.com/KhronosGroup/glTF/pull/1400)
+- [MOZ_hubs_components Audio](https://github.com/MozillaReality/hubs-blender-exporter/blob/04fc1d1/default-config.json#L298-L324)
 
