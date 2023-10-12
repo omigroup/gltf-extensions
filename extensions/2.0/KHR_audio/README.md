@@ -91,7 +91,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
       "extensions": {
         "KHR_audio": {
           "emitters": [
-            0
+            1
           ]
         }
       }
@@ -103,7 +103,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
       "translation": [ 1.0, 2.0, 3.0 ],
       "extensions": {
         "KHR_audio": {
-          "emitter": 1
+          "emitter": 0
         }
       }
     }
