@@ -56,7 +56,7 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
           "sources": [
             1
           ]
-        },
+        }
       ],
       "sources": [
         {
