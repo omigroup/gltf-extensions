@@ -249,15 +249,7 @@ Audio emitters of type `global` may be added to scenes using the following synta
         {
             "extensions": {
                 "KHR_audio": {
-                    "emitters": [
-                        {
-                        "name": "Positional Emitter",
-                        "type": "global",
-                        "gain": 0.8,
-                        "sources": [0, 1],
-                        "positional": { }
-                        }
-                    ]
+                    "emitters": [ 0, 1 ]
                 }
             }
         }
@@ -276,9 +268,8 @@ Audio emitters of type `positional` may be added to nodes using the following sy
                     "emitter": 2
                 }
             }
-            ]
+        ]
         }
-    ]
 }
 ```
 
