@@ -28,86 +28,79 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
 
 ```json
 {
-  "extensions": {
-    "KHR_audio": {
-      "emitters": [
-        {
-          "name": "Positional Emitter",
-          "type": "positional",
-          "gain": 0.8,
-          "sources": [
-            0,
-            1
-          ],
-          "positional": {
-            "coneInnerAngle": 6.283185307179586,
-            "coneOuterAngle": 6.283185307179586,
-            "coneOuterGain": 0.0,
-            "distanceModel": "inverse",
-            "maxDistance": 10.0,
-            "refDistance": 1.0,
-            "rolloffFactor": 0.8
-          }
-        },
-        {
-          "name": "Global Emitter",
-          "type": "global",
-          "gain": 0.8,
-          "sources": [
-            1
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "name": "Clip 1",
-          "gain": 0.6,
-          "autoPlay": true,
-          "loop": true,
-          "audio": 0
-        },
-        {
-          "name": "Clip 2",
-          "gain": 0.6,
-          "autoPlay": true,
-          "loop": true,
-          "audio": 1
-        }
-      ],
-      "audio": [
-        {
-          "uri": "audio1.mp3",
-        },
-        {
-          "bufferView": 0,
-          "mimeType": "audio/mpeg"
-        }
-      ]
-    }
-  },
-  "scenes": [
-    {
-      "name": "Default Scene",
-      "extensions": {
+    "extensions": {
         "KHR_audio": {
-          "emitters": [
-            1
-          ]
+            "emitters": [
+                {
+                    "name": "Positional Emitter",
+                    "type": "positional",
+                    "gain": 0.8,
+                    "sources": [0, 1],
+                    "positional": {
+                        "coneInnerAngle": 6.283185307179586,
+                        "coneOuterAngle": 6.283185307179586,
+                        "coneOuterGain": 0.0,
+                        "distanceModel": "inverse",
+                        "maxDistance": 10.0,
+                        "refDistance": 1.0,
+                        "rolloffFactor": 0.8
+                    }
+                },
+                {
+                    "name": "Global Emitter",
+                    "type": "global",
+                    "gain": 0.8,
+                    "sources": [1]
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Clip 1",
+                    "gain": 0.6,
+                    "autoPlay": true,
+                    "loop": true,
+                    "audio": 0
+                },
+                {
+                    "name": "Clip 2",
+                    "gain": 0.6,
+                    "autoPlay": true,
+                    "loop": true,
+                    "audio": 1
+                }
+            ],
+            "audio": [
+                {
+                    "uri": "audio1.mp3"
+                },
+                {
+                    "bufferView": 0,
+                    "mimeType": "audio/mpeg"
+                }
+            ]
         }
-      }
-    }
-  ],
-  "nodes": [
-    {
-      "name": "Duck",
-      "translation": [ 1.0, 2.0, 3.0 ],
-      "extensions": {
-        "KHR_audio": {
-          "emitter": 0
+    },
+    "scenes": [
+        {
+            "name": "Default Scene",
+            "extensions": {
+                "KHR_audio": {
+                    "emitters": [1]
+                }
+            }
         }
-      }
-    }
-  ]
+    ],
+    "nodes": [
+        {
+            "name": "Duck",
+            "translation": [1.0, 2.0, 3.0],
+            "extensions": {
+                "KHR_audio": {
+                    "emitter": 0
+                }
+            }
+        }
+    ]
 }
 ```
 
@@ -123,8 +116,8 @@ The extension must be added to the file's `extensionsUsed` array and because it 
 {
     "asset": {
         "version": "2.0"
-    }
-    "extensionsUsed" : [
+    },
+    "extensionsUsed": [
         "KHR_audio"
     ],
     "scenes": [...],
@@ -187,7 +180,7 @@ Positional or global sinks for playing back audio sources.
 
 Specifies the audio emitter type.
 
-- `positional` Positional audio emitters. Using sound cones, the orientation is `-Z` having the same front side for a [glTF asset](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html#coordinate-system-and-units). 
+- `positional` Positional audio emitters. Using sound cones, the orientation is `-Z` having the same front side for a [glTF asset](https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html#coordinate-system-and-units).
 - `global` Global audio emitters are not affected by the position of audio listeners. `coneInnerAngle`, `coneOuterAngle`, `coneOuterGain`, `distanceModel`, `maxDistance`, `refDistance`, and `rolloffFactor` should all be ignored when set.
 
 #### `gain`
@@ -228,7 +221,7 @@ The gain of the audio emitter set when outside the cone defined by the `coneOute
 
 Specifies the distance model for the audio emitter.
 
-- `linear` A linear distance model calculating the gain induced by the distance according to: 
+- `linear` A linear distance model calculating the gain induced by the distance according to:
     `1.0 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
 - `inverse` (default) An inverse distance model calculating the gain induced by the distance according to:
     `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
@@ -257,7 +250,7 @@ Audio emitters of type `global` may be added to scenes using the following synta
         {
             "extensions": {
                 "KHR_audio": {
-                    "emitters": [ 1, 3 ]
+                    "emitters": [1, 3]
                 }
             }
         }
@@ -300,6 +293,7 @@ Audio emitters of type `positional` may be added to nodes using the following sy
 Note that multiple global audio emitters are allowed on the scene, but only a single audio emitter may be added to a node.
 
 ### Audio Rolloff Formula
+
 The Audio Rolloff range is `(0.0, +∞)`. The default is `1.0`.
 
 The rolloff formula is dependant on the distance model defined. The available distance models are `linear`, `inverse`, and `exponential`.
@@ -309,10 +303,13 @@ The rolloff formula is dependant on the distance model defined. The available di
 - exponential formula: `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor))`
 
 ### Audio Gain Units
+
 The gain unit range is `(0.0, +∞)`. The default is `1.0`.
+
 - gain formula: `originalVolume * gain`
 
 ### Audio Cone Vizualized
+
 <img alt="Audio cone showing how cone parameters impact volume based on relative distance to the source." src="./figures/cone-diagram.svg" width="500px" />
 
 Figure 1. A modified graphic based on the <a href="https://webaudio.github.io/web-audio-api/#Spatialization-sound-cones" target="_blank">W3C Web Audio API Audio cone Figure</a>
@@ -321,7 +318,7 @@ The cone properties relate to the `PannerNode` interface and determine the amoun
 
 The gain relative to cone properties is determined in a similar way as described in the web audio api with the difference that this audio emitter extension uses radians in place of degrees. [Cone Gain Algorithm Example](https://webaudio.github.io/web-audio-api/#Spatialization-sound-cones)
 
-### Units for Rotations 
+### Units for Rotations
 
 Radians are used for rotations matching glTF2.
 
@@ -338,7 +335,7 @@ Radians are used for rotations matching glTF2.
 ## Resources
 
 Prior Art:
+
 - [W3C Web Audio API](https://www.w3.org/TR/webaudio/)
 - [MSFT_audio_emitter](https://github.com/KhronosGroup/glTF/pull/1400)
 - [MOZ_hubs_components Audio](https://github.com/MozillaReality/hubs-blender-exporter/blob/04fc1d1/default-config.json#L298-L324)
-
