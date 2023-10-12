@@ -48,7 +48,15 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
             "refDistance": 1.0,
             "rolloffFactor": 0.8
           }
-        }
+        },
+        {
+          "name": "Global Emitter",
+          "type": "global",
+          "gain": 0.8,
+          "sources": [
+            1
+          ]
+        },
       ],
       "sources": [
         {
@@ -249,7 +257,23 @@ Audio emitters of type `global` may be added to scenes using the following synta
         {
             "extensions": {
                 "KHR_audio": {
-                    "emitters": [ 0, 1 ]
+                    "emitters": [ 1, 3 ]
+                }
+            }
+        }
+    ]
+}
+```
+
+Audio emitters of type `global` may be added to nodes using the following syntax:
+
+```json
+{
+    "nodes": [
+        {
+            "extensions": {
+                "KHR_audio": {
+                    "emitter": 1
                 }
             }
         }
@@ -265,7 +289,7 @@ Audio emitters of type `positional` may be added to nodes using the following sy
         {
             "extensions": {
                 "KHR_audio": {
-                    "emitter": 2
+                    "emitter": 0
                 }
             }
         }
