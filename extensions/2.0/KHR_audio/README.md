@@ -198,7 +198,7 @@ Audio emitters define how audio sources are played back. Emitter properties are 
 
 #### `type`
 
-Specifies the audio emitter type.
+Specifies the audio emitter type. This property is required.
 
 - `global` Global audio emitters are not affected by the position of audio listeners. All `positional` properties may not be defined on global audio emitters.
 - `positional` Positional audio emitters. The properties are defined in the `positional` object. Using sound cones, the orientation is `-Z` having the same emission direction as [`KHR_lights_punctual`](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_lights_punctual) and [glTF cameras](https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_016_Cameras.md).
@@ -211,7 +211,7 @@ This value is linear, a value of `0.0` is no volume, `0.5` is half volume, `1.0`
 
 #### `sources`
 
-An array of audio source indices used by the audio emitter. This array may be empty. If empty, this emitter can be used to define how audio should emit from a node, but not which audio source to play.
+An array of audio source indices used by the audio emitter. This array may be empty. If empty or not specified, this emitter can be used to define how audio should emit from a node, but not which audio source to play.
 
 #### `positional`
 
@@ -235,15 +235,15 @@ When the audio emitter type is set to `positional`, additional properties may be
 
 #### `coneInnerAngle`
 
-The angle, in radians, of a cone inside of which there will be no volume reduction. This angle represents the angular "diameter" of the cone, from side to side.
+The angle, in radians, of a cone inside of which there will be no volume reduction. This angle represents the angular "diameter" of the cone, from side to side. If not specified, the angle of Tau radians (`6.283185307179586476925286766559` or 360 degrees) is used, which means the audio emits in all directions (not in a cone).
 
 #### `coneOuterAngle`
 
-The angle, in radians, of a cone outside of which the volume will be reduced to a constant value of `coneOuterGain`. This angle represents the angular "diameter" of the cone, from side to side.
+The angle, in radians, of a cone outside of which the volume will be reduced to a constant value of `coneOuterGain`. This angle represents the angular "diameter" of the cone, from side to side. If not specified, the angle of Tau radians (`6.283185307179586476925286766559` or 360 degrees) is used, which means some audio will emit in all directions.
 
 #### `coneOuterGain`
 
-The gain of the audio emitter set when outside the cone defined by the `coneOuterAngle` property. It is a linear value (not dB).
+The gain of the audio emitter set when outside the cone defined by the `coneOuterAngle` property. It is a linear value (not dB). If not specified, the cone outer gain is `0.0`, meaning the audio will be silent outside of the cone.
 
 #### `distanceModel`
 
@@ -268,7 +268,7 @@ A reference distance for reducing volume as the emitter moves further from the l
 
 #### `rolloffFactor`
 
-Describes how quickly the volume is reduced as the emitter moves away from listener. When distanceModel is set to linear, the maximum value is `1.0`. Otherwise, there is no upper limit to the rolloff factor.
+Describes how quickly the volume is reduced as the emitter moves away from listener. When distanceModel is set to linear, the maximum value is `1.0`. Otherwise, there is no upper limit to the rolloff factor. If not specified, the default value is `1.0`.
 
 ### Using Audio Emitters
 
