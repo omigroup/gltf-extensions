@@ -258,17 +258,17 @@ Specifies the distance model for the audio emitter.
 
 #### `maxDistance`
 
-The maximum distance between the emitter and listener, after which the volume will not be reduced any further.
+The maximum distance between the emitter and listener, after which the volume will not be reduced any further. If zero or not specified, the audio emitter does not have a maximum distance, and it can be heard from any distance.
 
-If zero or not specified, the audio emitter does not have a maximum distance, and it can be heard from any distance.
+For the linear distance model, the max distance must be greater than the ref distance. For all distance models, max distance cannot be a negative number.
 
 #### `refDistance`
 
-A reference distance for reducing volume as the emitter moves further from the listener. For distances less than this, the volume is not reduced.
+A reference distance for reducing volume as the emitter moves further from the listener. For distances less than this, the volume is not reduced. This value cannot be zero or a negative number. If not specified, the default value is `1.0`.
 
 #### `rolloffFactor`
 
-Describes how quickly the volume is reduced as the emitter moves away from listener. When distanceModel is set to linear, the maximum value is 1. Otherwise, there is no upper limit to the rolloff factor.
+Describes how quickly the volume is reduced as the emitter moves away from listener. When distanceModel is set to linear, the maximum value is `1.0`. Otherwise, there is no upper limit to the rolloff factor.
 
 ### Using Audio Emitters
 
