@@ -134,7 +134,7 @@ The extension must be added to the file's `extensionsUsed` array and because it 
 
 ### Audio Data
 
-Audio data objects define where audio data is located. Data is either accessed via a bufferView or uri.
+Audio data objects define where audio data is located and what format the data is in. The data is either accessed via a bufferView or uri.
 
 When storing audio data in a buffer view, the `mimeType` field must be specified. The base specification supports `audio/mpeg` and `audio/wav` MIME types. These were chosen with consideration for the wide support for these types acrosss 3D engines and common use cases. Other supported audio formats may be added via extensions.
 
@@ -154,7 +154,7 @@ The uri of the audio file. Relative paths are relative to the .gltf file.
 
 ### Audio Sources
 
-Audio sources define the playing state for a given audio data. They connect one audio data to zero to many audio emitters.
+Audio sources reference audio data and define playback properties for it. Audio sources may be used by zero to many audio emitters.
 
 #### Property Summary
 
@@ -201,7 +201,7 @@ Audio emitters define how audio sources are played back. Emitter properties are 
 Specifies the audio emitter type. This property is required.
 
 - `global` Global audio emitters are not affected by the position of audio listeners. All `positional` properties may not be defined on global audio emitters.
-- `positional` Positional audio emitters. The properties are defined in the `positional` object. Using sound cones, the orientation is `-Z` having the same emission direction as [`KHR_lights_punctual`](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_lights_punctual) and [glTF cameras](https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_016_Cameras.md).
+- `positional` Positional audio emitters play audio at a position in the scene. The properties are defined in the `positional` object. Using sound cones, the orientation is `-Z` having the same emission direction as [`KHR_lights_punctual`](https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_lights_punctual) and [glTF cameras](https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_016_Cameras.md).
 
 #### `gain`
 
@@ -243,7 +243,7 @@ The angle, in radians, of a cone outside of which the volume will be reduced to 
 
 #### `coneOuterGain`
 
-The gain of the audio emitter set when outside the cone defined by the `coneOuterAngle` property. It is a linear value (not dB). If not specified, the cone outer gain is `0.0`, meaning the audio will be silent outside of the cone.
+The linear volume gain of the audio emitter set when outside the cone defined by the `coneOuterAngle` property. It is a linear value (not dB). If not specified, the cone outer gain is `0.0`, meaning the audio will be silent outside of the cone.
 
 #### `distanceModel`
 
