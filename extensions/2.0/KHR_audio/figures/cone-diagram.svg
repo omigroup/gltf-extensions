@@ -16,12 +16,12 @@
         <g transform="matrix(1,0,0,1,167.578,79.75)">
             <text x="0px" y="0px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">Listener</text>
         </g>
-        <g transform="matrix(1,0,0,1,37.7855,919.112)">
+        <g transform="matrix(0.977366,0,0,0.977366,951.298,929.827)">
             <text x="0px" y="0px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">Example V<tspan x="112.92px 125.808px " y="0px 0px ">al</tspan>ues</text>
             <text x="0px" y="38.443px" style="font-family:'HelveticaNeue-Bold', 'Helvetica Neue';font-weight:700;font-size:24px;">coneInnerAngle</text>
-            <text x="180.408px" y="38.443px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">: 50</text>
+            <text x="180.408px" y="38.443px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">: 0.872665 ( 50° )</text>
             <text x="0px" y="76.887px" style="font-family:'HelveticaNeue-Bold', 'Helvetica Neue';font-weight:700;font-size:24px;">coneOuterAngle</text>
-            <text x="186.216px" y="76.887px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">: 120</text>
+            <text x="186.216px" y="76.887px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:24px;">: 2.0944 ( 120° )</text>
         </g>
         <g transform="matrix(2.22037,0,0,2.22037,-690.605,-961.829)">
             <path d="M571.818,697.649L575.117,689.059L576.341,689.059L579.857,697.649L578.562,697.649L577.56,695.047L573.968,695.047L573.025,697.649L571.818,697.649ZM574.296,694.122L577.209,694.122L576.312,691.743C576.039,691.02 575.835,690.426 575.703,689.961C575.593,690.512 575.439,691.059 575.24,691.602L574.296,694.122Z" style="fill-rule:nonzero;"/>
