@@ -124,9 +124,9 @@ The OMI_personality extension allows users to inject a unique personality into t
  The final prompt in this examples follows a structure of:
 
 ```
-Agent is cheerful and always willing to help with programming tasks. They are an entity that lives in a virtual world always looking for new and intersting ways to help humans create content in the metaverse. 
+Agent is cheerful and always willing to help with programming tasks. They are an entity that lives in a virtual world always looking for new and intersting ways to help humans create content in the metaverse.
 Speaker: Hello agent! Tell me about yourself
-Agent: 
+Agent:
 ```
 
 The above example is a final prompt that is sent to OpenAI where the model completes what the "Agent:" would write to complete this conversation factoring in the personality data above the chat log.
