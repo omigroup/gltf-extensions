@@ -99,7 +99,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ### Stage 5
 
 ### Graduated to Khronos Extension
-- [KHR_audio](https://github.com/KhronosGroup/glTF/pull/2137)
+- [KHR_audio_emitter](https://github.com/KhronosGroup/glTF/pull/2137)
 
 ### Archived Extensions
 
@@ -172,7 +172,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
     <tr>
       <td>
         <a href="https://github.com/KhronosGroup/glTF/pull/2137">
-          KHR_audio
+          KHR_audio_emitter
         </a>
       </td>
       <td>KHR</td>
