@@ -1,6 +1,6 @@
 # OMI glTF Extensions
 
-This repository is used by the [Open Metaverse Interoperability Group](https://github.com/omigroup/OMI) to develop and document extensions for the [glTF 3D transmission format](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md).
+This repository is used by the [Open Metaverse Interoperability Group](https://omigroup.org/) to develop and document extensions for the [glTF 3D model format](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md).
 
 Extensions in this repository are intended to extend the glTF format with features useful for 3D virtual worlds. These extensions could include things related audio, physics, avatars, animations, behaviors, and more.
 
@@ -8,7 +8,11 @@ Vendor extensions are developed and approved via the W3C Metaverse Interoperabil
 
 ## Meetings
 
-Our meetings are on Thursdays at 2:30 PM PDT in the omi-weekly-meeting channel in the [AngellXR Discord](https://discord.gg/NJtT9grz5E)
+OMI's glTF extensions subgroup weekly meetings take place each week on Thursday in the omi-weekly-meeting channel on the [OMI Discord](https://discord.gg/J4vyAWFgkj).
+
+This is the time to chat about glTF extensions with OMI, including those developed by OMI and those developed by other groups. You can find the weekly notes and agenda [here](https://github.com/omigroup/gltf-extensions/discussions).
+
+These meetings take place at 22:30 UTC in the winter (2:30 PM PST) and 21:30 UTC in the summer (2:30 PM PDT).
 
 You can add these meetings to your calendar [here](https://calendar.google.com/calendar/u/1?cid=Y18wZHB1Z2Y5ZjgzZXE0cWVrbWI2b21xYmptZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
 
