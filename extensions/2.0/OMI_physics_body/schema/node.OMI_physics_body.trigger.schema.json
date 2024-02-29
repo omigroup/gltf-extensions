@@ -17,7 +17,31 @@
             ],
             "default": -1
         },
+        "nodes": {
+            "type": "array",
+            "description": "For compound triggers, the set of descendant glTF nodes with a trigger property that make up this compound trigger.",
+            "items": {
+                "$ref": "glTFid.schema.json"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+        },
         "extensions": { },
         "extras": { }
-    }
+    },
+    "anyOf": [
+        {
+            "allOf": [
+                { "required": ["shape"] },
+                { "not": { "required": ["nodes"] } }
+            ]
+        },
+        {
+            "allOf": [
+                { "required": ["nodes"] },
+                { "not": { "required": ["shape"] } },
+                { "not": { "required": ["collisionFilter"] } }
+            ]
+        }
+    ]
 }
