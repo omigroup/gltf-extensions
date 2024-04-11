@@ -53,7 +53,6 @@ The draft proposal should precisely describe the extension in it's initial form 
 
 The extension has multiple metaverse implementations, a glTF Validator implementation, valid sample assets, and at least one readily available tool for generating content using this extension. The implementations, sample assets, and content creation tool should all consume or produce assets that can be verified by the glTF Validator. The extension at this stage is ready for a vote for ratification. Final proposal modifications should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
 
-
 #### Requirements
 
 - [ ] Previous requirements from Stage 2
@@ -80,12 +79,12 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 - [ ] Previous requirements from Stage 4
 - [ ] Listing on the [Khronos glTF repository](https://github.com/KhronosGroup/glTF/tree/main/extensions) proving the extension has been approved or ratified.
 
-
 ## OMI glTF Vendor Extensions
 
 ### Stage 0
 
 ### Stage 1
+
 - [OMI_link](extensions/2.0/OMI_link)
 - [OMI_personality](extensions/2.0/OMI_personality)
 - [OMI_physics_body](extensions/2.0/OMI_physics_body/README.md)
@@ -94,6 +93,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 - [OMI_spawn_point](extensions/2.0/OMI_spawn_point)
 
 ### Stage 2
+
 - [OMI_seat](extensions/2.0/OMI_seat/README.md)
 
 ### Stage 3
@@ -103,6 +103,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ### Stage 5
 
 ### Graduated to Khronos Extension
+
 - [KHR_audio_emitter](https://github.com/KhronosGroup/glTF/pull/2137)
 
 ### Archived Extensions
@@ -116,41 +117,19 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
     <tr>
       <th>Extension</th>
       <th>Stage</th>
-      <th>Validation</th>
-      <th>Content Authoring Tools</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>Game / Rendering Engines</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-      <th>Applications / Metaverse Clients</th>
-    </tr>
-    <tr>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
       <th>glTF Validator</th>
       <th>Blender</th>
       <th>&nbsp;</th>
-      <th>omi-gltf-transform</th>
       <th>Three.js</th>
       <th>&nbsp;</th>
       <th>Godot</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
       <th>&nbsp;</th>
       <th>Unity</th>
       <th>&nbsp;</th>
       <th>&nbsp;</th>
       <th>&nbsp;</th>
       <th>Third Room</th>
-      <th>Three Object Viewer </th>
+      <th>3OV</th>
     </tr>
     <tr>
       <th>&nbsp;</th>
@@ -158,17 +137,15 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <th>&nbsp;</th>
       <th>Import</th>
       <th>Export</th>
-      <th>MOZ_hubs_components -> OMI</th>
       <th>Loader</th>
       <th>Exporter</th>
+      <th>Import</th>
+      <th>Export</th>
       <th>Runtime Import</th>
       <th>Runtime Export</th>
       <th>Editor Import</th>
       <th>Editor Export</th>
-      <th>Runtime Import</th>
-      <th>Runtime Export</th>
-      <th>Editor Import</th>
-      <th>Editor Export</th>
+      <th>&nbsp;</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -180,114 +157,19 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
         </a>
       </td>
       <td>KHR</td>
-      <td>✅</td>
-      <td>🚧</td>
-      <td>🚧</td>
-      <td>✅</td>
-      <td>✅</td>
       <td>❌</td>
-      <td>❓</td>
-      <td>❓</td>
-      <td>❓</td>
-      <td>❓</td>
-      <td>❓</td>
-      <td>❓</td>
-      <td>❓</td>
-      <td>❓</td>
-      <td>🚧</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_physics_body">
-          OMI_physics_body
-        </a>
-      </td>
-      <td>Stage 1</td>
-      <td><a href="https://github.com/omigroup/glTF-Validator/pull/2">❌</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://thirdroom.io/docs/gltf/">🚧🏆</a></td>
+      <td>❌</td>
+      <td><a href="https://github.com/godotengine/godot/pull/88204">🚧🏆</a></td>
+      <td><a href="https://github.com/godotengine/godot/pull/88204">🚧🏆</a></td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
-      <td>❌</td>
-      <td><a href="https://github.com/godotengine/godot/pull/69266">❌</a></td>
-      <td><a href="https://github.com/godotengine/godot/pull/69266">❌</a></td>
-      <td><a href="https://github.com/godotengine/godot/pull/69266">❌</a></td>
-      <td><a href="https://github.com/godotengine/godot/pull/69266">❌</a></td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/omi_physics_joint">
-          OMI_physics_joint
-        </a>
-      </td>
-      <td>Stage 1</td>
-      <td><a href="https://github.com/omigroup/glTF-Validator/pull/3">❌</a></td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td><a href="https://github.com/omigroup/omi-godot/pull/1">❌</a></td>
-      <td><a href="https://github.com/omigroup/omi-godot/pull/1">❌</a></td>
-      <td><a href="https://github.com/omigroup/omi-godot/pull/1">❌</a></td>
-      <td><a href="https://github.com/omigroup/omi-godot/pull/1">❌</a></td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_physics_shape">
-          OMI_physics_shape
-        </a>
-      </td>
-      <td>Stage 1</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_seat">
-          OMI_seat
-        </a>
-      </td>
-      <td>Stage 2</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>🚧</td>
-      <td>❌</td>
-      <td>🚧</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
+      <td><a href="https://github.com/matrix-org/thirdroom/blob/main/src/asset-pipeline/extensions/KHRAudioExtension.ts">🚧🏆</a></td>
+      <td><a href="https://wordpress.org/plugins/three-object-viewer/">🚧🏆</a></td>
     </tr>
     <tr>
       <td>
@@ -296,31 +178,6 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
         </a>
       </td>
       <td>Stage 1</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_spawn_point">
-          OMI_spawn_point
-        </a>
-      </td>
-      <td>Stage 1</td>
-      <td>❌</td>
-      <td>❌</td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
@@ -355,8 +212,119 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_physics_body">
+          OMI_physics_body
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td><a href="https://github.com/omigroup/glTF-Validator/pull/2">❌</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://github.com/godotengine/godot/pull/78967">✅🏆</a></td>
+      <td><a href="https://github.com/godotengine/godot/pull/78967">✅🏆</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
       <td>❌</td>
       <td>❌</td>
     </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/omi_physics_joint">
+          OMI_physics_joint
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td><a href="https://github.com/omigroup/glTF-Validator/pull/3">❌</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://github.com/omigroup/omi-godot/tree/main/addons/omi_extensions/physics_joint">✅🧩</a></td>
+      <td><a href="https://github.com/omigroup/omi-godot/tree/main/addons/omi_extensions/physics_joint">✅🧩</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_physics_shape">
+          OMI_physics_shape
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://github.com/godotengine/godot/pull/78967">✅🏆</a></td>
+      <td><a href="https://github.com/godotengine/godot/pull/78967">✅🏆</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_seat">
+          OMI_seat
+        </a>
+      </td>
+      <td>Stage 2</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://github.com/omigroup/omi-godot/blob/main/addons/omi_extensions/misc/omi_seat.gd">✅🧩</a></td>
+      <td><a href="https://github.com/omigroup/omi-godot/blob/main/addons/omi_extensions/misc/omi_seat.gd">🚧🧩</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_spawn_point">
+          OMI_spawn_point
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://github.com/omigroup/omi-godot/blob/main/addons/omi_extensions/misc/omi_spawn_point.gd">✅🧩</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://wordpress.org/plugins/three-object-viewer/">✅🏆</a></td>
+    </tr>
   </tbody>
 </table>
+
+Emoji Key:
+
+- ✅ = Done, available and ready to use.
+- 🏆 = Available directly in the engine.
+- 🧩 = Available as a plugin / add-on.
+- 🚧 = Work in progress or not yet merged.
+- ❌ = Not available or not started.
