@@ -85,6 +85,8 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 
 ### Stage 1
 
+- [OMI_audio_ogg_vorbis](extensions/2.0/OMI_audio_ogg_vorbis)
+- [OMI_audio_opus](extensions/2.0/OMI_audio_opus)
 - [OMI_link](extensions/2.0/OMI_link)
 - [OMI_personality](extensions/2.0/OMI_personality)
 - [OMI_physics_body](extensions/2.0/OMI_physics_body/README.md)
@@ -171,6 +173,48 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>❌</td>
       <td><a href="https://github.com/matrix-org/thirdroom/blob/main/src/asset-pipeline/extensions/KHRAudioExtension.ts">🚧🏆</a></td>
       <td><a href="https://wordpress.org/plugins/three-object-viewer/">🚧🏆</a></td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_audio_ogg_vorbis">
+          OMI_audio_ogg_vorbis
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://github.com/godotengine/godot/pull/88204">🚧🏆</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_audio_opus">
+          OMI_audio_opus
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
     </tr>
     <tr>
       <td>
