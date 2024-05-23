@@ -88,6 +88,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 - [OMI_link](extensions/2.0/OMI_link)
 - [OMI_personality](extensions/2.0/OMI_personality)
 - [OMI_physics_body](extensions/2.0/OMI_physics_body/README.md)
+- [OMI_physics_gravity](extensions/2.0/OMI_physics_gravity/README.md)
 - [OMI_physics_joint](extensions/2.0/OMI_physics_joint/README.md)
 - [OMI_physics_shape](extensions/2.0/OMI_physics_shape/README.md)
 - [OMI_spawn_point](extensions/2.0/OMI_spawn_point)
@@ -227,6 +228,27 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
       <td>❌</td>
       <td><a href="https://github.com/godotengine/godot/pull/78967">✅🏆</a></td>
       <td><a href="https://github.com/godotengine/godot/pull/78967">✅🏆</a></td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_physics_gravity">
+          OMI_physics_gravity
+        </a>
+      </td>
+      <td>Stage 1</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td><a href="https://github.com/omigroup/omi-godot/pull/5">🚧🧩</a></td>
+      <td><a href="https://github.com/omigroup/omi-godot/pull/5">🚧🧩</a></td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>

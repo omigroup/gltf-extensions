@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "OMI_physics_gravity Line Gravity",
+    "type": "object",
+    "required": [
+        "points"
+    ],
+    "properties": {
+        "points": {
+            "type": "array",
+            "description": "The points that make up the line segments of a line type gravity field. Each set of 3 numbers is a vector. Must have a size be at least 6 and be a multiple of 3.",
+            "default": [],
+            "minItems": 6
+        },
+        "unitDistance": {
+            "type": "number",
+            "description": "The distance from the nearest point at which the gravity equals the gravity property. If zero or not specified, the gravity strength is constant.",
+            "default": 0.0
+        },
+        "extensions": { },
+        "extras": { }
+    }
+}

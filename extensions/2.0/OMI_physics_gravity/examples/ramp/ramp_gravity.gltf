@@ -1,0 +1,158 @@
+{
+    "asset": {
+        "generator": "Godot Engine v4.3.dev.custom_build",
+        "version": "2.0"
+    },
+    "extensionsUsed": ["GODOT_single_root", "OMI_physics_body", "OMI_physics_gravity", "OMI_physics_shape"],
+    "extensions": {
+        "OMI_physics_shape": {
+            "shapes": [
+                { "box": { "size": [6, 4, 3] }, "type": "box" },
+                { "box": { "size": [2, 7, 5] }, "type": "box" },
+                { "trimesh": { "mesh": 1 }, "type": "trimesh" }
+            ]
+        }
+    },
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [1, 1, 1, 1],
+                "metallicFactor": 0,
+                "roughnessFactor": 1
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "extras": { "targetNames": [] },
+            "primitives": [
+                {
+                    "attributes": { "NORMAL": 2, "POSITION": 0, "TANGENT": 1, "TEXCOORD_0": 3 },
+                    "indices": 4,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "extras": { "targetNames": [] },
+            "primitives": [{ "attributes": { "POSITION": 5 }, "indices": 6, "mode": 4 }]
+        }
+    ],
+    "nodes": [
+        {
+            "children": [1, 2, 3],
+            "extensions": {
+                "OMI_physics_body": { "trigger": { "nodes": [1] } },
+                "OMI_physics_gravity": {
+                    "gravity": -9.8,
+                    "shaped": { "shape": 0 },
+                    "stop": true,
+                    "type": "shaped"
+                }
+            },
+            "name": "RampGravity"
+        },
+        {
+            "extensions": { "OMI_physics_body": { "trigger": { "shape": 1 } } },
+            "name": "RampGravityShape",
+            "translation": [0, -1.5, -2]
+        },
+        {
+            "mesh": 0,
+            "name": "RampGravityMesh",
+            "translation": [0, -5, 0.5]
+        },
+        {
+            "children": [4],
+            "extensions": { "OMI_physics_body": { "motion": { "type": "static" } } },
+            "name": "RampGravityCollider",
+            "translation": [0, -5, 0.5]
+        },
+        { "extensions": { "OMI_physics_body": { "collider": { "shape": 2 } } }, "name": "RampGravityColliderShape" }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 136,
+            "max": [0.999979496002197, 7, -0.00006628036499],
+            "min": [-1, 0, -5],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 136,
+            "max": [1, 0.0000152590218931437, 0.999698579311371, 1],
+            "min": [-0.00013981414668, -0.99970042705536, -0.00001525865719, -1],
+            "normalized": false,
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 136,
+            "max": [0.0000841021610540338, 1, 1],
+            "min": [-0.00014381069923, 0, 0.0000239175878959941],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 136,
+            "max": [0.749996185302734, 0.499992370605469],
+            "min": [0.499992370605469, 0],
+            "normalized": false,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 204,
+            "max": [135],
+            "min": [0],
+            "normalized": false,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 204,
+            "max": [1, 7, -0.00009999999747],
+            "min": [-1, 0, -5],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 6,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 204,
+            "max": [203],
+            "min": [0],
+            "normalized": false,
+            "type": "SCALAR"
+        }
+    ],
+    "bufferViews": [
+        { "buffer": 0, "byteLength": 1632, "byteOffset": 0, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 2176, "byteOffset": 1632, "byteStride": 16, "target": 34962 },
+        { "buffer": 0, "byteLength": 1632, "byteOffset": 3808, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 1088, "byteOffset": 5440, "byteStride": 8, "target": 34962 },
+        { "buffer": 0, "byteLength": 408, "byteOffset": 6528, "target": 34963 },
+        { "buffer": 0, "byteLength": 2448, "byteOffset": 6936, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 408, "byteOffset": 9384, "target": 34963 }
+    ],
+    "buffers": [{ "byteLength": 9792, "uri": "ramp_gravity0.bin" }]
+}

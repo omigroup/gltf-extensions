@@ -1,0 +1,216 @@
+{
+    "asset": {
+        "extensions": { "KHR_xmp_json_ld": { "packet": 0 } },
+        "generator": "Godot Engine v4.3.dev.custom_build",
+        "version": "2.0"
+    },
+    "extensionsUsed": [
+        "GODOT_single_root",
+        "KHR_xmp_json_ld",
+        "OMI_physics_body",
+        "OMI_physics_gravity",
+        "OMI_physics_shape"
+    ],
+    "extensions": {
+        "KHR_xmp_json_ld": {
+            "packets": [
+                {
+                    "@context": { "dc": "http://purl.org/dc/elements/1.1/" },
+                    "@id": "",
+                    "dc:coverage": "Earth",
+                    "dc:creator": { "@list": ["NASA", "aaronfranke"] },
+                    "dc:description": "This spectacular 'blue marble' image is the most detailed true-color image of the entire Earth to date. Using a collection of satellite-based observations, scientists and visualizers stitched together months of observations of the land surface, oceans, sea ice, and clouds into a seamless, true-color mosaic. This model is at a one-millionth scale.",
+                    "dc:format": "model/gltf+json",
+                    "dc:rights": "NASA Image Use Policy https://visibleearth.nasa.gov/image-use-policy",
+                    "dc:source": "https://visibleearth.nasa.gov/images/57752/blue-marble-land-surface-shallow-water-and-shaded-topography/57754l",
+                    "dc:subject": { "@set": ["Earth"] },
+                    "dc:title": "Blue Marble: Land Surface, Shallow Water, and Shaded Topography",
+                    "dc:type": { "@set": ["Planet", "Demo", "Test"] }
+                }
+            ]
+        },
+        "OMI_physics_gravity": {
+            "gravity": 0.0
+        },
+        "OMI_physics_shape": {
+            "shapes": [
+                {
+                    "type": "sphere",
+                    "sphere": {
+                        "radius": 40.0
+                    }
+                },
+                {
+                    "type": "sphere",
+                    "sphere": {
+                        "radius": 6.37814
+                    }
+                }
+            ]
+        }
+    },
+    "nodes": [
+        {
+            "name": "EarthMillionthScale",
+            "children": [1, 2, 3],
+            "extensions": {
+                "OMI_physics_body": {
+                    "motion": {
+                        "type": "static",
+                        "mass": 5972200.0
+                    }
+                }
+            }
+        },
+        {
+            "name": "EarthCollider",
+            "extensions": {
+                "OMI_physics_body": {
+                    "collider": {
+                        "shape": 1
+                    }
+                }
+            }
+        },
+        {
+            "name": "EarthMesh",
+            "mesh": 0
+        },
+        {
+            "name": "EarthGravity",
+            "extensions": {
+                "OMI_physics_body": {
+                    "trigger": {
+                        "shape": 0
+                    }
+                },
+                "OMI_physics_gravity": {
+                    "gravity": 9.80665,
+                    "point": { "unitDistance": 6.37814 },
+                    "type": "point"
+                }
+            }
+        }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
+    "materials": [
+        {
+            "doubleSided": true,
+            "name": "EarthMaterial",
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0,
+                "metallicRoughnessTexture": {
+                    "index": 1
+                }
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "EarthMeshData",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "textures": [
+        {
+            "sampler": 0,
+            "source": 0
+        },
+        {
+            "sampler": 0,
+            "source": 1
+        }
+    ],
+    "images": [
+        {
+            "mimeType": "image/jpeg",
+            "name": "earth_color_4096",
+            "uri": "earth_color_4096.jpg"
+        },
+        {
+            "mimeType": "image/png",
+            "name": "earth_roughness",
+            "uri": "earth_roughness.png"
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 2447,
+            "max": [6.378139495849609, 6.378159999847412, 6.378159999847412],
+            "min": [-6.378159999847412, -6.378159999847412, -6.378159999847412],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 2447,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 2447,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5123,
+            "count": 14400,
+            "type": "SCALAR"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 29364,
+            "byteOffset": 0,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 29364,
+            "byteOffset": 29364,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 19576,
+            "byteOffset": 58728,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 28800,
+            "byteOffset": 78304,
+            "target": 34963
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 107104,
+            "uri": "earth_millionth_scale.bin"
+        }
+    ]
+}
