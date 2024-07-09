@@ -123,6 +123,12 @@ For more details on collision filters, see the [README.trigger.md](README.trigge
 
 For more details on physics materials, see the [README.collider.md](README.collider.md) file.
 
+### glTF Object Model
+
+See the [README.motion.md](README.motion.md) file for the JSON pointers defined for the motion properties.
+
+See the [README.collider.md](README.collider.md) file for the JSON pointers defined for the collider physics material properties.
+
 ### JSON Schema
 
 See [node.OMI_physics_body.schema.json](schema/node.OMI_physics_body.schema.json) for the main node schema, and these for the sub-JSON property schemas:

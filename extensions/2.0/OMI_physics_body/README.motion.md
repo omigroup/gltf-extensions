@@ -73,6 +73,20 @@ The `"angularVelocity"` property is an array of three numbers that defines how m
 
 The `"gravityFactor"` property is a number that defines a multiplier applied to the acceleration due to gravity. Values other than 1.0 are not realistic, but may be useful for artistic effects. If not specified, the default value is 1.0.
 
+## glTF Object Model
+
+The following JSON pointers are defined representing mutable motion properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`. See also the list of physics material properties in the [README.collider.md](README.collider.md) file.
+
+| JSON Pointer                                                      | Object Model Type |
+| ----------------------------------------------------------------- | ----------------- |
+| `/nodes/{}/extensions/OMI_physics_body/motion/mass`               | `float`           |
+| `/nodes/{}/extensions/OMI_physics_body/motion/centerOfMass`       | `float3`          |
+| `/nodes/{}/extensions/OMI_physics_body/motion/inertiaDiagonal`    | `float3`          |
+| `/nodes/{}/extensions/OMI_physics_body/motion/inertiaOrientation` | `float4`          |
+| `/nodes/{}/extensions/OMI_physics_body/motion/linearVelocity`     | `float3`          |
+| `/nodes/{}/extensions/OMI_physics_body/motion/angularVelocity`    | `float3`          |
+| `/nodes/{}/extensions/OMI_physics_body/motion/gravityFactor`      | `float`           |
+
 ## JSON Schema
 
 See [schema/node.OMI_physics_body.motion.schema.json](schema/node.OMI_physics_body.motion.schema.json) for the motion properties JSON schema.

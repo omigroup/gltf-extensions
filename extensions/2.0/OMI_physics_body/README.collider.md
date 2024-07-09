@@ -69,6 +69,23 @@ When a pair of physics materials interact during a simulation step, the applied 
 - Else if either uses `"maximum"`: The largest of the two values should be used.
 - Else if either uses `"multiply"`: The two values should be multiplied with each other.
 
+## glTF Object Model
+
+The following JSON pointers are defined representing mutable physics material properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`. See also the list of motion properties in the [README.motion.md](README.motion.md) file.
+
+| JSON Pointer                                                       | Object Model Type |
+| ------------------------------------------------------------------ | ----------------- |
+| `/extensions/OMI_physics_body/physicsMaterials/{}/staticFriction`  | `float`           |
+| `/extensions/OMI_physics_body/physicsMaterials/{}/dynamicFriction` | `float`           |
+| `/extensions/OMI_physics_body/physicsMaterials/{}/restitution`     | `float`           |
+
+Additionally, the following JSON pointers are defined for read-only properties:
+
+| JSON Pointer                                           | Object Model Type |
+| ------------------------------------------------------ | ----------------- |
+| `/extensions/OMI_physics_body/collisionFilters.length` | `int`             |
+| `/extensions/OMI_physics_body/physicsMaterials.length` | `int`             |
+
 ## JSON Schema
 
 See [schema/node.OMI_physics_body.collider.schema.json](schema/node.OMI_physics_body.collider.schema.json) for the collider properties JSON schema.
