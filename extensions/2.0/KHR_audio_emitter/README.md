@@ -354,7 +354,7 @@ Radians are used for angles matching glTF2.
 
 ### JSON Schema
 
-[glTF.KHR_audio_emitter.schema.json](/extensions/2.0/KHR_audio_emitter/schema/glTF.KHR_audio_emitter.schema.json)
+See [glTF.KHR_audio_emitter.schema.json](schema/glTF.KHR_audio_emitter.schema.json) for the main document-level schema.
 
 ## Known Implementations
 

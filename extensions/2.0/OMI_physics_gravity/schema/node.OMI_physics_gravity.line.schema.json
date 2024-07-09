@@ -1,10 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_gravity.line.schema.json",
     "title": "OMI_physics_gravity Line Gravity",
     "type": "object",
-    "required": [
-        "points"
-    ],
+    "description": "Parameters describing a line type gravity field.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "points": {
             "type": "array",
@@ -19,5 +19,8 @@
         },
         "extensions": { },
         "extras": { }
-    }
+    },
+    "required": [
+        "points"
+    ]
 }

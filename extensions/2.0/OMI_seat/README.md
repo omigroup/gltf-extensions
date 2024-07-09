@@ -131,38 +131,6 @@ In a nutshell, the legs sit as close to the seat as possible while not clipping 
 
 See [schema/node.OMI_seat.schema.json](schema/node.OMI_seat.schema.json) for the schema.
 
-```json
-{
-    "$schema": "http://json-schema.org/draft-04/schema",
-    "title": "OMI_seat glTF Node Extension",
-    "type": "object",
-    "required": [
-        "back",
-        "foot",
-        "knee"
-    ],
-    "properties": {
-        "back": {
-            "type": "array",
-            "description": "Three number array defining the seat position corresponding to the character's back position limit in local space."
-        },
-        "foot": {
-            "type": "array",
-            "description": "Three number array defining the seat position corresponding to the character's feet position limit in local space."
-        },
-        "knee": {
-            "type": "array",
-            "description": "Three number array defining the seat position corresponding to the character's knee base position in local space."
-        },
-        "angle": {
-            "type": "number",
-            "description": "The angle between the spine and back-knee line in radians.",
-            "default": 1.57079632679489662
-        }
-    }
-}
-```
-
 ## Known Implementations
 
 * Godot Engine add-on

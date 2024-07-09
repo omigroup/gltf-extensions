@@ -115,6 +115,10 @@ If a glTF contains an audio source using Ogg Vorbis audio with no fallback audio
 
 If a glTF contains an audio source using Ogg Vorbis audio with no fallback audio data, and `KHR_audio_emitter` is not a required extension, then do not add `OMI_audio_ogg_vorbis` to `extensionsRequired`. Clients supporting `KHR_audio_emitter` but not `OMI_audio_ogg_vorbis` will consider the lack of `"audio"` in a `KHR_audio_emitter` source to be an error, and either will not be able to play audio from that source, or will not load the `KHR_audio_emitter` extension.
 
+### JSON Schema
+
+See [schema/glTF.KHR_audio_emitter.source.OMI_audio_ogg_vorbis.schema.json](schema/glTF.KHR_audio_emitter.source.OMI_audio_ogg_vorbis.schema.json) for the schema.
+
 ## Known Implementations
 
 None

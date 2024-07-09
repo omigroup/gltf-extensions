@@ -1,10 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_gravity.shaped.schema.json",
     "title": "OMI_physics_gravity Shaped Gravity",
     "type": "object",
-    "required": [
-        "shape"
-    ],
+    "description": "Parameters describing a gravity field that points towards a shape.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "shape": {
             "$ref": "glTFid.schema.json",
@@ -17,5 +17,8 @@
         },
         "extensions": { },
         "extras": { }
-    }
+    },
+    "required": [
+        "shape"
+    ]
 }

@@ -20,7 +20,7 @@ To use the "OMI_personality" extension, you must first specify it in the extensi
 
 ```json
 {
-	"extensionsUsed": ["OMI_personality"]
+    "extensionsUsed": ["OMI_personality"]
 }
 ```
 
@@ -28,18 +28,18 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 
 ```json
 {
-	"nodes": [
-		{
-			"name": "cat",
-			"extensions": {
-				"OMI_personality": {
-					"agent": "cat",
-					"personality": "#agent has a cheerful personality.",
-					"defaultMessage": "nya nya!"
-				}
-			}
-		}
-	]
+    "nodes": [
+        {
+            "name": "cat",
+            "extensions": {
+                "OMI_personality": {
+                    "agent": "cat",
+                    "personality": "#agent has a cheerful personality.",
+                    "defaultMessage": "nya nya!"
+                }
+            }
+        }
+    ]
 }
 ```
 
@@ -60,26 +60,26 @@ The OMI_personality extension is defined by the following JSON schema:
 
 ```json
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"title": "OMI_personality",
-	"description": "An extension for the glTF format that defines a personality for a node and an endpoint where additional information can be queried.",
-	"type": "object",
-	"properties": {
-		"agent": {
-			"type": "string",
-			"description": "The name of the agent associated with the node.",
-			"maxLength": 128
-		},
-		"personality": {
-			"type": "string",
-			"description": "A description of the agent's personality."
-		},
-		"defaultMessage": {
-			"type": "string",
-			"description": "The default message that the agent will send on initialization."
-		}
-	},
-	"required": ["agent", "personality"]
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OMI_personality",
+    "description": "An extension for the glTF format that defines a personality for a node and an endpoint where additional information can be queried.",
+    "type": "object",
+    "properties": {
+        "agent": {
+            "type": "string",
+            "description": "The name of the agent associated with the node.",
+            "maxLength": 128
+        },
+        "personality": {
+            "type": "string",
+            "description": "A description of the agent's personality."
+        },
+        "defaultMessage": {
+            "type": "string",
+            "description": "The default message that the agent will send on initialization."
+        }
+    },
+    "required": ["agent", "personality"]
 }
 ```
 
@@ -88,7 +88,7 @@ The OMI_personality extension is defined by the following JSON schema:
 The OMI_personality extension allows users to inject a unique personality into their virtual representations and adheres to a simple set of properties that aim to be compatible with lots of AI software to come. In the below example implementation, the data for personality is used to combine with the input from the user talking to the NPC. The final prompt is being sent to the OpenAI Davinci model to allow for completion of the agent's response.
 
 ```js
-	// Request coming from three.js frontend that is querying this endpoint making a call to the GPT-3 model. Contains the Personality data embeded in the NPC file.
+    // Request coming from three.js frontend that is querying this endpoint making a call to the GPT-3 model. Contains the Personality data embeded in the NPC file.
     const data = await request.json();
     let prompt = data.inputs.personality;
     let prompt = data.Input.personality;
@@ -103,7 +103,7 @@ The OMI_personality extension allows users to inject a unique personality into t
 
     const token = authorization.split(' ')[1];
     const postData = {
-        prompt: finalPrompt	,
+        prompt: finalPrompt,
         max_tokens: 500,
         stop : ["###"],
         temperature: 0.7,

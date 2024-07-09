@@ -182,7 +182,7 @@ In this chart, "fixed" means "constrained with lower and upper limits set to zer
 
 ### JSON Schema
 
-See [joint_constraint.schema.json](schema/joint_constraint.schema.json), [node.OMI_physics_joint.schema.json](schema/node.OMI_physics_joint.schema.json), and [glTF.OMI_physics_joint.schema.json](schema/glTF.OMI_physics_joint.schema.json) for the schemas.
+See [glTF.OMI_physics_joint.joint_constraint.schema.json](schema/glTF.OMI_physics_joint.joint_constraint.schema.json), [node.OMI_physics_joint.schema.json](schema/node.OMI_physics_joint.schema.json), and [glTF.OMI_physics_joint.schema.json](schema/glTF.OMI_physics_joint.schema.json) for the schemas.
 
 ## Known Implementations
 

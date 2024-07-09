@@ -1,7 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_physics_shape.shape.box.schema.json",
     "title": "OMI_physics_shape Box Shape",
     "type": "object",
+    "description": "Parameters describing a box physics shape.",
+    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
     "properties": {
         "size": {
             "type": "array",
