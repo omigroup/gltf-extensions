@@ -4,7 +4,7 @@
     "title": "OMI_physics_shape Sphere Shape",
     "type": "object",
     "description": "Parameters describing a sphere physics shape.",
-    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "radius": {
             "type": "number",

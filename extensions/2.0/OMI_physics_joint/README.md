@@ -2,7 +2,7 @@
 
 ## Contributors
 
-* Aaron Franke, The Mirror Megaverse Inc.
+- Aaron Franke, The Mirror Megaverse Inc.
 
 ## Status
 
@@ -186,10 +186,10 @@ See [glTF.OMI_physics_joint.joint_constraint.schema.json](schema/glTF.OMI_physic
 
 ## Known Implementations
 
-* Godot Engine add-on
+- Godot Engine add-on
 
 ## Resources:
 
-* Godot Joint3D https://docs.godotengine.org/en/latest/classes/class_generic6dofjoint3d.html
-* Unity Joints https://docs.unity3d.com/Manual/Joints.html
-* Wikipedia Stiffness https://en.wikipedia.org/wiki/Stiffness
+- Godot Joint3D https://docs.godotengine.org/en/latest/classes/class_generic6dofjoint3d.html
+- Unity Joints https://docs.unity3d.com/Manual/Joints.html
+- Wikipedia Stiffness https://en.wikipedia.org/wiki/Stiffness

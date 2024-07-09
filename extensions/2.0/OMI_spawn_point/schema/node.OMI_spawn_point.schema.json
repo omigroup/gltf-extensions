@@ -4,7 +4,7 @@
     "title": "OMI_spawn_point",
     "type": "object",
     "description": "Parameters that define a spawn point.",
-    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "title": {
             "type": "string",
