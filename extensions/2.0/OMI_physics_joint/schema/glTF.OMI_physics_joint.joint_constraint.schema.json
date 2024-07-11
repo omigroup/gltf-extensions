@@ -1,10 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_physics_joint.joint_constraint.schema.json",
     "title": "OMI_physics_joint Joint Constraint",
     "type": "object",
-    "required": [
-        "type"
-    ],
+    "description": "Parameters describing a physics joint constraint / limit.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "linearAxes": {
             "type": "array",

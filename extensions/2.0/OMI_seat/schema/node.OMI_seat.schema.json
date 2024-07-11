@@ -1,12 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_seat.schema.json",
     "title": "OMI_seat glTF Node Extension",
     "type": "object",
-    "required": [
-        "back",
-        "foot",
-        "knee"
-    ],
+    "description": "Parameters describing a seat for a character.",
+    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
     "properties": {
         "back": {
             "type": "array",
@@ -27,5 +25,10 @@
         },
         "extensions": { },
         "extras": { }
-    }
+    },
+    "required": [
+        "back",
+        "foot",
+        "knee"
+    ]
 }

@@ -1,11 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_gravity.schema.json",
     "title": "OMI_physics_gravity glTF Node Extension",
     "type": "object",
-    "required": [
-        "type",
-        "gravity"
-    ],
+    "description": "Defines gravity information for a node.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "type": {
             "type": "string",
@@ -41,6 +40,10 @@
         "extensions": { },
         "extras": { }
     },
+    "required": [
+        "type",
+        "gravity"
+    ],
     "oneOf": [
         {
             "required": [

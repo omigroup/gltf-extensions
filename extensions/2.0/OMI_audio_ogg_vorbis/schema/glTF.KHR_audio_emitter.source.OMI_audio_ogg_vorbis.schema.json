@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.KHR_audio_emitter.source.OMI_audio_ogg_vorbis.schema.json",
+    "title": "OMI_audio_ogg_vorbis glTF KHR_audio_emitter Source Extension",
+    "type": "object",
+    "description": "glTF extension to specify audio data on audio sources using the Ogg Vorbis audio data format.",
+    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "properties": {
+        "audio": {
+            "allOf": [{ "$ref": "glTFid.schema.json" }],
+            "description": "The index of the item in the audio array with audio data in the Ogg Vorbis format."
+        },
+        "extensions": {},
+        "extras": {}
+    }
+}

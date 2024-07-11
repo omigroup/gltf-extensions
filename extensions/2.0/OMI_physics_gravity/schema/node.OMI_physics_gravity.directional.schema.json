@@ -1,7 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_gravity.directional.schema.json",
     "title": "OMI_physics_gravity Directional Gravity",
     "type": "object",
+    "description": "Parameters describing a directional gravity field.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "direction": {
             "type": "array",

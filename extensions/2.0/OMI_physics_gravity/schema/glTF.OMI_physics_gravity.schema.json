@@ -1,10 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_physics_gravity.schema.json",
     "title": "OMI_physics_gravity glTF Document Extension",
     "type": "object",
-    "required": [
-        "gravity"
-    ],
+    "description": "Top level global gravity parameters.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "gravity": {
             "type": "number",
@@ -17,5 +17,8 @@
             "minItems": 3,
             "maxItems": 3
         }
-    }
+    },
+    "required": [
+        "gravity"
+    ]
 }

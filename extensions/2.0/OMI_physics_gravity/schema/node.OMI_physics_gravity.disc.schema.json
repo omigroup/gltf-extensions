@@ -1,7 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_gravity.disc.schema.json",
     "title": "OMI_physics_gravity Disc Gravity",
     "type": "object",
+    "description": "Parameters describing a disc gravity field.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "radius": {
             "type": "number",

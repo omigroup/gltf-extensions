@@ -141,7 +141,7 @@ Trigger shapes are not solid to other objects and will not collide with them. Tr
 
 ### JSON Schema
 
-See [schema/collider.schema.json](schema/collider.schema.json) for the main collider schema, [schema/glTF.OMI_collider.schema.json](schema/glTF.OMI_collider.schema.json) for the document-level list of colliders, and [schema/node.OMI_collider.schema.json](schema/node.OMI_collider.schema.json) for the node-level collider selection.
+See [schema/glTF.OMI_collider.collider.schema.json](schema/glTF.OMI_collider.collider.schema.json) for the main collider schema, [schema/glTF.OMI_collider.schema.json](schema/glTF.OMI_collider.schema.json) for the document-level list of colliders, and [schema/node.OMI_collider.schema.json](schema/node.OMI_collider.schema.json) for the node-level collider selection.
 
 ## Known Implementations
 

@@ -1,10 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_body.motion.schema.json",
     "title": "OMI_physics_body Motion Property",
     "type": "object",
-    "required": [
-        "type"
-    ],
+    "description": "Parameter describing the motion of a physics body glTF node.",
+    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
     "properties": {
         "type": {
             "type": "string",
@@ -42,5 +42,8 @@
         },
         "extensions": { },
         "extras": { }
-    }
+    },
+    "required": [
+        "type"
+    ]
 }

@@ -27,7 +27,7 @@ To use the "OMI_spawn_point" extension, you must first specify it in the extensi
 
 ```json
 {
-	"extensionsUsed": ["OMI_spawn_point"]
+    "extensionsUsed": ["OMI_spawn_point"]
 }
 ```
 
@@ -35,20 +35,20 @@ Next, apply the extension to a child node of the glTF file. The node's position 
 
 ```json
 {
-	"nodes": [
-		{
-			"name": "spawn_point_node",
-			"translation": [0, 0, 1],
-			"rotation": [0, 0, 0, 1],
-			"extensions": {
-				"OMI_spawn_point": {
-					"title": "Hill East",
-					"team": "Red",
-					"group": "Hill"
-				}
-			}
-		}
-	]
+    "nodes": [
+        {
+            "name": "spawn_point_node",
+            "translation": [0, 0, 1],
+            "rotation": [0, 0, 0, 1],
+            "extensions": {
+                "OMI_spawn_point": {
+                    "title": "Hill East",
+                    "team": "Red",
+                    "group": "Hill"
+                }
+            }
+        }
+    ]
 }
 ```
 
@@ -74,34 +74,9 @@ How each application decides to use the properties, or if they are used at all, 
 
 ### JSON Schema
 
-The OMI_spawn_point extension is defined by the following JSON schema:
+See [schema/node.OMI_spawn_point.schema.json](schema/node.OMI_spawn_point.schema.json) for the schema.
 
-```json
-{
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"title": "OMI_spawn_point",
-	"description": "An extension for the glTF format that defines a spawn point in a scene.",
-	"type": "object",
-	"properties": {
-		"title": {
-			"type": "string",
-			"description": "The title of the spawn point.",
-			"maxLength": 128
-		},
-		"team": {
-			"type": "string",
-			"description": "The team that this spawn point belongs to, if any.",
-			"maxLength": 128
-		},
-		"group": {
-			"type": "string",
-			"description": "The group that this spawn point belongs to, if any.",
-			"maxLength": 128
-		}
-	}
-}
-```
-
+## Known Implementations
 
 Example Three.js implementation - probably not to be included in final proposal
 
@@ -111,30 +86,30 @@ const scene = new THREE.Scene();
 
 // Set up a perspective camera
 const camera = new THREE.PerspectiveCamera(
-	75,
-	window.innerWidth / window.innerHeight,
-	0.1,
-	1000
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
 );
 
 // Load the glTF file
 const gltfLoader = new THREE.GLTFLoader();
 gltfLoader.load('my-omi-spawn-file.gltf', (gltf) => {
-	// Add the scene from the glTF file to the Three.js scene
-	scene.add(gltf.scene);
+    // Add the scene from the glTF file to the Three.js scene
+    scene.add(gltf.scene);
 
-	// Find the "OMI_spawn_point" node
-	let spawnPointNode = null;
-	scene.traverse((node) => {
-		if (node.isObject3D && node.userData.OMI_spawn_point) {
-			spawnPointNode = node;
-		}
-	});
+    // Find the "OMI_spawn_point" node
+    let spawnPointNode = null;
+    scene.traverse((node) => {
+        if (node.isObject3D && node.userData.OMI_spawn_point) {
+            spawnPointNode = node;
+        }
+    });
 
-	// Set the position of the camera to the spawn point position from the source node data.
-	if (spawnPointNode) {
-		camera.position.copy(spawnPointNode.position);
-	}
+    // Set the position of the camera to the spawn point position from the source node data.
+    if (spawnPointNode) {
+        camera.position.copy(spawnPointNode.position);
+    }
 });
 ```
 

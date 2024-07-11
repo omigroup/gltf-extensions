@@ -1,10 +1,10 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_collider.collider.schema.json",
     "title": "OMI_collider Collider",
     "type": "object",
-    "required": [
-        "type"
-    ],
+    "description": "Parameters describing a collider physics shape.",
+    "allOf": [ { "$ref": "glTFChildOfRootProperty.schema.json" } ],
     "properties": {
         "type": {
             "type": "string",
@@ -23,9 +23,13 @@
             "description": "When true this collider will not be solid to physics bodies in the scene, and instead the shape will act as a trigger detection area.",
             "default": false
         },
+        "name": { },
         "extensions": { },
         "extras": { }
     },
+    "required": [
+        "type"
+    ],
     "oneOf": [
         {
             "required": [
