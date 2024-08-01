@@ -5,7 +5,7 @@
 * OMI glTF Extensions Group
 * Robert Long, The Matrix.org Foundation
 * Anthony Burchell, Individual Contributor
-* Aaron Franke, The Mirror Megaverse Inc.
+* Aaron Franke, Godot Engine.
 
 ## Status
 
@@ -71,6 +71,10 @@ How each application decides to use the properties, or if they are used at all, 
 * A game with no teams does not need to read or use the team property.
 * A game with teams can consider a spawn point without a team assigned as a fallback for when a player is not on a team.
 * A game with no reason to group together spawn points can ignore the group property.
+
+### glTF Object Model
+
+This extension defines no properties that can be read or manipulated by the glTF Object Model.
 
 ### JSON Schema
 

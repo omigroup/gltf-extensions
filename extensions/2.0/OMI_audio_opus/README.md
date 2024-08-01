@@ -121,6 +121,10 @@ If a glTF contains an audio source using Opus audio with no fallback audio data,
 
 If a glTF contains an audio source using Opus audio with no fallback audio data, and `KHR_audio_emitter` is not a required extension, then do not add `OMI_audio_opus` to `extensionsRequired`. Clients supporting `KHR_audio_emitter` but not `OMI_audio_opus` will consider the lack of `"audio"` in a `KHR_audio_emitter` source to be an error, and either will not be able to play audio from that source, or will not load the `KHR_audio_emitter` extension.
 
+### glTF Object Model
+
+This extension defines no properties that can be read or manipulated by the glTF Object Model.
+
 ### JSON Schema
 
 See [schema/glTF.KHR_audio_emitter.source.OMI_audio_opus.schema.json](schema/glTF.KHR_audio_emitter.source.OMI_audio_opus.schema.json) for the schema.

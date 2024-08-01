@@ -243,6 +243,26 @@ The gravity types described above can be used in a variety of ways to create a w
 | Wedge        | Line gravity with 2 points where the line is defined at the corner edge of a trigger volume.           |
 | Cone         | Line gravity with 2 points, plus directional gravity pointing towards the large end of the cone.       |
 
+### glTF Object Model
+
+The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`.
+
+| JSON Pointer                                                     | Object Model Type |
+| ---------------------------------------------------------------- | ----------------- |
+| `/extensions/OMI_physics_gravity/gravity`                        | `float`           |
+| `/nodes/{}/extensions/OMI_physics_gravity/gravity`               | `float`           |
+| `/nodes/{}/extensions/OMI_physics_gravity/priority`              | `int`             |
+| `/nodes/{}/extensions/OMI_physics_gravity/replace`               | `bool`            |
+| `/nodes/{}/extensions/OMI_physics_gravity/stop`                  | `bool`            |
+| `/nodes/{}/extensions/OMI_physics_gravity/directional/direction` | `float3`          |
+| `/nodes/{}/extensions/OMI_physics_gravity/disc/radius`           | `float`           |
+| `/nodes/{}/extensions/OMI_physics_gravity/disc/unitDistance`     | `float`           |
+| `/nodes/{}/extensions/OMI_physics_gravity/line/points`           | `float[]`         |
+| `/nodes/{}/extensions/OMI_physics_gravity/line/unitDistance`     | `float`           |
+| `/nodes/{}/extensions/OMI_physics_gravity/point/unitDistance`    | `float`           |
+| `/nodes/{}/extensions/OMI_physics_gravity/torus/radius`          | `float`           |
+| `/nodes/{}/extensions/OMI_physics_gravity/torus/unitDistance`    | `float`           |
+
 ### JSON Schema
 
 See [schema/glTF.OMI_physics_gravity.schema.json](schema/glTF.OMI_physics_gravity.schema.json) for document-level gravity, [schema/node.OMI_physics_gravity.schema.json](schema/node.OMI_physics_gravity.schema.json) for node-level gravity, and the `schema/node.OMI_physics_gravity.*.schema.json` files for the sub-JSON schemas for gravity types.
