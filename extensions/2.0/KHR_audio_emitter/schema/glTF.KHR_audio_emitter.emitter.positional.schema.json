@@ -6,6 +6,24 @@
     "description": "Positional audio emitter properties.",
     "allOf": [{ "$ref": "glTFProperty.schema.json" }],
     "properties": {
+        "shapeType": {
+            "type": "string",
+            "description": "Shape in which emitter emits audio (omnidirectional, cone, custom).",
+            "anyOf": [
+                {
+                    "const": "omnidirectional",
+                    "description": "Emitter emits audio in all directions."
+                },
+                {
+                    "const": "cone",
+                    "description": "Emitter emits audio in a cone defined by coneInnerAngle, coneOuterAngle, and coneOuterGain."
+                },
+                {
+                    "type": "string"
+                }
+            ],
+            "default": "omnidirectional"
+        },
         "coneInnerAngle": {
             "type": "number",
             "description": "The angle, in radians, of a cone inside of which there will be no volume reduction. This angle represents the angular diameter of the cone, from side to side. If not specified, the angle of Tau radians (360 degrees) is used, which means the audio emits in all directions (not in a cone).",
