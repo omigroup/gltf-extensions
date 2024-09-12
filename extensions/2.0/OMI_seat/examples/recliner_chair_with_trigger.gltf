@@ -20,26 +20,15 @@
             ]
         }
     },
-    "scene": 0,
-    "scenes": [
-        {
-            "nodes": [1]
-        }
-    ],
     "nodes": [
         {
-            "mesh": 0,
-            "name": "ReclinerChairFullMesh"
-        },
-        {
-            "children": [
-                0,
-                2
-            ],
+            "children": [1, 2],
             "name": "ReclinerChairFullWithTrigger",
             "extensions": {
                 "OMI_physics_body": {
-                    "trigger": {}
+                    "trigger": {
+                        "nodes": [2]
+                    }
                 },
                 "OMI_seat": {
                     "back": [0, 0.33, -0.247],
@@ -48,6 +37,10 @@
                     "angle": 2.0943951
                 }
             }
+        },
+        {
+            "mesh": 0,
+            "name": "ReclinerChairFullMesh"
         },
         {
             "name": "ReclinerChairShape",
@@ -61,6 +54,8 @@
             }
         }
     ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
     "meshes": [
         {
             "name": "ReclinerChairFullMesh",
