@@ -137,7 +137,7 @@
     },
     "extensionsUsed": [
         "GODOT_single_root",
-		"KHR_xmp_json_ld",
+        "KHR_xmp_json_ld",
         "OMI_physics_body",
         "OMI_physics_shape",
         "OMI_seat",
@@ -183,23 +183,23 @@
             "children": [1, 2, 3, 4, 5, 6, 7, 8],
             "extensions": {
                 "OMI_physics_body": {
-					"motion": {
-						"mass": 20000,
-						"type": "dynamic"
-					}
-				},
+                    "motion": {
+                        "mass": 20000,
+                        "type": "dynamic"
+                    }
+                },
                 "OMI_vehicle_body": {
-					"gyroTorque": [10000, 10000, 10000],
-					"pilotSeat": 8,
-					"useThrottle": true
-				}
+                    "gyroTorque": [10000, 10000, 10000],
+                    "pilotSeat": 8,
+                    "useThrottle": true
+                }
             },
             "name": "RocketShipBody"
         },
         {
-			"mesh": 0,
-			"name": "RocketShipMesh"
-		},
+            "mesh": 0,
+            "name": "RocketShipMesh"
+        },
         {
             "extensions": { "OMI_physics_body": { "collider": { "shape": 0 } } },
             "name": "RocketShipShapeAntenna",
@@ -217,19 +217,19 @@
             "rotation": [0, 0, 0.866025447845459, 0.5]
         },
         {
-			"extensions": { "OMI_physics_body": { "collider": { "shape": 1 } } },
-			"name": "RocketShipShapeFinTop"
-		},
+            "extensions": { "OMI_physics_body": { "collider": { "shape": 1 } } },
+            "name": "RocketShipShapeFinTop"
+        },
         {
-			"extensions": { "OMI_physics_body": { "collider": { "shape": 2 } } },
-			"name": "RocketShipShapeMainHull"
-		},
+            "extensions": { "OMI_physics_body": { "collider": { "shape": 2 } } },
+            "name": "RocketShipShapeMainHull"
+        },
         {
             "extensions": {
-				"OMI_vehicle_thruster": {
-					"thruster": 0
-				}
-			},
+                "OMI_vehicle_thruster": {
+                    "thruster": 0
+                }
+            },
             "name": "RocketShipThruster",
             "translation": [0, 0, -2.8]
         },
@@ -237,13 +237,13 @@
             "children": [9],
             "extensions": {
                 "OMI_physics_body": {
-					"trigger": { "nodes": [9] }
-				},
+                    "trigger": { "nodes": [9] }
+                },
                 "OMI_seat": {
-					"back": [0, 0, -0.25],
-					"foot": [0, -0.5, 0.25],
-					"knee": [0, 0, 0.25]
-				}
+                    "back": [0, 0, -0.25],
+                    "foot": [0, -0.5, 0.25],
+                    "knee": [0, 0, 0.25]
+                }
             },
             "name": "RocketShipPilotSeat3D",
             "translation": [0, 0, 2]
