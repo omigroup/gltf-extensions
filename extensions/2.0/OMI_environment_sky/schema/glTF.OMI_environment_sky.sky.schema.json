@@ -1,0 +1,68 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_environment_sky.sky.schema.json",
+    "title": "OMI_environment_sky Sky Parameters",
+    "type": "object",
+    "description": "Environment sky and skybox parameters.",
+    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "properties": {
+        "ambientLightColor": {
+            "type": "array",
+            "description": "The color of the ambient light, if sky contribution is less than 1.0.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [1.0, 1.0, 1.0]
+        },
+        "ambientSkyContribution": {
+            "type": "number",
+            "description": "The ratio of contribution the sky makes to the ambient light.",
+            "minimum": 0.0,
+            "default": 0.02
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of sky as a string (`gradient`, `panorama`, `physical`, `plain`, or custom).",
+            "anyOf": [
+                {
+                    "const": "gradient",
+                    "description": "Gradient skies use color gradients to define the sky colors."
+                },
+                {
+                    "const": "panorama",
+                    "description": "Panorama skies use a texture or set of textures to represent the sky."
+                },
+                {
+                    "const": "physical",
+                    "description": "Physical skies use a physically-based model to simulate the scattering of light in the atmosphere."
+                },
+                {
+                    "const": "plain",
+                    "description": "Plain color skies use a single color to represent the sky."
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        "gradient": {
+            "allOf": [{ "$ref": "glTF.OMI_environment_sky.sky.gradient.schema.json" }],
+            "description": "If present, the properties of a gradient sky."
+        },
+        "panorama": {
+            "allOf": [{ "$ref": "glTF.OMI_environment_sky.sky.panorama.schema.json" }],
+            "description": "If present, the properties of a panorama sky."
+        },
+        "physical": {
+            "allOf": [{ "$ref": "glTF.OMI_environment_sky.sky.physical.schema.json" }],
+            "description": "If present, the properties of a physical sky."
+        },
+        "plain": {
+            "allOf": [{ "$ref": "glTF.OMI_environment_sky.sky.plain.schema.json" }],
+            "description": "If present, the properties of a plain color sky."
+        }
+    },
+    "required": ["type"]
+}

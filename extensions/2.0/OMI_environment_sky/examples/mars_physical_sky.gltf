@@ -1,0 +1,102 @@
+{
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [0.5, 0.5, 0.5],
+            "min": [-0.5, -0.5, -0.5],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 0.0, 1.0, 1.0],
+            "min": [-1.0, -0.000015259254723787308, -1.0, 1.0],
+            "normalized": false,
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 1.0, 1.0],
+            "min": [-1.0, -1.0, -1.0],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 1.0],
+            "min": [0.0, 0.0],
+            "normalized": false,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 36,
+            "max": [23.0],
+            "min": [0.0],
+            "normalized": false,
+            "type": "SCALAR"
+        }
+    ],
+    "asset": {
+        "version": "2.0"
+    },
+    "bufferViews": [
+        { "buffer": 0, "byteLength": 288, "byteOffset": 0, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 384, "byteOffset": 288, "byteStride": 16, "target": 34962 },
+        { "buffer": 0, "byteLength": 288, "byteOffset": 672, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 192, "byteOffset": 960, "byteStride": 8, "target": 34962 },
+        { "buffer": 0, "byteLength": 72, "byteOffset": 1152, "target": 34963 }
+    ],
+    "buffers": [{ "byteLength": 1224, "uri": "cube_mesh_data.bin" }],
+    "extensions": {
+        "OMI_environment_sky": {
+            "skies": [
+                {
+                    "physical": {
+                        "groundColor": [0.67843097448349, 0.384314000606537, 0.258823990821838],
+                        "mieAnisotropy": 0.8,
+                        "mieColor": [0.8, 0.5, 0.3],
+                        "mieScale": 0.000005,
+                        "rayleighColor": [1.0, 0.666666666666666, 0.5],
+                        "rayleighScale": 0.000002
+                    },
+                    "type": "physical"
+                }
+            ]
+        }
+    },
+    "extensionsUsed": ["OMI_environment_sky"],
+    "materials": [{}],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": { "NORMAL": 2, "POSITION": 0, "TANGENT": 1, "TEXCOORD_0": 3 },
+                    "indices": 4,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        { "children": [1], "name": "MarsPhysicalSky" },
+        { "mesh": 0, "name": "Box" }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }]
+}

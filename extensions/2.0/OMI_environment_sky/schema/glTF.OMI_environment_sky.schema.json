@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_environment_sky.schema.json",
+    "title": "OMI_environment_sky glTF Document Extension",
+    "type": "object",
+    "description": "Top level global environment skies and skyboxes.",
+    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "properties": {
+        "skies": {
+            "type": "array",
+            "description": "An array of skies defining sky and skybox parameters.",
+            "items": {
+                "type": "object",
+                "$ref": "glTF.OMI_environment_sky.sky.schema.json"
+            }
+        }
+    },
+    "required": ["skies"]
+}

@@ -1,0 +1,15 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "scene.OMI_environment_sky.schema.json",
+    "title": "OMI_environment_sky glTF Scene Extension",
+    "type": "object",
+    "description": "Per-scene override of which environment sky to use.",
+    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "properties": {
+        "sky": {
+            "allOf": [ { "$ref": "glTFid.schema.json" } ],
+            "description": "The index of the sky in the top level skies array. If not specified, use the sky at index 0 as the sky.",
+            "default": 0
+        }
+    }
+}

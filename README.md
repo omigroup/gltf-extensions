@@ -82,6 +82,7 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ## OMI glTF Vendor Extensions
 
 ### Stage 0
+- [OMI_environment_sky](extensions/2.0/OMI_environment_sky/README.md)
 - [OMI_vehicle_body](extensions/2.0/OMI_vehicle_body/README.md)
 - [OMI_vehicle_hover_thruster](extensions/2.0/OMI_vehicle_hover_thruster/README.md)
 - [OMI_vehicle_thruster](extensions/2.0/OMI_vehicle_thruster/README.md)
@@ -206,6 +207,27 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
         </a>
       </td>
       <td>Stage 1</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_environment_sky">
+          OMI_environment_sky
+        </a>
+      </td>
+      <td>Stage 0</td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
