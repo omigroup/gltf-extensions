@@ -1,0 +1,25 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_environment_sky.sky.panorama.schema.json",
+    "title": "OMI_environment_sky Panorama Sky Parameters",
+    "type": "object",
+    "description": "Panorama skies use a texture or set of textures to represent the sky.",
+    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "properties": {
+        "cubemap": {
+            "type": "array",
+            "description": "The indices of 6 textures making up a cubemap in the glTF `textures` array.",
+            "items": {
+                "type": "integer"
+            },
+            "minItems": 6,
+            "maxItems": 6
+        },
+        "equirectangular": {
+            "allOf": [{ "$ref": "glTFid.schema.json" }],
+            "description": "The index of an equirectangular panorama texture in the glTF `textures` array.",
+            "default": -1
+        }
+    },
+    "required": []
+}

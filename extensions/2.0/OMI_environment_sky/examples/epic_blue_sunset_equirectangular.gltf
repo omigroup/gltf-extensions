@@ -1,0 +1,134 @@
+{
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [0.5, 0.5, 0.5],
+            "min": [-0.5, -0.5, -0.5],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 0.0, 1.0, 1.0],
+            "min": [-1.0, -0.000015259254723787308, -1.0, 1.0],
+            "normalized": false,
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 1.0, 1.0],
+            "min": [-1.0, -1.0, -1.0],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 1.0],
+            "min": [0.0, 0.0],
+            "normalized": false,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 36,
+            "max": [23.0],
+            "min": [0.0],
+            "normalized": false,
+            "type": "SCALAR"
+        }
+    ],
+    "asset": {
+        "copyright": "2020 rpgwhitelock",
+        "extensions": { "KHR_xmp_json_ld": { "packet": 0 } },
+        "version": "2.0"
+    },
+    "bufferViews": [
+        { "buffer": 0, "byteLength": 288, "byteOffset": 0, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 384, "byteOffset": 288, "byteStride": 16, "target": 34962 },
+        { "buffer": 0, "byteLength": 288, "byteOffset": 672, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 192, "byteOffset": 960, "byteStride": 8, "target": 34962 },
+        { "buffer": 0, "byteLength": 72, "byteOffset": 1152, "target": 34963 }
+    ],
+    "buffers": [{ "byteLength": 1224, "uri": "cube_mesh_data.bin" }],
+    "extensions": {
+        "KHR_lights_punctual": {
+            "lights": [{ "type": "directional" }]
+        },
+        "KHR_xmp_json_ld": {
+            "packets": [
+                {
+                    "@context": { "dc": "http://purl.org/dc/elements/1.1/" },
+                    "@id": "",
+                    "dc:coverage": "Earth",
+                    "dc:creator": { "@list": ["rpgwhitelock"] },
+                    "dc:date": "2020",
+                    "dc:description": "Epic blue sunset image from AllSkyFree",
+                    "dc:format": "model/gltf+json",
+                    "dc:relation": { "@set": ["https://github.com/rpgwhitelock/AllSkyFree_Godot"] },
+                    "dc:rights": "MIT",
+                    "dc:source": "https://github.com/rpgwhitelock/AllSkyFree_Godot/blob/master/addons/AllSkyFree/Skyboxes/AllSkyFree_Sky_EpicBlueSunset_Equirect.png",
+                    "dc:subject": { "@set": ["Environment"] },
+                    "dc:title": "AllSkyFree_Sky_EpicBlueSunset_Equirect",
+                    "dc:type": { "@set": ["Skybox"] }
+                }
+            ]
+        },
+        "OMI_environment_sky": {
+            "skies": [
+                {
+                    "panorama": {
+                        "equirectangular": 0
+                    },
+                    "type": "panorama"
+                }
+            ]
+        }
+    },
+    "extensionsUsed": ["KHR_lights_punctual", "KHR_xmp_json_ld", "OMI_environment_sky"],
+    "images": [
+        {
+            "mimeType": "image/jpeg",
+            "name": "allskyfree_epic_blue_sunset",
+            "uri": "epic_blue_sunset/allskyfree_epic_blue_sunset.jpg"
+        }
+    ],
+    "materials": [{}],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": { "NORMAL": 2, "POSITION": 0, "TANGENT": 1, "TEXCOORD_0": 3 },
+                    "indices": 4,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        { "children": [1, 2], "name": "EpicBlueSunsetEquirectangular" },
+        { "mesh": 0, "name": "Box" },
+        {
+            "extensions": { "KHR_lights_punctual": { "light": 0 } },
+            "name": "Sun",
+            "rotation": [-0.0348995115423885, 0.0, 0.0, 0.999390826500875]
+        }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
+    "textures": [{ "source": 0 }]
+}

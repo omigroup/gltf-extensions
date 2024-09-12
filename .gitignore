@@ -1,2 +1,4 @@
-.DS_Store
+*.import
+*.uid
 *~
+.DS_Store
