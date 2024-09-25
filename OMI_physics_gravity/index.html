@@ -1,0 +1,1310 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../OMI_physics_body/README.trigger/">
+      
+      
+        <link rel="next" href="../OMI_physics_joint/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>OMI_physics_gravity - OMI glTF Extensions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#omi_physics_gravity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OMI glTF Extensions" class="md-header__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OMI glTF Extensions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OMI_physics_gravity
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OMI glTF Extensions" class="md-nav__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OMI glTF Extensions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KHR_audio_emitter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KHR_audio_emitter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_audio_ogg_vorbis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_ogg_vorbis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_audio_opus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_opus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_link
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_personality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_personality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../OMI_physics_body/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OMI_physics_body
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            OMI_physics_body
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.collider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.motion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.trigger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OMI_physics_gravity
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_gravity
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gltf-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      glTF Schema Updates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="glTF Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directional
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#torus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Torus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shaped" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shaped
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gravity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gravity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-distance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit Distance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radius" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radius
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shape
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Schema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Implementations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_joint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_joint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_shape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_shape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_seat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_seat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_spawn_point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_spawn_point
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Archived/OMI_collider/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Archived
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Archived
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="omi_physics_gravity">OMI_physics_gravity</h1>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>Aaron Franke, Godot Engine.</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Open Metaverse Interoperability Group Stage 1 Proposal</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>Written against the glTF 2.0 spec.</p>
+<p>Depends on the <code>OMI_physics_body</code> and <code>OMI_physics_shape</code> specs for per-node gravity volumes.</p>
+<h2 id="overview">Overview</h2>
+<p>This extension allows specifying gravity volumes on trigger glTF nodes and specifying the global world gravity at the document level.</p>
+<p>Global world gravity is always directional. A document-level extension may define the magnitude and direction of the global world gravity. Only one or zero instanced glTF files should have the document-level extension. The intention is to use the document-level extension only on the main "map" glTF. If multiple glTF files have the document-level gravity extension, use the most recently instanced glTF model's gravity (when instancing, override the previous gravity).</p>
+<p>For a per-node gravity volume, the <code>OMI_physics_gravity</code> extension MUST be defined on an <code>OMI_physics_body</code> node that is a base trigger node. Meaning, the glTF node has a trigger property, does not have motion or collider properties, and must not be a child shape of a compound trigger, as only one gravity definition is allowed per compound trigger. The shape of where the gravity influence is experienced is defined by the trigger shapes. The details of which way the gravity points can be specified in a variety of types, which are described in more detail below.</p>
+<p>Whether or not a rigid body is influenced by a gravity volume is determined by the priority/replace/stop settings of each gravity volume the body is inside of. The priority integer determines the order in which gravity volumes are calculated, with higher values being calculated first, and the global world gravity is always calculated last. The replace boolean controls whether or not to keep gravity already calculated so far from higher priority nodes. The stop boolean controls whether or not to continue calculating gravity from any lower priority nodes and the global world gravity. If only the default settings are used, where replace and stop are both false, the gravity is combined from all gravity volumes and the global world gravity.</p>
+<h3 id="example">Example:</h3>
+<p>This example defines a scene with a millionth-scale Earth planet in space. This is the same as <a href="examples/earth_millionth_scale/earth_millionth_scale.gltf">earth_millionth_scale.gltf</a> except slimmed down to only a single glTF node, the one related to gravity. It is a fully complete file that can be loaded into any app that supports this extension.</p>
+<p>In this example, the global world gravity is set to zero to mimic space. There is an Earth object with point gravity and a radius of 6.37814. The gravity strength is 9.80665 at the unit distance of 6.37814. The area of effect is a sphere with a radius of 40 units, which means the gravity cuts off to zero at a distance of 40 units from the center. Dynamic objects overlapping this sphere will be pulled towards the center by an amount determined by their distance and the field's gravity and unit distance, following the inverse square law.</p>
+<pre><code class="language-json">{
+    &quot;asset&quot;: {
+        &quot;version&quot;: &quot;2.0&quot;
+    },
+    &quot;extensions&quot;: {
+        &quot;OMI_physics_gravity&quot;: {
+            &quot;gravity&quot;: 0.0
+        },
+        &quot;OMI_physics_shape&quot;: {
+            &quot;shapes&quot;: [
+                {
+                    &quot;type&quot;: &quot;sphere&quot;,
+                    &quot;radius&quot;: 40.0
+                }
+            ]
+        }
+    },
+    &quot;extensionsUsed&quot;: [
+        &quot;OMI_physics_body&quot;,
+        &quot;OMI_physics_gravity&quot;,
+        &quot;OMI_physics_shape&quot;
+    ],
+    &quot;nodes&quot;: [
+        {
+            &quot;name&quot;: &quot;EarthGravity&quot;,
+            &quot;extensions&quot;: {
+                &quot;OMI_physics_body&quot;: {
+                    &quot;trigger&quot;: {
+                        &quot;shape&quot;: 0
+                    }
+                },
+                &quot;OMI_physics_gravity&quot;: {
+                    &quot;gravity&quot;: 9.80665,
+                    &quot;point&quot;: {
+                        &quot;unitDistance&quot;: 6.37814
+                    },
+                    &quot;type&quot;: &quot;point&quot;
+                }
+            }
+        }
+    ],
+    &quot;scene&quot;: 0,
+    &quot;scenes&quot;: [{ &quot;nodes&quot;: [0] }]
+}
+</code></pre>
+<p>More example assets can be found in the <a href="examples/">examples/</a> folder.</p>
+<h2 id="gltf-schema-updates">glTF Schema Updates</h2>
+<p>This extension consists of two new data structures for defining gravity.</p>
+<ul>
+<li>
+<p>For the root glTF document, the key <code>"OMI_physics_gravity"</code> in the document-level <code>"extensions"</code> defines global gravity for the whole world, including the entire glTF scene and any other instanced scenes. The global gravity is always directional.</p>
+</li>
+<li>
+<p>For a glTF node, the key <code>"OMI_physics_gravity"</code> in the node-level <code>"extensions"</code> defines gravity for a trigger volume as defined by <code>OMI_physics_body</code>. The area of effect is determined by the trigger volume's shapes. Objects in this volume may be affected by its gravity, depending on the priority, replace, and stop settings of gravity volumes affecting this part of space. The type of gravity determines which way the gravity points within the gravity field, and how strongly.</p>
+</li>
+</ul>
+<p>The extension must also be added to the glTF's <code>extensionsUsed</code> array and because it is optional, it does not need to be added to the <code>extensionsRequired</code> array.</p>
+<h3 id="property-summary">Property Summary</h3>
+<p>The following properties apply to the document-level extension defining the world gravity:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+<th>Valid on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>gravity</strong></td>
+<td><code>number</code></td>
+<td>The gravity amount in meters per second squared. Can be zero or negative.</td>
+<td>Required, no default</td>
+<td>Always valid</td>
+</tr>
+<tr>
+<td><strong>direction</strong></td>
+<td><code>number[3]</code></td>
+<td>The normalized direction of the gravity. World gravity is always directional.</td>
+<td>[0.0, -1.0, 0.0]</td>
+<td>Always valid</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Only one or zero instanced glTF files should have the document-level gravity extension. The intention is to only use the document-level extension on the main "map" glTF. If multiple glTF files have the document-level gravity extension, use the most recently instanced glTF file's gravity.</p>
+<p>The following properties apply to the gravity of each node, and is a superset of the world gravity properties:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+<th>Valid on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td><code>string</code></td>
+<td>The type of the gravity as a string.</td>
+<td>Required, no default</td>
+<td>Always valid</td>
+</tr>
+<tr>
+<td><strong>gravity</strong></td>
+<td><code>number</code></td>
+<td>The gravity amount in meters per second squared. Can be zero or negative.</td>
+<td>Required, no default</td>
+<td>Always valid</td>
+</tr>
+<tr>
+<td><strong>priority</strong></td>
+<td><code>number</code></td>
+<td>The process priority of this gravity node. Must be an integer.</td>
+<td>0</td>
+<td>Always valid</td>
+</tr>
+<tr>
+<td><strong>replace</strong></td>
+<td><code>boolean</code></td>
+<td>If true, replace the current gravity instead of adding to it.</td>
+<td>false</td>
+<td>Always valid</td>
+</tr>
+<tr>
+<td><strong>stop</strong></td>
+<td><code>boolean</code></td>
+<td>If true, stop checking more nodes for gravity.</td>
+<td>false</td>
+<td>Always valid</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to the type, a key with the same name as the type can be used to define a sub-JSON with the details of the shape. Which sub-properties are allowed depend on which shape type is being used. The possible properties are described in the following table.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+<th>Valid on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>direction</strong></td>
+<td><code>number[3]</code></td>
+<td>The normalized direction of the gravity relative to this node's transform.</td>
+<td>[0.0, -1.0, 0.0]</td>
+<td>Directional</td>
+</tr>
+<tr>
+<td><strong>unitDistance</strong></td>
+<td><code>number</code></td>
+<td>The distance from the nearest point at which the experienced gravity equals the <strong>gravity</strong> property.</td>
+<td>0.0</td>
+<td>Non-directional</td>
+</tr>
+<tr>
+<td><strong>radius</strong></td>
+<td><code>number</code></td>
+<td>The radius of the circle to attract gravity towards.</td>
+<td>1.0</td>
+<td>Disc, torus</td>
+</tr>
+<tr>
+<td><strong>points</strong></td>
+<td><code>number[]</code></td>
+<td>The points that make up the line segments of a line type gravity field.</td>
+<td>[]</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>shape</strong></td>
+<td><code>number</code></td>
+<td>The integer ID of a physics shape used to define the gravity direction.</td>
+<td>-1</td>
+<td>Shaped</td>
+</tr>
+</tbody>
+</table>
+<h3 id="type">Type</h3>
+<p>The <code>"type"</code> property is a string that defines the type of the gravity. This property is only valid on node gravity, for world gravity the type is always directional.</p>
+<p>The type value may be set to <code>"directional"</code>, <code>"point"</code>, <code>"disc"</code>, <code>"torus"</code>, <code>"line"</code>, or <code>"shaped"</code>.</p>
+<p>On a node, the type property must be set to one of the below values, otherwise the behavior is undefined. Further details of the gravity type are defined in a sub-JSON with the same name as the type. The possible properties in this sub-JSON are defined in the above table. If the sub-JSON is not present or is missing a property, the default value should be used.</p>
+<p>The type property is not to be confused with the shape of the gravity volume. The trigger body's shape nodes define the area in which the gravity will affect objects. The type property defines which way the gravity points and how it scales with distance.</p>
+<p>The directional and point gravity types are the easiest to implement and fastest to calculate. Preference should be given to these types when they are suitable for the desired use case.</p>
+<h4 id="directional">Directional</h4>
+<p><code>"directional"</code> gravity defines uniform parallel gravity with a given direction at the given strength. The direction is defined relative to the node's transform with the <code>"direction"</code> property.</p>
+<h4 id="point">Point</h4>
+<p><code>"point"</code> gravity defines gravity that points towards a single point, the trigger volume's origin. The <code>"unitDistance"</code> property defines the distance from the center at which the actual gravity equals the <code>"gravity"</code> property, unless <code>"unitDistance"</code> is zero, in which case the gravity is constant regardless of distance.</p>
+<p>The vector to the trigger body's origin determines the direction of gravity. The gravity strength is determined by that vector and the <code>"unitDistance"</code> property, unless <code>"unitDistance"</code> is zero, in which case the gravity is constant regardless of distance.</p>
+<p>The point type can be used to define gravity for a spherical planet, with the unit distance property being set to the radius of the planet.</p>
+<h4 id="disc">Disc</h4>
+<p><code>"disc"</code> gravity defines gravity that points toward the nearest point in a filled circle. The <code>"radius"</code> property defines the radius of the circle. The orientation of the circle is flat on the local XZ plane of the node.</p>
+<p>The vector to the nearest point in the filled circle determines the direction of gravity. The gravity strength is determined by that vector and the <code>"unitDistance"</code> property, unless <code>"unitDistance"</code> is zero, in which case the gravity is constant regardless of distance.</p>
+<p>The disc type can be conceptually thought of as two directional gravity fields on either side of the circle, connected by a smooth semicircle transition on the edge.</p>
+<h4 id="torus">Torus</h4>
+<p><code>"torus"</code> gravity defines gravity that points toward the nearest point on the edge of a hollow circle. The <code>"radius"</code> property defines the radius of the circle. The orientation of the circle is flat on the local XZ plane of the node.</p>
+<p>The vector to the nearest point on the edge of the hollow circle determines the direction of gravity. The gravity strength is determined by that vector and the <code>"unitDistance"</code> property, unless <code>"unitDistance"</code> is zero, in which case the gravity is constant regardless of distance.</p>
+<p>The torus type can be used to define gravity for a toroidal planet, with the major radius of the torus being the radius property, and the minor radius of the torus being the unit distance property (or in the case of constant gravity, the minor radius does not need to be set to any parameter).</p>
+<h4 id="line">Line</h4>
+<p><code>"line"</code> gravity defines gravity using series of line segments defined by a series of points. The <code>"points"</code> property is an array of numbers that defines these points relative to the node's transform. The size of <code>"points"</code> must be a multiple of 3 numbers and must contain at least 6 numbers.</p>
+<p>The vector to the nearest point on any of the line segments determines the direction of gravity. The gravity strength is determined by that vector and the <code>"unitDistance"</code> property, unless <code>"unitDistance"</code> is zero, in which case the gravity is constant regardless of distance.</p>
+<p>The line type is a flexible type that defines gravity towards arbitrary lines. It can be used with only 2 points to define simple shapes like gravity for cylinder or capsule planets, or with many points to define a complex snake-like gravity field.</p>
+<h4 id="shaped">Shaped</h4>
+<p><code>"shaped"</code> gravity defines gravity towards the nearest point on a physics shape. This is not to be confused with the trigger shape that defines the area of effect. The <code>"shape"</code> property references the ID of a shape as defined by <code>OMI_physics_shape</code>.</p>
+<p>The vector to the nearest point on the shape determines the direction of gravity. The gravity strength is determined by that vector and the <code>"unitDistance"</code> property, unless <code>"unitDistance"</code> is zero, in which case the gravity is constant regardless of distance.</p>
+<p>The shaped type is a flexible type that can be used to create things like cube-shaped planets or giving gravity to arbitrary surfaces with minimal effort.</p>
+<h3 id="gravity">Gravity</h3>
+<p>The <code>"gravity"</code> property is a number that defines the gravity strength in meters per second squared. Required. Can be zero or negative. If negative, the gravity points in the opposite direction of the direction vector in the case of directional gravity, or away from the nearest point of the other gravity types.</p>
+<h3 id="direction">Direction</h3>
+<p>The <code>"direction"</code> property is a vector as a three-number array. It is only valid for directional gravity.</p>
+<p>It defines the direction of the gravity relative to this node's transform. Should be normalized. If not specified, the default value is a unit vector pointing downwards, <code>[0.0, -1.0, 0.0]</code>.</p>
+<h3 id="unit-distance">Unit Distance</h3>
+<p>The <code>"unitDistance"</code> property is a number that defines how gravity scales with distance. It is only valid for non-directional gravity.</p>
+<p>It defines how the gravity strength should scale based on the distance to the nearest point. If zero, the gravity is constant regardless of distance. This value should not be negative. If not specified, the default value is 0.0.</p>
+<p>If positive, it defines the distance from the center point in meters at which the actual gravity equals the gravity amount. The gravity should have squared falloff following the <a href="https://en.wikipedia.org/wiki/Inverse-square_law">inverse square law</a>. For example, if the unit distance is 10 meters and the physics body is 20 meters away, then the experienced gravity magnitude is one quarter of the gravity property. Similarly, if the unit distance is 10 meters and the physics body is 5 meters away, then the experienced gravity magnitude is four times the gravity property.</p>
+<h3 id="radius">Radius</h3>
+<p>The <code>"radius"</code> property is a number that defines the radius of the circle to attract gravity towards. It is only valid for disc and torus gravity.</p>
+<p>The orientation of the circle is flat on the local XZ plane of the node. If not specified, the default value is 1.0.</p>
+<h3 id="points">Points</h3>
+<p>The <code>"points"</code> property is an array of vectors, each made of 3 numbers. It is only valid for line gravity.</p>
+<p>The size of <code>"points"</code> must be a multiple of 3 numbers and must contain at least 6 numbers. If not specified, the default value is an empty array, which is an invalid value and will have no effect.</p>
+<h3 id="shape">Shape</h3>
+<p>The <code>"shape"</code> property is an integer that defines the ID of a physics shape as defined by <code>OMI_physics_shape</code>. It is only valid for shaped gravity.</p>
+<p>Defines the shape which is used to determine the direction of gravity. If not specified, the default value is -1, meaning the shape is invalid and will have no effect.</p>
+<h3 id="priority">Priority</h3>
+<p>The <code>"priority"</code> property is an integer that defines the process order of this gravity node. Must be an integer.</p>
+<p>Higher priority gravity nodes are processed first. The world gravity is always processed last, after all gravity nodes. If not specified, the default value is 0.</p>
+<p>Asset creators are highly encouraged to use priority numbers with large gaps, such as thousands or hundreds. This allows for adding new priority values in-between later. For example, a glTF file could have gravity nodes with priorities 1000 and 2000, then another gravity node can later be inserted in-between with a priority of 1500 without changing the existing gravity nodes. This can be repeated for adding a gravity node between 1000 and 1500, etc. If there are small volumes expected to be processed first, they should have very high priority values (positive thousands), while maps and other large volumes that are expected to be processed last should have very low negative priority (negative thousands).</p>
+<h3 id="replace">Replace</h3>
+<p>The <code>"replace"</code> property is a boolean. If not specified, the default value is false.</p>
+<p>If true, the gravity of this gravity volume replaces the calculated gravity instead of adding to it. This discards all previously applied gravity of higher priority nodes.</p>
+<h3 id="stop">Stop</h3>
+<p>The <code>"stop"</code> property is a boolean. If not specified, the default value is false.</p>
+<p>If true, stop checking more gravity volume nodes for gravity. This means that lower priority gravity nodes will be ignored. This also ignores the world gravity, which is always calculated last.</p>
+<h3 id="additional-examples">Additional Examples</h3>
+<p>The gravity types described above can be used in a variety of ways to create a wide variety of gravity types. Here are some examples of how to use the above gravity types to define other gravity shapes.</p>
+<table>
+<thead>
+<tr>
+<th>Example name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capsule</td>
+<td>Line gravity with 2 points where the line spans the mid-height and is fully inside the trigger volume.</td>
+</tr>
+<tr>
+<td>Cylinder</td>
+<td>Line gravity with 2 points where the line touches or surpasses the ends of the trigger volume.</td>
+</tr>
+<tr>
+<td>Wedge</td>
+<td>Line gravity with 2 points where the line is defined at the corner edge of a trigger volume.</td>
+</tr>
+<tr>
+<td>Cone</td>
+<td>Line gravity with 2 points, plus directional gravity pointing towards the large end of the cone.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-schema">JSON Schema</h3>
+<p>See <a href="schema/glTF.OMI_physics_gravity.schema.json">schema/glTF.OMI_physics_gravity.schema.json</a> for document-level gravity, <a href="schema/node.OMI_physics_gravity.schema.json">schema/node.OMI_physics_gravity.schema.json</a> for node-level gravity, and the <code>schema/node.OMI_physics_gravity.*.schema.json</code> files for the sub-JSON schemas for gravity types.</p>
+<h2 id="known-implementations">Known Implementations</h2>
+<ul>
+<li>Godot Engine add-on</li>
+</ul>
+<h2 id="resources">Resources:</h2>
+<ul>
+<li>Godot Area3D: https://docs.godotengine.org/en/latest/classes/class_area3d.html</li>
+<li>Gravity in Super Mario Galaxy: https://www.youtube.com/watch?v=QLH_0T_xv3I</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>

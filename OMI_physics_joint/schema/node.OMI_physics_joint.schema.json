@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_joint.schema.json",
+    "title": "OMI_physics_joint glTF Node Extension",
+    "type": "object",
+    "description": "Node extension that references a physics joint.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+    "properties": {
+        "constraints": {
+            "description": "An array of ids of joint constraints that are applied to the node.",
+            "type": "array",
+            "items": {
+                "type": "number",
+                "$ref": "glTFid.schema.json"
+            },
+            "minItems": 1
+        },
+        "nodeA": {
+            "description": "The id of the first node.",
+            "type": "number",
+            "$ref": "glTFid.schema.json"
+        },
+        "nodeB": {
+            "description": "The id of the second node.",
+            "type": "number",
+            "$ref": "glTFid.schema.json"
+        },
+        "extensions": { },
+        "extras": { }
+    },
+    "required": [
+        "constraints"
+    ]
+}

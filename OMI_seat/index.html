@@ -1,0 +1,1030 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../OMI_physics_shape/">
+      
+      
+        <link rel="next" href="../OMI_spawn_point/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>OMI_seat - OMI glTF Extensions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#omi_seat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OMI glTF Extensions" class="md-header__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OMI glTF Extensions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OMI_seat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OMI glTF Extensions" class="md-nav__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OMI glTF Extensions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KHR_audio_emitter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KHR_audio_emitter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_audio_ogg_vorbis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_ogg_vorbis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_audio_opus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_opus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_link
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_personality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_personality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../OMI_physics_body/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OMI_physics_body
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            OMI_physics_body
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.collider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.motion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.trigger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_gravity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_gravity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_joint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_joint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_shape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_shape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OMI_seat
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    OMI_seat
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gltf-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      glTF Schema Updates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="glTF Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back" class="md-nav__link">
+    <span class="md-ellipsis">
+      Back
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Angle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Schema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Implementations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_spawn_point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_spawn_point
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Archived/OMI_collider/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Archived
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Archived
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="omi_seat">OMI_seat</h1>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>Aaron Franke, The Mirror Megaverse Inc.</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Open Metaverse Interoperability Group Stage 2 Proposal</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>Written against the glTF 2.0 spec.</p>
+<p>Optionally depends on the <code>OMI_physics_body</code> spec for triggers.</p>
+<h2 id="overview">Overview</h2>
+<p>This extension allows defining a glTF node as a seat which a humanoid character can sit on.</p>
+<p>A seat is defined by specifying the back, foot, and knee positions on the seat from which can be derived the IK positions and directions for placing a humanoid character on that seat. Optionally, the angle between the upper leg and spine can also be defined. This definition supports seats placed in any orientation and supports characters of any size sitting on them.</p>
+<p>In addition to being defined independently, the <code>OMI_seat</code> extension can be defined on an <code>OMI_physics_body</code> node with the type set to trigger. When <code>OMI_seat</code> is on a trigger, the trigger should be treated as an entry for the seat, such that a player activating that trigger should cause that player to enter the seat.</p>
+<p>Alternate seated positions, such as a tiny character with straight legs on top of the seat, or a character with their legs crossed on top of the seat, are not the recommended use cases of the seat definition, but are not forbidden if an app wants a character to sit in an unusual position. The primary purpose of this spec is to define the seat itself; how characters sit on that seat is secondary, and the fine details are up to the implementation.</p>
+<p>This extension does not define any animations for entering or exiting the seat. It also does not define anything that a character's arms, head, tail, or chest should be doing, it only defines information about the seat itself intended to be used to place the legs on the seat.</p>
+<h3 id="example">Example:</h3>
+<p>This example defines a seat using a simple chair facing positive Z. This is the same as the <code>simple_chair_pos_z.gltf</code> example, but without the mesh data.</p>
+<pre><code class="language-json">{
+    &quot;asset&quot;: {
+        &quot;version&quot;: &quot;2.0&quot;
+    },
+    &quot;extensionsUsed&quot;: [
+        &quot;OMI_seat&quot;
+    ],
+    &quot;nodes&quot;: [
+        {
+            &quot;mesh&quot;: 0,
+            &quot;name&quot;: &quot;SimpleChairMesh&quot;
+        },
+        {
+            &quot;children&quot;: [
+                0
+            ],
+            &quot;name&quot;: &quot;SimpleChairPosZ&quot;,
+            &quot;extensions&quot;: {
+                &quot;OMI_seat&quot;: {
+                    &quot;back&quot;: [0, 0.33, -0.24],
+                    &quot;foot&quot;: [0, -0.25, 0.3],
+                    &quot;knee&quot;: [0, 0.33, 0.3]
+                }
+            }
+        }
+    ],
+    &quot;scene&quot;: 0,
+    &quot;scenes&quot;: [{ &quot;nodes&quot;: [1] }],
+}
+</code></pre>
+<p>More example assets can be found in the <a href="examples/">examples/</a> folder.</p>
+<h2 id="gltf-schema-updates">glTF Schema Updates</h2>
+<p>This extension consists of one new data structure for defining the seat limits, <code>"OMI_seat"</code>. The key <code>"OMI_seat"</code> can be added to the node-level <code>"extensions"</code> of a glTF node to define a seat.</p>
+<p>The extension must also be added to the glTF's <code>extensionsUsed</code> array and because it is optional, it does not need to be added to the <code>extensionsRequired</code> array.</p>
+<h3 id="property-summary">Property Summary</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>back</strong></td>
+<td><code>number[3]</code></td>
+<td>The position limit on the seat corresponding to the character's back in local space.</td>
+<td>Required, no default</td>
+</tr>
+<tr>
+<td><strong>foot</strong></td>
+<td><code>number[3]</code></td>
+<td>The position limit on the seat corresponding to the character's feet in local space.</td>
+<td>Required, no default</td>
+</tr>
+<tr>
+<td><strong>knee</strong></td>
+<td><code>number[3]</code></td>
+<td>The base position on the seat corresponding to the character's knees in local space.</td>
+<td>Required, no default</td>
+</tr>
+<tr>
+<td><strong>angle</strong></td>
+<td><code>number</code></td>
+<td>The angle between the spine and back-knee line in radians.</td>
+<td>1.570796... (τ/4 or π/2 rad, 90 deg)</td>
+</tr>
+</tbody>
+</table>
+<p>To avoid confusion with different standards of which direction is the forward direction, we define the forward direction by the direction from the back position to the knee position. The up direction is a vector perpendicular to the forward direction such that the direction from the knee to the foot points down. The back, foot, and knee positions should not be colinear or nearly colinear.</p>
+<h3 id="back">Back</h3>
+<p>The <code>"back"</code> property is a vector as a three-number array that defines the position limit of the character's back and hips in local space.</p>
+<p>The character's upper leg (thigh) bones are typically placed on lines parallel to the line between the knee and back points, with the lines offset upward based on the thickness of the upper leg and offset to the side based on the desired distance between each leg. If the upper leg is smaller than this line, then the knees are aligned with the knee point, and the hips are moved forward in-between the knee and back points. If the upper leg is larger than this line, then the hips are aligned with the back point, the knees are moved forward farther than the knee point. The knees may also be moved up depending on the foot-knee constraint.</p>
+<h3 id="foot">Foot</h3>
+<p>The <code>"foot"</code> property is a vector as a three-number array that defines the position limit of the character's feet and lower legs in local space.</p>
+<p>The character's lower leg (calf) bones are typically placed on lines parallel to the line between the knee and foot points, with the lines offset forward based on the thickness of the lower leg and offset to the side based on the desired distance between each leg. If the lower leg is smaller than this line, then the knees are aligned with the knee point, and the feet are moved upward in-between the knee and back points. If the lower leg is larger than this line, then the feet are aligned with the foot point, and the knee is moved upward farther than the knee point. The knees may also be moved forward depending on the back-knee constraint.</p>
+<h3 id="knee">Knee</h3>
+<p>The <code>"knee"</code> property is a vector as a three-number array that defines the base position of the character's knees in local space.</p>
+<h3 id="angle">Angle</h3>
+<p>The <code>"angle"</code> property is a number that defines the angle between the spine and the line connecting the back and knee positions. If not specified, the default value is <code>1.57079632679489662</code> or τ/4 or π/2, which is 90 degrees represented in radians.</p>
+<p>This is an angle instead of a position because:
+* We want to support cases where the character in the seat is smaller than the seat, in which case the hips may be far from the back position in order to place the knees at the knee vector, and the angle between the hips and an upper position would change. Instead we just want to define which direction the spine points.
+* We do not want to define the upper bound of a seat. A seat should support arbitrarily large characters (if an app wants to limit character size, that's an application-specific constraint beyond the scope of seats), and there is no way to IK a large character within such a constraint without breaking their back or violating other constraints, unlike with the foot/knee/back position.
+* We want to make this optional for simple use cases. Defining an angle between the spine and back-knee line is unnecessary information for most office chairs, dinner table chairs, and seats without a solid back.</p>
+<p>This property only needs to be defined when the desired angle between the spine and back-knee line is not 90 degrees. For example, a reclining chair that has a back tilted so the character could lie back should have this defined.</p>
+<h3 id="property-details">Property Details</h3>
+<p>The positions defined above can be used to uniquely find other vectors used to place a character on the seat.</p>
+<ul>
+<li>The upper leg main direction is the direction from the back vector to the knee vector. This is also the forward direction.</li>
+<li>The lower leg main direction is the direction from the knee vector to the foot vector.</li>
+<li>The right direction is the normalized cross product of the lower leg main direction and the upper leg main direction.</li>
+<li>The upper leg up direction is the cross product of the right direction and the upper leg main direction.</li>
+<li>The lower leg forward direction is the cross product of the right direction and the lower leg main direction.</li>
+<li>The spine direction can be found by rotating the upper leg main direction around the right vector by the angle property.</li>
+</ul>
+<p>These are the directions of the seat itself, the actual directions a character ends up at may be different. The specifics of this depend on the IK system used. However, one common feature is the need to offset from the seat based on the thickness of the legs in order to determine the points to use for IK, so that we avoid the character's legs being inside of the seat itself.</p>
+<ul>
+<li>The IK position for the back/hips/spine is the back position, plus the upper leg thickness times the upper leg up direction, plus the spine thickness times the upper leg main direction.</li>
+<li>The IK position for the feet is the foot position, plus the lower leg thickness times the lower leg forward direction, minus the foot thickness times the lower leg main direction.</li>
+<li>The IK position for the knees is more complicated. It needs to be adjusted by both the upper leg and lower leg offsets. For perpendicular upper and lower legs, this is trivial, you just add the vectors together. Otherwise some trigonometry is required. The knee offset can be found by adding the upper leg offset with the upper leg direction multiplied by an adjustment scalar. The adjustment scalar can be found with the lower offset length divided by the sin of the angle between the legs, minus the upper offset length divided by the tan of the angle between the legs.</li>
+</ul>
+<p>In a nutshell, the legs sit as close to the seat as possible while not clipping though it, therefore we offset by the leg thickness, otherwise the leg bones would be exactly on the seat's surface. We want to keep the seat's points exactly on the seat and have the character legs offset from the seat's points so that we don't play favorites for any particular leg size.</p>
+<h3 id="json-schema">JSON Schema</h3>
+<p>See <a href="schema/node.OMI_seat.schema.json">schema/node.OMI_seat.schema.json</a> for the schema.</p>
+<h2 id="known-implementations">Known Implementations</h2>
+<ul>
+<li>Godot Engine add-on</li>
+</ul>
+<h2 id="resources">Resources:</h2>
+<ul>
+<li>None</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>

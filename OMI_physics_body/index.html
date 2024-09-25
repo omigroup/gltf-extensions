@@ -1,0 +1,835 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../OMI_personality/">
+      
+      
+        <link rel="next" href="README.collider/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>Overview - OMI glTF Extensions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#omi_physics_body" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OMI glTF Extensions" class="md-header__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OMI glTF Extensions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OMI glTF Extensions" class="md-nav__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OMI glTF Extensions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KHR_audio_emitter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KHR_audio_emitter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_audio_ogg_vorbis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_ogg_vorbis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_audio_opus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_opus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_link
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_personality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_personality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    OMI_physics_body
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            OMI_physics_body
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="README.collider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="README.motion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="README.trigger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_gravity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_gravity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_joint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_joint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_shape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_shape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_seat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_seat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_spawn_point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_spawn_point
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Archived/OMI_collider/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Archived
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Archived
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="omi_physics_body">OMI_physics_body</h1>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>Aaron Franke, The Mirror Megaverse Inc.</li>
+<li>Mauve Signweaver, Mauve Software Inc.</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Open Metaverse Interoperability Group Stage 1 Proposal</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>Written against the glTF 2.0 spec.</p>
+<p>Depends on the <code>OMI_physics_shape</code> spec to be useful.</p>
+<h2 id="overview">Overview</h2>
+<p>This extension allows for specifying physics bodies in glTF scenes.</p>
+<p>Nodes with the <code>OMI_physics_body</code> extension may define motion, collider, and trigger properties.</p>
+<p>If a node with a collider shape does not have a motion property on itself or an ancestor node, it should be a static solid object that does not move.</p>
+<h3 id="example">Example:</h3>
+<p>This example defines a static body node which has a single box collider as a child:</p>
+<pre><code class="language-json">{
+    &quot;asset&quot;: {
+        &quot;version&quot;: &quot;2.0&quot;
+    },
+    &quot;extensions&quot;: {
+        &quot;OMI_physics_shape&quot;: {
+            &quot;shapes&quot;: [
+                {
+                    &quot;type&quot;: &quot;box&quot;,
+                    &quot;box&quot;: {
+                        &quot;size&quot;: [1, 2, 3]
+                    }
+                }
+            ]
+        }
+    },
+    &quot;extensionsUsed&quot;: [
+        &quot;OMI_physics_body&quot;,
+        &quot;OMI_physics_shape&quot;
+    ],
+    &quot;nodes&quot;: [
+        {
+            &quot;extensions&quot;: {
+                &quot;OMI_physics_body&quot;: {
+                    &quot;motion&quot;: {
+                        &quot;type&quot;: &quot;dynamic&quot;
+                    },
+                    &quot;collider&quot;: {
+                        &quot;shape&quot;: 0
+                    }
+                }
+            },
+            &quot;name&quot;: &quot;DynamicBox&quot;
+        }
+    ],
+    &quot;scene&quot;: 0,
+    &quot;scenes&quot;: [{ &quot;nodes&quot;: [0] }]
+}
+</code></pre>
+<p>The above example shows dynamic motion and collision shape specified on one node. A nearly identical example using 2 nodes can be found in <a href="examples/basic/dynamic_box.gltf">examples/basic/dynamic_box.gltf</a>.</p>
+<p>More example assets can be found in the <a href="examples/">examples/</a> folder. All of these examples use both <code>OMI_physics_shape</code> and <code>OMI_physics_body</code>.</p>
+<h2 id="gltf-schema-updates">glTF Schema Updates</h2>
+<p>This extension consists of a new <code>OMI_physics_body</code> data structure which can be added to a glTF node.</p>
+<p>The extension must also be added to the glTF's <code>extensionsUsed</code> array and because it is optional, it does not need to be added to the <code>extensionsRequired</code> array.</p>
+<p>The extension is intended to be used together with <code>OMI_physics_shape</code>, which defines the shapes used by the <code>"shape"</code> properties inside of the <code>"collider"</code> and <code>"trigger"</code> sub-JSON properties.</p>
+<h3 id="property-summary">Property Summary</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>motion</strong></td>
+<td>JSON</td>
+<td>If present, this node has its motion controlled by physics.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><strong>collider</strong></td>
+<td>JSON</td>
+<td>If present, this node is solid and can be collided with.</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><strong>trigger</strong></td>
+<td>JSON</td>
+<td>If present, this node is non-solid and can act as a trigger.</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each of these properties are recommended to be defined on separate nodes. This results in a very clear, simple, and portable document structure, and ensures that each behavior has its own transform. However, they may also be all defined on the same node. Implementations must support all of these cases in order to be compliant.</p>
+<h4 id="motion">Motion</h4>
+<p>If a node has the <code>"motion"</code> property defined, its transform is driven by the physics engine.</p>
+<p>The list of motion properties and their details can be found in the <a href="README.motion/">README.motion.md</a> file.</p>
+<h4 id="collider">Collider</h4>
+<p>If a node has the <code>"collider"</code> property defined, it is a solid collider node that objects can collide with.</p>
+<p>The list of collider properties and their details can be found in the <a href="README.collider/">README.collider.md</a> file.</p>
+<h4 id="trigger">Trigger</h4>
+<p>If a node has the <code>"trigger"</code> property defined, it is a non-solid trigger that can detect when objects enter it.</p>
+<p>The list of trigger properties and their details can be found in the <a href="README.trigger/">README.trigger.md</a> file.</p>
+<h3 id="json-schema">JSON Schema</h3>
+<p>See <a href="schema/node.OMI_physics_body.schema.json">node.OMI_physics_body.schema.json</a> for the main node schema, and these for the sub-JSON property schemas:
+* Motion: <a href="schema/node.OMI_physics_body.motion.schema.json">node.OMI_physics_body.motion.schema.json</a>
+* Collider: <a href="schema/node.OMI_physics_body.collider.schema.json">node.OMI_physics_body.collider.schema.json</a>
+* Trigger: <a href="schema/node.OMI_physics_body.trigger.schema.json">node.OMI_physics_body.trigger.schema.json</a></p>
+<h2 id="known-implementations">Known Implementations</h2>
+<ul>
+<li>Godot Engine: https://github.com/godotengine/godot/pull/78967</li>
+</ul>
+<h2 id="resources">Resources:</h2>
+<ul>
+<li>Unity colliders: https://docs.unity3d.com/Manual/CollidersOverview.html</li>
+<li>Unreal Engine Physics: https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/Physics/Collision/Overview/</li>
+<li>Godot Physics Body: https://docs.godotengine.org/en/stable/classes/class_physicsbody.html</li>
+<li>Godot Area: https://docs.godotengine.org/en/stable/classes/class_area.html</li>
+<li>Godot RigidBody3D: https://docs.godotengine.org/en/latest/classes/class_rigidbody3d.html</li>
+<li>Wikipedia Moment of Inertia: https://en.wikipedia.org/wiki/Moment_of_inertia</li>
+<li>Wikipedia Rigid Body Dynamics: https://en.wikipedia.org/wiki/Rigid_body_dynamics</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>

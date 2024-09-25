@@ -1,0 +1,1205 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../OMI_physics_gravity/">
+      
+      
+        <link rel="next" href="../OMI_physics_shape/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>OMI_physics_joint - OMI glTF Extensions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#omi_physics_joint" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OMI glTF Extensions" class="md-header__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OMI glTF Extensions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OMI_physics_joint
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OMI glTF Extensions" class="md-nav__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OMI glTF Extensions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KHR_audio_emitter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KHR_audio_emitter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_audio_ogg_vorbis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_ogg_vorbis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_audio_opus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_opus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_link
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_personality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_personality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../OMI_physics_body/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OMI_physics_body
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            OMI_physics_body
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.collider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.motion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_body/README.trigger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_gravity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_gravity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OMI_physics_joint
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_joint
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gltf-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      glTF Schema Updates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="glTF Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#joint-constraint-property-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joint Constraint Property Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Joint Constraint Property Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-axes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Axes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angular-axes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Angular Axes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lower-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lower Limit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upper-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upper Limit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stiffness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stiffness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#damping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-property-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Property Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Property Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-a-and-node-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node A and Node B
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-property-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Property Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Schema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Implementations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_physics_shape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_shape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_seat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_seat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OMI_spawn_point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_spawn_point
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Archived/OMI_collider/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Archived
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Archived
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="omi_physics_joint">OMI_physics_joint</h1>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>Aaron Franke, The Mirror Megaverse Inc.</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Open Metaverse Interoperability Group Stage 1 Proposal</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>Written against the glTF 2.0 spec.</p>
+<p>Depends on the <code>OMI_physics_body</code> spec, which depends on the <code>OMI_physics_shape</code> spec.</p>
+<h2 id="overview">Overview</h2>
+<p>This extension allows defining a glTF node as a physics joint for constraining dynamic bodies.</p>
+<p>Each physics joint node is a separate node that references the two bodies it joints together. At least one of the bodies must be a dynamic body (<code>OMI_physics_body</code> motion type "dynamic") for the joint to function. One or zero of the connected nodes may be a solid body that joints cannot move (<code>OMI_physics_body</code> motion type "static" or "kinematic"). A joint cannot be connected to a trigger body, and cannot be connected to a non-<code>OMI_physics_body</code> glTF node.</p>
+<p>Each physics joint node must reference one or more joint constraints defined in the document-level joint constraints array.</p>
+<p>A joint should be on its own glTF node, it should not be on the same node as a mesh, camera, light, physics body, physics shape, etc.</p>
+<h3 id="example">Example:</h3>
+<p>This example defines 2 dynamic bodies that are connected with a joint that constrains linearly on a fixed point, also known as a "pin" joint. This example JSON is a subset of the <a href="examples/simple_joint.gltf">examples/simple_joint.gltf</a> file.</p>
+<pre><code class="language-json">{
+    &quot;asset&quot;: {
+        &quot;version&quot;: &quot;2.0&quot;
+    },
+    &quot;extensionsUsed&quot;: [
+        &quot;OMI_physics_body&quot;,
+        &quot;OMI_physics_joint&quot;,
+        &quot;OMI_physics_shape&quot;
+    ],
+    &quot;extensions&quot;: {
+        &quot;OMI_physics_joint&quot;: {
+            &quot;constraints&quot;: [
+                {
+                    &quot;linearAxes&quot;: [0, 1, 2]
+                }
+            ]
+        }
+    },
+    &quot;nodes&quot;: [
+        {
+            &quot;extensions&quot;: {
+                &quot;OMI_physics_joint&quot;: {
+                    &quot;constraints&quot;: [0],
+                    &quot;nodeA&quot;: 1,
+                    &quot;nodeB&quot;: 2
+                }
+            },
+            &quot;name&quot;: &quot;PinJoint&quot;,
+            &quot;translation&quot;: [-0.23, 0.6, 0.0]
+        },
+        {
+            &quot;extensions&quot;: {
+                &quot;OMI_physics_body&quot;: {
+                    &quot;motion&quot;: {
+                        &quot;type&quot;: &quot;dynamic&quot;
+                    }
+                }
+            },
+            &quot;name&quot;: &quot;BodyA&quot;,
+            &quot;rotation&quot;: [0.0, 0.0, -0.17364804446697, 0.984807789325714],
+            &quot;translation&quot;: [-0.45, 0.68, 0.0]
+        },
+        {
+            &quot;extensions&quot;: {
+                &quot;OMI_physics_body&quot;: {
+                    &quot;motion&quot;: {
+                        &quot;type&quot;: &quot;dynamic&quot;
+                    }
+                }
+            },
+            &quot;name&quot;: &quot;BodyB&quot;,
+            &quot;translation&quot;: [0.0, 0.6, 0.0]
+        }
+    ]
+}
+</code></pre>
+<p>More example assets can be found in the <a href="examples/">examples/</a> folder.</p>
+<h2 id="gltf-schema-updates">glTF Schema Updates</h2>
+<p>This extension consists of three new data structures for defining joints. A glTF file with joints should have a document-level <code>"OMI_physics_joint"</code> object added to the document <code>"extensions"</code> which contains an array of joint constraints. Each joint constraint is an object defined as the below spec. Then, the key <code>"OMI_physics_joint"</code> can be added to the node-level <code>"extensions"</code> of a glTF node to define that node as a physics joint. Each joint node has an array of constraints that references the document-level constraints array by index, and each joint node also references 2 physics body nodes.</p>
+<p>The extension must also be added to the glTF's <code>extensionsUsed</code> array and because it is optional, it does not need to be added to the <code>extensionsRequired</code> array.</p>
+<h3 id="joint-constraint-property-summary">Joint Constraint Property Summary</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>linearAxes</strong></td>
+<td><code>number[0..3]</code></td>
+<td>The axes to constrain. Can only contain 0 (X), 1 (Y), or 2 (Z).</td>
+<td>[] (empty array)</td>
+</tr>
+<tr>
+<td><strong>angularAxes</strong></td>
+<td><code>number[0..3]</code></td>
+<td>The axes to constrain. Can only contain 0 (X), 1 (Y), or 2 (Z).</td>
+<td>[] (empty array)</td>
+</tr>
+<tr>
+<td><strong>lowerLimit</strong></td>
+<td><code>number</code></td>
+<td>The lower limit of the constraint, in meters or radians.</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td><strong>upperLimit</strong></td>
+<td><code>number</code></td>
+<td>The lower limit of the constraint, in meters or radians.</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td><strong>stiffness</strong></td>
+<td><code>number</code></td>
+<td>The stiffness of the limits, how hard to spring back when beyond.</td>
+<td>Infinity</td>
+</tr>
+<tr>
+<td><strong>damping</strong></td>
+<td><code>number</code></td>
+<td>When beyond the limits, the damping of the springing back motion.</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p>A joint constraint should define at least one linear axis or one angular axis, otherwise the joint constraint will not perform any constraints.</p>
+<p>The reason that joints constraints are defined at the document-level and referenced on nodes is because it's very common to have many joints with the same constraints. For example, a long rope using many bodies each with pin joints (linear axes constrained) would have the same joint constraints repeated many times, but with different nodes attached.</p>
+<h4 id="linear-axes">Linear Axes</h4>
+<p>The <code>"linearAxes"</code> property defines a list of linear axes to constrain. Can only contain 3 possible values, 0 (X), 1 (Y), or 2 (Z). If empty or not specified, this joint constraint does not constrain linearly.</p>
+<h4 id="angular-axes">Angular Axes</h4>
+<p>The <code>"angularAxes"</code> property defines a list of angular axes to constrain. Can only contain 3 possible values, 0 (X), 1 (Y), or 2 (Z). If empty or not specified, this joint constraint does not constrain angularly.</p>
+<h4 id="lower-limit">Lower Limit</h4>
+<p>The <code>"lowerLimit"</code> property defines the lower limit of the constraint in meters or radians, depending on whether the constraint is linear or angular. If not specified, the default value is 0.0.</p>
+<p>The lower limit must be less than or equal to the upper limit, otherwise the constraint is invalid. If the lower and upper limits are equal, the constraint is fixed on that value.</p>
+<h4 id="upper-limit">Upper Limit</h4>
+<p>The <code>"upperLimit"</code> property defines the upper limit of the constraint in meters or radians, depending on whether the constraint is linear or angular. If not specified, the default value is 0.0.</p>
+<p>The upper limit must be greater than or equal to the lower limit, otherwise the constraint is invalid. If the lower and upper limits are equal, the constraint is fixed on that value.</p>
+<h4 id="stiffness">Stiffness</h4>
+<p>The <code>"stiffness"</code> property defines how soft or hard the limits are, and how much force should be applied to the bodies to spring back once they surpasses the limits. Must be positive. If not specified, the default value is infinity.</p>
+<p>A lower value indicates a softer limit, while a higher value indicades a harder limit. A value of infinity means the limits should be completely hard and may not be surpassed. Implementations are expected to clamp this to within the limits of the physics engine. For example, if a physics engine cannot handle an infinite stiffness, it should be set to a high value, since an extremely stiff joint is close enough to an infinitely stiff joint. For more information, see the Wikipedia article on stiffness.</p>
+<h4 id="damping">Damping</h4>
+<p>The <code>"damping"</code> property defines the amount of damping the bodies should experience while the bodies surpasses the limits and are springing back to be within them. Damping must not be applied when within the limits. Must be non-negative. If not specified, the default value is 1.0.</p>
+<h3 id="node-property-summary">Node Property Summary</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>constraints</strong></td>
+<td><code>number[]</code></td>
+<td>Array of indices in the document-level constraint array. Must be integers.</td>
+<td>Required, no default</td>
+</tr>
+<tr>
+<td><strong>nodeA</strong></td>
+<td><code>number</code></td>
+<td>Node index of one physics body used by the joint. Must be an integer.</td>
+<td>Required, no default</td>
+</tr>
+<tr>
+<td><strong>nodeB</strong></td>
+<td><code>number</code></td>
+<td>Node index of one physics body used by the joint. Must be an integer.</td>
+<td>Required, no default</td>
+</tr>
+</tbody>
+</table>
+<h4 id="constraints">Constraints</h4>
+<p>The <code>"constraints"</code> property defines the joint constraints to use for this joint. Must be an array of integers which are the index of the constraint in the document-level array.</p>
+<p>If a joint node has multiple joint constraints that overlap each other, later constraints should override the previous constraints.</p>
+<h4 id="node-a-and-node-b">Node A and Node B</h4>
+<p>Each of these properties defines one of two bodies used by the joint. Must be an integer which is the index of the glTF node, and that node must be a physics body defined using the <code>OMI_physics_body</code> spec.</p>
+<p>At least one of the connected nodes must be a physics body using dynamic rigid body physics, meaning <code>OMI_physics_body</code> motion type set to "dynamic". If neither node is using dynamic rigid body physics, the joints will not work. When physics body nodes are joined, they should not collide with each other. One or zero of the nodes can be a solid body that cannot be moved by joints, meaning <code>OMI_physics_body</code> motion type set to "static" or "kinematic". A connected node cannot be null, cannot be a non-body, and cannot be a trigger body.</p>
+<p>The position on the body on which the joint operates is determined by the position of the joint relative to each body node. As such, the initial position of the joint node matters.</p>
+<h3 id="document-property-summary">Document Property Summary</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>constraints</strong></td>
+<td><code>object[]</code></td>
+<td>Array of joint constraint objects.</td>
+<td>Required, no default</td>
+</tr>
+</tbody>
+</table>
+<h3 id="special-cases">Special Cases</h3>
+<p>While a generic joint type is very useful and extensible, it's also worth defining when a generic joint is equivalent to a special-purpose joint. These mappings can be used to convert to more optimized joint types if supported in a physics engine, or as simply a friendly name to display to a user.</p>
+<p>In this chart, "fixed" means "constrained with lower and upper limits set to zero", and "free" means "not constrained".</p>
+<table>
+<thead>
+<tr>
+<th>Special case name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed / Weld Joint</td>
+<td>All axes fixed.</td>
+</tr>
+<tr>
+<td>Pin Joint</td>
+<td>All linear axes fixed, all angular axes free.</td>
+</tr>
+<tr>
+<td>Hinge Joint</td>
+<td>One angular axis constrained with non-equal lower and upper limits, the rest are fixed.</td>
+</tr>
+<tr>
+<td>Slider Joint</td>
+<td>One linear axis and optionally the angular axis around it constrained with non-equal lower and upper limits, the rest are fixed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-schema">JSON Schema</h3>
+<p>See <a href="schema/glTF.OMI_physics_joint.joint_constraint.schema.json">glTF.OMI_physics_joint.joint_constraint.schema.json</a>, <a href="schema/node.OMI_physics_joint.schema.json">node.OMI_physics_joint.schema.json</a>, and <a href="schema/glTF.OMI_physics_joint.schema.json">glTF.OMI_physics_joint.schema.json</a> for the schemas.</p>
+<h2 id="known-implementations">Known Implementations</h2>
+<ul>
+<li>Godot Engine add-on</li>
+</ul>
+<h2 id="resources">Resources:</h2>
+<ul>
+<li>Godot Joint3D https://docs.godotengine.org/en/latest/classes/class_generic6dofjoint3d.html</li>
+<li>Unity Joints https://docs.unity3d.com/Manual/Joints.html</li>
+<li>Wikipedia Stiffness https://en.wikipedia.org/wiki/Stiffness</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>

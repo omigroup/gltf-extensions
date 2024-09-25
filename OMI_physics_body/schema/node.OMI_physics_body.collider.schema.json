@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_body.collider.schema.json",
+    "title": "OMI_physics_body Collider Property",
+    "type": "object",
+    "description": "Parameters describing the geometric shape used for collisions.",
+    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
+    "properties": {
+        "shape": {
+            "allOf": [ { "$ref": "glTFid.schema.json" } ],
+            "description": "The id of the shape referenced by this node.",
+            "default": -1
+        },
+        "extensions": { },
+        "extras": { }
+    }
+}

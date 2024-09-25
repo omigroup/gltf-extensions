@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_gravity.directional.schema.json",
+    "title": "OMI_physics_gravity Directional Gravity",
+    "type": "object",
+    "description": "Parameters describing a directional gravity field.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+    "properties": {
+        "direction": {
+            "type": "array",
+            "description": "The normalized direction of gravity relative to this node's transform.",
+            "default": [0.0, -1.0, 0.0],
+            "minItems": 3,
+            "maxItems": 3
+        },
+        "extensions": { },
+        "extras": { }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_gravity.shaped.schema.json",
+    "title": "OMI_physics_gravity Shaped Gravity",
+    "type": "object",
+    "description": "Parameters describing a gravity field that points towards a shape.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+    "properties": {
+        "shape": {
+            "$ref": "glTFid.schema.json",
+            "description": "The ID of the shape defined by OMI_physics_shape which gravity points towards."
+        },
+        "unitDistance": {
+            "type": "number",
+            "description": "The distance from the nearest point at which the gravity equals the gravity property. If zero or not specified, the gravity strength is constant.",
+            "default": 0.0
+        },
+        "extensions": { },
+        "extras": { }
+    },
+    "required": [
+        "shape"
+    ]
+}

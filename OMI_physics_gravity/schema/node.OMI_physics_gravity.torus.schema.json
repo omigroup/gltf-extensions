@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "node.OMI_physics_gravity.torus.schema.json",
+    "title": "OMI_physics_gravity Torus Gravity",
+    "type": "object",
+    "description": "Parameters describing a torus gravity field.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+    "properties": {
+        "radius": {
+            "type": "number",
+            "description": "The radius to use for the circle used in the torus gravity type.",
+            "default": 1.0
+        },
+        "unitDistance": {
+            "type": "number",
+            "description": "The distance from the nearest point at which the gravity equals the gravity property. If zero or not specified, the gravity strength is constant.",
+            "default": 0.0
+        },
+        "extensions": { },
+        "extras": { }
+    }
+}

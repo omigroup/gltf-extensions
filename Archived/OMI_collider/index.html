@@ -1,0 +1,928 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../OMI_spawn_point/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>OMI_collider - OMI glTF Extensions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#omi_collider" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OMI glTF Extensions" class="md-header__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OMI glTF Extensions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OMI_collider
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="white"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OMI glTF Extensions" class="md-nav__button md-logo" aria-label="OMI glTF Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OMI glTF Extensions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../KHR_audio_emitter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KHR_audio_emitter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_audio_ogg_vorbis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_ogg_vorbis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_audio_opus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_audio_opus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_link
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_personality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_personality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../OMI_physics_body/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OMI_physics_body
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            OMI_physics_body
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_physics_body/README.collider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_physics_body/README.motion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_physics_body/README.trigger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_physics_gravity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_gravity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_physics_joint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_joint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_physics_shape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_physics_shape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_seat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_seat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OMI_spawn_point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OMI_spawn_point
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    Archived
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Archived
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="omi_collider">OMI_collider</h1>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>Aaron Franke, The Mirror Megaverse Inc.</li>
+<li>Robert Long, The Matrix.org Foundation</li>
+<li>Mauve Signweaver, Mauve Software Inc.</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Open Metaverse Interoperability Group Stage 2 Proposal</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>Written against the glTF 2.0 spec.</p>
+<p>Can be optionally used together with the <code>OMI_physics_body</code> spec.</p>
+<h2 id="overview">Overview</h2>
+<p>Colliders can be added to glTF nodes along with information about the "type" of collider it is representing.</p>
+<p>This extension allows specifying shapes to be used in glTF scenes for collision or triggers. Shapes should be specified on their own glTF nodes.</p>
+<p>This extension does not describe what colliders should do within a scene, aside from whether they are a trigger or not. For a more thorough physics body specification, you need to also use the <code>OMI_physics_body</code> extension, and add <code>OMI_collider</code> nodes as children of the physics body. Multiple <code>OMI_collider</code> siblings with the same <code>isTrigger</code> setting may be treated as a single "compound collider" in game engines that support them.</p>
+<h3 id="example">Example:</h3>
+<p>This example defines a single box collider with a size of 1 meter in all dimensions:</p>
+<pre><code class="language-json">{
+    &quot;asset&quot;: {
+        &quot;version&quot;: &quot;2.0&quot;
+    },
+    &quot;extensions&quot;: {
+        &quot;OMI_collider&quot;: {
+            &quot;colliders&quot;: [
+                {
+                    &quot;size&quot;: [1, 1, 1],
+                    &quot;type&quot;: &quot;box&quot;
+                }
+            ]
+        }
+    },
+    &quot;extensionsUsed&quot;: [
+        &quot;OMI_collider&quot;
+    ],
+    &quot;nodes&quot;: [
+        {
+            &quot;extensions&quot;: {
+                &quot;OMI_collider&quot;: {
+                    &quot;collider&quot;: 0
+                }
+            },
+            &quot;name&quot;: &quot;BoxCollider&quot;
+        }
+    ],
+    &quot;scene&quot;: 0,
+    &quot;scenes&quot;: [
+        {
+            &quot;nodes&quot;: [0]
+        }
+    ]
+}
+</code></pre>
+<p>More example assets can be found in the <a href="examples/">examples/</a> folder. All of these examples use <code>OMI_collider</code> and not <code>OMI_physics_body</code>.</p>
+<h2 id="gltf-schema-updates">glTF Schema Updates</h2>
+<p>This extension consists of three new data structures for defining colliders on the root glTF document and referencing them on a glTF node. The main data structure defines a collider shape and is what most of this document describes. The second data structure uses the key <code>"OMI_collider"</code> in the document-level <code>"extensions"</code> which contains a list of the main collider shape data structures. The third data structure uses the key <code>"OMI_collider"</code> in the node-level <code>"extensions"</code> which contains an index of the collider shape to use from the list document-level collider list.</p>
+<p>The extension must also be added to the glTF's <code>extensionsUsed</code> array and because it is optional, it does not need to be added to the <code>extensionsRequired</code> array.</p>
+<h3 id="property-summary">Property Summary</h3>
+<p>The rest of the document, including this summary, defines the properties for the main data structure.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+<th>Valid on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td><code>string</code></td>
+<td>The type of the collider shape as a string.</td>
+<td>Required, no default</td>
+<td>Always valid</td>
+</tr>
+<tr>
+<td><strong>isTrigger</strong></td>
+<td><code>boolean</code></td>
+<td>If true, the shape is a trigger and is not solid to other objects.</td>
+<td>false</td>
+<td>Always valid</td>
+</tr>
+<tr>
+<td><strong>size</strong></td>
+<td><code>number[3]</code></td>
+<td>The size of the box shape in meters.</td>
+<td>[1.0, 1.0, 1.0]</td>
+<td>Box</td>
+</tr>
+<tr>
+<td><strong>radius</strong></td>
+<td><code>number</code></td>
+<td>The radius of the shape in meters.</td>
+<td>0.5</td>
+<td>Sphere, capsule, cylinder</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td><code>number</code></td>
+<td>The height of the shape in meters.</td>
+<td>2.0</td>
+<td>Capsule, cylinder</td>
+</tr>
+<tr>
+<td><strong>mesh</strong></td>
+<td><code>number</code></td>
+<td>The index of the glTF mesh in the document to use as a trimesh shape.</td>
+<td>-1</td>
+<td>Trimesh, hull</td>
+</tr>
+</tbody>
+</table>
+<h3 id="collider-types">Collider Types</h3>
+<p>The <code>"type"</code> property is a lowercase string that defines what type of shape this collider is.</p>
+<p>The selection of shapes was carefully chosen with a balance of compatibility between major game engines and containing the most commonly used shapes for easy asset creation. Colliders inherit the transform of the glTF node they are attached to. This includes rotation and translation, however it is discouraged to scale collider nodes since this can cause problems in some physics engines.</p>
+<p>Here is a table listing the mapping between the <code>OMI_collider</code> type and the equivalent types in major game engines.</p>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Unity</th>
+<th>Unreal</th>
+<th>Godot</th>
+<th>Blender</th>
+<th>Bullet (Ammo, Panda3D, etc)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Box</td>
+<td>Box</td>
+<td>Box</td>
+<td>BoxShape3D</td>
+<td>Box</td>
+<td>Box Shape</td>
+</tr>
+<tr>
+<td>Sphere</td>
+<td>Sphere</td>
+<td>Sphere</td>
+<td>SphereShape3D</td>
+<td>Sphere</td>
+<td>Sphere Shape</td>
+</tr>
+<tr>
+<td>Capsule</td>
+<td>Capsule</td>
+<td>Capsule</td>
+<td>CapsuleShape3D</td>
+<td>Capsule</td>
+<td>Capsule Shape</td>
+</tr>
+<tr>
+<td>Cylinder</td>
+<td>Approximation</td>
+<td>Approximation</td>
+<td>CylinderShape3D</td>
+<td>Cylinder</td>
+<td>Cylinder Shape</td>
+</tr>
+<tr>
+<td>Hull</td>
+<td>Mesh (Convex)</td>
+<td>Convex</td>
+<td>ConvexPolygonShape3D</td>
+<td>Convex Hull</td>
+<td>Convex Shape</td>
+</tr>
+<tr>
+<td>Trimesh</td>
+<td>Mesh</td>
+<td>Mesh</td>
+<td>ConcavePolygonShape3D</td>
+<td>Mesh</td>
+<td>Mesh Shape</td>
+</tr>
+</tbody>
+</table>
+<h4 id="box">Box</h4>
+<p>Box shapes describe a cube or cuboid shape. They have <code>size</code> property which is an array of 3 numbers that describes the width, height, and depth. If the <code>size</code> property is omitted, the default size is <code>[1, 1, 1]</code>, representing a cube with a volume of one cubic meter, edges/diameters one meter long, and extents/radius of half a meter. The position of the glTF node is the center of the box shape.</p>
+<h4 id="sphere">Sphere</h4>
+<p>Sphere shapes describe a uniform "ball" shape. They have a <code>radius</code> property which is a single number. If the <code>radius</code> property is omitted, the default radius is <code>0.5</code>, representing a sphere with a radius of half a meter, a diameter of one meter. The position of the glTF node is the center of the sphere shape.</p>
+<h4 id="capsule">Capsule</h4>
+<p>Capsule shapes describe a "pill" shape. They have a <code>radius</code> and <code>height</code> property. The height is aligned with the node's local vertical axis. If you wish to align it along a different axis, rotate the glTF node. If the <code>radius</code> property is omitted, the default radius is <code>0.5</code>, and if the <code>height</code> property is omitted, the default height is <code>2</code>. The height describes the total height from bottom to top. The height of the capsule must be at least twice as much as the radius. The "mid-height" between the centers of each spherical cap end can be found with <code>height - radius * 2</code>.</p>
+<h4 id="cylinder">Cylinder</h4>
+<p>Cylinder shapes describe a "tall circle" shape. They are similar in structure to capsules, they have a <code>radius</code> and <code>height</code> property. The height is aligned with the node's local vertical axis. If you wish to align it along a different axis, rotate the glTF node. If the <code>radius</code> property is omitted, the default radius is <code>0.5</code>, and if the <code>height</code> property is omitted, the default height is <code>2</code>.</p>
+<p>The use of cylinder is discouraged if another shape would work well in its place. Cylinders are harder to calculate than boxes, spheres, and capsules. Not all game engines support cylinder shapes. Engines that do not support cylinder shapes should use an approximation, such as a convex hull roughly shaped like a cylinder. Cylinders over twice as tall as they are wide can use another approximation: a convex hull combined with an embedded capsule (to allow for smooth rolling), by copying the cylinder's values into a new capsule shape.</p>
+<h4 id="hull">Hull</h4>
+<p>Hull shapes represent a convex hull. Being "convex" means that the shape cannot have any holes or divots. Hulls are defined with a <code>mesh</code> property with an index of a mesh in the glTF <code>meshes</code> array. The glTF mesh in the array MUST be a <code>trimesh</code> to work, and should be made of only one glTF mesh primitive (one surface). Valid hulls must contain at least one triangle, which becomes three points on the convex hull. Hulls are recommended to have at least four points so that they have 3D volume. The final hull shape should have no more than 255 points in total.</p>
+<p>Hulls can be used to represent complex convex shapes that are not easy to represent with other primitives. If a shape can be represented with a few primitives, prefer using those primitives instead of convex hulls. Hulls are much faster than trimesh shapes.</p>
+<h4 id="trimesh">Trimesh</h4>
+<p>Trimesh shapes represent a concave triangle mesh. They are defined with a <code>mesh</code> property with an index of a mesh in the glTF <code>meshes</code> array. The glTF mesh in the array MUST be a <code>trimesh</code> to work, and should be made of only one glTF mesh primitive (one surface). Valid trimesh shapes must contain at least one triangle.</p>
+<p>Avoid using a trimesh shape for most objects, they are the slowest shapes to calculate and have several limitations. Most physics engines do not support moving trimesh shapes or calculating collisions between multiple trimesh shapes. Trimesh shapes will not work reliably with <code>isTrigger</code> or with pushing objects out due to not having an "interior" space, they only have a surface. Trimesh shapes are typically used for complex level geometry (for example, things that you can go inside of). If your shape can be represented with a combination of simpler primitives, or a convex hull, or multiple convex hulls, prefer that instead.</p>
+<h3 id="trigger">Trigger</h3>
+<p>The <code>"isTrigger"</code> property defines if this shape is a trigger or collider. It is a boolean, either <code>true</code> or <code>false</code>. If omitted, the default value is <code>false</code>.</p>
+<p>Trigger shapes are not solid to other objects and will not collide with them. Triggers can generate events when another physics body "enters" them. For example, a "goal" area which triggers whenever a ball gets thrown into it. Which event gets triggered by a trigger shape is game-specific and not defined by <code>OMI_collider</code> (if nothing happens, that is also valid).</p>
+<h3 id="json-schema">JSON Schema</h3>
+<p>See <a href="schema/glTF.OMI_collider.collider.schema.json">schema/glTF.OMI_collider.collider.schema.json</a> for the main collider schema, <a href="schema/glTF.OMI_collider.schema.json">schema/glTF.OMI_collider.schema.json</a> for the document-level list of colliders, and <a href="schema/node.OMI_collider.schema.json">schema/node.OMI_collider.schema.json</a> for the node-level collider selection.</p>
+<h2 id="known-implementations">Known Implementations</h2>
+<ul>
+<li>Godot Engine: https://github.com/godotengine/godot/pull/69266</li>
+<li>Third Room Unity Exporter: https://github.com/matrix-org/thirdroom-unity-exporter/blob/main/Runtime/Scripts/OMI_collider/OMI_ColliderExtension.cs</li>
+<li>Third Room glTF Transform: https://github.com/matrix-org/thirdroom/blob/main/src/asset-pipeline/extensions/OMIColliderExtension.ts</li>
+<li>Third Room glTF Loader: https://github.com/matrix-org/thirdroom/blob/main/src/engine/gltf/OMI_collider.ts</li>
+<li>Three Object Viewer WordPress Plugin: https://github.com/antpb/three-object-viewer/</li>
+</ul>
+<h2 id="resources">Resources:</h2>
+<ul>
+<li>Godot Shapes: https://docs.godotengine.org/en/latest/classes/class_shape3d.html</li>
+<li>Unity Colliders: https://docs.unity3d.com/Manual/CollidersOverview.html</li>
+<li>Unreal Engine Collision Shapes: https://docs.unrealengine.com/4.27/en-US/API/Runtime/PhysicsCore/FCollisionShape/</li>
+<li>Unreal Engine Mesh Collisions: https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/Types/StaticMeshes/HowTo/SettingCollision/</li>
+<li>Blender Collisions: https://docs.blender.org/manual/en/latest/physics/rigid_body/properties/collisions.html</li>
+<li>Mozilla Hubs ammo-shape: https://github.com/MozillaReality/hubs-blender-exporter/blob/bb28096159e1049b6b80da00b1ae1534a6ca0855/default-config.json#L608</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate", "toc.follow", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>
