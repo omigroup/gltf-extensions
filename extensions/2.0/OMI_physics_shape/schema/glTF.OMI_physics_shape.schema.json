@@ -4,7 +4,7 @@
     "title": "OMI_physics_shape glTF Document Extension",
     "type": "object",
     "description": "Top level shape resources.",
-    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "shapes": {
             "type": "array",

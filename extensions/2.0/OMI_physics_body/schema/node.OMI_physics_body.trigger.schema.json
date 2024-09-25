@@ -1,18 +1,14 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "node.OMI_physics_body.trigger.schema.json",
-    "title": "OMI_physics_body Trigger Property",
+    "title": "OMI_physics_body Node Trigger Property",
     "type": "object",
-    "description": "Parameters describing the geometric shape used for trigger volumes.",
-    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
+    "description": "Parameters describing a trigger volume used for detecting physics objects.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "shape": {
-            "description": "The id of the shape referenced by this node.",
-            "allOf": [
-                {
-                    "$ref": "glTFid.schema.json"
-                }
-            ],
+            "allOf": [{ "$ref": "glTFid.schema.json" }],
+            "description": "The index of the shape in the top level shapes array.",
             "default": -1
         },
         "nodes": {
@@ -23,6 +19,10 @@
             },
             "uniqueItems": true,
             "minItems": 1
+        },
+        "collisionFilter": {
+            "allOf": [{ "$ref": "glTFid.schema.json" }],
+            "description": "The index of the filter information in the top level collisionFilters array."
         },
         "extensions": { },
         "extras": { }
