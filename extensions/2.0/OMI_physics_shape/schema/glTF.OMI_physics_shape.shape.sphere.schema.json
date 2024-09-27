@@ -8,7 +8,9 @@
     "properties": {
         "radius": {
             "type": "number",
-            "description": "The radius to use for the sphere shape."
+            "description": "The radius to use for the sphere shape in meters.",
+            "minimum": 0.0,
+            "default": 0.5
         },
         "extensions": { },
         "extras": { }

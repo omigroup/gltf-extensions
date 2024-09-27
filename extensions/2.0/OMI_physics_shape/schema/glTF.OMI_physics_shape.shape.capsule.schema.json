@@ -6,13 +6,23 @@
     "description": "Parameters describing a capsule physics shape.",
     "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
     "properties": {
-        "radius": {
-            "type": "number",
-            "description": "The radius to use for the capsule shape."
-        },
         "height": {
             "type": "number",
-            "description": "The full height of the capsule shape."
+            "description": "The mid height of the capsule shape, the distance between the centers of the two capping hemispheres.",
+            "minimum": 0.0,
+            "default": 1.0
+        },
+        "radiusBottom": {
+            "type": "number",
+            "description": "The radius of the bottom of the capsule (the hemisphere located along -Y) in meters.",
+            "minimum": 0.0,
+            "default": 0.5
+        },
+        "radiusTop": {
+            "type": "number",
+            "description": "The radius of the top of the capsule (the hemisphere located along +Y) in meters.",
+            "minimum": 0.0,
+            "default": 0.5
         },
         "extensions": { },
         "extras": { }

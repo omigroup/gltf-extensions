@@ -8,10 +8,10 @@
     "properties": {
         "shapes": {
             "type": "array",
-            "description": "An array of shapes that can be referenced by nodes.",
+            "description": "An array of physics shape resources that can be referenced by nodes.",
             "items": {
                 "type": "object",
-                "$ref": "shape.schema.json"
+                "$ref": "glTF.OMI_physics_shape.shape.schema.json"
             },
             "minItems": 1
         },

@@ -8,7 +8,14 @@
     "properties": {
         "size": {
             "type": "array",
-            "description": "Three number array representing the width, height, and depth of the box (x, y, z)."
+            "description": "Three number array representing the width, height, and depth of the box (x, y, z).",
+            "items": {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [ 1.0, 1.0, 1.0 ]
         },
         "extensions": { },
         "extras": { }
