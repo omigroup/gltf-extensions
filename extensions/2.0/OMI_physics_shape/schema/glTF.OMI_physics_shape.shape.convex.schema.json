@@ -4,7 +4,7 @@
     "title": "OMI_physics_shape Convex Shape",
     "type": "object",
     "description": "Parameters describing a convex hull physics shape.",
-    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "mesh": {
             "allOf": [ { "$ref": "glTFid.schema.json" } ],

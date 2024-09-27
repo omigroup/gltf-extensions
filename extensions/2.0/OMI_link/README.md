@@ -75,6 +75,10 @@ vrchat://launch?id=wrld_hjdksahgklfshjfgjklsd
 
 Optional field that describes the destination of the uri. Implementations can show this title if it exists or fallback to showing the uri.
 
+### glTF Object Model
+
+This extension defines no properties that can be read or manipulated by the glTF Object Model.
+
 ### JSON Schema
 
 TODO
