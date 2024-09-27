@@ -40,13 +40,7 @@ This example defines a seat using a simple chair facing positive Z. This is the 
     ],
     "nodes": [
         {
-            "mesh": 0,
-            "name": "SimpleChairMesh"
-        },
-        {
-            "children": [
-                0
-            ],
+            "children": [1],
             "name": "SimpleChairPosZ",
             "extensions": {
                 "OMI_seat": {
@@ -55,10 +49,14 @@ This example defines a seat using a simple chair facing positive Z. This is the 
                     "knee": [0, 0.33, 0.3]
                 }
             }
+        },
+        {
+            "mesh": 0,
+            "name": "SimpleChairMesh"
         }
     ],
     "scene": 0,
-    "scenes": [{ "nodes": [1] }],
+    "scenes": [{ "nodes": [0] }],
 }
 ```
 
