@@ -3,15 +3,15 @@
     "$id": "glTF.OMI_physics_joint.schema.json",
     "title": "OMI_physics_joint glTF Document Extension",
     "type": "object",
-    "description": "Top level joint resources.",
+    "description": "Top level physics joint settings.",
     "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
-        "constraints": {
-            "description": "An array of physics joint constraints that can be referenced by nodes.",
+        "physicsJoints": {
             "type": "array",
+            "description": "An array of physics joint settings.",
             "items": {
                 "type": "object",
-                "$ref": "joint_constraint.schema.json"
+                "$ref": "glTF.OMI_physics_joint.joint.schema.json"
             },
             "minItems": 1
         },
