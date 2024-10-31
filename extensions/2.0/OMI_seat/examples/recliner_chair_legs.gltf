@@ -6,21 +6,9 @@
     "extensionsUsed": [
         "OMI_seat"
     ],
-    "scene": 0,
-    "scenes": [
-        {
-            "nodes": [1]
-        }
-    ],
     "nodes": [
         {
-            "mesh": 0,
-            "name": "ReclinerChairLegsMesh"
-        },
-        {
-            "children": [
-                0
-            ],
+            "children": [1],
             "name": "ReclinerChairLegs",
             "extensions": {
                 "OMI_seat": {
@@ -29,8 +17,14 @@
                     "knee": [0, 0.33, 0.3]
                 }
             }
+        },
+        {
+            "mesh": 0,
+            "name": "ReclinerChairLegsMesh"
         }
     ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
     "meshes": [
         {
             "name": "ReclinerChairLegsMesh",

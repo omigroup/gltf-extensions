@@ -6,21 +6,9 @@
     "extensionsUsed": [
         "OMI_seat"
     ],
-    "scene": 0,
-    "scenes": [
-        {
-            "nodes": [1]
-        }
-    ],
     "nodes": [
         {
-            "mesh": 0,
-            "name": "ReclinerChairFullMesh"
-        },
-        {
-            "children": [
-                0
-            ],
+            "children": [1],
             "name": "ReclinerChairFull",
             "extensions": {
                 "OMI_seat": {
@@ -30,8 +18,14 @@
                     "angle": 2.0943951
                 }
             }
+        },
+        {
+            "mesh": 0,
+            "name": "ReclinerChairFullMesh"
         }
     ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
     "meshes": [
         {
             "name": "ReclinerChairFullMesh",

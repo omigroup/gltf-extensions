@@ -6,21 +6,9 @@
     "extensionsUsed": [
         "OMI_seat"
     ],
-    "scene": 0,
-    "scenes": [
-        {
-            "nodes": [1]
-        }
-    ],
     "nodes": [
         {
-            "mesh": 0,
-            "name": "SimpleChairMesh"
-        },
-        {
-            "children": [
-                0
-            ],
+            "children": [1],
             "name": "SimpleChairPosZ",
             "extensions": {
                 "OMI_seat": {
@@ -29,8 +17,14 @@
                     "knee": [0, 0.33, 0.3]
                 }
             }
+        },
+        {
+            "mesh": 0,
+            "name": "SimpleChairMesh"
         }
     ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
     "meshes": [
         {
             "name": "SimpleChairMesh",
