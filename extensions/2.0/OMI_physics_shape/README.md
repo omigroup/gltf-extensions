@@ -2,9 +2,9 @@
 
 ## Contributors
 
-* Aaron Franke, The Mirror Megaverse Inc.
-* Robert Long, The Matrix.org Foundation
-* Mauve Signweaver, Mauve Software Inc.
+- Aaron Franke, Godot Engine.
+- Robert Long, The Matrix.org Foundation
+- Mauve Signweaver, Mauve Software Inc.
 
 ## Status
 
@@ -127,19 +127,38 @@ Trimesh shapes represent a concave triangle mesh. They are defined with a `mesh`
 
 Avoid using a trimesh shape for most objects, they are the slowest shapes to calculate and have several limitations. Most physics engines do not support moving trimesh shapes or calculating collisions between multiple trimesh shapes. Trimesh shapes will not work reliably with trigger bodies or with pushing objects out due to not having an "interior" space, they only have a surface. Trimesh shapes are typically used for complex level geometry (for example, things that objects can go inside of). If a shape can be represented with a combination of simpler primitives, or a convex hull, or multiple convex hulls, prefer that instead.
 
+### glTF Object Model
+
+The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`.
+
+| JSON Pointer                                              | Object Model Type |
+| --------------------------------------------------------- | ----------------- |
+| `/extensions/OMI_physics_shape/shapes/{}/box/size`        | `float3`          |
+| `/extensions/OMI_physics_shape/shapes/{}/sphere/radius`   | `float`           |
+| `/extensions/OMI_physics_shape/shapes/{}/capsule/radius`  | `float`           |
+| `/extensions/OMI_physics_shape/shapes/{}/capsule/height`  | `float`           |
+| `/extensions/OMI_physics_shape/shapes/{}/cylinder/radius` | `float`           |
+| `/extensions/OMI_physics_shape/shapes/{}/cylinder/height` | `float`           |
+
+Additionally, the following JSON pointers are defined for read-only properties:
+
+| JSON Pointer                                  | Object Model Type |
+| --------------------------------------------- | ----------------- |
+| `/extensions/OMI_physics_shape/shapes.length` | `int`             |
+
 ### JSON Schema
 
 See [glTF.OMI_physics_shape.schema.json](schema/glTF.OMI_physics_shape.schema.json) for the document-level list of shapes, [glTF.OMI_physics_shape.shape.schema.json](schema/glTF.OMI_physics_shape.shape.schema.json) for the shape resource schema, and the `glTF.OMI_physics_shape.shape.*.schema.json` files for the individual shape types.
 
 ## Known Implementations
 
-* Godot Engine: https://github.com/godotengine/godot/pull/78967
+- Godot Engine: https://github.com/godotengine/godot/pull/78967
 
 ## Resources:
 
-* Godot Shapes: https://docs.godotengine.org/en/latest/classes/class_shape3d.html
-* Unity Colliders: https://docs.unity3d.com/Manual/CollidersOverview.html
-* Unreal Engine Collision Shapes: https://docs.unrealengine.com/4.27/en-US/API/Runtime/PhysicsCore/FCollisionShape/
-* Unreal Engine Mesh Collisions: https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/Types/StaticMeshes/HowTo/SettingCollision/
-* Blender Collisions: https://docs.blender.org/manual/en/latest/physics/rigid_body/properties/collisions.html
-* Mozilla Hubs ammo-shape: https://github.com/MozillaReality/hubs-blender-exporter/blob/bb28096159e1049b6b80da00b1ae1534a6ca0855/default-config.json#L608
+- Godot Shapes: https://docs.godotengine.org/en/latest/classes/class_shape3d.html
+- Unity Colliders: https://docs.unity3d.com/Manual/CollidersOverview.html
+- Unreal Engine Collision Shapes: https://docs.unrealengine.com/4.27/en-US/API/Runtime/PhysicsCore/FCollisionShape/
+- Unreal Engine Mesh Collisions: https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/Types/StaticMeshes/HowTo/SettingCollision/
+- Blender Collisions: https://docs.blender.org/manual/en/latest/physics/rigid_body/properties/collisions.html
+- Mozilla Hubs ammo-shape: https://github.com/MozillaReality/hubs-blender-exporter/blob/bb28096159e1049b6b80da00b1ae1534a6ca0855/default-config.json#L608

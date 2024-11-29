@@ -2,7 +2,7 @@
 
 ## Contributors
 
-* Aaron Franke, The Mirror Megaverse Inc.
+* Aaron Franke, Godot Engine.
 
 ## Status
 
@@ -124,6 +124,17 @@ These are the directions of the seat itself, the actual directions a character e
 * The IK position for the knees is more complicated. It needs to be adjusted by both the upper leg and lower leg offsets. For perpendicular upper and lower legs, this is trivial, you just add the vectors together. Otherwise some trigonometry is required. The knee offset can be found by adding the upper leg offset with the upper leg direction multiplied by an adjustment scalar. The adjustment scalar can be found with the lower offset length divided by the sin of the angle between the legs, minus the upper offset length divided by the tan of the angle between the legs.
 
 In a nutshell, the legs sit as close to the seat as possible while not clipping though it, therefore we offset by the leg thickness, otherwise the leg bones would be exactly on the seat's surface. We want to keep the seat's points exactly on the seat and have the character legs offset from the seat's points so that we don't play favorites for any particular leg size.
+
+### glTF Object Model
+
+The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`.
+
+| JSON Pointer                          | Object Model Type |
+| ------------------------------------- | ----------------- |
+| `/nodes/{}/extensions/OMI_seat/angle` | `float`           |
+| `/nodes/{}/extensions/OMI_seat/back`  | `float3`          |
+| `/nodes/{}/extensions/OMI_seat/foot`  | `float3`          |
+| `/nodes/{}/extensions/OMI_seat/knee`  | `float3`          |
 
 ### JSON Schema
 
