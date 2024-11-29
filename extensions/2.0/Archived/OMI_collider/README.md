@@ -2,13 +2,13 @@
 
 ## Contributors
 
-* Aaron Franke, The Mirror Megaverse Inc.
-* Robert Long, The Matrix.org Foundation
-* Mauve Signweaver, Mauve Software Inc.
+- Aaron Franke, The Mirror Megaverse Inc.
+- Robert Long, The Matrix.org Foundation
+- Mauve Signweaver, Mauve Software Inc.
 
 ## Status
 
-Open Metaverse Interoperability Group Stage 2 Proposal
+Archived
 
 ## Dependencies
 
@@ -145,17 +145,17 @@ See [schema/glTF.OMI_collider.collider.schema.json](schema/glTF.OMI_collider.col
 
 ## Known Implementations
 
-* Godot Engine: https://github.com/godotengine/godot/pull/69266
-* Third Room Unity Exporter: https://github.com/matrix-org/thirdroom-unity-exporter/blob/main/Runtime/Scripts/OMI_collider/OMI_ColliderExtension.cs
-* Third Room glTF Transform: https://github.com/matrix-org/thirdroom/blob/main/src/asset-pipeline/extensions/OMIColliderExtension.ts
-* Third Room glTF Loader: https://github.com/matrix-org/thirdroom/blob/main/src/engine/gltf/OMI_collider.ts
-* Three Object Viewer WordPress Plugin: https://github.com/antpb/three-object-viewer/
+- Godot Engine: https://github.com/godotengine/godot/pull/69266
+- Third Room Unity Exporter: https://github.com/matrix-org/thirdroom-unity-exporter/blob/main/Runtime/Scripts/OMI_collider/OMI_ColliderExtension.cs
+- Third Room glTF Transform: https://github.com/matrix-org/thirdroom/blob/main/src/asset-pipeline/extensions/OMIColliderExtension.ts
+- Third Room glTF Loader: https://github.com/matrix-org/thirdroom/blob/main/src/engine/gltf/OMI_collider.ts
+- Three Object Viewer WordPress Plugin: https://github.com/antpb/three-object-viewer/
 
 ## Resources:
 
-* Godot Shapes: https://docs.godotengine.org/en/latest/classes/class_shape3d.html
-* Unity Colliders: https://docs.unity3d.com/Manual/CollidersOverview.html
-* Unreal Engine Collision Shapes: https://docs.unrealengine.com/4.27/en-US/API/Runtime/PhysicsCore/FCollisionShape/
-* Unreal Engine Mesh Collisions: https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/Types/StaticMeshes/HowTo/SettingCollision/
-* Blender Collisions: https://docs.blender.org/manual/en/latest/physics/rigid_body/properties/collisions.html
-* Mozilla Hubs ammo-shape: https://github.com/MozillaReality/hubs-blender-exporter/blob/bb28096159e1049b6b80da00b1ae1534a6ca0855/default-config.json#L608
+- Godot Shapes: https://docs.godotengine.org/en/latest/classes/class_shape3d.html
+- Unity Colliders: https://docs.unity3d.com/Manual/CollidersOverview.html
+- Unreal Engine Collision Shapes: https://docs.unrealengine.com/4.27/en-US/API/Runtime/PhysicsCore/FCollisionShape/
+- Unreal Engine Mesh Collisions: https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/Types/StaticMeshes/HowTo/SettingCollision/
+- Blender Collisions: https://docs.blender.org/manual/en/latest/physics/rigid_body/properties/collisions.html
+- Mozilla Hubs ammo-shape: https://github.com/MozillaReality/hubs-blender-exporter/blob/bb28096159e1049b6b80da00b1ae1534a6ca0855/default-config.json#L608

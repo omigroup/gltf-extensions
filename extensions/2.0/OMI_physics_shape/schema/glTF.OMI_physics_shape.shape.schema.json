@@ -4,7 +4,7 @@
     "title": "OMI_physics_shape Shape Resource",
     "type": "object",
     "description": "Defines a physics shape resource.",
-    "allOf": [ { "$ref" : "glTFChildOfRootProperty.schema.json" } ],
+    "allOf": [ { "$ref": "glTFChildOfRootProperty.schema.json" } ],
     "properties": {
         "type": {
             "type": "string",

@@ -4,7 +4,7 @@
     "title": "OMI_physics_shape Capsule Shape",
     "type": "object",
     "description": "Parameters describing a capsule physics shape.",
-    "allOf": [ { "$ref" : "glTFProperty.schema.json" } ],
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "radius": {
             "type": "number",
