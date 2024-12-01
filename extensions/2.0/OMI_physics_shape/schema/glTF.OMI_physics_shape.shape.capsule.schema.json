@@ -6,13 +6,17 @@
     "description": "Parameters describing a capsule physics shape.",
     "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
-        "radius": {
-            "type": "number",
-            "description": "The radius to use for the capsule shape."
-        },
         "height": {
             "type": "number",
-            "description": "The full height of the capsule shape."
+            "description": "The full height of the capsule shape in meters.",
+            "exclusiveMinimum": 0.0,
+            "default": 2.0
+        },
+        "radius": {
+            "type": "number",
+            "description": "The radius of the capsule in meters.",
+            "minimum": 0.0,
+            "default": 0.5
         },
         "extensions": { },
         "extras": { }

@@ -63,18 +63,18 @@ The extension must also be added to the glTF's `extensionsUsed` array and becaus
 
 The main data structure `glTF.OMI_physics_shape.shape.schema.json` defines a type property.
 
-|               | Type        | Description                                                                | Default value        |
-| --------------| ----------- | -------------------------------------------------------------------------- | -------------------- |
-| **type**      | `string`    | The type of the physics shape as a string.                                 | Required, no default |
+|          | Type     | Description                                | Default value        |
+| -------- | -------- | ------------------------------------------ | -------------------- |
+| **type** | `string` | The type of the physics shape as a string. | Required, no default |
 
 In addition to the type, a key with the same name as the type can be used to define a sub-JSON with the details of the shape. Which sub-properties are allowed depend on which shape type is being used. The possible properties are described in the following table.
 
-|               | Type        | Description                                                                | Default value        | Valid on                  |
-| --------------| ----------- | -------------------------------------------------------------------------- | -------------------- | ------------------------- |
-| **size**      | `number[3]` | The size of the box shape in meters.                                       | [1.0, 1.0, 1.0]      | Box                       |
-| **radius**    | `number`    | The radius of the shape in meters.                                         | 0.5                  | Sphere, capsule, cylinder |
-| **height**    | `number`    | The height of the shape in meters.                                         | 2.0                  | Capsule, cylinder         |
-| **mesh**      | `number`    | The index of the glTF mesh in the document to use as a mesh shape.         | -1                   | Trimesh, convex           |
+|                  | Type        | Description                                                        | Default value   | Valid on                  |
+| ---------------- | ----------- | ------------------------------------------------------------------ | --------------- | ------------------------- |
+| **size**         | `number[3]` | The size of the box shape in meters.                               | [1.0, 1.0, 1.0] | Box                       |
+| **radius**       | `number`    | The radius of the shape in meters.                                 | 0.5             | Sphere, capsule, cylinder |
+| **height**       | `number`    | The height of the shape in meters.                                 | 2.0             | Capsule, cylinder         |
+| **mesh**         | `number`    | The index of the glTF mesh in the document to use as a mesh shape. | -1              | Trimesh, convex           |
 
 If a key for the type is missing, or a sub-JSON key is missing, implementations should use the default value. A mesh index of -1 means invalid.
 
@@ -109,7 +109,9 @@ Capsule shapes describe a "pill" shape. They have a `radius` and `height` proper
 
 #### Cylinder
 
-Cylinder shapes describe a "tall circle" shape. They are similar in structure to capsules, they have a `radius` and `height` property. The height is aligned with the node's local vertical axis. If it's desired to align it along a different axis, rotate the glTF node. If the `radius` property is omitted, the default radius is `0.5`, and if the `height` property is omitted, the default height is `2.0`.
+Cylinder shapes describe a "tall circle" shape. They are similar in structure to capsules, they have a `radius` and `height` property. If the `radius` property is omitted, the default radius is `0.5`, and if the `height` property is omitted, the default height is `2.0`.
+
+The `height` property of a cylinder describes the total height, the distance between the center of the bottom disc and the center of the top disc. The height is aligned with the node's local vertical axis. If it's desired to align it along a different axis, rotate the glTF node.
 
 The use of cylinder is discouraged if another shape would work well in its place. Cylinders are harder to calculate than boxes, spheres, and capsules. Not all game engines support cylinder shapes. Engines that do not support cylinder shapes should use an approximation, such as a convex hull roughly shaped like a cylinder. Cylinders over twice as tall as they are wide can use another approximation: a convex hull combined with an embedded capsule (to allow for smooth rolling), by copying the cylinder's values into a new capsule shape.
 
@@ -131,14 +133,14 @@ Avoid using a trimesh shape for most objects, they are the slowest shapes to cal
 
 The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`.
 
-| JSON Pointer                                              | Object Model Type |
-| --------------------------------------------------------- | ----------------- |
-| `/extensions/OMI_physics_shape/shapes/{}/box/size`        | `float3`          |
-| `/extensions/OMI_physics_shape/shapes/{}/sphere/radius`   | `float`           |
-| `/extensions/OMI_physics_shape/shapes/{}/capsule/radius`  | `float`           |
-| `/extensions/OMI_physics_shape/shapes/{}/capsule/height`  | `float`           |
-| `/extensions/OMI_physics_shape/shapes/{}/cylinder/radius` | `float`           |
-| `/extensions/OMI_physics_shape/shapes/{}/cylinder/height` | `float`           |
+| JSON Pointer                                                    | Object Model Type |
+| --------------------------------------------------------------- | ----------------- |
+| `/extensions/OMI_physics_shape/shapes/{}/box/size`              | `float3`          |
+| `/extensions/OMI_physics_shape/shapes/{}/sphere/radius`         | `float`           |
+| `/extensions/OMI_physics_shape/shapes/{}/capsule/height`        | `float`           |
+| `/extensions/OMI_physics_shape/shapes/{}/capsule/radius`        | `float`           |
+| `/extensions/OMI_physics_shape/shapes/{}/cylinder/height`       | `float`           |
+| `/extensions/OMI_physics_shape/shapes/{}/cylinder/radius`       | `float`           |
 
 Additionally, the following JSON pointers are defined for read-only properties:
 
