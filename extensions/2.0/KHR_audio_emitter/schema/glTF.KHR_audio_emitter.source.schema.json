@@ -17,6 +17,11 @@
             "minimum": 0.0,
             "default": 1.0
         },
+        "pitchSpeed": {
+            "type": "number",
+            "description": "Multiplier for combined pitch and playback speed without resampling.",
+            "default": 1.0
+        },
         "loop": {
             "type": "boolean",
             "description": "Whether or not to loop the specified audio when finished.",
