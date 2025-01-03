@@ -12,9 +12,15 @@
             "exclusiveMinimum": 0.0,
             "default": 2.0
         },
-        "radius": {
+        "radiusBottom": {
             "type": "number",
-            "description": "The radius of the cylinder in meters.",
+            "description": "The radius of the bottom of the cylinder (the disc located along -Y) in meters.",
+            "minimum": 0.0,
+            "default": 0.5
+        },
+        "radiusTop": {
+            "type": "number",
+            "description": "The radius of the top of the cylinder (the disc located along +Y) in meters.",
             "minimum": 0.0,
             "default": 0.5
         },
