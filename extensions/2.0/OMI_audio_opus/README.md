@@ -78,11 +78,7 @@ Audio data can also be stored in a buffer, such as in the glTF Binary (.glb) for
 }
 ```
 
-### JSON Schema
-
-[KHR_audio_emitter.source.OMI_audio_opus.schema.json](schema/KHR_audio_emitter.source.OMI_audio_opus.schema.json)
-
-## Best Practices
+### Best Practices
 
 Opus codec audio is a superior format to MP3 and Ogg Vorbis for their intended use cases, and it is suitable for many use cases traditionally suitable to WAV audio. Opus is a lossy audio codec that is more efficient than MP3 and Ogg Vorbis, with a higher quality for the same file size, or a smaller file size for the same quality.
 
