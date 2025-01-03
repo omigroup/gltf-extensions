@@ -1,0 +1,267 @@
+{
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 378,
+            "max": [1.98310995101929, 1.67935001850128, 2.88399004936218],
+            "min": [-1.98310995101929, -0.93333500623703, -2.9108099937439],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 378,
+            "max": [377],
+            "min": [0],
+            "normalized": false,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 3793,
+            "max": [1.98310720920563, 1.6796053647995, 2.88399434089661],
+            "min": [-1.98310720920563, -0.93333530426025, -2.91081380844116],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 3793,
+            "max": [1, 0.999988317489624, 0.996253252029419, 1],
+            "min": [-1, -0.99999952316284, -0.9926170706749, -1],
+            "normalized": false,
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 3793,
+            "max": [1, 0.999989926815033, 0.999467015266418],
+            "min": [-1, -1, -0.99987590312958],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 3793,
+            "max": [0.87500011920929, 1],
+            "min": [0.125, -0.00000011920929],
+            "normalized": false,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 6,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 6792,
+            "max": [1594],
+            "min": [0],
+            "normalized": false,
+            "type": "SCALAR"
+        }
+    ],
+    "asset": {
+        "extensions": { "KHR_xmp_json_ld": { "packet": 0 } },
+        "generator": "Godot Engine v4.3.stable.official@77dcf97d82cbfe4e4615475fa52ca03da645dbd8",
+        "version": "2.0"
+    },
+    "bufferViews": [
+        { "buffer": 0, "byteLength": 4536, "byteOffset": 0, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 756, "byteOffset": 4536, "target": 34963 },
+        { "buffer": 0, "byteLength": 45516, "byteOffset": 5292, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 60688, "byteOffset": 50808, "byteStride": 16, "target": 34962 },
+        { "buffer": 0, "byteLength": 45516, "byteOffset": 111496, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 30344, "byteOffset": 157012, "byteStride": 8, "target": 34962 },
+        { "buffer": 0, "byteLength": 13584, "byteOffset": 187356, "target": 34963 }
+    ],
+    "buffers": [{ "byteLength": 200940, "uri": "hovercraft.bin" }],
+    "extensions": {
+        "KHR_xmp_json_ld": {
+            "packets": [
+                {
+                    "@context": { "dc": "http://purl.org/dc/elements/1.1/" },
+                    "@id": "",
+                    "dc:creator": { "@list": ["Tameno", "aaronfranke"] },
+                    "dc:description": "Hovercraft test file for the OMI_vehicle_body and OMI_vehicle_hover_thruster extensions.",
+                    "dc:format": "model/gltf+json",
+                    "dc:rights": "Public domain",
+                    "dc:subject": { "@set": ["Hovercraft"] },
+                    "dc:title": "Hovercraft",
+                    "dc:type": { "@set": ["Vehicle", "Demo", "Test"] }
+                }
+            ]
+        },
+        "OMI_physics_shape": {
+            "shapes": [
+                { "convex": { "mesh": 0 }, "type": "convex" },
+                { "box": { "size": [2, 2, 2] }, "type": "box" }
+            ]
+        },
+        "OMI_vehicle_hover_thruster": {
+            "hoverThrusters": [
+                {
+                    "maxGimbal": 0.25,
+                    "maxHoverEnergy": 30000
+                }
+            ]
+        }
+    },
+    "extensionsUsed": [
+        "GODOT_single_root",
+        "KHR_xmp_json_ld",
+        "OMI_physics_body",
+        "OMI_physics_shape",
+        "OMI_seat",
+        "OMI_vehicle_body",
+        "OMI_vehicle_hover_thruster"
+    ],
+    "materials": [
+        {
+            "extensions": {},
+            "name": "HovercraftMaterial",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [1, 1, 1, 1],
+                "metallicFactor": 1,
+                "roughnessFactor": 0.2
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "extras": { "targetNames": [] },
+            "primitives": [{ "attributes": { "POSITION": 0 }, "indices": 1, "mode": 4 }]
+        },
+        {
+            "extras": { "targetNames": [] },
+            "primitives": [
+                {
+                    "attributes": { "NORMAL": 4, "POSITION": 2, "TANGENT": 3, "TEXCOORD_0": 5 },
+                    "indices": 6,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "children": [1, 2, 3, 4, 5, 6, 7, 9, 11, 13],
+            "extensions": {
+                "OMI_physics_body": { "motion": { "mass": 2000, "type": "dynamic" } },
+                "OMI_vehicle_body": { "linearDampeners": true, "pilotSeat": 13 }
+            },
+            "name": "HovercraftBody"
+        },
+        {
+            "extensions": {
+                "OMI_physics_body": { "collider": { "shape": 0 } }
+            },
+            "name": "HovercraftCollider"
+        },
+        {
+            "mesh": 1,
+            "name": "HovercraftMesh"
+        },
+        {
+            "extensions": {
+                "OMI_vehicle_hover_thruster": { "hoverThruster": 0 }
+            },
+            "name": "HoverThrusterBL",
+            "rotation": [-0.42660024762154, -0.33944433927536, -0.17670360207558, 0.81949108839035],
+            "translation": [1.2, -0.25, -2.1]
+        },
+        {
+            "extensions": {
+                "OMI_vehicle_hover_thruster": { "hoverThruster": 0 }
+            },
+            "name": "HoverThrusterBR",
+            "rotation": [-0.42660024762154, 0.33944433927536, 0.176703602075577, 0.81949108839035],
+            "translation": [-1.2, -0.25, -2.1]
+        },
+        {
+            "extensions": {
+                "OMI_vehicle_hover_thruster": { "hoverThruster": 0 }
+            },
+            "name": "HoverThrusterFL",
+            "rotation": [0.176703602075577, 0.81949108839035, 0.426600247621536, -0.33944433927536],
+            "translation": [1.2, -0.25, 2.1]
+        },
+        {
+            "extensions": {
+                "OMI_vehicle_hover_thruster": { "hoverThruster": 0 }
+            },
+            "name": "HoverThrusterFR",
+            "rotation": [-0.17670360207558, 0.81949108839035, 0.426600247621536, 0.33944433927536],
+            "translation": [-1.2, -0.25, 2.1]
+        },
+        {
+            "children": [8],
+            "extensions": {
+                "OMI_physics_body": { "trigger": { "nodes": [8] } },
+                "OMI_seat": { "back": [0, 0, -0.25], "foot": [0, -0.5, 0.25], "knee": [0, 0, 0.25] }
+            },
+            "name": "PassengerSeatFront",
+            "translation": [-0.5, 0.5, 0]
+        },
+        {
+            "extensions": { "OMI_physics_body": { "trigger": { "shape": 1 } } },
+            "name": "PassengerSeatFrontShape",
+            "translation": [-0.75, 0, 0.75]
+        },
+        {
+            "children": [10],
+            "extensions": {
+                "OMI_physics_body": { "trigger": { "nodes": [10] } },
+                "OMI_seat": { "back": [0, 0, -0.25], "foot": [0, -0.5, 0.25], "knee": [0, 0, 0.25] }
+            },
+            "name": "PassengerSeatRearLeft",
+            "translation": [0.5, 0.5, -1.125]
+        },
+        {
+            "extensions": { "OMI_physics_body": { "trigger": { "shape": 1 } } },
+            "name": "PassengerSeatRearLeftShape",
+            "translation": [0.75, 0, -0.75]
+        },
+        {
+            "children": [12],
+            "extensions": {
+                "OMI_physics_body": { "trigger": { "nodes": [12] } },
+                "OMI_seat": { "back": [0, 0, -0.25], "foot": [0, -0.5, 0.25], "knee": [0, 0, 0.25] }
+            },
+            "name": "PassengerSeatRearRight",
+            "translation": [-0.5, 0.5, -1.125]
+        },
+        {
+            "extensions": { "OMI_physics_body": { "trigger": { "shape": 1 } } },
+            "name": "PassengerSeatRearRightShape",
+            "translation": [-0.75, 0, -0.75]
+        },
+        {
+            "children": [14],
+            "extensions": {
+                "OMI_physics_body": { "trigger": { "nodes": [14] } },
+                "OMI_seat": { "back": [0, 0, -0.25], "foot": [0, -0.5, 0.25], "knee": [0, 0, 0.25] }
+            },
+            "name": "PilotSeat",
+            "translation": [0.5, 0.5, 0]
+        },
+        {
+            "extensions": { "OMI_physics_body": { "trigger": { "shape": 1 } } },
+            "name": "PilotSeatShape",
+            "translation": [0.75, 0, 0.75]
+        }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }]
+}

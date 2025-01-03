@@ -82,6 +82,10 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ## OMI glTF Vendor Extensions
 
 ### Stage 0
+- [OMI_vehicle_body](extensions/2.0/OMI_vehicle_body/README.md)
+- [OMI_vehicle_hover_thruster](extensions/2.0/OMI_vehicle_hover_thruster/README.md)
+- [OMI_vehicle_thruster](extensions/2.0/OMI_vehicle_thruster/README.md)
+- [OMI_vehicle_wheel](extensions/2.0/OMI_vehicle_wheel/README.md)
 
 ### Stage 1
 

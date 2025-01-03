@@ -1,0 +1,304 @@
+{
+    "asset": {
+        "extensions": { "KHR_xmp_json_ld": { "packet": 0 } },
+        "generator": "Khronos glTF Blender I/O v4.1.62",
+        "version": "2.0"
+    },
+    "extensionsUsed": [
+        "GODOT_single_root",
+        "KHR_xmp_json_ld",
+        "OMI_physics_body",
+        "OMI_physics_shape",
+        "OMI_seat",
+        "OMI_vehicle_body",
+        "OMI_vehicle_thruster"
+    ],
+    "extensions": {
+        "KHR_xmp_json_ld": {
+            "packets": [
+                {
+                    "@context": { "dc": "http://purl.org/dc/elements/1.1/" },
+                    "@id": "",
+                    "dc:creator": { "@list": ["chrisonciuconcepts", "aaronfranke"] },
+                    "dc:description": "Low poly space ship as a test file for the OMI_vehicle_body and OMI_vehicle_thruster extensions.",
+                    "dc:format": "model/gltf+json",
+                    "dc:rights": "CC-BY 4.0 Attribution",
+                    "dc:source": "https://sketchfab.com/3d-models/low-poly-space-ship-587941c9c11742c6b82dfb99e7b210b9",
+                    "dc:subject": { "@set": ["Space", "Spacecraft"] },
+                    "dc:title": "Low poly space ship vehicle",
+                    "dc:type": { "@set": ["Vehicle", "Demo", "Test"] }
+                }
+            ]
+        },
+        "OMI_physics_shape": {
+            "shapes": [
+                {
+                    "type": "convex",
+                    "convex": { "mesh": 0 }
+                },
+                {
+                    "type": "box",
+                    "box": { "size": [0.75, 0.75, 1] }
+                }
+            ]
+        },
+        "OMI_vehicle_thruster": {
+            "thrusters": [
+                {
+                    "maxForce": 1000,
+                    "maxGimbal": 0.25
+                },
+                {
+                    "maxForce": 2000,
+                    "maxGimbal": 0.2
+                },
+                {
+                    "maxForce": 5000,
+                    "maxGimbal": 0.25
+                }
+            ]
+        }
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "SimpleSpaceshipScene",
+            "nodes": [0]
+        }
+    ],
+    "nodes": [
+        {
+            "children": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+            "name": "SimpleSpaceshipBody",
+            "extensions": {
+                "OMI_physics_body": {
+                    "motion": {
+                        "type": "dynamic",
+                        "mass": 2000
+                    }
+                },
+                "OMI_vehicle_body": {
+                    "gyroTorque": [3000, 3000, 3000],
+                    "linearDampeners": true,
+                    "pilotSeat": 6
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipBottomThruster",
+            "rotation": [-0.7071068286895752, 0, 0, 0.7071068286895752],
+            "translation": [0, -0.3, 0],
+            "extensions": {
+                "OMI_vehicle_thruster": {
+                    "thruster": 0
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipConvexHull",
+            "extensions": {
+                "OMI_physics_body": {
+                    "collider": {
+                        "shape": 0
+                    }
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipMainThrusterLeft",
+            "translation": [0.5333333, 0, -1.25],
+            "extensions": {
+                "OMI_vehicle_thruster": {
+                    "thruster": 2
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipMainThrusterRight",
+            "translation": [-0.5333333, 0, -1.25],
+            "extensions": {
+                "OMI_vehicle_thruster": {
+                    "thruster": 2
+                }
+            }
+        },
+        {
+            "mesh": 0,
+            "name": "SimpleSpaceshipMesh"
+        },
+        {
+            "name": "SimpleSpaceshipPilotSeat",
+            "translation": [0, 0.2, 1.25],
+            "extensions": {
+                "OMI_physics_body": {
+                    "trigger": {
+                        "shape": 1
+                    }
+                },
+                "OMI_seat": {
+                    "back": [0, -0.2, -0.4],
+                    "foot": [0, -0.4, 0.65],
+                    "knee": [0, -0.2, 0.15]
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipReverseThrusterLeft",
+            "rotation": [0, -1, 0, 0],
+            "translation": [0.5333333, 0, 0.4166666865348816],
+            "extensions": {
+                "OMI_vehicle_thruster": {
+                    "thruster": 1
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipReverseThrusterRight",
+            "rotation": [0, -1, 0, 0],
+            "translation": [-0.5333333, 0, 0.4166666865348816],
+            "extensions": {
+                "OMI_vehicle_thruster": {
+                    "thruster": 1
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipSideThrusterLeft",
+            "rotation": [0, -0.7071068286895752, 0, 0.7071068286895752],
+            "translation": [0.8, 0, 0],
+            "extensions": {
+                "OMI_vehicle_thruster": {
+                    "thruster": 0
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipSideThrusterRight",
+            "rotation": [0, 0.7071068286895752, 0, 0.7071068286895752],
+            "translation": [-0.8, 0, 0],
+            "extensions": {
+                "OMI_vehicle_thruster": {
+                    "thruster": 0
+                }
+            }
+        },
+        {
+            "name": "SimpleSpaceshipTopThruster",
+            "rotation": [0.7071068286895752, 0, 0, 0.7071068286895752],
+            "translation": [0, 0.5, 0],
+            "extensions": {
+                "OMI_vehicle_thruster": {
+                    "thruster": 0
+                }
+            }
+        }
+    ],
+    "materials": [
+        {
+            "doubleSided": true,
+            "name": "SimpleSpaceshipMaterial",
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0.75,
+                "roughnessFactor": 0.25
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "SimpleSpaceshipMeshData",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "textures": [
+        {
+            "sampler": 0,
+            "source": 0
+        }
+    ],
+    "images": [
+        {
+            "mimeType": "image/png",
+            "name": "simple_spaceship_color",
+            "uri": "simple_spaceship_color.png"
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 832,
+            "max": [2.4141058921813965, 0.8135462999343872, 2.1287012100219727],
+            "min": [-2.4141058921813965, -0.5360468626022339, -1.7438040971755981],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 832,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 832,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5123,
+            "count": 1380,
+            "type": "SCALAR"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 9984,
+            "byteOffset": 0,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 9984,
+            "byteOffset": 9984,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 6656,
+            "byteOffset": 19968,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 2760,
+            "byteOffset": 26624,
+            "target": 34963
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 29384,
+            "uri": "simple_spaceship.bin"
+        }
+    ]
+}
