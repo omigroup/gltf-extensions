@@ -107,7 +107,7 @@ Hyperfy vehicles are strictly cars, not aircraft, spacecraft, etc.
 | glTF mesh, shapes, etc.            | Model & Size           | The appearance and size are determined by the meshes etc in the glTF file. |
 | Not available                      | On Enter & On Exit     | Needs to wait for KHR_interactivity.                                       |
 | glTF body node position/rotation   | Position & Rotation    | Use glTF nodes for all transforms.                                         |
-| Not available                      | Prefab                 | Configure properties of specific parts intead.                             |
+| Not available                      | Prefab                 | Configure properties of specific parts instead.                            |
 | Not available                      | Reset Time             | Reset functionality is not specified in the OMI extensions.                |
 | glTF node position of pilot seat   | Seat #1 Position X/Y/Z | Use glTF nodes for all transforms. Use OMI_seat for seats.                 |
 | glTF node rotation of pilot seat   | Seat #1 Rotation       | Use glTF nodes for all transforms. Use OMI_seat for seats.                 |

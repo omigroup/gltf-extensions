@@ -134,7 +134,7 @@ The extension must be added to the file's `extensionsUsed` array and because it 
 
 Audio data objects define where audio data is located and what format the data is in. The data is either accessed via a bufferView or uri.
 
-When storing audio data in a buffer view, the `mimeType` field must be specified. The base specification supports `audio/mpeg` and `audio/wav` MIME types. These were chosen with consideration for the wide support for these types acrosss 3D engines and common use cases. Other supported audio formats may be added via extensions.
+When storing audio data in a buffer view, the `mimeType` field must be specified. The base specification supports `audio/mpeg` and `audio/wav` MIME types. These were chosen with consideration for the wide support for these types across 3D engines and common use cases. Other supported audio formats may be added via extensions.
 
 Note that in tools that process glTF files, but do not implement the `KHR_audio_emitter` extension, external files referenced via the `uri` field may not be properly copied to their final destination or baked into the final binary glTF file. In these cases, using the `bufferView` property may be a better choice assuming the referenced `bufferView` index is not changed by the tool. The `uri` field might be a better choice when you want to be able to quickly change the referenced audio asset.
 
@@ -230,16 +230,16 @@ When the audio emitter type is set to `positional`, additional properties may be
 
 #### Property Summary
 
-|                    | Type     | Description                                                                                                         | Default value                       |
-| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| **shapeType**      | `string` | The shape of the audio emitter. May be `omnidirectional`, `cone`, or a value specified by another extension.        | `"omnidirectional"`                 |
-| **coneInnerAngle** | `number` | The anglular diameter of a cone inside of which there will be no angular volume reduction.                          | 6.2831853... (τ or 2π rad, 360 deg) |
-| **coneOuterAngle** | `number` | The anglular diameter of a cone outside of which the volume will be reduced to a constant value of `coneOuterGain`. | 6.2831853... (τ or 2π rad, 360 deg) |
-| **coneOuterGain**  | `number` | The linear volume gain of the audio emitter set when outside the cone defined by the `coneOuterAngle` property.     | 0.0                                 |
-| **distanceModel**  | `string` | Specifies the distance model for the audio emitter.                                                                 | `"inverse"`                         |
-| **maxDistance**    | `number` | The maximum distance between the emitter and listener, beyond which the audio cannot be heard.                      | 0.0                                 |
-| **refDistance**    | `number` | A reference distance for reducing volume as the emitter moves further from the listener.                            | 1.0                                 |
-| **rolloffFactor**  | `number` | Describes how quickly the volume is reduced as the emitter moves away from listener.                                | 1.0                                 |
+|                    | Type     | Description                                                                                                        | Default value                       |
+| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| **shapeType**      | `string` | The shape of the audio emitter. May be `omnidirectional`, `cone`, or a value specified by another extension.       | `"omnidirectional"`                 |
+| **coneInnerAngle** | `number` | The angular diameter of a cone inside of which there will be no angular volume reduction.                          | 6.2831853... (τ or 2π rad, 360 deg) |
+| **coneOuterAngle** | `number` | The angular diameter of a cone outside of which the volume will be reduced to a constant value of `coneOuterGain`. | 6.2831853... (τ or 2π rad, 360 deg) |
+| **coneOuterGain**  | `number` | The linear volume gain of the audio emitter set when outside the cone defined by the `coneOuterAngle` property.    | 0.0                                 |
+| **distanceModel**  | `string` | Specifies the distance model for the audio emitter.                                                                | `"inverse"`                         |
+| **maxDistance**    | `number` | The maximum distance between the emitter and listener, beyond which the audio cannot be heard.                     | 0.0                                 |
+| **refDistance**    | `number` | A reference distance for reducing volume as the emitter moves further from the listener.                           | 1.0                                 |
+| **rolloffFactor**  | `number` | Describes how quickly the volume is reduced as the emitter moves away from listener.                               | 1.0                                 |
 
 #### Shape Type
 
@@ -340,7 +340,7 @@ Note that multiple global audio emitters are allowed on the scene, but only a si
 
 The Audio Rolloff range is `(0.0, +∞)`. The default is `1.0`.
 
-The rolloff formula is dependant on the distance model defined. The available distance models are `linear`, `inverse`, and `exponential`.
+The rolloff formula is dependent on the distance model defined. The available distance models are `linear`, `inverse`, and `exponential`.
 
 - linear formula: `1.0 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
 - inverse formula: `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
@@ -352,7 +352,7 @@ The gain unit range is `(0.0, +∞)`. The default is `1.0`.
 
 - gain formula: `originalVolume * gain`
 
-### Audio Cone Vizualized
+### Audio Cone Visualized
 
 <img alt="Audio cone showing how cone parameters impact volume based on relative distance to the source." src="./figures/cone-diagram.svg" width="500px" />
 

@@ -20,7 +20,7 @@ Does nothing on its own. Designed to be used together with the `OMI_physics_body
 
 This extension allows specifying physics shapes to be used in glTF scenes.
 
-All types of physics shapes defined in this extension are intended to be used for physics simulations and to be portable between many engines. Without another extension using it, this extension does not mandate any particular behavior for the shapes aside from their geometric properties. The precise usage of these physics shape primitives SHOULD be specified by the extenions which utilize them. In general, these physics shapes are used to specify geometry which can be used for collision detection.
+All types of physics shapes defined in this extension are intended to be used for physics simulations and to be portable between many engines. Without another extension using it, this extension does not mandate any particular behavior for the shapes aside from their geometric properties. The precise usage of these physics shape primitives SHOULD be specified by the extensions which utilize them. In general, these physics shapes are used to specify geometry which can be used for collision detection.
 
 The `OMI_physics_shape` extension is intended to be used together with the `OMI_physics_body` extension, which allows attaching shapes to glTF nodes and specifying their behavior, including static, kinematic, dynamic, and non-solid triggers. The `OMI_physics_body` extension refers to a shape using an index of a shape in the `OMI_physics_shape` document-level shapes array.
 
