@@ -1,19 +1,24 @@
 name: 📊 Static Checks
 on: [push, pull_request]
 
+concurrency:
+  group: ci-${{ github.actor }}-${{ github.head_ref || github.run_number }}-${{ github.ref }}-static
+
 jobs:
-  format:
-    name: File formatting (file_format.sh)
-    runs-on: ubuntu-22.04
+  static-checks:
+    name: Code style and file formatting
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install APT dependencies
-        uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: dos2unix moreutils
+          fetch-depth: 2
 
-      - name: File formatting checks (file_format.sh)
+      - name: General setup
         run: |
-          bash ./.github/scripts/file_format.sh
+          git config diff.wsErrorHighlight all
+
+      - name: Style checks via pre-commit
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files
