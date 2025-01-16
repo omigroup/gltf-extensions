@@ -76,11 +76,7 @@ Audio data can also be stored in a buffer, such as in the glTF Binary (.glb) for
 }
 ```
 
-### JSON Schema
-
-[KHR_audio_emitter.source.OMI_audio_ogg_vorbis.schema.json](schema/KHR_audio_emitter.source.OMI_audio_ogg_vorbis.schema.json)
-
-## Best Practices
+### Best Practices
 
 Ogg Vorbis has similar use cases to MP3. Both are lossy audio compression formats that are widely supported. Ogg Vorbis should be preferred to MP3 when delivering audio data to clients that support loading Ogg Vorbis audio data from `OMI_audio_ogg_vorbis`.
 
