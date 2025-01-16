@@ -39,13 +39,13 @@ A draft proposal has been submitted to the working group and is receiving feedba
 
 ### Stage 2
 
-The draft proposal should precisely describe the extension in it's initial form and there should be at least one metaverse implementation of the extension in development and valid sample assets for testing by other potential implementors. The proposal should contain valid a JSON schema describing the extension in its entirety as well as a markdown document explaining the purpose, features, and properties of the extension. This implementation will be used to test the viability of the extension and provide an example for other implementors. Edits to the extension should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
+The draft proposal should precisely describe the extension in it's initial form and there should be at least one metaverse implementation of the extension in development and valid sample assets for testing by other potential implementers. The proposal should contain valid a JSON schema describing the extension in its entirety as well as a markdown document explaining the purpose, features, and properties of the extension. This implementation will be used to test the viability of the extension and provide an example for other implementers. Edits to the extension should be voted on and decided by consensus in weekly OMI glTF Working Group meetings.
 
 #### Requirements
 
 - [ ] Previous requirements from Stage 1
 - [ ] One metaverse implementation of the extension in development.
-- [ ] Valid and publicly acessible sample assets
+- [ ] Valid and publicly accessible sample assets
 - [ ] Valid JSON schema describing the extension in its entirety
 - [ ] Markdown document explaining the purpose, features, and properties of the extension
 
@@ -58,7 +58,7 @@ The extension has multiple metaverse implementations, a glTF Validator implement
 - [ ] Previous requirements from Stage 2
 - [ ] Two or more metaverse implementations
 - [ ] glTF Validator implementation
-- [ ] Publicly availible content creation tool for generating assets for this extension
+- [ ] Publicly available content creation tool for generating assets for this extension
 - [ ] All implementations, sample assets, and content creation tools should consume or produce assets that pass validation.
 
 ### Stage 4
