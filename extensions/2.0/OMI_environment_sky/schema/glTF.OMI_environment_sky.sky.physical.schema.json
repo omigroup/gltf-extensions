@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_environment_sky.sky.physical.schema.json",
+    "title": "OMI_environment_sky Physical Sky Parameters",
+    "type": "object",
+    "description": "Physical skies use a physically-based model to simulate the scattering of light in the atmosphere.",
+    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "properties": {
+        "groundColor": {
+            "type": "array",
+            "description": "The color of the ground of the skybox (not part of the atmospheric simulation).",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [0.3, 0.5, 1.0]
+        },
+        "mieAnisotropy": {
+            "type": "number",
+            "description": "The anisotropy of Mie scattering (the thing that makes clouds white).",
+            "minimum": -1.0,
+            "maximum": 1.0,
+            "default": 0.8
+        },
+        "mieColor": {
+            "type": "array",
+            "description": "The color of Mie scattering (the thing that makes clouds white).",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [1.0, 1.0, 1.0]
+        },
+        "mieScale": {
+            "type": "number",
+            "description": "The scale of Mie scattering (the thing that makes clouds white) in inverse meters.",
+            "minimum": 0.0,
+            "default": 0.000005
+        },
+        "rayleighColor": {
+            "type": "array",
+            "description": "The color of Rayleigh scattering (the thing that makes the sky blue).",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "default": [0.3, 0.5, 1.0]
+        },
+        "rayleighScale": {
+            "type": "number",
+            "description": "The scale of Rayleigh scattering (the thing that makes the sky blue) in inverse meters.",
+            "minimum": 0.0,
+            "default": 0.00003
+        }
+    },
+    "required": []
+}
