@@ -1,0 +1,62 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "glTF.OMI_environment_sky.sky.gradient.schema.json",
+    "title": "OMI_environment_sky Gradient Sky Parameters",
+    "type": "object",
+    "description": "Gradient skies use color gradients to define the sky colors.",
+    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "properties": {
+        "bottomColor": {
+            "type": "array",
+            "description": "The color of the sky at the bottom, also known as the nadir.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+        },
+        "bottomCurve": {
+            "type": "number",
+            "description": "The transition curve between the bottom and the horizon colors. 1 is linear, below 1 makes the bottom color more dominant, above 1 makes the horizon color more dominant.",
+            "minimum": 0.0,
+            "default": 0.02
+        },
+        "horizonColor": {
+            "type": "array",
+            "description": "The color of the sky at the horizon.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+        },
+        "topColor": {
+            "type": "array",
+            "description": "The color of the sky at the top, also known as the zenith.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+        },
+        "topCurve": {
+            "type": "number",
+            "description": "The transition curve between the top and the horizon colors. 1 is linear, below 1 makes the top color more dominant, above 1 makes the horizon color more dominant.",
+            "minimum": 0.0,
+            "default": 0.15
+        },
+        "sunAngleMax": {
+            "type": "number",
+            "description": "The maximum radius angle of the sun(s) in radians.",
+            "minimum": 0.0,
+            "default": 0.5
+        },
+        "sunCurve": {
+            "type": "number",
+            "description": "The transition curve between the sun(s) and the sky colors. 1 is linear, below 1 makes the sky color more dominant, above 1 makes the sun color more dominant.",
+            "minimum": 0.0,
+            "default": 0.15
+        }
+    },
+    "required": []
+}

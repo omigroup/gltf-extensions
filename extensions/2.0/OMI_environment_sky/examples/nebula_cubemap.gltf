@@ -1,0 +1,168 @@
+{
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [0.5, 0.5, 0.5],
+            "min": [-0.5, -0.5, -0.5],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 0.0, 1.0, 1.0],
+            "min": [-1.0, -0.000015259254723787308, -1.0, 1.0],
+            "normalized": false,
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 1.0, 1.0],
+            "min": [-1.0, -1.0, -1.0],
+            "normalized": false,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 1.0],
+            "min": [0.0, 0.0],
+            "normalized": false,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 36,
+            "max": [23.0],
+            "min": [0.0],
+            "normalized": false,
+            "type": "SCALAR"
+        }
+    ],
+    "asset": {
+        "extensions": { "KHR_xmp_json_ld": { "packet": 0 } },
+        "version": "2.0"
+    },
+    "bufferViews": [
+        { "buffer": 0, "byteLength": 288, "byteOffset": 0, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 384, "byteOffset": 288, "byteStride": 16, "target": 34962 },
+        { "buffer": 0, "byteLength": 288, "byteOffset": 672, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 192, "byteOffset": 960, "byteStride": 8, "target": 34962 },
+        { "buffer": 0, "byteLength": 72, "byteOffset": 1152, "target": 34963 }
+    ],
+    "buffers": [{ "byteLength": 1224, "uri": "cube_mesh_data.bin" }],
+    "extensions": {
+        "KHR_lights_punctual": { "lights": [{ "type": "directional" }] },
+        "KHR_xmp_json_ld": {
+            "packets": [
+                {
+                    "@context": { "dc": "http://purl.org/dc/elements/1.1/" },
+                    "@id": "",
+                    "dc:coverage": "wwwtyro.net",
+                    "dc:format": "model/gltf+json",
+                    "dc:source": "https://tools.wwwtyro.net/space-3d/index.html",
+                    "dc:title": "Space 3D"
+                }
+            ]
+        },
+        "OMI_environment_sky": {
+            "skies": [
+                {
+                    "panorama": {
+                        "cubemap": [0, 1, 2, 3, 4, 5]
+                    },
+                    "type": "panorama"
+                }
+            ]
+        }
+    },
+    "extensionsUsed": ["KHR_lights_punctual", "KHR_xmp_json_ld", "OMI_environment_sky"],
+    "images": [
+        {
+            "mimeType": "image/png",
+            "name": "nebula_cubemap_posx",
+            "uri": "nebula_cubemap/posx.png"
+        },
+        {
+            "mimeType": "image/png",
+            "name": "nebula_cubemap_negx",
+            "uri": "nebula_cubemap/negx.png"
+        },
+        {
+            "mimeType": "image/png",
+            "name": "nebula_cubemap_posy",
+            "uri": "nebula_cubemap/posy.png"
+        },
+        {
+            "mimeType": "image/png",
+            "name": "nebula_cubemap_negy",
+            "uri": "nebula_cubemap/negy.png"
+        },
+        {
+            "mimeType": "image/png",
+            "name": "nebula_cubemap_posz",
+            "uri": "nebula_cubemap/posz.png"
+        },
+        {
+            "mimeType": "image/png",
+            "name": "nebula_cubemap_negz",
+            "uri": "nebula_cubemap/negz.png"
+        }
+    ],
+    "materials": [{}],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": { "NORMAL": 2, "POSITION": 0, "TANGENT": 1, "TEXCOORD_0": 3 },
+                    "indices": 4,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        { "children": [1, 2], "name": "NebulaCubemap" },
+        { "mesh": 0, "name": "Box" },
+        {
+            "extensions": { "KHR_lights_punctual": { "light": 0 } },
+            "name": "Sun",
+            "rotation": [0.0636336356770543, 0.892671153222115, 0.425782291009933, -0.133410694016456]
+        }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }],
+    "textures": [
+        {
+            "source": 0
+        },
+        {
+            "source": 1
+        },
+        {
+            "source": 2
+        },
+        {
+            "source": 3
+        },
+        {
+            "source": 4
+        },
+        {
+            "source": 5
+        }
+    ]
+}
