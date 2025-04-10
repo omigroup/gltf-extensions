@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "material.OMI_materials_blend.schema.json",
+    "title": "OMI_materials_blend glTF Material Extension",
+    "type": "object",
+    "description": "glTF extension to specify the transparency alpha blending mode of a material.",
+    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "properties": {
+        "alphaMode": {
+            "type": "string",
+            "description": "The alpha blend mode to use. Override for the base glTF `alphaMode`.",
+            "enum": [
+                "BLEND",
+                "HASH",
+                "PREMULT",
+                "MULTIPLY",
+                "ADD",
+                "SUBTRACT",
+                "REV_SUBTRACT",
+                "MAX",
+                "MIN"
+            ]
+        },
+        "alwaysUseCutoff": {
+            "type": "boolean",
+            "description": "If true, always use the glTF `alphaCutoff` as a clip mask. When true, alpha values below the cutoff will be treated as fully transparent, and alpha values above the cutoff will be treated as the selected alpha mode.",
+            "default": false
+        },
+        "extensions": {},
+        "extras": {}
+    }
+}
