@@ -55,14 +55,14 @@ Audio emitter objects may be added to 3D nodes for positional audio or to the sc
                 {
                     "name": "Clip 1",
                     "gain": 0.6,
-                    "autoPlay": true,
+                    "autoplay": true,
                     "loop": true,
                     "audio": 0
                 },
                 {
                     "name": "Clip 2",
                     "gain": 0.6,
-                    "autoPlay": true,
+                    "autoplay": true,
                     "loop": true,
                     "audio": 1
                 }
@@ -156,13 +156,13 @@ Audio sources reference audio data and define playback properties for it. Audio 
 
 #### Property Summary
 
-|                | Type      | Description                                                                                               | Default value |
-| -------------- | --------- | --------------------------------------------------------------------------------------------------------- | ------------- |
-| **gain**       | `number`  | Unitless linear multiplier against original audio file volume used for determining audio source loudness. | 1.0           |
-| **pitchSpeed** | `number`  | Multiplier for combined pitch and playback speed without resampling.                                      | 1.0           |
-| **loop**       | `boolean` | Whether or not to loop the specified audio when finished.                                                 | false         |
-| **autoPlay**   | `boolean` | Whether or not to play the specified audio when the glTF is loaded.                                       | false         |
-| **audio**      | `number`  | The index of the audio data assigned to this clip.                                                        | No audio      |
+|                  | Type      | Description                                                                                               | Default value |
+| ---------------- | --------- | --------------------------------------------------------------------------------------------------------- | ------------- |
+| **gain**         | `number`  | Unitless linear multiplier against original audio file volume used for determining audio source loudness. | 1.0           |
+| **playbackRate** | `number`  | Multiplier for combined pitch and playback speed without resampling.                                      | 1.0           |
+| **loop**         | `boolean` | Whether or not to loop the specified audio when finished.                                                 | false         |
+| **autoplay**     | `boolean` | Whether or not to play the specified audio when the glTF is loaded.                                       | false         |
+| **audio**        | `number`  | The index of the audio data assigned to this clip.                                                        | No audio      |
 
 #### Gain
 
@@ -170,19 +170,19 @@ The `"gain"` property is a number that is a unitless linear multiplier against o
 
 This value is linear, a value of `0.0` is no volume, `0.5` is half volume, `1.0` is the original volume, `2.0` is double the volume, etc. The final volume of the audio is a combination of this value, the audio emitter's gain, and if the audio emitter is positional, the relative positions of the emitter and listener.
 
-#### Pitch Speed
+#### Playback Rate
 
-The `"pitchSpeed"` property is a number that is a multiplier for combined pitch and playback speed without resampling. If not specified, the pitch speed is `1.0`.
+The `"playbackRate"` property is a number that is a multiplier for combined pitch and playback speed without resampling. If not specified, the playback rate is `1.0`.
 
-For example, a value of `2.0` would double the playback speed of the audio, which doubles all frequencies in the audio, doubling the pitch.
+For example, a value of `2.0` would double the playback speed of the audio, which doubles all frequencies in the audio, doubling the pitch. This property does not resample the audio, so the playback speed is locked together with the pitch.
 
 #### Loop
 
 The `"loop"` property is a boolean that specifies whether or not to loop the specified audio when finished. If `false` or not specified, the audio source does not loop.
 
-#### Auto Play
+#### Autoplay
 
-The `"autoPlay"` property is a boolean that specifies whether or not to play the specified audio when the glTF is loaded. If `false` or not specified, the audio source does not play automatically.
+The `"autoplay"` property is a boolean that specifies whether or not to play the specified audio when the glTF is loaded. If `false` or not specified, the audio source does not play automatically.
 
 #### Audio
 
@@ -379,10 +379,10 @@ The following JSON pointers are defined representing mutable properties defined 
 | `/extensions/KHR_audio_emitter/emitters/{}/positional/maxDistance`    | `float`           |
 | `/extensions/KHR_audio_emitter/emitters/{}/positional/refDistance`    | `float`           |
 | `/extensions/KHR_audio_emitter/emitters/{}/positional/rolloffFactor`  | `float`           |
-| `/extensions/KHR_audio_emitter/sources/{}/autoPlay`                   | `bool`            |
+| `/extensions/KHR_audio_emitter/sources/{}/autoplay`                   | `bool`            |
 | `/extensions/KHR_audio_emitter/sources/{}/gain`                       | `float`           |
 | `/extensions/KHR_audio_emitter/sources/{}/loop`                       | `bool`            |
-| `/extensions/KHR_audio_emitter/sources/{}/pitchSpeed`                 | `float`           |
+| `/extensions/KHR_audio_emitter/sources/{}/playbackRate`               | `float`           |
 
 Additionally, the following JSON pointers are defined for read-only properties:
 
