@@ -78,19 +78,15 @@ Audio data can also be stored in a buffer, such as in the glTF Binary (.glb) for
 }
 ```
 
-### JSON Schema
+### Best Practices
 
-[KHR_audio_emitter.source.OMI_audio_opus.schema.json](schema/KHR_audio_emitter.source.OMI_audio_opus.schema.json)
-
-## Best Practices
-
-Opus codec audio is a superior format to MP3 and Ogg Vorbis for their intended use cases, and it is suitable for many use cases traditionally suitable to WAV audio. Opus is a lossy audio codec that is more efficient than MP3 and Ogg Vorbis, with a higher quality for the same file size, or a smaller file size for the same quality.
+Opus codec audio is a superior format to MP3 and Ogg Vorbis for their intended use cases, and it is suitable for short sound effects for which WAV audio is traditionally chosen. Opus is a lossy audio codec that is more efficient than MP3 and Ogg Vorbis, with a higher quality for the same file size, or a smaller file size for the same quality.
 
 Opus is designed to be used either for long-term audio storage or streaming audio over the internet. Opus has a low decode time, with a low latency, making it suitable for time-sensitive audio playback such as short sound effects in video games, therefore it can be used in place of WAV audio when lossy audio is acceptable. See the Wikipedia chart comparing Opus to other audio codecs.
 
 If making a comparison to image formats, Opus is to audio as WebP is to images. It is a modern, efficient, and high-quality format that is superior to older formats, but has less support in popular software.
 
-Since Opus is not a part of the base KHR_audio_emitter spec, it is recommended to provide an MP3 or WAV fallback for clients that do not support this extension. Prefer using an MP3 fallback for music or a WAV fallback for short sound effects. The fallback audio data would typically be of lower quality than the corresponding Opus audio data, such that the total file size of both files is lower than the full quality audio saved as MP3 or WAV, otherwise it would defeat the purpose of using Opus to reduce file size.
+Since Opus is not a part of the base KHR_audio_emitter spec, consider providing an MP3 fallback for clients that do not support this extension. The fallback audio data would typically be of lower quality than the corresponding Opus audio data, such that the total file size of both files is lower than the full quality audio saved as MP3, otherwise it would defeat the purpose of using Opus to reduce file size.
 
 When fallback audio data is defined, this extension should not be present in `extensionsRequired`. This will allow clients that support `KHR_audio_emitter` but not `OMI_audio_opus` to play the fallback audio data.
 
