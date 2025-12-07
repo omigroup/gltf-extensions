@@ -88,7 +88,7 @@ The extension is intended to be used together with `OMI_seat`.
 | **maxSpeed**          | `number`    | The speed at which the vehicle should stop driving acceleration further.         | -1.0            |
 | **pilotSeat**         | `number`    | The index of the `OMI_seat` glTF node to use as the pilot / driver seat.         | -1 (no seat)    |
 | **angularDampeners**  | `boolean`   | If true, the vehicle should slow its rotation when not given angular activation. | true            |
-| **linearDampeners**   | `boolean`   | If true, the vehicle should slow down when not given linear activation.          | false           |
+| **linearDampeners**   | `boolean`   | If true, the vehicle should slow down when not given linear activation.          | true            |
 | **useThrottle**       | `boolean`   | If true, the vehicle should use a throttle for linear movement.                  | false           |
 
 #### Angular Activation
@@ -149,7 +149,7 @@ The reference frame used to determine what "stop" and "not rotating" mean is imp
 
 #### Linear Dampeners
 
-The `"linearDampeners"` property is a boolean that defines whether the vehicle should slow itself down when not given linear activation input for a specific direction. If not specified, the default value is false.
+The `"linearDampeners"` property is a boolean that defines whether the vehicle should slow itself down when not given linear activation input for a specific direction. If not specified, the default value is true.
 
 When linear inertia dampeners are enabled, and any number inside of `"linearActivation"` is zero, it indicates that the vehicle should attempt to come to a stop in that direction. This may be the brakes on a car, the reverse thrusters on a spaceship, or some other mechanism. For example, a spaceship with inertia dampeners should use its thrusters to slow down and stop moving when the pilot stops giving input, rather than continuing to drift in space forever.
 

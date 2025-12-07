@@ -52,7 +52,7 @@
         "linearDampeners": {
             "type": "boolean",
             "description": "If true, the vehicle should slow itself down when not given linear activation input for a specific direction.",
-            "default": false
+            "default": true
         },
         "useThrottle": {
             "type": "boolean",
