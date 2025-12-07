@@ -4,29 +4,52 @@
     "title": "OMI_vehicle_hover_thruster Hover Thruster Parameters",
     "type": "object",
     "properties": {
-        "currentForceRatio": {
+        "gimbalChangeRate": {
             "type": "number",
-            "description": "The ratio of the maximum hover energy the hover thruster is using for propulsion.",
-            "default": 0.0
+            "description": "The rate at which the hover thruster can change its gimbal angles, measured in radians per second (rad/s). If negative, the hover thruster instantly changes to the desired gimbal.",
+            "default": 1.0
         },
-        "currentGimbalRatio": {
+        "hoverEnergyChangeRate": {
+            "type": "number",
+            "description": "The rate at which the hover thruster can change its applied hover energy, measured in Newton-meters per second (N⋅m/s) or kilograms meters squared per second cubed (kg⋅m²/s³) in SI base units. If negative or not specified, the hover thruster instantly changes to the desired hover energy.",
+            "default": -1.0
+        },
+        "linearGimbalAdjustRatio": {
+            "type": "number",
+            "description": "The maximum ratio of how a vehicle's linear activation should adjust the hover thruster's gimbal.",
+            "default": 0.5,
+            "maximum": 1.0,
+            "minimum": 0.0
+        },
+        "maxGimbal": {
+            "type": "number",
+            "description": "The maximum angle the hover thruster can gimbal or rotate in radians.",
+            "default": 0.0,
+            "maximum": 3.1415925,
+            "minimum": 0.0
+        },
+        "maxHoverEnergy": {
+            "type": "number",
+            "description": "The maximum hover energy force in Newton-meters (N⋅m or kg⋅m²/s²) that the hover thruster can provide. Required.",
+            "minimum": 0.0
+        },
+        "targetHoverRatio": {
+            "type": "number",
+            "description": "The ratio of the maximum hover energy the hover thruster is targeting for propulsion. MUST NOT be negative. Values greater than 1.0 have implementation-defined behavior.",
+            "default": 0.0,
+            "minimum": 0.0
+        },
+        "targetGimbalRatio": {
             "type": "array",
-            "description": "The ratio of the maximum gimbal angles the hover thruster is rotated to.",
+            "description": "The ratio of the maximum gimbal angles the hover thruster is targeting to be rotated to. MUST NOT have a length greater than 1.0.",
             "items": {
-                "type": "number"
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": -1.0
             },
             "minItems": 2,
             "maxItems": 2,
             "default": [0.0, 0.0]
-        },
-        "maxHoverEnergy": {
-            "type": "number",
-            "description": "The maximum hover energy force in Newton-meters (N⋅m or kg⋅m²/s²) that the hover thruster can provide. Required."
-        },
-        "maxGimbal": {
-            "type": "array",
-            "description": "The maximum angle the hover thruster can gimbal or rotate in radians.",
-            "default": 0.0
         },
         "extensions": { },
         "extras": { }

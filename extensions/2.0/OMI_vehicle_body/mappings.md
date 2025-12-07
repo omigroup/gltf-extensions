@@ -4,7 +4,7 @@ This document describes how the OMI_vehicle extensions map to different games, g
 
 The term "import" refers to bringing the OMI_vehicle extension data into a game or game engine. The term "export" refers to taking objects from a game or game engine and converting them into OMI_vehicle extension data.
 
-In general, every property in the OMI_vehicle extensions is listed in the tables below, except that the "current" properties are omitted in most cases, because these are usually determined at runtime and do not have any special notes for import/export.
+In general, every property in the OMI_vehicle extensions is listed in the tables below, except that the "target" properties are omitted in most cases, because these are usually determined at runtime and do not have any special notes for import/export.
 
 In alphabetical order:
 
@@ -36,7 +36,7 @@ Empyrion also has "Auto Rotate", which is a button that can be held to automatic
 | **maxForce**         | Depends on thruster type | Comes in various sizes from 55 kN to 920 MN. |
 | **maxGimbal**        | Not available            | Empyrion thrusters do not gimbal.            |
 
-Empyrion allows toggling thrusters on and off, but does not have an override for the current force and current gimbal of a thruster.
+Empyrion allows toggling thrusters on and off, but does not have an override for the target force and target gimbal of a thruster.
 
 For hover thrusters, Empyrion's hover engines have a force measured in kN, the same as non-hover thrusters, but are handicapped so that they stop working beyond a certain height above the ground. For OMI_vehicle_hover_thruster, there is no artificial height limit, instead they operate with a force that is proportional to the distance from the ground - the closer to the ground, the more force they provide. The OMI_vehicle_hover_thruster `maxHoverEnergy` property is measured in Newton-meters (N⋅m or kg⋅m²/s² or Joules), so dividing this number by the amount of meters above the ground will give the force in Newtons (N).
 
@@ -121,8 +121,8 @@ Jolt is a physics engine which has a built-in vehicle system, designed for cars 
 
 | OMI_vehicle_wheel                | Jolt Physics                  | Additional Notes                                                                  |
 | -------------------------------- | ----------------------------- | --------------------------------------------------------------------------------- |
-| **currentForceRatio**            | Unknown                       |                                                                                   |
-| **currentSteeringRatio**         | Steer Angle                   |                                                                                   |
+| **targetForceRatio**             | Unknown                       |                                                                                   |
+| **targetSteeringRatio**          | Steer Angle                   |                                                                                   |
 | **maxForce**                     | Unknown                       |                                                                                   |
 | **maxSteeringAngle**             | WheelSettingsWV MaxSteerAngle | Radians.                                                                          |
 | **physicsMaterial**              | WheelSettingsWV Friction      | Separate LongitudinalFriction and LateralFriction settings in Jolt.               |
@@ -150,9 +150,9 @@ Kerbal Space Program vehicles can be rockets, planes, rovers, and more.
 
 | OMI_vehicle_wheel                | KSP Wheels            | Additional Notes                                                                              |
 | -------------------------------- | --------------------- | --------------------------------------------------------------------------------------------- |
-| **currentForceRatio**            | Motor settings        | Motors can be toggled, and are otherwise controlled by the vehicle-wide linear activation.    |
-| **currentSteeringRatio**         | Steering settings     | Steering can be toggled, and are otherwise controlled by the vehicle-wide angular activation. |
-| **maxForce**                     | Depends on wheel type | Kerbal Space Program provides several pre-set wheels.                                         |
+| **targetForceRatio**             | Motor settings        | Motors can be toggled, and are otherwise controlled by the vehicle-wide linear activation.    |
+| **targetSteeringRatio**          | Steering settings     | Steering can be toggled, and are otherwise controlled by the vehicle-wide angular activation. |
+| **maxPropulsionForce**           | Depends on wheel type | Kerbal Space Program provides several pre-set wheels.                                         |
 | **maxSteeringAngle**             | Depends on wheel type | Kerbal Space Program provides several pre-set wheels.                                         |
 | **physicsMaterial**              | Friction Control      | Kerbal Space Program only has wheel friction, not other material properties.                  |
 | **radius**                       | Depends on wheel type | Kerbal Space Program provides several pre-set wheels.                                         |
@@ -164,8 +164,8 @@ Kerbal Space Program vehicles can be rockets, planes, rovers, and more.
 
 | OMI_vehicle_thruster   | KSP Engines              | Additional Notes                                                              |
 | ---------------------- | ------------------------ | ----------------------------------------------------------------------------- |
-| **currentForceRatio**  | Throttle settings        | Engine thrust can be toggled and limited, up to the throttle amount.          |
-| **currentGimbalRatio** | Gimbal settings          | Engines can gimbal like real rocket engines. Gimbal can be limited or locked. |
+| **targetForceRatio**   | Throttle settings        | Engine thrust can be toggled and limited, up to the throttle amount.          |
+| **targetGimbalRatio**  | Gimbal settings          | Engines can gimbal like real rocket engines. Gimbal can be limited or locked. |
 | **maxForce**           | Depends on thruster type | Kerbal Space Program provides many pre-set thrusters.                         |
 | **maxGimbal**          | Depends on thruster type | Kerbal Space Program provides many pre-set thrusters.                         |
 
@@ -184,9 +184,9 @@ Space Engineers vehicles are general-purpose. They can be spacecraft, cars, and 
 
 | OMI_vehicle_wheel                | Space Engineers Wheels | Additional Notes                                                                              |
 | -------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------- |
-| **currentForceRatio**            | Propulsion Override    | Space Engineers allows overriding force per-wheel directly by the player.                     |
-| **currentSteeringRatio**         | Steer Override         | Space Engineers allows overriding steering per-wheel directly by the player.                  |
-| **maxForce**                     | Power & Propulsion     | Each wheel type can go up to a certain force, and the Power setting is a multiplier (0-1).    |
+| **targetForceRatio**             | Propulsion Override    | Space Engineers allows overriding force per-wheel directly by the player.                     |
+| **targetSteeringRatio**          | Steer Override         | Space Engineers allows overriding steering per-wheel directly by the player.                  |
+| **maxPropulsionForce**           | Power & Propulsion     | Each wheel type can go up to a certain force, and the Power setting is a multiplier (0-1).    |
 | **maxSteeringAngle**             | Steering Angle         | This is the maximum.                                                                          |
 | **physicsMaterial**              | Friction               | Space Engineers only specifies friction, not other material properties.                       |
 | **radius**                       | Depends on wheel type  | Space Engineers provides several pre-set wheel sizes.                                         |
@@ -200,8 +200,8 @@ Space Engineers vehicles are general-purpose. They can be spacecraft, cars, and 
 
 | OMI_vehicle_thruster   | Space Engineers Thrusters | Additional Notes                                                                                   |
 | ---------------------- | ------------------------- | -------------------------------------------------------------------------------------------------- |
-| **currentForceRatio**  | Thrust Override           | Space Engineers allows overriding per-thruster thrust directly by the player.                      |
-| **currentGimbalRatio** | Not available             | Space Engineers thrusters do not gimbal.                                                           |
+| **targetForceRatio**   | Thrust Override           | Space Engineers allows overriding per-thruster thrust directly by the player.                      |
+| **targetGimbalRatio**  | Not available             | Space Engineers thrusters do not gimbal.                                                           |
 | **maxForce**           | Depends on thruster type  | Space Engineers provides several pre-set thrusters (ion: 14.4 kN, 172.8 kN, 345.6 kN, and 4.3 MN). |
 | **maxGimbal**          | Not available             | Space Engineers thrusters do not gimbal.                                                           |
 
@@ -220,9 +220,9 @@ VRChat does not have built-in vehicles, but there are third-party solutions buil
 
 | OMI_vehicle_wheel                | Sacc Wheels            | Additional Notes                                                                           |
 | -------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| **currentForceRatio**            | Throttle controls      | Sacc allows controlling throttle in many ways.                                             |
-| **currentSteeringRatio**         | Steering controls      | Sacc allows controlling steering in many ways including grabbing a steering wheel in VR.   |
-| **maxForce**                     | Engine Influence       | Sacc also requires a wheel to be a drive wheel for it to apply force.                      |
+| **targetForceRatio**             | Throttle controls      | Sacc allows controlling throttle in many ways.                                             |
+| **targetSteeringRatio**          | Steering controls      | Sacc allows controlling steering in many ways including grabbing a steering wheel in VR.   |
+| **maxPropulsionForce**           | Engine Influence       | Sacc also requires a wheel to be a drive wheel for it to apply force.                      |
 | **maxSteeringAngle**             | Steering Wheel Degrees | Sacc defines this per-body using degrees, OMI_vehicle_wheel uses radians and is per-wheel. |
 | **physicsMaterial**              | Wheel Slow Down & Grip | Sacc defines "CurrentGrip" and "CurrentWheelSlowDown" instead of friction.                 |
 | **radius**                       | Wheel Radius           |                                                                                            |
