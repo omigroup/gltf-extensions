@@ -4,29 +4,52 @@
     "title": "OMI_vehicle_thruster Thruster Parameters",
     "type": "object",
     "properties": {
-        "currentForceRatio": {
+        "forceChangeRate": {
             "type": "number",
-            "description": "The ratio of the maximum force the thruster is using for propulsion.",
-            "default": 0.0
+            "description": "The rate at which the thruster can change its applied force, measured in Newtons per second (N/s) or kilograms meters per second cubed (kg⋅m/s³) in SI base units. If negative or not specified, the thruster instantly changes to the desired force.",
+            "default": -1.0
         },
-        "currentGimbalRatio": {
+        "gimbalChangeRate": {
+            "type": "number",
+            "description": "The rate at which the thruster can change its gimbal angles, measured in radians per second (rad/s). If negative, the thruster instantly changes to the desired gimbal.",
+            "default": 1.0
+        },
+        "linearGimbalAdjustRatio": {
+            "type": "number",
+            "description": "The ratio of how a vehicle's linear activation should adjust the thruster's gimbal.",
+            "default": 0.0,
+            "maximum": 1.0,
+            "minimum": 0.0
+        },
+        "maxForce": {
+            "type": "number",
+            "description": "The maximum thrust force in Newtons (kg⋅m/s²) that the thruster can provide. Required.",
+            "minimum": 0.0
+        },
+        "maxGimbal": {
+            "type": "number",
+            "description": "The maximum angle the thruster can gimbal or rotate in radians.",
+            "default": 0.0,
+            "maximum": 3.1415925,
+            "minimum": 0.0
+        },
+        "targetForceRatio": {
+            "type": "number",
+            "description": "The ratio of the maximum force the thruster is targeting for propulsion. MUST NOT be negative. Values greater than 1.0 have implementation-defined behavior.",
+            "default": 0.0,
+            "minimum": 0.0
+        },
+        "targetGimbalRatio": {
             "type": "array",
-            "description": "The ratio of the maximum gimbal angles the thruster is rotated to.",
+            "description": "The ratio of the maximum gimbal angles the thruster is targeting to be rotated to. MUST NOT have a length greater than 1.0.",
             "items": {
-                "type": "number"
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": -1.0
             },
             "minItems": 2,
             "maxItems": 2,
             "default": [0.0, 0.0]
-        },
-        "maxForce": {
-            "type": "number",
-            "description": "The maximum thrust force in Newtons (kg⋅m/s²) that the thruster can provide. Required."
-        },
-        "maxGimbal": {
-            "type": "array",
-            "description": "The maximum angle the thruster can gimbal or rotate in radians.",
-            "default": 0.0
         },
         "extensions": { },
         "extras": { }

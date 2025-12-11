@@ -37,7 +37,7 @@
                 },
                 {
                     "radius": 0.35,
-                    "maxForce": 2000
+                    "maxPropulsionForce": 2000
                 }
             ]
         }

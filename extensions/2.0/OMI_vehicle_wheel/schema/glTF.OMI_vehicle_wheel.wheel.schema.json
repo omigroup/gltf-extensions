@@ -4,60 +4,86 @@
     "title": "OMI_vehicle_wheel Wheel Parameters",
     "type": "object",
     "properties": {
-        "currentForceRatio": {
+        "brakingForce": {
             "type": "number",
-            "description": "The ratio of the maximum force the wheel is using for propulsion.",
-            "default": 0.0
+            "description": "The braking force in Newtons (kg⋅m/s²) that the wheel can provide. If negative or not specified, use propulsion force for braking.",
+            "default": -1.0
         },
-        "currentSteeringRatio": {
-            "type": "number",
-            "description": "The ratio of the maximum steering angle the wheel is rotated to.",
-            "default": 0.0
-        },
-        "maxForce": {
+        "maxPropulsionForce": {
             "type": "number",
             "description": "The maximum force in Newtons (kg⋅m/s²) that the wheel can provide.",
-            "default": 0.0
+            "default": 0.0,
+            "minimum": 0.0
         },
         "maxSteeringAngle": {
             "type": "number",
             "description": "The maximum angle in radians that the wheel can steer.",
-            "default": 0.0
+            "default": 0.0,
+            "maximum": 3.1415925,
+            "minimum": 0.0
         },
         "physicsMaterial": {
             "allOf": [ { "$ref": "glTFid.schema.json" } ],
             "description": "The index of the physics material in the top level physicsMaterials array.",
             "default": -1
         },
+        "propulsionForceChangeRate": {
+            "type": "number",
+            "description": "The rate at which the wheel can change its applied force, measured in Newtons per second (N/s) or kilograms meters per second cubed (kg⋅m/s³) in SI base units. If negative or not specified, the wheel instantly changes to the desired propulsion force.",
+            "default": -1.0
+        },
         "radius": {
             "type": "number",
             "description": "The radius of the wheel in meters. This is the radius of a circle in the local YZ plane.",
-            "default": 0.25
+            "default": 0.25,
+            "exclusiveMinimum": 0.0
+        },
+        "steeringChangeRate": {
+            "type": "number",
+            "description": "The rate at which the wheel can change its steering angle, measured in radians per second (rad/s). If negative, the wheel instantly changes to the desired steering angle.",
+            "default": 1.0
         },
         "suspensionDampingCompression": {
             "type": "number",
             "description": "The damping of the suspension during compression, the resistance to the velocity of the suspension. It is measured in Newton-seconds per meter (N⋅s/m), or kilograms per second (kg/s) in SI base units.",
-            "default": 2000.0
+            "default": 2000.0,
+            "exclusiveMinimum": 0.0
         },
         "suspensionDampingRebound": {
             "type": "number",
             "description": "The damping of the suspension during rebound/relaxation, the resistance to the velocity of the suspension. It is measured in Newton-seconds per meter (N⋅s/m), or kilograms per second (kg/s) in SI base units.",
-            "default": 2000.0
+            "default": 2000.0,
+            "exclusiveMinimum": 0.0
         },
         "suspensionStiffness": {
             "type": "number",
             "description": "The stiffness of the suspension, the resistance to traveling away from the start point. It is measured in Newtons per meter (N/m), or kilograms per second squared (kg/s²) in SI base units.",
-            "default": 20000.0
+            "default": 20000.0,
+            "exclusiveMinimum": 0.0
         },
         "suspensionTravel": {
             "type": "number",
             "description": "The maximum distance the suspension can move up or down in meters.",
-            "default": 0.25
+            "default": 0.25,
+            "minimum": 0.0
+        },
+        "targetPropulsionForceRatio": {
+            "type": "number",
+            "description": "The ratio of the maximum force the wheel is using for propulsion. May be negative for reverse force. Values outside the range [-1.0, 1.0] have implementation-defined behavior.",
+            "default": 0.0
+        },
+        "targetSteeringRatio": {
+            "type": "number",
+            "description": "The ratio of the maximum steering angle the wheel is rotated to. May be negative for steering in the opposite direction.",
+            "default": 0.0,
+            "minimum": -1.0,
+            "maximum": 1.0
         },
         "width": {
             "type": "number",
             "description": "The width of the wheel in meters. This is the width of the wheel in the local X axis.",
-            "default": 0.125
+            "default": 0.125,
+            "exclusiveMinimum": 0.0
         },
         "extensions": { },
         "extras": { }
