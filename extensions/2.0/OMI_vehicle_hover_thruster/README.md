@@ -16,7 +16,7 @@ Designed to be used together with the `OMI_vehicle_body` spec.
 
 ## Overview
 
-This extension allows specifying generic thrusters in glTF scenes.
+This extension allows specifying hover thrusters in glTF scenes.
 
 Hover thrusters as defined by `OMI_vehicle_hover_thruster` use hover energy for propulsion and can optionally gimbal. The experienced force is proportional to both the hover energy and the distance from the ground - the closer to the ground, the more force they provide. The `"maxHoverEnergy"` property is measured in Newton-meters (N⋅m or kg⋅m²/s²), so dividing this number by the amount of meters above the ground will give the force in Newtons (N). This extension does not define fuel, power, or any other resource that the hover thruster may consume.
 
@@ -32,7 +32,7 @@ Hover thrusters are invisible by default. To give a thruster a visual appearance
 
 The file [hovercraft.gltf](examples/hovercraft.gltf) defines a chrome-colored hovercraft with 4 hover thrusters at the bottom corners of the hovercraft, each a child node of the hovercraft's vehicle body. The hovercraft can rotate itself by gimballing its hover thrusters. The hovercraft also has a pilot seat, allowing a player to sit in it to control the vehicle. This can be imported into a game that supports OMI_vehicle_thruster to have a controllable hovercraft.
 
-For this example, the only source of thrust of any kind is the hover thrusters, so it will struggle to do things like moving up a steep hill. To enhance the handling of the hovercraft, one could add some gyroscope torque and/or non-hover thrusters. However, a proper implementation of OMI_vehicle_hover_thruster should be able to handle a hovercraft with only hover thrusters, including stable hovering over flat ground, controlled angular movement such as pitch, yaw, and roll, preventing the hovercraft from flipping over, and controlled linear movement forward/back/left/right with a bit of up/down movement.
+For this example, the only source of thrust of any kind is the hover thrusters, so it will struggle to do things like moving up a steep hill. To enhance the handling of the hovercraft, one could add some gyroscope torque and/or non-hover thrusters. However, a proper implementation of OMI_vehicle_hover_thruster should be able to handle a hovercraft with only hover thrusters, therefore this serves as a useful test model. A good implementation should include stable hovering over flat ground, controlled angular movement such as pitch, yaw, and roll, dampeners working to prevent the hovercraft from flipping over, and controlled linear forward/back/left/right movement with a bit of up/down movement.
 
 The hover thruster settings are defined at the document level:
 
@@ -47,7 +47,7 @@ The hover thruster settings are defined at the document level:
                 }
             ]
         }
-    },
+    }
 }
 ```
 
@@ -55,7 +55,7 @@ This is then referenced by index on hover thruster glTF nodes. For example, the 
 
 ```json
 {
-    "name": "HoverThrusterFR",
+    "name": "HoverThrusterFrontRight",
     "rotation": [-0.17670360207558, 0.81949108839035, 0.426600247621536, 0.33944433927536],
     "translation": [-1.2, -0.25, 2.1],
     "extensions": {
@@ -76,57 +76,23 @@ The extension must also be added to the glTF's `extensionsUsed` array and becaus
 
 The rest of the document, including this summary, defines the properties for the main data structure.
 
-|                        | Type        | Description                                                                 | Default value        |
-| ---------------------- | ----------- | --------------------------------------------------------------------------- | -------------------- |
-| **currentHoverRatio**  | `number`    | The ratio of the maximum hover energy the thruster is using for propulsion. | 0.0                  |
-| **currentGimbalRatio** | `number[2]` | The ratios of the maximum gimbal angle the hover thruster is rotated to.    | [0.0, 0.0]           |
-| **maxHoverEnergy**     | `number`    | The maximum hover energy in Newton-meters (kg⋅m²/s²) of this thruster.      | Required, no default |
-| **maxGimbal**          | `number`    | The maximum angle the hover thruster can rotate in radians.                 | 0.0                  |
+|                             | Type        | Description                                                                         | Default value        |
+| --------------------------- | ----------- | ----------------------------------------------------------------------------------- | -------------------- |
+| **gimbalChangeRate**        | `number`    | The rate at which the hover thruster can change its gimbal angles.                  | 1.0                  |
+| **hoverEnergyChangeRate**   | `number`    | The rate at which the hover thruster can change its applied hover energy.           | -1.0                 |
+| **linearGimbalAdjustRatio** | `number`    | The ratio of how a vehicle's linear activation should adjust the thruster's gimbal. | 0.5                  |
+| **maxGimbal**               | `number`    | The maximum angle the hover thruster can rotate in radians.                         | 0.0                  |
+| **maxHoverEnergy**          | `number`    | The maximum hover energy in Newton-meters (kg⋅m²/s²) of this thruster.              | Required, no default |
+| **targetHoverRatio**        | `number`    | The ratio of the maximum hover energy the thruster is using for propulsion.         | 0.0                  |
+| **targetGimbalRatio**       | `number[2]` | The ratios of the maximum gimbal angle the hover thruster is rotated to.            | [0.0, 0.0]           |
 
-#### Current Hover Ratio
+#### Gimbal Change Rate
 
-The `"currentHoverRatio"` property is a number that defines the ratio of `"maxHoverEnergy"` the hover thruster is using for propulsion. If not specified, the default value is 0.0, which means the hover thruster is not firing.
+The `"gimbalChangeRate"` property is a number that defines the rate at which the hover thruster can change its gimbal angles, measured in radians per second (rad/s). If not specified, the default value is 1.0 rad/s.
 
-This value is expected to be between 0.0 and 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of turbo boost or overdrive. Negative values should not be used since the hover thrust strength may be different in the opposite direction, so for reverse thrust, a separate hover thruster should be used facing the opposite direction. For example, a hovercraft may have some hover thrusters on the front and some on the rear, with the rear hover thrusters propelling the vehicle forward, and the front hover thrusters propelling the vehicle backward.
+All finite numbers are valid values. A value of 0.0 means the hover thruster cannot change its gimbal angle at all after initialization, meaning that it would lock the gimbal in place. Any negative value means the hover thruster MUST instantly change to the desired gimbal angle. Positive values define the maximum rate of change of the gimbal angles in radians per second. With the default value of 1.0 rad/s, a hover thruster can rotate from 0.0 to 0.5 radians in 0.5 seconds.
 
-This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The thruster may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the hover thruster's force ratio is calculated using the vehicle's `"angularActivation"` and `"linearActivation"` properties, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
-
-#### Current Gimbal Ratio
-
-The `"currentGimbalRatio"` property is an array of two numbers that defines the ratio of `"maxGimbal"` the thruster is rotated to. If not specified, the default value is [0.0, 0.0], which means the thruster is not gimballing.
-
-Each number is expected to be between -1.0 and 1.0, and both numbers together should form a vector of length no longer than 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of over-rotation or over-gimbal.
-
-For a hover thruster in the default orientation (rear hover thruster providing forward +Z hover thrust by "shooting propellant" out the back -Z), due to glTF's right-handed coordinate system, positive X gimbal rotates the thruster's nozzle up (resulting in hover thrust down), and positive Y gimbal rotates the thruster's nozzle to the right (resulting in hover thrust to the left). A hover thruster provides hover thrust in the direction of its local +Z axis after applying gimbal, which is like the hover thruster shooting propellant out the back in its local -Z direction.
-
-This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The gimbal may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the thruster's gimbal ratio is calculating using the vehicle's `"angularActivation"` and `"linearActivation"` properties, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
-
-The thruster's gimbal values can be converted into a rotation Quaternion using the following formula:
-
-```javascript
-function getGimbalRotationQuaternion() {
-  if (isZeroApprox(currentGimbalRatio) || isZeroApprox(maxGimbal)) {
-    return Quaternion.IDENTITY;
-  }
-  let rotAngles = limitLength(currentGimbalRatio).multiply(maxGimbal);
-  let angleMag = rotAngles.length();
-  let sinNormAngle = Math.sin(angleMag / 2.0) / angleMag;
-  let cosHalfAngle = Math.cos(angleMag / 2.0);
-  return new Quaternion(rotAngles.x * sinNormAngle, rotAngles.y * sinNormAngle, 0.0, cosHalfAngle);
-}
-```
-
-Where `isZeroApprox` returns true if the vector or number is approximately zero, and `limitLength` returns the same vector when its length is less than or equal to 1.0, or a normalized version of the vector when its length is greater than 1.0. The variable `rotAngles` is the rotation in radians, and `angleMag` is the total angle in radians.
-
-#### Max Hover Energy
-
-The `"maxHoverEnergy"` property is a number that defines the maximum hover energy that the hover thruster can provide, measured in Newton-meters (N⋅m), or kg⋅m²/s² in SI base units, or simply Joules. This property is required and has no default value.
-
-Valid values are positive numbers. Hover energy is a sci-fi concept, so there is no real-world equivalent. The desired hover energy of a thruster varies a lot depending on the mass of the vehicle, the desired distance above the ground to hover at, and the desired acceleration and handling characteristics. This wide variety means that there is no sane choice for a default value, so there is no default value. A hover thruster with zero hover energy is useless.
-
-As an example, if a vehicle has a mass of 1000 kg, and is designed for hovering a maximum 4 meters between the thrusters and the ground in 10 m/s² gravity, then the minimum total hover energy required is 1000 kg * 4 m * 10 m/s² = 40000 N⋅m = 40000 J. The [hovercraft.gltf](examples/hovercraft.gltf) example has a mass of 2000 kg and 4 hover thrusters with 30000 N⋅m of hover energy each, which can sustain a hover height of (4 * 30000 N⋅m) / (2000 kg * 10 m/s²) = 6 meters above the ground. Note that the hovercraft may hover lower than this if the hover thrusters are not firing at full power or if the thrusters are not pointing directly down, in practice the example hovercraft hovers at around 4 to 5 meters above the ground.
-
-The active force of the hover thruster is defined by a combination of this property, the distance between the hover thruster and the ground, and the `"currentForceRatio"` property. In general, hover thrusters should fire when there is input in the same direction the thruster exerts force in, such as rear hover thrusters providing forward hover energy when forward input is given.
+For more detail on applying gimbal as rotation, see the `"targetGimbalRatio"` property description below.
 
 #### Max Gimbal
 
@@ -134,7 +100,89 @@ The `"maxGimbal"` property is a number that defines the maximum angle in radians
 
 Valid values are between 0.0 and τ/2 radians (π or 3.14159265... radians, or 180 degrees). Sane values are between 0.0 and 1.0 radians, while realistic values are between 0.0 and 0.2 radians.
 
-The active gimbal of the hover thruster is defined by a combination of this property and the `"currentGimbalRatio"` property. In general, hover thrusters should gimbal when there is angular input in the same direction the hover thruster gimbals in, such as a rear hover thruster gimballing its nozzle up when up input is given, causing the thrust direction to angle down, causing the vehicle to pitch up.
+The active gimbal of the hover thruster is defined by a combination of this property and the `"targetGimbalRatio"` property. In general, hover thrusters should gimbal when there is angular input in the same direction the hover thruster gimbals in, such as a rear hover thruster gimballing its nozzle up when up input is given, causing the thrust direction to angle down, causing the vehicle to pitch up.
+
+For more detail on applying gimbal as rotation, see the `"targetGimbalRatio"` property description below.
+
+#### Max Hover Energy
+
+The `"maxHoverEnergy"` property is a number that defines the maximum hover energy that the hover thruster can provide, measured in Newton-meters (N⋅m), or kg⋅m²/s² in SI base units, or simply Joules. This property is required and has no default value.
+
+Valid values are positive numbers. Hover energy is a sci-fi concept, so there is no real-world equivalent. The desired hover energy of a thruster varies a lot depending on the mass of the vehicle, the desired distance above the ground to hover at, and the desired acceleration and handling characteristics. This wide variety means that there is no sane choice for a default value, so there is no default value. A hover thruster with zero hover energy is useless.
+
+As an example, if a vehicle has a mass of 1000 kg, and is designed for hovering a maximum 4 meters between the thrusters and the ground in 10 m/s² gravity, then the minimum total hover energy required is 1000 kg × 4m × 10 m/s² = 40000 N⋅m = 40000 J. The [hovercraft.gltf](examples/hovercraft.gltf) example has a mass of 2000 kg and 4 hover thrusters with 30000 N⋅m of hover energy each, which can sustain a hover height of (4 × 30000 N⋅m) / (2000 kg × 10 m/s²) = 6 meters above the ground. Note that the hovercraft may hover lower than this if the hover thrusters are not firing at full power or if the thrusters are not pointing directly down, in practice the example hovercraft hovers at around 4 to 5 meters above the ground.
+
+The target hover energy of the hover thruster is defined by a combination of this property, the distance between the hover thruster and the ground, and the `"targetHoverRatio"` property. The actual hover energy tends towards the target hover energy at a rate defined by the `"hoverEnergyChangeRate"` property. The actual force applied by the hover thruster is equal to the actual hover energy divided by the distance between the hover thruster and the ground, where closer distances result in more force.
+
+In general, hover thrusters should fire when there is input in the same direction the thruster exerts force in, such as rear hover thrusters providing forward hover energy when forward input is given.
+
+#### Linear Gimbal Adjust Ratio
+
+The `"linearGimbalAdjustRatio"` property is a number that defines the ratio of how a vehicle's linear activation should adjust the hover thruster's gimbal. If not specified, the default value is 0.5, which means the vehicle's linear activation and dampeners can contribute up to half as much influence on the hover thruster's gimbal as the vehicle's angular activation and dampeners.
+
+Setting this property to a positive value allows the vehicle's linear activation and dampeners to influence the hover thruster's gimbal to help achieve the desired linear movement of the vehicle. For example, if the vehicle wants to go forward, and the hover thruster points downward, and the hover thruster can gimbal, then it is possible for the hover thruster to gimbal to shoot its propellant slightly backward to provide some forward thrust to the vehicle.
+
+The default value of 0.5 means that the vehicle's linear activation and dampeners can contribute up to half as much influence on the hover thruster's gimbal as the vehicle's angular activation and dampeners. Hover thrusters have a different default value than non-hover thrusters because hovercraft critically need gimbal to control their linear movement, while spacecraft using non-hover thrusters usually expect linear inputs to not affect gimbal rotation. A value of 0.0 would mean that the vehicle's linear activation and dampeners do not affect the hover thruster's gimbal at all, and the hover thruster only gimballs based on the vehicle's angular activation and dampeners.
+
+#### Target Hover Ratio
+
+The `"targetHoverRatio"` property is a number that defines the ratio of `"maxHoverEnergy"` the hover thruster is targeting for propulsion. If not specified, the default value is 0.0, which means the hover thruster is not firing.
+
+This value is expected to be between 0.0 and 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of turbo boost or overdrive. Negative values should not be used since the hover thrust strength may be different in the opposite direction, so for reverse thrust, a separate hover thruster should be used facing the opposite direction. For example, a hovercraft may have some hover thrusters on the front and some on the rear, with the rear hover thrusters propelling the vehicle forward, and the front hover thrusters propelling the vehicle backward.
+
+This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The thruster may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the hover thruster's force ratio is calculated using the vehicle's `"angularActivation"` and `"linearActivation"` properties, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
+
+#### Target Gimbal Ratio
+
+The `"targetGimbalRatio"` property is an array of two numbers that defines the ratio of `"maxGimbal"` the thruster is targeting to be rotated to. If not specified, the default value is [0.0, 0.0], which means the thruster is not gimballing.
+
+Each number is expected to be between -1.0 and 1.0, and both numbers together should form a vector of length no longer than 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of over-rotation or over-gimbal.
+
+For a hover thruster in the default orientation (rear hover thruster providing forward +Z hover thrust by "shooting propellant" out the back -Z), due to glTF's right-handed coordinate system, positive X gimbal rotates the thruster's nozzle up (resulting in hover thrust down), and positive Y gimbal rotates the thruster's nozzle to the right (resulting in hover thrust to the left). A hover thruster provides hover thrust in the direction of its local +Z axis after applying gimbal, which is like the hover thruster shooting propellant out the back in its local -Z direction.
+
+This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The gimbal may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the thruster's gimbal ratio is calculating using the vehicle's `"angularActivation"` and `"linearActivation"` properties, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
+
+The hover thruster's gimbal values can be converted into a rotation Quaternion using the following pseudocode formula:
+
+```javascript
+function getGimbalRotationQuaternion() {
+    if (isZeroApprox(_currentGimbalRadians)) {
+        return Quaternion.IDENTITY;
+    }
+    let angleMag = _currentGimbalRadians.length();
+    let sinNormAngle = Math.sin(angleMag / 2.0) / angleMag;
+    let cosHalfAngle = Math.cos(angleMag / 2.0);
+    return new Quaternion(
+        _currentGimbalRadians.x * sinNormAngle,
+        _currentGimbalRadians.y * sinNormAngle,
+        0.0,
+        cosHalfAngle
+    );
+}
+```
+
+Where `isZeroApprox` returns true if the vector or number is approximately zero, and `limitLength` returns the same vector when its length is less than or equal to 1.0, or a normalized version of the vector when its length is greater than 1.0. The variable `rotAngles` is the rotation in radians, and `angleMag` is the total angle in radians. The `_currentGimbalRadians` is a private variable that tends towards `targetGimbalRatio` over time by a rate of `"gimbalChangeRate"` if positive, or instantly if negative.
+
+### glTF Object Model
+
+The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`:
+
+| JSON Pointer                                                                       | Object Model Type |
+| ---------------------------------------------------------------------------------- | ----------------- |
+| `/extensions/OMI_vehicle_hover_thruster/hoverThrusters/{}/gimbalChangeRate`        | `float`           |
+| `/extensions/OMI_vehicle_hover_thruster/hoverThrusters/{}/hoverEnergyChangeRate`   | `float`           |
+| `/extensions/OMI_vehicle_hover_thruster/hoverThrusters/{}/linearGimbalAdjustRatio` | `float`           |
+| `/extensions/OMI_vehicle_hover_thruster/hoverThrusters/{}/maxGimbal`               | `float`           |
+| `/extensions/OMI_vehicle_hover_thruster/hoverThrusters/{}/maxHoverEnergy`          | `float`           |
+| `/extensions/OMI_vehicle_hover_thruster/hoverThrusters/{}/targetHoverRatio`        | `float`           |
+| `/extensions/OMI_vehicle_hover_thruster/hoverThrusters/{}/targetGimbalRatio`       | `float2`          |
+
+Additionally, the following JSON pointers are defined for read-only properties:
+
+| JSON Pointer                                                    | Object Model Type |
+| --------------------------------------------------------------- | ----------------- |
+| `/extensions/OMI_vehicle_hover_thruster/hoverThrusters.length`  | `int`             |
+| `/nodes/{}/extensions/OMI_vehicle_hover_thruster/hoverThruster` | `int`             |
 
 ### JSON Schema
 
@@ -142,8 +190,9 @@ See [glTF.OMI_vehicle_hover_thruster.thruster.schema.json](schema/glTF.OMI_vehic
 
 ## Known Implementations
 
-- Godot Engine
+- Basis VR: https://github.com/BasisVR/Basis/pull/442
+- Godot Engine: https://github.com/omigroup/omi-godot/tree/main/addons/omi_extensions/vehicle
 
-## Resources:
+## Resources
 
 - None

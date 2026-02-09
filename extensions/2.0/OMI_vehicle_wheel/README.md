@@ -39,7 +39,7 @@ The wheel settings are defined at the document level:
                 },
                 {
                     "radius": 0.35,
-                    "maxForce": 2000
+                    "maxPropulsionForce": 2000
                 }
             ]
         }
@@ -76,37 +76,30 @@ The rest of the document, including this summary, defines the properties for the
 
 |                                  | Type     | Description                                                                | Default value    |
 | -------------------------------- | -------- | -------------------------------------------------------------------------- | ---------------- |
-| **currentForceRatio**            | `number` | The ratio of the maximum force the wheel is using for propulsion.          | 0.0              |
-| **currentSteeringRatio**         | `number` | The ratio of the maximum steering angle the wheel is rotated to.           | 0.0              |
-| **maxForce**                     | `number` | The maximum thrust force in Newtons (kg⋅m/s²) of this wheel.               | 0.0              |
+| **brakingForce**                 | `number` | The braking force in Newtons (kg⋅m/s²) that the wheel can provide.         | -1.0             |
+| **maxPropulsionForce**           | `number` | The maximum thrust force in Newtons (kg⋅m/s²) of this wheel.               | 0.0              |
 | **maxSteeringAngle**             | `number` | The maximum angle in radians that the wheel can steer or rotate.           | 0.0              |
 | **physicsMaterial**              | `number` | The index of the physics material in the top level physicsMaterials array. | -1 (no material) |
+| **propulsionForceChangeRate**    | `number` | The rate at which the wheel can change its propulsion force in N/s.        | -1.0 (instant)   |
 | **radius**                       | `number` | The radius of the wheel in meters.                                         | 0.25             |
+| **steeringChangeRate**           | `number` | The rate at which the wheel can change its steering angle in rad/s.        | 1.0              |
 | **suspensionDampingCompression** | `number` | The resistance to the velocity of the suspension in kg/s when compressing. | 2000.0           |
 | **suspensionDampingRebound**     | `number` | The resistance to the velocity of the suspension in kg/s when extending.   | 2000.0           |
 | **suspensionStiffness**          | `number` | The resistance to traveling away from the start point in kg/s².            | 20000.0          |
 | **suspensionTravel**             | `number` | The distance the suspension can move up or down in meters.                 | 0.25             |
+| **targetPropulsionForceRatio**   | `number` | The ratio of the maximum force the wheel is using for propulsion.          | 0.0              |
+| **targetSteeringRatio**          | `number` | The ratio of the maximum steering angle the wheel is rotated to.           | 0.0              |
 | **width**                        | `number` | The width of the wheel in meters.                                          | 0.125            |
 
-#### Current Force Ratio
+#### Braking Force
 
-The `"currentForceRatio"` property is a number that defines the ratio of the `"maximumForce"` the wheel is using for propulsion. If not specified, the default value is 0.0, which means the wheel is not providing any force.
+The `"brakingForce"` property is a number that defines the braking force in Newtons (kg⋅m/s²) that the wheel can provide. If not specified, the default value is -1.0, which means the wheel uses its propulsion force for braking.
 
-This value is expected to be between -1.0 and 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of turbo boost or overdrive.
+If the value is negative, then the wheel uses its propulsion force for braking. If the value is non-negative, then this value is used for braking instead of propulsion force. When specified, this is usually larger than `"maxPropulsionForce"`, but may be any value. If the value is zero, then the wheel cannot provide any braking force. What causes the wheel to brake is suggested to be based on the vehicle's dampeners being enabled and the activation not being the same as the direction of travel, but the specific details, such as how to combine these, and the ability to brake an individual wheel or not, are implementation-defined.
 
-This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The wheel may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the wheel's force ratio is set by the vehicle's `"linearActivation"` property in the direction the wheel is facing, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
+#### Max Propulsion Force
 
-#### Current Steering Ratio
-
-The `"currentSteeringRatio"` property is a number that defines the ratio of the `"maximumSteeringAngle"` the wheel is rotated to. If not specified, the default value is 0.0, which means the wheel is not rotated.
-
-This value is expected to be between -1.0 and 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of oversteer. Due to glTF's right-handed coordinate system, positive values should rotate the wheel to the left, and negative values should rotate the wheel to the right.
-
-This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The wheel may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the wheel's steering ratio is set by the vehicle's `"angularActivation"` property in the direction the wheel is facing, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script. The exact calculation is determined by the implementation, it may be as simple as using the distance on the vehicle's local Z axis, or as complex as Ackermann steering geometry. For example, a car with all-wheel steering would have the rear wheels rotate in the opposite direction of the front wheels.
-
-#### Max Force
-
-The `"maxForce"` property is a number that defines the maximum thrust force in Newtons (kg⋅m/s²) that the wheel can transfer to the ground. If not specified, the default value is 0.0 Newtons, which means the wheel cannot provide any force.
+The `"maxPropulsionForce"` property is a number that defines the maximum propulsion or thrust force in Newtons (kg⋅m/s²) that the wheel can transfer to the ground. If not specified, the default value is 0.0 Newtons, which means the wheel cannot provide any force.
 
 For a realistic normal car with rear-wheel drive and two rear wheels, the rear wheels should be given a maximum force value that is half the maximum force of the car's engine. The ideal value varies depending on the mass of the vehicle, the desired acceleration, and the amount of wheels.
 
@@ -140,15 +133,66 @@ The `"suspensionStiffness"` property is a number that defines the stiffness of t
 
 The `"suspensionTravel"` property is a number that defines the distance in meters the wheel can move up or down. If not specified, the default travel is 0.25 meters, which is a sane default that reflects real-world cars.
 
+#### Target Propulsion Force Ratio
+
+The `"targetPropulsionForceRatio"` property is a number that defines the ratio of the `"maxPropulsionForce"` the wheel is targeting for propulsion. If not specified, the default value is 0.0, which means the wheel is not providing any force.
+
+This value is expected to be between -1.0 and 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of turbo boost or overdrive.
+
+This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The wheel may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the wheel's force ratio is set by the vehicle's `"linearActivation"` property in the direction the wheel is facing, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
+
+#### Target Steering Ratio
+
+The `"targetSteeringRatio"` property is a number that defines the ratio of the `"maxSteeringAngle"` the wheel is targeting to be rotated to. If not specified, the default value is 0.0, which means the wheel is not rotated.
+
+This value is expected to be between -1.0 and 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of oversteer. Due to glTF's right-handed coordinate system, positive values should rotate the wheel to the left, and negative values should rotate the wheel to the right.
+
+This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The wheel may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the wheel's steering ratio is set by the vehicle's `"angularActivation"` property in the direction the wheel is facing, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script. The exact calculation is determined by the implementation, it may be as simple as using the distance on the vehicle's local Z axis, or as complex as Ackermann steering geometry. For example, a car with all-wheel steering would have the rear wheels rotate in the opposite direction of the front wheels.
+
+#### Width
+
+The `"width"` property is a number that defines the width of the wheel in meters. If not specified, the default width is 0.125 meters.
+
+A wheel is treated as a cylinder with this width, centered on the glTF node's origin, aligned on the local YZ plane. Implementations which do not support wheel width may ignore this property and treat the wheel as an infinitely thin disc or circle.
+
+### glTF Object Model
+
+The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`:
+
+| JSON Pointer                                                           | Object Model Type |
+| ---------------------------------------------------------------------- | ----------------- |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/brakingForce`                 | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/maxPropulsionForce`           | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/maxSteeringAngle`             | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/physicsMaterial`              | `int`             |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/propulsionForceChangeRate`    | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/radius`                       | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/steeringChangeRate`           | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/suspensionDampingCompression` | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/suspensionDampingRebound`     | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/suspensionStiffness`          | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/suspensionTravel`             | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/width`                        | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/targetPropulsionForceRatio`   | `float`           |
+| `/extensions/OMI_vehicle_wheel/wheels/{}/targetSteeringRatio`          | `float`           |
+
+Additionally, the following JSON pointers are defined for read-only properties:
+
+| JSON Pointer                                   | Object Model Type |
+| ---------------------------------------------- | ----------------- |
+| `/extensions/OMI_vehicle_wheel/wheels.length`  | `int`             |
+| `/nodes/{}/extensions/OMI_vehicle_wheel/wheel` | `int`             |
+
 ### JSON Schema
 
 See [glTF.OMI_vehicle_wheel.wheel.schema.json](schema/glTF.OMI_vehicle_wheel.wheel.schema.json) for the main wheel parameter schema, [glTF.OMI_vehicle_wheel.schema.json](schema/glTF.OMI_vehicle_wheel.schema.json) for the document-level list of wheel parameters, and [node.OMI_vehicle_wheel.schema.json](schema/node.OMI_vehicle_wheel.schema.json) for the node-level collider selection.
 
 ## Known Implementations
 
-- Godot Engine:
+- Basis VR: https://github.com/BasisVR/Basis/pull/442
+- Godot Engine: https://github.com/omigroup/omi-godot/tree/main/addons/omi_extensions/vehicle
 
-## Resources:
+## Resources
 
 - Godot VehicleWheel3D: https://docs.godotengine.org/en/latest/classes/class_vehiclewheel3d.html
 - Hyperfy Car: https://madjin.github.io/hyperfy-docs/docs/worlds/apps/objects/#car

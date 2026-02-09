@@ -128,7 +128,6 @@
     ],
     "materials": [
         {
-            "extensions": {},
             "name": "HovercraftMaterial",
             "pbrMetallicRoughness": {
                 "baseColorFactor": [1, 1, 1, 1],
@@ -177,7 +176,7 @@
             "extensions": {
                 "OMI_vehicle_hover_thruster": { "hoverThruster": 0 }
             },
-            "name": "HoverThrusterBL",
+            "name": "HoverThrusterRearLeft",
             "rotation": [-0.42660024762154, -0.33944433927536, -0.17670360207558, 0.81949108839035],
             "translation": [1.2, -0.25, -2.1]
         },
@@ -185,7 +184,7 @@
             "extensions": {
                 "OMI_vehicle_hover_thruster": { "hoverThruster": 0 }
             },
-            "name": "HoverThrusterBR",
+            "name": "HoverThrusterRearRight",
             "rotation": [-0.42660024762154, 0.33944433927536, 0.176703602075577, 0.81949108839035],
             "translation": [-1.2, -0.25, -2.1]
         },
@@ -193,7 +192,7 @@
             "extensions": {
                 "OMI_vehicle_hover_thruster": { "hoverThruster": 0 }
             },
-            "name": "HoverThrusterFL",
+            "name": "HoverThrusterFrontLeft",
             "rotation": [0.176703602075577, 0.81949108839035, 0.426600247621536, -0.33944433927536],
             "translation": [1.2, -0.25, 2.1]
         },
@@ -201,7 +200,7 @@
             "extensions": {
                 "OMI_vehicle_hover_thruster": { "hoverThruster": 0 }
             },
-            "name": "HoverThrusterFR",
+            "name": "HoverThrusterFrontRight",
             "rotation": [-0.17670360207558, 0.81949108839035, 0.426600247621536, 0.33944433927536],
             "translation": [-1.2, -0.25, 2.1]
         },

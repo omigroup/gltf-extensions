@@ -170,13 +170,28 @@ The actual control scheme is implementation-defined. It may be <kbd>W</kbd> and 
 
 Aside from `"useThrottle"` determining how input affects activation, there is also the matter of how throttle affects the vehicle's thrust. If `"maxSpeed"` is non-negative, the throttle should be a ratio of that speed, with the thrust adjusting so that the vehicle meets the target speed. Otherwise, the throttle should be a ratio of the thrust power, allowing the throttle to control the ratio of the vehicle's acceleration power.
 
+### glTF Object Model
+
+The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`:
+
+| JSON Pointer                                              | Object Model Type |
+| --------------------------------------------------------- | ----------------- |
+| `/nodes/{}/extensions/OMI_vehicle_body/angularActivation` | `float3`          |
+| `/nodes/{}/extensions/OMI_vehicle_body/linearActivation`  | `float3`          |
+| `/nodes/{}/extensions/OMI_vehicle_body/gyroTorque`        | `float3`          |
+| `/nodes/{}/extensions/OMI_vehicle_body/maxSpeed`          | `float`           |
+| `/nodes/{}/extensions/OMI_vehicle_body/angularDampeners`  | `boolean`         |
+| `/nodes/{}/extensions/OMI_vehicle_body/linearDampeners`   | `boolean`         |
+| `/nodes/{}/extensions/OMI_vehicle_body/useThrottle`       | `boolean`         |
+
 ### JSON Schema
 
 See [schema/node.OMI_vehicle_body.schema.json](schema/node.OMI_vehicle_body.schema.json).
 
 ## Known Implementations
 
-- Godot Engine
+- Basis VR: https://github.com/BasisVR/Basis/pull/442
+- Godot Engine: https://github.com/omigroup/omi-godot/tree/main/addons/omi_extensions/vehicle
 
 ## Resources:
 

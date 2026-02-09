@@ -83,47 +83,23 @@ The extension must also be added to the glTF's `extensionsUsed` array and becaus
 
 The rest of the document, including this summary, defines the properties for the main data structure.
 
-|                        | Type        | Description                                                          | Default value        |
-| ---------------------- | ----------- | -------------------------------------------------------------------- | -------------------- |
-| **currentForceRatio**  | `number`    | The ratio of the maximum force the thruster is using for propulsion. | 0.0                  |
-| **currentGimbalRatio** | `number[2]` | The ratios of the maximum gimbal angle the thruster is rotated to.   | [0.0, 0.0]           |
-| **maxForce**           | `number`    | The maximum thrust force in Newtons (kg⋅m/s²) of this thruster.      | Required, no default |
-| **maxGimbal**          | `number`    | The maximum angle the thruster can rotate in radians.                | 0.0                  |
+|                             | Type        | Description                                                                         | Default value        |
+| --------------------------- | ----------- | ----------------------------------------------------------------------------------- | -------------------- |
+| **gimbalChangeRate**        | `number`    | The rate at which the thruster can change its gimbal angles.                        | 1.0                  |
+| **forceChangeRate**         | `number`    | The rate at which the thruster can change its applied force.                        | -1.0                 |
+| **linearGimbalAdjustRatio** | `number`    | The ratio of how a vehicle's linear activation should adjust the thruster's gimbal. | 0.0                  |
+| **maxForce**                | `number`    | The maximum thrust force in Newtons (kg⋅m/s²) of this thruster.                     | Required, no default |
+| **maxGimbal**               | `number`    | The maximum angle the thruster can rotate in radians.                               | 0.0                  |
+| **targetForceRatio**        | `number`    | The ratio of the maximum force the thruster is using for propulsion.                | 0.0                  |
+| **targetGimbalRatio**       | `number[2]` | The ratios of the maximum gimbal angle the thruster is rotated to.                  | [0.0, 0.0]           |
 
-#### Current Force Ratio
+#### Gimbal Change Rate
 
-The `"currentForceRatio"` property is a number that defines the ratio of `"maxForce"` the thruster is using for propulsion. If not specified, the default value is 0.0, which means the thruster is not firing.
+The `"gimbalChangeRate"` property is a number that defines the rate at which the thruster can change its gimbal angles, measured in radians per second (rad/s). If not specified, the default value is 1.0 rad/s.
 
-This value is expected to be between 0.0 and 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of turbo boost or overdrive. Negative values should not be used since the thrust strength may be different in the opposite direction, so for reverse thrust, a separate thruster should be used facing the opposite direction. For example, a rocket engine will only use one thruster, while a jet engine may have two thrusters, one for forward thrust and one for reverse thrust, with the reverse thruster having lower thrust.
+All finite numbers are valid values. A value of 0.0 means the thruster cannot change its gimbal angle at all after initialization, meaning that it would lock the gimbal in place. Any negative value means the thruster MUST instantly change to the desired gimbal angle. Positive values define the maximum rate of change of the gimbal angles in radians per second. With the default value of 1.0 rad/s, a thruster can rotate from 0.0 to 0.5 radians in 0.5 seconds.
 
-This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The thruster may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the thruster's force ratio is set by the vehicle's `"linearActivation"` property in the thrust direction, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
-
-#### Current Gimbal Ratio
-
-The `"currentGimbalRatio"` property is an array of two numbers that defines the ratio of `"maxGimbal"` the thruster is rotated to. If not specified, the default value is [0.0, 0.0], which means the thruster is not gimballing.
-
-Each number is expected to be between -1.0 and 1.0, and both numbers together should form a vector of length no longer than 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of over-rotation or over-gimbal.
-
-For a thruster in the default orientation (rear thruster providing forward +Z thrust by shooting propellant out the back -Z), due to glTF's right-handed coordinate system, positive X gimbal rotates the thruster's nozzle up (resulting in thrust down), and positive Y gimbal rotates the thruster's nozzle to the right (resulting in thrust to the left). A thruster provides thrust in the direction of its local +Z axis after applying gimbal, which is like the thruster shooting propellant out the back in its local -Z direction.
-
-This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The gimbal may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the thruster's gimbal ratio is set by the vehicle's `"angularActivation"` property in the gimbal direction, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
-
-The thruster's gimbal values can be converted into a rotation Quaternion using the following formula:
-
-```javascript
-function getGimbalRotationQuaternion() {
-    if (isZeroApprox(currentGimbalRatio) || isZeroApprox(maxGimbal)) {
-        return Quaternion.IDENTITY;
-    }
-    let rotAngles = limitLength(currentGimbalRatio).multiply(maxGimbal);
-    let angleMag = rotAngles.length();
-    let sinNormAngle = Math.sin(angleMag / 2.0) / angleMag;
-    let cosHalfAngle = Math.cos(angleMag / 2.0);
-    return new Quaternion(rotAngles.x * sinNormAngle, rotAngles.y * sinNormAngle, 0.0, cosHalfAngle);
-}
-```
-
-Where `isZeroApprox` returns true if the vector or number is approximately zero, and `limitLength` returns the same vector when its length is less than or equal to 1.0, or a normalized version of the vector when its length is greater than 1.0. The variable `rotAngles` is the rotation in radians, and `angleMag` is the total angle in radians.
+For more detail on applying gimbal as rotation, see the `"targetGimbalRatio"` property description below.
 
 #### Max Force
 
@@ -131,7 +107,7 @@ The `"maxForce"` property is a number that defines the maximum thrust force in N
 
 Valid values are positive numbers. Rocket engines in real life have a wide variety of force amounts. Typical rocket engines are usually between one thousand and one million Newtons, but may be much less in the case of small control thrusters, or much more in the case of large main engines. A thruster with zero force is useless. The desired force of a thruster also varies a lot depending on the mass of the vehicle and the desired acceleration and control over it. This wide variety means that there is no sane choice for a default value, so there is no default value.
 
-The active force of the thruster is defined by a combination of this property and the `"currentForceRatio"` property. In general, thrusters should fire when there is linear input in the same direction the thruster exerts force in, such as rear thrusters providing a forward force when forward input is given.
+The target force of the thruster is defined by a combination of this property and the `"targetForceRatio"` property. The actual force applied by the thruster tends towards this target force over time by a rate of `"forceChangeRate"` if specified, or instantly if not specified. In general, thrusters should fire when there is linear input in the same direction the thruster exerts force in, such as rear thrusters providing a forward force when forward input is given.
 
 #### Max Gimbal
 
@@ -139,7 +115,77 @@ The `"maxGimbal"` property is a number that defines the maximum angle in radians
 
 Valid values are between 0.0 and τ/2 radians (π or 3.14159265... radians, or 180 degrees). Sane values are between 0.0 and 1.0 radians, while realistic values are between 0.0 and 0.2 radians.
 
-The active gimbal of the thruster is defined by a combination of this property and the `"currentGimbalRatio"` property. In general, thrusters should gimbal when there is angular input in the same direction the thruster gimbals in, such as a rear thruster gimballing its nozzle up when up input is given, causing the thrust direction to angle down, causing the vehicle to pitch up.
+The active gimbal of the thruster is defined by a combination of this property and the `"targetGimbalRatio"` property. In general, thrusters should gimbal when there is angular input in the same direction the thruster gimbals in, such as a rear thruster gimballing its nozzle up when up input is given, causing the thrust direction to angle down, causing the vehicle to pitch up.
+
+For more detail on applying gimbal as rotation, see the `"targetGimbalRatio"` property description below.
+
+#### Linear Gimbal Adjust Ratio
+
+The `"linearGimbalAdjustRatio"` property is a number that defines the maximum ratio of how a vehicle's linear activation should adjust the thruster's gimbal. If not specified, the default value is 0.0, which means the vehicle's linear activation does not affect the thruster's gimbal.
+
+Setting this property to a positive value allows the vehicle's linear activation and dampeners to influence the thruster's gimbal to help achieve the desired linear movement of the vehicle. For example, if the vehicle wants to go forward, and the thruster points downward, and the thruster can gimbal, then it is possible for the thruster to gimbal to shoot its propellant slightly backward to provide some forward thrust to the vehicle.
+
+The default value of 0.0 means that the vehicle's linear activation and dampeners do not affect the thruster's gimbal at all, and the thruster only gimballs based on the vehicle's angular activation and dampeners. Non-hover thrusters have a different default value than hover thrusters because spacecraft using non-hover thrusters usually expect linear inputs to not affect gimbal rotation, while hovercraft critically need gimbal to control their linear movement.
+
+#### Target Force Ratio
+
+The `"targetForceRatio"` property is a number that defines the ratio of `"maxForce"` the thruster is targeting for propulsion. If not specified, the default value is 0.0, which means the thruster is not firing.
+
+This value is expected to be between 0.0 and 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of turbo boost or overdrive. Negative values should not be used since the thrust strength may be different in the opposite direction, so for reverse thrust, a separate thruster should be used facing the opposite direction. For example, a rocket engine will only use one thruster, while a jet engine may have two thrusters, one for forward thrust and one for reverse thrust, with the reverse thruster having lower thrust.
+
+This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The thruster may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the thruster's force ratio is set by the vehicle's `"linearActivation"` property in the thrust direction, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
+
+#### Target Gimbal Ratio
+
+The `"targetGimbalRatio"` property is an array of two numbers that defines the ratio of `"maxGimbal"` the thruster is targeting to be rotated to. If not specified, the default value is [0.0, 0.0], which means the thruster is not gimballing.
+
+Each number is expected to be between -1.0 and 1.0, and both numbers together should form a vector of length no longer than 1.0. The behavior of values outside of this range is implementation-defined, it may be clamped to this range, or be allowed to go beyond this range for some kind of over-rotation or over-gimbal.
+
+For a thruster in the default orientation (rear thruster providing forward +Z thrust by shooting propellant out the back -Z), due to glTF's right-handed coordinate system, positive X gimbal rotates the thruster's nozzle up (resulting in thrust down), and positive Y gimbal rotates the thruster's nozzle to the right (resulting in thrust to the left). A thruster provides thrust in the direction of its local +Z axis after applying gimbal, which is like the thruster shooting propellant out the back in its local -Z direction.
+
+This value is expected to dynamically change at runtime. This is not usually saved in the glTF file, but it is allowed to be. The input used to set this value is implementation-defined. The gimbal may be used on its own without a vehicle, but usually it is used for child nodes of a vehicle. In the common case of a vehicle, the thruster's gimbal ratio is set by the vehicle's `"angularActivation"` property in the gimbal direction, as defined by `OMI_vehicle_body` extension. However, this value may be set by other means, such as a `KHR_interactivity` script.
+
+The thruster's gimbal values can be converted into a rotation Quaternion using the following pseudocode formula:
+
+```javascript
+function getGimbalRotationQuaternion() {
+    if (isZeroApprox(_currentGimbalRadians)) {
+        return Quaternion.IDENTITY;
+    }
+    let angleMag = _currentGimbalRadians.length();
+    let sinNormAngle = Math.sin(angleMag / 2.0) / angleMag;
+    let cosHalfAngle = Math.cos(angleMag / 2.0);
+    return new Quaternion(
+        _currentGimbalRadians.x * sinNormAngle,
+        _currentGimbalRadians.y * sinNormAngle,
+        0.0,
+        cosHalfAngle
+    );
+}
+```
+
+Where `isZeroApprox` returns true if the vector or number is approximately zero, and `limitLength` returns the same vector when its length is less than or equal to 1.0, or a normalized version of the vector when its length is greater than 1.0. The variable `rotAngles` is the rotation in radians, and `angleMag` is the total angle in radians. The `_currentGimbalRadians` is a private variable that tends towards `targetGimbalRatio` over time by a rate of `"gimbalChangeRate"` if positive, or instantly if negative.
+
+### glTF Object Model
+
+The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`:
+
+| JSON Pointer                                                            | Object Model Type |
+| ----------------------------------------------------------------------- | ----------------- |
+| `/extensions/OMI_vehicle_thruster/thrusters/{}/gimbalChangeRate`        | `float`           |
+| `/extensions/OMI_vehicle_thruster/thrusters/{}/forceChangeRate`         | `float`           |
+| `/extensions/OMI_vehicle_thruster/thrusters/{}/linearGimbalAdjustRatio` | `float`           |
+| `/extensions/OMI_vehicle_thruster/thrusters/{}/maxForce`                | `float`           |
+| `/extensions/OMI_vehicle_thruster/thrusters/{}/maxGimbal`               | `float`           |
+| `/extensions/OMI_vehicle_thruster/thrusters/{}/targetForceRatio`        | `float`           |
+| `/extensions/OMI_vehicle_thruster/thrusters/{}/targetGimbalRatio`       | `float2`          |
+
+Additionally, the following JSON pointers are defined for read-only properties:
+
+| JSON Pointer                                         | Object Model Type |
+| ---------------------------------------------------- | ----------------- |
+| `/extensions/OMI_vehicle_thruster/thrusters.length`  | `int`             |
+| `/nodes/{}/extensions/OMI_vehicle_thruster/thruster` | `int`             |
 
 ### JSON Schema
 
@@ -147,9 +193,10 @@ See [glTF.OMI_vehicle_thruster.thruster.schema.json](schema/glTF.OMI_vehicle_thr
 
 ## Known Implementations
 
--
+- Basis VR: https://github.com/BasisVR/Basis/pull/442
+- Godot Engine: https://github.com/omigroup/omi-godot/tree/main/addons/omi_extensions/vehicle
 
-## Resources:
+## Resources
 
 - Kerbal Space Program wiki on engines: https://wiki.kerbalspaceprogram.com/wiki/Parts#Engines
 - Space Engineers wiki on thrusters: https://spaceengineers.fandom.com/wiki/Thruster
