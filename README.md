@@ -92,8 +92,6 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 
 - [OMI_audio_ogg_vorbis](extensions/2.0/OMI_audio_ogg_vorbis)
 - [OMI_audio_opus](extensions/2.0/OMI_audio_opus)
-- [OMI_link](extensions/2.0/OMI_link)
-- [OMI_personality](extensions/2.0/OMI_personality)
 - [OMI_physics_body](extensions/2.0/OMI_physics_body/README.md)
 - [OMI_physics_gravity](extensions/2.0/OMI_physics_gravity/README.md)
 - [OMI_physics_joint](extensions/2.0/OMI_physics_joint/README.md)
@@ -117,6 +115,8 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
 ### Archived Extensions
 
 - [OMI_collider](extensions/2.0/Archived/OMI_collider): Superseded by [OMI_physics_shape](extensions/2.0/OMI_physics_shape)
+- [OMI_link](extensions/2.0/Archived/OMI_link)
+- [OMI_personality](extensions/2.0/Archived/OMI_personality)
 
 ### Extension Support Table
 
@@ -228,48 +228,6 @@ The extension has been submitted and merged as an OMI vendor extension. Alternat
         </a>
       </td>
       <td>Stage 0</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_link">
-          OMI_link
-        </a>
-      </td>
-      <td>Stage 1</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>❌</td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/omigroup/gltf-extensions/tree/main/extensions/2.0/OMI_personality">
-          OMI_personality
-        </a>
-      </td>
-      <td>Stage 1</td>
       <td>❌</td>
       <td>❌</td>
       <td>❌</td>
