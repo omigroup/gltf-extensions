@@ -138,7 +138,7 @@ Valid values are on a range of 0.0 to 1.0, inclusive. A value of 0.0 means that 
 
 #### Type
 
-The `"type"` property is a string enum that defines the type of sky. It is required and has no default value. The possible values are `"panorama"`, `"physical"`, and `"gradient"`.
+The `"type"` property is a string enum that defines the type of sky. It is required and has no default value. The possible values are `"gradient"`, `"panorama"`, `"physical"`, and `"plain"`.
 
 Here is a comparison of the types of sky in `OMI_environment_sky` and the corresponding sky types in various engines:
 
