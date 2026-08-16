@@ -236,14 +236,14 @@ The equirectangular skybox texture is projected with the top of the texture in t
 
 Physical skies use a physically-based model to simulate the scattering of light in the atmosphere. The `"physical"` property is an object that contains the physical sky properties:
 
-|                   | Type        | Description                                                           | Default value     |
-| ----------------- | ----------- | --------------------------------------------------------------------- | ----------------- |
-| **groundColor**   | `number[3]` | The color of the ground (not part of the atmospheric simulation).     | `[0.3, 0.2, 0.1]` |
-| **mieAnisotropy** | `number`    | The anisotropy of Mie scattering (the thing that makes clouds white). | 0.8               |
-| **mieColor**      | `number[3]` | The color of Mie scattering (the thing that makes clouds white).      | `[1.0, 1.0, 1.0]` |
-| **mieScale**      | `number`    | The scale of Mie scattering (the thing that makes clouds white).      | 0.000005          |
-| **rayleighColor** | `number[3]` | The color of Rayleigh scattering (the thing that makes the sky blue). | `[0.3, 0.5, 1.0]` |
-| **rayleighScale** | `number`    | The scale of Rayleigh scattering (the thing that makes the sky blue). | 0.00003           |
+|                         | Type        | Description                                                                 | Default value     |
+| ----------------------- | ----------- | --------------------------------------------------------------------------- | ----------------- |
+| **groundColor**         | `number[3]` | The color of the ground (not part of the atmospheric simulation).           | `[0.3, 0.2, 0.1]` |
+| **mieAnisotropy**       | `number`    | The anisotropy of Mie scattering (the thing that makes clouds white).       | 0.8               |
+| **mieCoefficient**      | `number`    | The coefficient of Mie scattering (the thing that makes clouds white).      | 0.000005          |
+| **mieColor**            | `number[3]` | The color of Mie scattering (the thing that makes clouds white).            | `[1.0, 1.0, 1.0]` |
+| **rayleighCoefficient** | `number`    | The coefficient of Rayleigh scattering (the thing that makes the sky blue). | 0.00003           |
+| **rayleighColor**       | `number[3]` | The color of Rayleigh scattering (the thing that makes the sky blue).       | `[0.3, 0.5, 1.0]` |
 
 #### Ground Color
 
@@ -257,27 +257,27 @@ The `"mieAnisotropy"` property is a number that defines the anisotropy of Mie sc
 
 A value of 0.0 is isotropic scattering, all light scatters equally in all directions. A value of 1.0 is forward scattering, where light scatters more in the forward direction. A value of -1.0 is backward scattering, where light scatters more in the backward direction. Realistic skies usually have a value between 0.6 and 0.9. Large particle sizes will have a higher value, such as rain droplets reflecting light to make a rainbow. Unreal does not support negative anisotropy values, while Godot does.
 
+#### Mie Coefficient
+
+The `"mieCoefficient"` property is a number that defines the coefficient of Mie scattering, also known as the scale of Mie scattering. It has a unit of inverse meters (m⁻¹). If not specified, the default value is 0.000005, which is a sane default for Earth-like skies.
+
+The Mie scattering settings affect the color of the sky itself. In clear skies, Mie scattering is usually quite weak. In cases where there is a lot of dust, smoke, haze, fog, pollution, or other particles in the air, the Mie scattering can be stronger.
+
+Note: Game engines may use different scales for the units. glTF uses only base metric units, so it is in inverse meters. However, Unreal and Godot use inverse kilometers, so a glTF value of 0.000005 needs to be multiplied by 1000 on import to 0.005. Unreal defaults to 0.003996, and Godot defaults to 0.05 (as a combination of 0.005 `mie_coefficient` and 10.0 `turbidity`).
+
 #### Mie Color
 
 The `"mieColor"` property is an array of three numbers that defines the color of Mie scattering, which is the thing that makes clouds white. The default value is `[1.0, 1.0, 1.0]`, which is a sane default for Earth-like skies.
 
-#### Mie Scale
+#### Rayleigh Coefficient
 
-The `"mieScale"` property is a number that defines the scale of Mie scattering, also known as the coefficient of Mie scattering. It has a unit of inverse meters (m⁻¹). If not specified, the default value is 0.000005, which is a sane default for Earth-like skies.
+The `"rayleighCoefficient"` property is a number that defines the coefficient of Rayleigh scattering, also known as the scale of Rayleigh scattering. It has a unit of inverse meters (m⁻¹). If not specified, the default value is 0.00003, which is a sane default for Earth-like skies.
 
-The Mie scattering settings affect the color of the sky itself. In clear skies, Mie scattering is usually quite weak. In cases where there is a lot of dust, smoke, haze, fog, pollution, or other particles in the air, the Mie scattering can be stronger.
-
-Note: Game engines may use different scales for the units. glTF uses only base metric units, so it is in inverse meters. However, Unreal and Godot use inverse kilometers, so a glTF value of 0.000005 needs to be multiplied by 1000 on import to 0.005. Unreal defaults to 0.003996, and Godot defaults to 0.005.
+Note: Game engines may use different scales for the units. glTF uses only base metric units, so it is in inverse meters. However, Unreal uses inverse kilometers, so a glTF value of 0.00003 needs to be multiplied by 1000 on import to 0.03. Godot uses inverse hundred kilometers, so a glTF value of 0.00003 needs to be multiplied by 100000 on import to 3.0. Unreal defaults to 0.0331, and Godot defaults to 2.0.
 
 #### Rayleigh Color
 
 The `"rayleighColor"` property is an array of three numbers that defines the color of Rayleigh scattering, which is the thing that makes the sky blue. The default value is `[0.3, 0.5, 1.0]`, which is a sane default for Earth-like skies.
-
-#### Rayleigh Scale
-
-The `"rayleighScale"` property is a number that defines the scale of Rayleigh scattering, also known as the coefficient of Rayleigh scattering. It has a unit of inverse meters (m⁻¹). If not specified, the default value is 0.00003, which is a sane default for Earth-like skies.
-
-Note: Game engines may use different scales for the units. glTF uses only base metric units, so it is in inverse meters. However, Unreal uses inverse kilometers, so a glTF value of 0.00003 needs to be multiplied by 1000 on import to 0.03. Godot uses inverse hundred kilometers, so a glTF value of 0.00003 needs to be multiplied by 100000 on import to 3.0. Unreal defaults to 0.0331, and Godot defaults to 2.0.
 
 #### Plain Sky Properties
 
@@ -295,9 +295,9 @@ The `"color"` property is an array of three numbers that defines the color of th
 
 The `"OMI_environment_sky"` extension is defined at the root of the glTF document, in the `"extensions"` object. It holds an array of sky resources, which can be referenced by scenes, or the sky at index 0 is used as the default sky.
 
-|           | Type       | Description                                                             | Default value |
-| --------- | ---------- | ----------------------------------------------------------------------- | ------------- |
-| **skies** | `object[]` | The skies available to use in the scene.                                | `[]`          |
+|           | Type       | Description                              | Default value |
+| --------- | ---------- | ---------------------------------------- | ------------- |
+| **skies** | `object[]` | The skies available to use in the scene. | `[]`          |
 
 Only one sky may be active at a time, as specified in the scene. In most situations, glTF files will only contain one sky. However, a glTF file may contain multiple skies if it contains multiple scenes, or includes a mechanism for changing the sky at runtime, such as by animation or script.
 
@@ -317,25 +317,25 @@ The scene-level sky index specifies which document-level sky is used as the sky 
 
 The following JSON pointers are defined representing mutable properties defined by this extension, for use with the glTF Object Model including extensions such as `KHR_animation_pointer` and `KHR_interactivity`.
 
-| JSON Pointer                                                      | Object Model Type |
-| ----------------------------------------------------------------- | ----------------- |
-| `/extensions/OMI_environment_sky/skies/{}/gradient/bottomColor`   | `float3`          |
-| `/extensions/OMI_environment_sky/skies/{}/gradient/bottomCurve`   | `float`           |
-| `/extensions/OMI_environment_sky/skies/{}/gradient/horizonColor`  | `float3`          |
-| `/extensions/OMI_environment_sky/skies/{}/gradient/topColor`      | `float3`          |
-| `/extensions/OMI_environment_sky/skies/{}/gradient/topCurve`      | `float`           |
-| `/extensions/OMI_environment_sky/skies/{}/gradient/sunAngleMax`   | `float`           |
-| `/extensions/OMI_environment_sky/skies/{}/gradient/sunCurve`      | `float`           |
-| `/extensions/OMI_environment_sky/skies/{}/physical/groundColor`   | `float3`          |
-| `/extensions/OMI_environment_sky/skies/{}/physical/mieAnisotropy` | `float`           |
-| `/extensions/OMI_environment_sky/skies/{}/physical/mieColor`      | `float3`          |
-| `/extensions/OMI_environment_sky/skies/{}/physical/mieScale`      | `float`           |
-| `/extensions/OMI_environment_sky/skies/{}/physical/rayleighColor` | `float3`          |
-| `/extensions/OMI_environment_sky/skies/{}/physical/rayleighScale` | `float`           |
-| `/extensions/OMI_environment_sky/skies/{}/plain/color`            | `float3`          |
-| `/extensions/OMI_environment_sky/skies/{}/ambientLightColor`      | `float3`          |
-| `/extensions/OMI_environment_sky/skies/{}/ambientSkyContribution` | `float`           |
-| `/scenes/{}/extensions/OMI_environment_sky/sky`                   | `int`             |
+| JSON Pointer                                                            | Object Model Type |
+| ----------------------------------------------------------------------- | ----------------- |
+| `/extensions/OMI_environment_sky/skies/{}/gradient/bottomColor`         | `float3`          |
+| `/extensions/OMI_environment_sky/skies/{}/gradient/bottomCurve`         | `float`           |
+| `/extensions/OMI_environment_sky/skies/{}/gradient/horizonColor`        | `float3`          |
+| `/extensions/OMI_environment_sky/skies/{}/gradient/topColor`            | `float3`          |
+| `/extensions/OMI_environment_sky/skies/{}/gradient/topCurve`            | `float`           |
+| `/extensions/OMI_environment_sky/skies/{}/gradient/sunAngleMax`         | `float`           |
+| `/extensions/OMI_environment_sky/skies/{}/gradient/sunCurve`            | `float`           |
+| `/extensions/OMI_environment_sky/skies/{}/physical/groundColor`         | `float3`          |
+| `/extensions/OMI_environment_sky/skies/{}/physical/mieAnisotropy`       | `float`           |
+| `/extensions/OMI_environment_sky/skies/{}/physical/mieCoefficient`      | `float`           |
+| `/extensions/OMI_environment_sky/skies/{}/physical/mieColor`            | `float3`          |
+| `/extensions/OMI_environment_sky/skies/{}/physical/rayleighCoefficient` | `float`           |
+| `/extensions/OMI_environment_sky/skies/{}/physical/rayleighColor`       | `float3`          |
+| `/extensions/OMI_environment_sky/skies/{}/plain/color`                  | `float3`          |
+| `/extensions/OMI_environment_sky/skies/{}/ambientLightColor`            | `float3`          |
+| `/extensions/OMI_environment_sky/skies/{}/ambientSkyContribution`       | `float`           |
+| `/scenes/{}/extensions/OMI_environment_sky/sky`                         | `int`             |
 
 Additionally, the following JSON pointers are defined for read-only properties:
 

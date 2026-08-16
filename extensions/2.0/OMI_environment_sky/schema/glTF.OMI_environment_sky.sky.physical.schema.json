@@ -23,6 +23,12 @@
             "maximum": 1.0,
             "default": 0.8
         },
+        "mieCoefficient": {
+            "type": "number",
+            "description": "The coefficient of Mie scattering (the thing that makes clouds white) in inverse meters.",
+            "minimum": 0.0,
+            "default": 0.000005
+        },
         "mieColor": {
             "type": "array",
             "description": "The color of Mie scattering (the thing that makes clouds white).",
@@ -33,11 +39,11 @@
             "maxItems": 3,
             "default": [1.0, 1.0, 1.0]
         },
-        "mieScale": {
+        "rayleighCoefficient": {
             "type": "number",
-            "description": "The scale of Mie scattering (the thing that makes clouds white) in inverse meters.",
+            "description": "The coefficient of Rayleigh scattering (the thing that makes the sky blue) in inverse meters.",
             "minimum": 0.0,
-            "default": 0.000005
+            "default": 0.00003
         },
         "rayleighColor": {
             "type": "array",
@@ -48,12 +54,6 @@
             "minItems": 3,
             "maxItems": 3,
             "default": [0.3, 0.5, 1.0]
-        },
-        "rayleighScale": {
-            "type": "number",
-            "description": "The scale of Rayleigh scattering (the thing that makes the sky blue) in inverse meters.",
-            "minimum": 0.0,
-            "default": 0.00003
         }
     },
     "required": []
