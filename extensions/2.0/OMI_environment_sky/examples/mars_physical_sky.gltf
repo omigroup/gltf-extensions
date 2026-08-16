@@ -69,10 +69,10 @@
                     "physical": {
                         "groundColor": [0.67843097448349, 0.384314000606537, 0.258823990821838],
                         "mieAnisotropy": 0.8,
+                        "mieCoefficient": 0.000005,
                         "mieColor": [0.8, 0.5, 0.3],
-                        "mieScale": 0.000005,
-                        "rayleighColor": [1.0, 0.666666666666666, 0.5],
-                        "rayleighScale": 0.000002
+                        "rayleighCoefficient": 0.000002,
+                        "rayleighColor": [1.0, 0.666666666666666, 0.5]
                     },
                     "type": "physical"
                 }
