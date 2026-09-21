@@ -114,15 +114,16 @@ The extension must also be added to the glTF's `extensionsUsed` array and becaus
 
 These properties are defined on each sky. Multiple skies may be specified in the `"skies"` array.
 
-|                            | Type        | Description                                                                        | Default value        |
-| -------------------------- | ----------- | ---------------------------------------------------------------------------------- | -------------------- |
-| **ambientLightColor**      | `number[3]` | The color of the ambient light, if sky contribution is less than 1.0.              | `[0.0, 0.0, 0.0]`    |
-| **ambientSkyContribution** | `number`    | The ratio of contribution the sky makes to the ambient light.                      | 1.0                  |
-| **type**                   | `string`    | The type of sky as a string (`"gradient"`, `"panorama"`, `"physical"`, `"plain"`). | Required, no default |
-| **gradient**               | `object`    | If the type is `"gradient"`, the gradient sky properties.                          | `null`               |
-| **panorama**               | `object`    | If the type is `"panorama"`, the panorama sky properties.                          | `null`               |
-| **physical**               | `object`    | If the type is `"physical"`, the physical sky properties.                          | `null`               |
-| **plain**                  | `object`    | If the type is `"plain"`, the plain color sky properties.                          | `null`               |
+|                            | Type        | Description                                                                        | Default value          |
+| -------------------------- | ----------- | ---------------------------------------------------------------------------------- | ---------------------- |
+| **ambientLightColor**      | `number[3]` | The color of the ambient light, if sky contribution is less than 1.0.              | `[0.0, 0.0, 0.0]`      |
+| **ambientSkyContribution** | `number`    | The ratio of contribution the sky makes to the ambient light.                      | 1.0                    |
+| **rotation**               | `number[4]` | The unit quaternion representing the sky's rotation.                               | `[0.0, 0.0, 0.0, 1.0]` |
+| **type**                   | `string`    | The type of sky as a string (`"gradient"`, `"panorama"`, `"physical"`, `"plain"`). | Required, no default   |
+| **gradient**               | `object`    | If the type is `"gradient"`, the gradient sky properties.                          | `null`                 |
+| **panorama**               | `object`    | If the type is `"panorama"`, the panorama sky properties.                          | `null`                 |
+| **physical**               | `object`    | If the type is `"physical"`, the physical sky properties.                          | `null`                 |
+| **plain**                  | `object`    | If the type is `"plain"`, the plain color sky properties.                          | `null`                 |
 
 #### Ambient Light Color
 
@@ -135,6 +136,14 @@ This only has an effect if the `"ambientSkyContribution"` is less than 1.0. As s
 The `"ambientSkyContribution"` property is a number that defines the ratio of ambient light contribution between the ambient color and the sky color. The default value is 1.0, which means that the ambient color is the same as the sky color.
 
 Valid values are on a range of 0.0 to 1.0, inclusive. A value of 0.0 means that all ambient light is the ambient color, and no sky color is added. A value of 1.0 means that all ambient light is the sky color, and the `"ambientLightColor"` property is ignored. A value between 0.0 and 1.0 is a mix of the two colors. Unity only supports 0.0 and 1.0, while Godot supports the full range of values in-between.
+
+#### Rotation
+
+The `"rotation"` property is an array of four numbers representing the unit quaternion for the sky's rotation. The default value is `[0.0, 0.0, 0.0, 1.0]`, which corresponds to no rotation.
+
+The rotation follows the standard quaternion convention used by glTF: `[x, y, z, w]`, where `w` is the scalar component.
+
+Not all skies are visually affected by the rotation. For example, a plain color sky will look the same regardless of its rotation, a panorama sky will rotate according to the quaternion, and a gradient sky will not be affected by rotation around its local vertical axis.
 
 #### Type
 

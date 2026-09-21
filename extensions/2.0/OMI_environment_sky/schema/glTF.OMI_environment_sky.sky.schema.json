@@ -22,6 +22,18 @@
             "minimum": 0.0,
             "default": 0.02
         },
+        "rotation": {
+            "type": "array",
+            "description": "The unit quaternion representing the sky's rotation.",
+            "items": {
+                "type": "number",
+                "minimum": -1.0,
+                "maximum": 1.0
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "default": [0.0, 0.0, 0.0, 1.0]
+        },
         "type": {
             "type": "string",
             "description": "The type of sky as a string (`gradient`, `panorama`, `physical`, `plain`, or custom).",
