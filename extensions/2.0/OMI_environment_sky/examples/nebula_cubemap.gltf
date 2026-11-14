@@ -92,33 +92,33 @@
     "images": [
         {
             "mimeType": "image/png",
-            "name": "nebula_cubemap_posx",
-            "uri": "nebula_cubemap/posx.png"
+            "name": "nebula_cubemap_pos_x",
+            "uri": "nebula_cubemap/pos_x.png"
         },
         {
             "mimeType": "image/png",
-            "name": "nebula_cubemap_negx",
-            "uri": "nebula_cubemap/negx.png"
+            "name": "nebula_cubemap_neg_x",
+            "uri": "nebula_cubemap/neg_x.png"
         },
         {
             "mimeType": "image/png",
-            "name": "nebula_cubemap_posy",
-            "uri": "nebula_cubemap/posy.png"
+            "name": "nebula_cubemap_pos_y",
+            "uri": "nebula_cubemap/pos_y.png"
         },
         {
             "mimeType": "image/png",
-            "name": "nebula_cubemap_negy",
-            "uri": "nebula_cubemap/negy.png"
+            "name": "nebula_cubemap_neg_y",
+            "uri": "nebula_cubemap/neg_y.png"
         },
         {
             "mimeType": "image/png",
-            "name": "nebula_cubemap_posz",
-            "uri": "nebula_cubemap/posz.png"
+            "name": "nebula_cubemap_pos_z",
+            "uri": "nebula_cubemap/pos_z.png"
         },
         {
             "mimeType": "image/png",
-            "name": "nebula_cubemap_negz",
-            "uri": "nebula_cubemap/negz.png"
+            "name": "nebula_cubemap_neg_z",
+            "uri": "nebula_cubemap/neg_z.png"
         }
     ],
     "materials": [{}],

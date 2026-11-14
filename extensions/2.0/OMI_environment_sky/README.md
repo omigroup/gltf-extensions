@@ -41,8 +41,8 @@ This example defines a panorama sky with an equirectangular texture, and defines
     "images": [
         {
             "mimeType": "image/jpeg",
-            "name": "allskyfree_epic_blue_sunset",
-            "uri": "epic_blue_sunset/allskyfree_epic_blue_sunset.jpg"
+            "name": "all_sky_free_epic_blue_sunset",
+            "uri": "epic_blue_sunset/all_sky_free_epic_blue_sunset.jpg"
         }
     ],
     "nodes": [

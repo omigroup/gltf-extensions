@@ -85,7 +85,10 @@
             ]
         }
     ],
-    "nodes": [{ "children": [1], "name": "DefaultPhysicalSky" }, { "mesh": 0, "name": "Box" }],
+    "nodes": [
+        { "children": [1], "name": "DefaultPhysicalSky" },
+        { "mesh": 0, "name": "Box" }
+    ],
     "scene": 0,
     "scenes": [{ "nodes": [0] }]
 }
