@@ -245,18 +245,18 @@ The equirectangular skybox texture is projected with the top of the texture in t
 
 Physical skies use a physically-based model to simulate the scattering of light in the atmosphere. The `"physical"` property is an object that contains the physical sky properties:
 
-|                         | Type        | Description                                                                 | Default value     |
-| ----------------------- | ----------- | --------------------------------------------------------------------------- | ----------------- |
-| **groundColor**         | `number[3]` | The color of the ground (not part of the atmospheric simulation).           | `[0.3, 0.2, 0.1]` |
-| **mieAnisotropy**       | `number`    | The anisotropy of Mie scattering (the thing that makes clouds white).       | 0.8               |
-| **mieCoefficient**      | `number`    | The coefficient of Mie scattering (the thing that makes clouds white).      | 0.000005          |
-| **mieColor**            | `number[3]` | The color of Mie scattering (the thing that makes clouds white).            | `[1.0, 1.0, 1.0]` |
-| **rayleighCoefficient** | `number`    | The coefficient of Rayleigh scattering (the thing that makes the sky blue). | 0.00003           |
-| **rayleighColor**       | `number[3]` | The color of Rayleigh scattering (the thing that makes the sky blue).       | `[0.3, 0.5, 1.0]` |
+|                         | Type        | Description                                                                 | Default value       |
+| ----------------------- | ----------- | --------------------------------------------------------------------------- | ------------------- |
+| **groundColor**         | `number[3]` | The color of the ground (not part of the atmospheric simulation).           | `[0.2, 0.12, 0.06]` |
+| **mieAnisotropy**       | `number`    | The anisotropy of Mie scattering (the thing that makes clouds white).       | 0.8                 |
+| **mieCoefficient**      | `number`    | The coefficient of Mie scattering (the thing that makes clouds white).      | 0.000005            |
+| **mieColor**            | `number[3]` | The color of Mie scattering (the thing that makes clouds white).            | `[1.0, 1.0, 1.0]`   |
+| **rayleighCoefficient** | `number`    | The coefficient of Rayleigh scattering (the thing that makes the sky blue). | 0.00003             |
+| **rayleighColor**       | `number[3]` | The color of Rayleigh scattering (the thing that makes the sky blue).       | `[0.3, 0.5, 1.0]`   |
 
 #### Ground Color
 
-The `"groundColor"` property is an array of three numbers that defines the color of the ground. The default value is `[0.3, 0.2, 0.1]`, which is a sane default for Earth-like skies.
+The `"groundColor"` property is an array of three numbers that defines the color of the ground. The default value is `[0.2, 0.12, 0.06]`, which is a sane default for Earth-like skies.
 
 This color is not part of the atmospheric simulation, but it is used to provide a color for the bottom part of the skybox. Realistically, the bottom of the skybox should be obscured by a planet's terrain, but there are cases where the bottom of the skybox is visible, or there is a need for the scene to have ambient light from below.
 
