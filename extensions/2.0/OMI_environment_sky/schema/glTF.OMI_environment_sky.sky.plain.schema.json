@@ -4,7 +4,7 @@
     "title": "OMI_environment_sky Plain Sky Parameters",
     "type": "object",
     "description": "Plain color skies use a single color to represent the sky.",
-    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "$ref": "glTFProperty.schema.json",
     "properties": {
         "color": {
             "type": "array",

@@ -4,7 +4,7 @@
     "title": "OMI_environment_sky glTF Document Extension",
     "type": "object",
     "description": "Top level global environment skies and skyboxes.",
-    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "$ref": "glTFProperty.schema.json",
     "properties": {
         "skies": {
             "type": "array",

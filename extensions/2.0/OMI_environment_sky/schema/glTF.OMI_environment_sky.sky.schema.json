@@ -4,7 +4,7 @@
     "title": "OMI_environment_sky Sky Parameters",
     "type": "object",
     "description": "Environment sky and skybox parameters.",
-    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "$ref": "glTFProperty.schema.json",
     "properties": {
         "ambientLightColor": {
             "type": "array",
@@ -62,19 +62,19 @@
             ]
         },
         "gradient": {
-            "allOf": [{ "$ref": "glTF.OMI_environment_sky.sky.gradient.schema.json" }],
+            "$ref": "glTF.OMI_environment_sky.sky.gradient.schema.json",
             "description": "If present, the properties of a gradient sky."
         },
         "panorama": {
-            "allOf": [{ "$ref": "glTF.OMI_environment_sky.sky.panorama.schema.json" }],
+            "$ref": "glTF.OMI_environment_sky.sky.panorama.schema.json",
             "description": "If present, the properties of a panorama sky."
         },
         "physical": {
-            "allOf": [{ "$ref": "glTF.OMI_environment_sky.sky.physical.schema.json" }],
+            "$ref": "glTF.OMI_environment_sky.sky.physical.schema.json",
             "description": "If present, the properties of a physical sky."
         },
         "plain": {
-            "allOf": [{ "$ref": "glTF.OMI_environment_sky.sky.plain.schema.json" }],
+            "$ref": "glTF.OMI_environment_sky.sky.plain.schema.json",
             "description": "If present, the properties of a plain color sky."
         }
     },

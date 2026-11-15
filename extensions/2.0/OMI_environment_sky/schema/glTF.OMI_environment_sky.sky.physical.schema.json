@@ -4,7 +4,7 @@
     "title": "OMI_environment_sky Physical Sky Parameters",
     "type": "object",
     "description": "Physical skies use a physically-based model to simulate the scattering of light in the atmosphere.",
-    "allOf": [{ "$ref": "glTFProperty.schema.json" }],
+    "$ref": "glTFProperty.schema.json",
     "properties": {
         "groundColor": {
             "type": "array",
