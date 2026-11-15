@@ -10,7 +10,8 @@
             "type": "array",
             "description": "The color of the ambient light, if sky contribution is less than 1.0.",
             "items": {
-                "type": "number"
+                "type": "number",
+                "minimum": 0.0
             },
             "minItems": 3,
             "maxItems": 3,

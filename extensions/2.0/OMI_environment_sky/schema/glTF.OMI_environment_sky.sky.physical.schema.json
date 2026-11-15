@@ -10,7 +10,8 @@
             "type": "array",
             "description": "The color of the ground of the skybox (not part of the atmospheric simulation).",
             "items": {
-                "type": "number"
+                "type": "number",
+                "minimum": 0.0
             },
             "minItems": 3,
             "maxItems": 3,
@@ -33,7 +34,8 @@
             "type": "array",
             "description": "The color of Mie scattering (the thing that makes clouds white).",
             "items": {
-                "type": "number"
+                "type": "number",
+                "minimum": 0.0
             },
             "minItems": 3,
             "maxItems": 3,
@@ -49,7 +51,8 @@
             "type": "array",
             "description": "The color of Rayleigh scattering (the thing that makes the sky blue).",
             "items": {
-                "type": "number"
+                "type": "number",
+                "minimum": 0.0
             },
             "minItems": 3,
             "maxItems": 3,

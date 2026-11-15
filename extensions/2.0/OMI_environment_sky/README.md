@@ -12,7 +12,7 @@ Open Metaverse Interoperability Group Draft Proposal
 
 Written against the glTF 2.0 spec.
 
-Depends on `KHR_lights_punctual` for sun lights.
+Optionally depends on `KHR_lights_punctual`, which is used to define suns.
 
 ## Overview
 
@@ -348,7 +348,7 @@ The following JSON pointers are defined representing mutable properties defined 
 | ----------------------------------------------------------------------- | ----------------- |
 | `/extensions/OMI_environment_sky/skies/{}/ambientLightColor`            | `float3`          |
 | `/extensions/OMI_environment_sky/skies/{}/ambientSkyContribution`       | `float`           |
-| `/extensions/OMI_environment_sky/skies/{}/rotation`                     | `float[4]`        |
+| `/extensions/OMI_environment_sky/skies/{}/rotation`                     | `float4`          |
 | `/extensions/OMI_environment_sky/skies/{}/gradient/bottomColor`         | `float3`          |
 | `/extensions/OMI_environment_sky/skies/{}/gradient/bottomCurve`         | `float`           |
 | `/extensions/OMI_environment_sky/skies/{}/gradient/horizonColor`        | `float3`          |

@@ -10,7 +10,8 @@
             "type": "array",
             "description": "The color of the sky at the bottom, also known as the nadir.",
             "items": {
-                "type": "number"
+                "type": "number",
+                "minimum": 0.0
             },
             "minItems": 3,
             "maxItems": 3
@@ -18,14 +19,15 @@
         "bottomCurve": {
             "type": "number",
             "description": "The transition curve between the bottom and the horizon colors. 1 is linear, below 1 makes the bottom color more dominant, above 1 makes the horizon color more dominant.",
-            "minimum": 0.0,
+            "exclusiveMinimum": 0.0,
             "default": 0.02
         },
         "horizonColor": {
             "type": "array",
             "description": "The color of the sky at the horizon.",
             "items": {
-                "type": "number"
+                "type": "number",
+                "minimum": 0.0
             },
             "minItems": 3,
             "maxItems": 3
@@ -34,7 +36,8 @@
             "type": "array",
             "description": "The color of the sky at the top, also known as the zenith.",
             "items": {
-                "type": "number"
+                "type": "number",
+                "minimum": 0.0
             },
             "minItems": 3,
             "maxItems": 3
@@ -42,7 +45,7 @@
         "topCurve": {
             "type": "number",
             "description": "The transition curve between the top and the horizon colors. 1 is linear, below 1 makes the top color more dominant, above 1 makes the horizon color more dominant.",
-            "minimum": 0.0,
+            "exclusiveMinimum": 0.0,
             "default": 0.15
         },
         "sunAngleMax": {
@@ -54,9 +57,9 @@
         "sunCurve": {
             "type": "number",
             "description": "The transition curve between the sun(s) and the sky colors. 1 is linear, below 1 makes the sky color more dominant, above 1 makes the sun color more dominant.",
-            "minimum": 0.0,
+            "exclusiveMinimum": 0.0,
             "default": 0.15
         }
     },
-    "required": []
+    "required": ["bottomColor", "horizonColor", "topColor"]
 }
