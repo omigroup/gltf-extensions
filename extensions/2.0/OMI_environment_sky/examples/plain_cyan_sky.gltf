@@ -38,6 +38,7 @@
         "OMI_environment_sky": {
             "skies": [
                 {
+                    "ambientSkyContribution": 0.1,
                     "plain": { "color": [0.5, 1.0, 1.0] },
                     "type": "plain"
                 }

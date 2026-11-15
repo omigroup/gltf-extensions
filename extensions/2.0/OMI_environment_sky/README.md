@@ -135,13 +135,21 @@ These properties are defined on each sky. Multiple skies may be specified in the
 
 The `"ambientLightColor"` property is an array of three numbers that defines the color of the ambient light. The default value is `[0.0, 0.0, 0.0]`, which is black.
 
-This only has an effect if the `"ambientSkyContribution"` is less than 1.0. As such, to set a custom ambient light color separate from the sky's color, both properties **MUST** be specified. The ambient color may have values greater than 1.0, which indicate high energy, HDR, or overbright ambient light, but usually, the values are between 0.0 and 1.0.
+The ambient light color applies to all sky types. It is a sky-level property, outside of each type's sub-object.
+
+This only has an effect if the `"ambientSkyContribution"` is less than 1.0. As such, aside from just simple dimming behavior, to set a custom ambient light color separate from the sky's color, both properties would need to be specified.
+
+Like all colors in glTF, this is defined in linear color space. The ambient light color may have values greater than 1.0, which indicate high energy, HDR, or overbright ambient light color, but usually, the values are between 0.0 and 1.0.
 
 #### Ambient Sky Contribution
 
 The `"ambientSkyContribution"` property is a number that defines the ratio of ambient light contribution between the ambient color and the sky color. The default value is 1.0, which means that the ambient color is the same as the sky color.
 
-The value **MUST** be between 0.0 and 1.0, inclusive. A value of 0.0 means that all ambient light is the ambient color, and no sky color is added. A value of 1.0 means that all ambient light is the sky color, and the `"ambientLightColor"` property is ignored. A value between 0.0 and 1.0 is a mix of the two colors. Unity only supports 0.0 and 1.0, while Godot supports the full range of values in-between.
+The ambient sky contribution applies to all sky types. It is a sky-level property, outside of each type's sub-object.
+
+The value **MUST** be between 0.0 and 1.0, inclusive. A value of 0.0 means that all ambient light is the ambient color, and no sky color is added. A value of 1.0 means that all ambient light is the sky color, and the `"ambientLightColor"` property is ignored. A value between 0.0 and 1.0 is a mix of the two colors. If `"ambientLightColor"` is not specified, it is black by default, which effectively means that `"ambientSkyContribution"` acts as a dimming multiplier.
+
+> Informative note: Unity only supports 0.0 and 1.0, while Godot supports the full range of values in-between.
 
 #### Rotation
 
@@ -186,7 +194,7 @@ Gradient skies use color gradients to define the sky colors. The `"gradient"` pr
 
 The `"bottomColor"` property is an array of three numbers that defines the color of the sky at the bottom, also known as the nadir. This property **MUST** be defined for gradient skies and has no default value.
 
-The bottom color may have values greater than 1.0, which indicate high energy, HDR, or overbright bottom color, but usually, the values are between 0.0 and 1.0.
+Like all colors in glTF, this is defined in linear color space. The bottom color may have values greater than 1.0, which indicate high energy, HDR, or overbright bottom color, but usually, the values are between 0.0 and 1.0.
 
 #### Bottom Curve
 
@@ -198,13 +206,13 @@ A curve value of 1.0 is a linear transition. Values between 0.0 and 1.0 make the
 
 The `"horizonColor"` property is an array of three numbers that defines the color of the sky at the horizon. This property **MUST** be defined for gradient skies and has no default value.
 
-The horizon color may have values greater than 1.0, which indicate high energy, HDR, or overbright horizon color, but usually, the values are between 0.0 and 1.0.
+Like all colors in glTF, this is defined in linear color space. The horizon color may have values greater than 1.0, which indicate high energy, HDR, or overbright horizon color, but usually, the values are between 0.0 and 1.0.
 
 #### Top Color
 
 The `"topColor"` property is an array of three numbers that defines the color of the sky at the top, also known as the zenith. This property **MUST** be defined for gradient skies and has no default value.
 
-The top color may have values greater than 1.0, which indicate high energy, HDR, or overbright top color, but usually, the values are between 0.0 and 1.0.
+Like all colors in glTF, this is defined in linear color space. The top color may have values greater than 1.0, which indicate high energy, HDR, or overbright top color, but usually, the values are between 0.0 and 1.0.
 
 #### Top Curve
 
@@ -239,7 +247,7 @@ The `"cubemap"` property is an array of 6 integer indices that reference texture
 
 If present, the value **MUST** be a 6-element array of integers which refer to 6 textures by index. The face order and the orientation of each face image **MUST** follow the cubemap conventions of the [KTX 2.0 specification](https://registry.khronos.org/KTX/specs/2.0/ktxspec.v2.html) (section 3.6 "faceCount" and Appendix A "Cubemap Orientation"): the faces are in the order +X, -X, +Y, -Y, +Z, -Z, and each face image has a top-left origin, in KTX's left-handed cubemap coordinate system. KTX's cubemap coordinate system is converted to glTF's right-handed coordinate system by negating the X axis, which is one of the conversions described in KTX 2.0 Appendix A. The Y and Z axes are unchanged. These directions are in the sky's local space, before the sky's `"rotation"` is applied.
 
-Note that this makes the X labels unintuitive for glTF's right-handed coordinate system: the face labeled "+X" (index 0) is seen when looking toward glTF's -X direction, and the face labeled "-X" (index 1) is seen when looking toward glTF's +X direction. This is because the labels refer to KTX's left-handed X axis, which is negated compared to glTF. The Y and Z faces are seen in the directions their labels suggest. In exchange, the face images are not mirrored when viewed from inside the skybox, consistent with equirectangular skies, so text on the sky is readable. KTX 2.0 cubemap files and GPU cubemap textures can also be used directly, by sampling with the X component of the sampling direction negated.
+The KTX2 naming makes the X labels unintuitive for glTF's right-handed coordinate system: the face labeled "+X" (index 0) is seen when looking toward glTF's -X direction, and the face labeled "-X" (index 1) is seen when looking toward glTF's +X direction. This is because the labels refer to KTX's left-handed X axis, which is negated compared to glTF. The Y and Z faces are seen in the directions their labels suggest. In exchange, the face images are not mirrored when viewed from inside the skybox, consistent with equirectangular skies, so text on the sky is readable. KTX 2.0 cubemap files and GPU cubemap textures can also be used directly, by sampling with the X component of the sampling direction negated.
 
 The following table restates the resulting orientation of each face image in glTF's coordinate system, as seen by a viewer inside the skybox:
 
@@ -252,7 +260,7 @@ The following table restates the resulting orientation of each face image in glT
 | 4     | +Z        | +Z                       | -X                      | +Y                    |
 | 5     | -Z        | -Z                       | +X                      | +Y                    |
 
-Informative note: Tools that render cubemap faces with a right-handed camera, such as by looking along each glTF axis with +Y up, produce a face for glTF's +X direction and a face for glTF's -X direction. These must be stored at index 1 and index 0, respectively. Some engines name their cubemap faces differently; for example, Unity's 6 sided skybox labels its +X slot as "Left".
+> Informative note: Tools that render cubemap faces with a right-handed camera, such as by looking along each glTF axis with +Y up, produce a face for glTF's +X direction and a face for glTF's -X direction. These must be stored at index 1 and index 0, respectively. Some engines name their cubemap faces differently; for example, Unity's 6 sided skybox labels its +X slot as "Left".
 
 Cubemap skybox textures are not recommended because not all game engines support them natively. Unity supports them with its built-in skybox shaders, while Godot and Unreal require a custom sky shader or sky material that samples the cubemap faces. If an engine does not support cubemap skyboxes, an importer may convert the cubemap to an equirectangular texture, use a custom sky shader, or use a mesh to represent the skybox. Additionally, if the glTF file includes both a cubemap and equirectangular texture, the equirectangular texture may be loaded as a fallback.
 
@@ -260,30 +268,32 @@ Cubemap skybox textures are not recommended because not all game engines support
 
 The `"equirectangular"` property is an integer index that references a texture in the glTF document-level textures array. If not specified, this sky does not have an equirectangular texture.
 
-The equirectangular skybox texture is projected with the top of the texture in the +Y direction, the middle of the texture in the +Z direction, and the left of the texture in the +X direction. It may seem odd to have the left be +X, but since this is a skybox, it is viewed from the inside; this ensures that the texture is not flipped when viewed from the inside. For example, if the skybox image has text on it, the text **SHOULD** be readable on the skybox. This is consistent with what all major 3D engines do.
+The equirectangular skybox texture is projected with the top of the texture in the +Y direction, the middle of the texture in the +Z direction, and the left of the texture in the +X direction. It may seem odd to have the left be +X, but since this is a skybox, it is viewed from the inside; this ensures that the texture is not flipped when viewed from the inside. For example, if the skybox image has text on it, the text would be readable on the skybox. This is consistent with what most major 3D engines do.
 
 ### Physical Sky Properties
 
 Physical skies use a physically-based model to simulate the scattering of light in the atmosphere. The `"physical"` property is an object that contains the physical sky properties:
 
-|                         | Type        | Description                                                                 | Default value       |
-| ----------------------- | ----------- | --------------------------------------------------------------------------- | ------------------- |
-| **groundColor**         | `number[3]` | The color of the ground (not part of the atmospheric simulation).           | `[0.16, 0.1, 0.05]` |
-| **mieAnisotropy**       | `number`    | The anisotropy of Mie scattering (the thing that makes clouds white).       | 0.8                 |
-| **mieCoefficient**      | `number`    | The coefficient of Mie scattering (the thing that makes clouds white).      | 0.000005            |
-| **mieColor**            | `number[3]` | The color of Mie scattering (the thing that makes clouds white).            | `[1.0, 1.0, 1.0]`   |
-| **rayleighCoefficient** | `number`    | The coefficient of Rayleigh scattering (the thing that makes the sky blue). | 0.00003             |
-| **rayleighColor**       | `number[3]` | The color of Rayleigh scattering (the thing that makes the sky blue).       | `[0.3, 0.5, 1.0]`   |
+|                         | Type        | Description                                                                 | Default value        |
+| ----------------------- | ----------- | --------------------------------------------------------------------------- | -------------------- |
+| **groundColor**         | `number[3]` | The color of the ground (not part of the atmospheric simulation).           | `[0.04, 0.02, 0.01]` |
+| **mieAnisotropy**       | `number`    | The anisotropy of Mie scattering (the thing that makes clouds white).       | 0.8                  |
+| **mieCoefficient**      | `number`    | The coefficient of Mie scattering (the thing that makes clouds white).      | 0.000005             |
+| **mieColor**            | `number[3]` | The color of Mie scattering (the thing that makes clouds white).            | `[1.0, 1.0, 1.0]`    |
+| **rayleighCoefficient** | `number`    | The coefficient of Rayleigh scattering (the thing that makes the sky blue). | 0.00003              |
+| **rayleighColor**       | `number[3]` | The color of Rayleigh scattering (the thing that makes the sky blue).       | `[0.3, 0.5, 1.0]`    |
 
 Scattering coefficients are defined as inverse meters (m⁻¹), where larger values indicate stronger scattering.
 
 #### Ground Color
 
-The `"groundColor"` property is an array of three numbers that defines the color of the ground. The default value is `[0.16, 0.1, 0.05]`, which is a sane default for Earth-like skies.
+The `"groundColor"` property is an array of three numbers that defines the color of the ground. The default value is `[0.04, 0.02, 0.01]`, which is a sane default for Earth-like skies.
 
 This color is not part of the atmospheric simulation, but it is used to provide a color for the bottom part of the skybox.
 
-Informative note: Typically, the bottom of the skybox is obscured by a planet's terrain, but there may be cases where the bottom of the skybox is visible, or there is a need for the scene to have ambient light from below.
+Like all colors in glTF, this is defined in linear color space. The ground color may have values greater than 1.0, which indicate high energy, HDR, or overbright ground color, but usually, the values are between 0.0 and 1.0.
+
+> Informative note: Typically, the bottom of the skybox is obscured by a planet's terrain, but there may be cases where the bottom of the skybox is visible, or there is a need for the scene to have ambient light from below.
 
 #### Mie Anisotropy
 
@@ -297,21 +307,25 @@ The `"mieCoefficient"` property is a number that defines the coefficient of Mie 
 
 The Mie scattering settings affect the color of the sky itself. In clear skies, Mie scattering is usually quite weak. In cases where there is a lot of dust, smoke, haze, fog, pollution, or other particles in the air, the Mie scattering can be stronger.
 
-Informative note: Game engines may use different scales for the units. glTF uses only base metric units, so it is in inverse meters. However, Unreal and Godot use inverse kilometers, so a glTF value of 0.000005 needs to be multiplied by 1000 on import to 0.005. Unreal defaults to 0.003996, and Godot defaults to 0.05 (as a combination of 0.005 `mie_coefficient` and 10.0 `turbidity`).
+> Informative note: Game engines may use different scales for the units. glTF uses only base metric units, so it is in inverse meters. However, Unreal and Godot use inverse kilometers, so a glTF value of 0.000005 needs to be multiplied by 1000 on import to 0.005. Unreal defaults to 0.003996, and Godot defaults to 0.05 (as a combination of 0.005 `mie_coefficient` and 10.0 `turbidity`).
 
 #### Mie Color
 
 The `"mieColor"` property is an array of three numbers that defines the color of Mie scattering, which is the thing that makes clouds white. The default value is `[1.0, 1.0, 1.0]`, which is a sane default for Earth-like skies.
 
+Like all colors in glTF, this is defined in linear color space. The Mie color may have values greater than 1.0, which indicate high energy, HDR, or overbright Mie color, but usually, the values are between 0.0 and 1.0.
+
 #### Rayleigh Coefficient
 
 The `"rayleighCoefficient"` property is a number that defines the coefficient of Rayleigh scattering, also known as the scale of Rayleigh scattering. It has a unit of inverse meters (m⁻¹). If not specified, the default value is 0.00003, which is a sane default for Earth-like skies.
 
-Informative note: Game engines may use different scales for the units. glTF uses only base metric units, so it is in inverse meters. However, Unreal uses inverse kilometers, so a glTF value of 0.00003 needs to be multiplied by 1000 on import to 0.03. Godot uses inverse hundred kilometers, so a glTF value of 0.00003 needs to be multiplied by 100000 on import to 3.0. Unreal defaults to 0.0331, and Godot defaults to 2.0.
+> Informative note: Game engines may use different scales for the units. glTF uses only base metric units, so it is in inverse meters. However, Unreal uses inverse kilometers, so a glTF value of 0.00003 needs to be multiplied by 1000 on import to 0.03. Godot uses inverse hundred kilometers, so a glTF value of 0.00003 needs to be multiplied by 100000 on import to 3.0. Unreal defaults to 0.0331, and Godot defaults to 2.0.
 
 #### Rayleigh Color
 
 The `"rayleighColor"` property is an array of three numbers that defines the color of Rayleigh scattering, which is the thing that makes the sky blue. The default value is `[0.3, 0.5, 1.0]`, which is a sane default for Earth-like skies.
+
+Like all colors in glTF, this is defined in linear color space. The Rayleigh color may have values greater than 1.0, which indicate high energy, HDR, or overbright Rayleigh color, but usually, the values are between 0.0 and 1.0.
 
 #### Plain Sky Properties
 
@@ -324,6 +338,8 @@ Plain color skies use a single color to represent the sky. Plain color skies are
 #### Color
 
 The `"color"` property is an array of three numbers that defines the color of the sky. If not specified, the default value is `[0.0, 0.0, 0.0]`, which is black.
+
+Like all colors in glTF, this is defined in linear color space. The plain color may have values greater than 1.0, which indicate high energy, HDR, or overbright plain color, but usually, the values are between 0.0 and 1.0.
 
 ### Document-level Properties
 
@@ -338,7 +354,7 @@ The sky index specifies which sky is used as the sky. If `"sky"` is not set, and
 
 It is expected that only one glTF file with a sky should be instantiated at a time. This may be the main "map" glTF scene, or a glTF dedicated to holding a sky. The behavior of multiple glTF files trying to control the sky is undefined.
 
-Informative note: glTF files intended to be used as individual objects that get composed into a larger scene **SHOULD NOT** use the `"OMI_environment_sky"` extension. The `"OMI_environment_sky"` extension **SHOULD NOT** be used as a "preview environment" within a glTF representing an object, to avoid conflicts with the sky when that object is instantiated in a larger scene.
+> Informative note: glTF files intended to be used as individual objects that get composed into a larger scene should not use the `"OMI_environment_sky"` extension. The `"OMI_environment_sky"` extension should not be used as a "preview environment" within a glTF representing an object, to avoid conflicts with the sky when that object is instantiated in a larger scene.
 
 ### glTF Object Model
 

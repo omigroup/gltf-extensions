@@ -15,7 +15,7 @@
             },
             "minItems": 3,
             "maxItems": 3,
-            "default": [0.16, 0.1, 0.05]
+            "default": [0.04, 0.02, 0.01]
         },
         "mieAnisotropy": {
             "type": "number",
