@@ -18,10 +18,10 @@
         },
         {
             "bufferView": 2,
-            "componentType": 5123,
+            "componentType": 5121,
             "count": 36,
-            "max": [23.0],
-            "min": [0.0],
+            "max": [23],
+            "min": [0],
             "type": "SCALAR"
         }
     ],
@@ -31,9 +31,9 @@
     "bufferViews": [
         { "buffer": 0, "byteLength": 288, "byteStride": 12, "target": 34962 },
         { "buffer": 0, "byteLength": 288, "byteOffset": 288, "byteStride": 12, "target": 34962 },
-        { "buffer": 0, "byteLength": 72, "byteOffset": 576, "target": 34963 }
+        { "buffer": 0, "byteLength": 36, "byteOffset": 576, "target": 34963 }
     ],
-    "buffers": [{ "byteLength": 648, "uri": "cube_mesh_data.bin" }],
+    "buffers": [{ "byteLength": 612, "uri": "cube_mesh_data.bin" }],
     "extensions": {
         "OMI_environment_sky": {
             "skies": [
