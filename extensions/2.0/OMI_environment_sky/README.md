@@ -83,11 +83,11 @@ This example defines a gradient sky, black all around, with a red dwarf star hug
             "skies": [
                 {
                     "gradient": {
-                        "bottomColor": [0.01, 0.01, 0.01],
-                        "horizonColor": [0.01, 0.01, 0.01],
+                        "bottomColor": [0.0001, 0.0001, 0.0001],
+                        "horizonColor": [0.0001, 0.0001, 0.0001],
                         "sunAngleMax": 0.25,
                         "sunCurve": 4,
-                        "topColor": [0.01, 0.01, 0.01]
+                        "topColor": [0.0001, 0.0001, 0.0001]
                     },
                     "type": "gradient"
                 }
