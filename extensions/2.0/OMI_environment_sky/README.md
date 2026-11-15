@@ -253,7 +253,7 @@ Physical skies use a physically-based model to simulate the scattering of light 
 
 |                         | Type        | Description                                                                 | Default value       |
 | ----------------------- | ----------- | --------------------------------------------------------------------------- | ------------------- |
-| **groundColor**         | `number[3]` | The color of the ground (not part of the atmospheric simulation).           | `[0.2, 0.12, 0.06]` |
+| **groundColor**         | `number[3]` | The color of the ground (not part of the atmospheric simulation).           | `[0.16, 0.1, 0.05]` |
 | **mieAnisotropy**       | `number`    | The anisotropy of Mie scattering (the thing that makes clouds white).       | 0.8                 |
 | **mieCoefficient**      | `number`    | The coefficient of Mie scattering (the thing that makes clouds white).      | 0.000005            |
 | **mieColor**            | `number[3]` | The color of Mie scattering (the thing that makes clouds white).            | `[1.0, 1.0, 1.0]`   |
@@ -264,7 +264,7 @@ Scattering coefficients are defined as inverse meters (m⁻¹), where larger val
 
 #### Ground Color
 
-The `"groundColor"` property is an array of three numbers that defines the color of the ground. The default value is `[0.2, 0.12, 0.06]`, which is a sane default for Earth-like skies.
+The `"groundColor"` property is an array of three numbers that defines the color of the ground. The default value is `[0.16, 0.1, 0.05]`, which is a sane default for Earth-like skies.
 
 This color is not part of the atmospheric simulation, but it is used to provide a color for the bottom part of the skybox.
 
