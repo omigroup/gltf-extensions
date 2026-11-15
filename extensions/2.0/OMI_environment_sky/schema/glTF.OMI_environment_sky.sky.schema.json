@@ -14,13 +14,14 @@
             },
             "minItems": 3,
             "maxItems": 3,
-            "default": [1.0, 1.0, 1.0]
+            "default": [0.0, 0.0, 0.0]
         },
         "ambientSkyContribution": {
             "type": "number",
             "description": "The ratio of contribution the sky makes to the ambient light.",
             "minimum": 0.0,
-            "default": 0.02
+            "maximum": 1.0,
+            "default": 1.0
         },
         "rotation": {
             "type": "array",
