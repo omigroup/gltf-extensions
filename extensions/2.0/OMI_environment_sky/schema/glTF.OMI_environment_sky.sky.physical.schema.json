@@ -8,7 +8,7 @@
     "properties": {
         "groundColor": {
             "type": "array",
-            "description": "The color of the ground of the skybox (not part of the atmospheric simulation).",
+            "description": "The tint of the ground below the horizon, multiplied by the light the ground receives from the sun and atmosphere.",
             "items": {
                 "type": "number",
                 "minimum": 0.0

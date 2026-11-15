@@ -18,7 +18,7 @@ Optionally depends on `KHR_lights_punctual`, which is used to define suns.
 
 This extension allows defining the skybox of a glTF asset, and how the sky provides environment lighting. The sky can be a gradient, panorama, physical sky, or plain sky. The sky can be used to light the scene, provide a background, or both.
 
-To add suns to the sky, use the `KHR_lights_punctual` extension to define directional lights.
+To add suns to the sky, use the `KHR_lights_punctual` extension to define directional lights. For sky types that display suns, every visible directional light defined with `KHR_lights_punctual` on a node is treated as a sun. Since `KHR_lights_punctual` directional lights point along their node's local -Z axis, the sun appears in the sky in the direction of the node's local +Z axis.
 
 The exact appearance of the sky **MAY** vary between applications.
 
@@ -200,7 +200,7 @@ Like all colors in glTF, this is defined in linear color space. The bottom color
 
 The `"bottomCurve"` property is a number that defines the transition curve between the bottom and the horizon colors. It is a unitless number. If not specified, the default value is 0.02.
 
-A curve value of 1.0 is a linear transition. Values between 0.0 and 1.0 make the bottom color more dominant, while values between 1.0 and infinity make the horizon color more dominant. The value **MUST** be a positive number.
+A curve value of 1.0 is a linear transition. Smaller values between 0.0 and 1.0 make the bottom color more dominant, while larger values between 1.0 and infinity make the horizon color more dominant. The value **MUST** be a positive number. See [Gradient Sky Formulas](#gradient-sky-formulas) for an example of how this value may be used.
 
 #### Horizon Color
 
@@ -218,7 +218,7 @@ Like all colors in glTF, this is defined in linear color space. The top color ma
 
 The `"topCurve"` property is a number that defines the transition curve between the top and the horizon colors. It is a unitless number. If not specified, the default value is 0.15.
 
-A curve value of 1.0 is a linear transition. Values between 0.0 and 1.0 make the top color more dominant, while values between 1.0 and infinity make the horizon color more dominant. The value **MUST** be a positive number.
+A curve value of 1.0 is a linear transition. Smaller values between 0.0 and 1.0 make the top color more dominant, while larger values between 1.0 and infinity make the horizon color more dominant. The value **MUST** be a positive number. See [Gradient Sky Formulas](#gradient-sky-formulas) for an example of how this value may be used.
 
 #### Sun Angle Max
 
@@ -230,7 +230,37 @@ Note that this defines the outermost maximum angle that the sun would have if th
 
 The `"sunCurve"` property is a number that defines the transition curve between the sun and the sky colors. It is a unitless number. If not specified, the default value is 0.15.
 
-A curve value of 1.0 is a linear transition. Values between 0.0 and 1.0 make the sky color more dominant, while values between 1.0 and infinity make the sun color more dominant. The value **MUST** be a positive number.
+A curve value of 1.0 is a linear transition. Smaller values between 0.0 and 1.0 make the sky color more dominant, while larger values between 1.0 and infinity make the sun color more dominant. The value **MUST** be a positive number. See [Gradient Sky Formulas](#gradient-sky-formulas) for an example of how this value may be used.
+
+#### Gradient Sky Formulas
+
+This section is informative. Implementations are not required to use these formulas, and the exact appearance of gradient skies **MAY** vary between applications.
+
+In the formulas below, `d` is the normalized view direction in the sky's local space, `y` is the Y component of `d`, `mix(a, b, t)` is `a + (b - a) * t`, and each `t` value is clamped to the range 0.0 to 1.0.
+
+Above the horizon, where `y >= 0`, the sky color is a mix between the top color and the horizon color:
+
+```
+t = pow(1 - y, 0.6 / topCurve)
+color = mix(topColor, horizonColor, t)
+```
+
+Below the horizon, where `y < 0`, the sky color is a mix between the bottom color and the horizon color:
+
+```
+t = pow(1 + y, 0.6 / bottomCurve)
+color = mix(bottomColor, horizonColor, t)
+```
+
+Then, above the horizon, each sun is mixed in. In the formulas below, `s` is the normalized direction toward the sun in the same space as `d`, and `sunColor` is the light's color scaled by its intensity. Where `dot(d, s) > cos(sunAngleMax)`:
+
+```
+c = (1 - dot(d, s)) / (1 - cos(sunAngleMax))
+t = pow(1 - c, 1.6 / pow(sunCurve, 1.4))
+color = mix(color, sunColor, t)
+```
+
+With these formulas, larger curve values move the transition toward the horizon color or the sun color. A top or bottom curve of 0.6 gives a linear transition with respect to `y`, and a sun curve of about 1.4 gives a linear transition with respect to `c`. As the sun curve approaches infinity, the sun fills the entire `sunAngleMax` radius.
 
 ### Panorama Sky Properties
 
@@ -276,7 +306,7 @@ Physical skies use a physically-based model to simulate the scattering of light 
 
 |                         | Type        | Description                                                                 | Default value        |
 | ----------------------- | ----------- | --------------------------------------------------------------------------- | -------------------- |
-| **groundColor**         | `number[3]` | The color of the ground (not part of the atmospheric simulation).           | `[0.04, 0.02, 0.01]` |
+| **groundColor**         | `number[3]` | The tint of the ground below the horizon, which is lit by the sky.          | `[0.04, 0.02, 0.01]` |
 | **mieAnisotropy**       | `number`    | The anisotropy of Mie scattering (the thing that makes clouds white).       | 0.8                  |
 | **mieCoefficient**      | `number`    | The coefficient of Mie scattering (the thing that makes clouds white).      | 0.000005             |
 | **mieColor**            | `number[3]` | The color of Mie scattering (the thing that makes clouds white).            | `[1.0, 1.0, 1.0]`    |
@@ -287,13 +317,13 @@ Scattering coefficients are defined as inverse meters (m⁻¹), where larger val
 
 #### Ground Color
 
-The `"groundColor"` property is an array of three numbers that defines the color of the ground. The default value is `[0.04, 0.02, 0.01]`, which is a sane default for Earth-like skies.
+The `"groundColor"` property is an array of three numbers that defines the color tint of the ground below the horizon. The default value is `[0.04, 0.02, 0.01]`, which is a sane default for Earth-like skies.
 
-This color is not part of the atmospheric simulation, but it is used to provide a color for the bottom part of the skybox.
+The ground is not part of the atmospheric simulation, but it is lit by the sky. The ground color acts like the albedo of the ground: it is multiplied by the light that the ground receives from the sun and atmosphere. As such, the displayed color of the bottom part of the sky depends on the lighting, and it is usually darker and less saturated than the ground color itself.
 
 Like all colors in glTF, this is defined in linear color space. The ground color may have values greater than 1.0, which indicate high energy, HDR, or overbright ground color, but usually, the values are between 0.0 and 1.0.
 
-> Informative note: Typically, the bottom of the skybox is obscured by a planet's terrain, but there may be cases where the bottom of the skybox is visible, or there is a need for the scene to have ambient light from below.
+> Informative note: Typically, the bottom of the sky is obscured by a planet's terrain, but there may be cases where the bottom of the sky is visible, or there is a need for the scene to have ambient light from below.
 
 #### Mie Anisotropy
 
