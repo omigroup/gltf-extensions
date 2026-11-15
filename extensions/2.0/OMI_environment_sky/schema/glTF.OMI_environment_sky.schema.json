@@ -13,6 +13,11 @@
                 "type": "object",
                 "$ref": "glTF.OMI_environment_sky.sky.schema.json"
             }
+        },
+        "sky": {
+            "$ref": "glTFid.schema.json",
+            "description": "The index of the sky in the top level skies array. If not specified, use the sky at index 0 as the sky.",
+            "default": 0
         }
     },
     "required": ["skies"]

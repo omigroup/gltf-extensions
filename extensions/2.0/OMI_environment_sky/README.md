@@ -302,25 +302,16 @@ The `"color"` property is an array of three numbers that defines the color of th
 
 ### Document-level Properties
 
-The `"OMI_environment_sky"` extension is defined at the root of the glTF document, in the `"extensions"` object. It holds an array of sky resources, which can be referenced by scenes, or the sky at index 0 is used as the default sky.
+The `"OMI_environment_sky"` extension is defined at the root of the glTF document, in the `"extensions"` object.
 
-|           | Type       | Description                              | Default value |
-| --------- | ---------- | ---------------------------------------- | ------------- |
-| **skies** | `object[]` | The skies available to use in the scene. | `[]`          |
+|           | Type       | Description                                            | Default value |
+| --------- | ---------- | ------------------------------------------------------ | ------------- |
+| **skies** | `object[]` | The skies available to use.                            | Required.     |
+| **sky**   | `integer`  | The index of the sky to use for this glTF, if defined. | 0             |
 
-Only one sky may be active at a time, as specified in the scene. In most situations, glTF files will only contain one sky. However, a glTF file may contain multiple skies if it contains multiple scenes, or includes a mechanism for changing the sky at runtime, such as by animation or script.
+The sky index specifies which sky is used as the sky. If `"sky"` is not set, and `"skies"` contains skies, use the sky at index 0 as the sky. Only one sky may be active at a time. In most situations, glTF files will only contain one sky. However, a glTF file may contain multiple skies to support changing the sky at runtime, such as by animation or script.
 
-Generally, it is expected that only one glTF file with a sky should be instantiated at a time. This may be the main "map" glTF scene, or a glTF dedicated to holding a sky. glTF files intended to be used as individual objects that get composed into a scene should not use the `"OMI_environment_sky"` extension. Do not use `"OMI_environment_sky"` as a "preview environment" within a glTF representing an object to avoid conflicts over the sky when that object is instantiated in a larger scene. The behavior of multiple glTF files trying to control the sky is undefined.
-
-### Scene Properties
-
-The `"OMI_environment_sky"` extension may also be defined on a glTF scene, in the `"extensions"` object. It holds an integer that references a sky to use.
-
-|         | Type      | Description                                             | Default value |
-| ------- | --------- | ------------------------------------------------------- | ------------- |
-| **sky** | `integer` | The index of the sky to use for this scene, if defined. | 0             |
-
-The scene-level sky index specifies which document-level sky is used as the sky for this scene. If the scene does not have a `"sky"` set, use the sky at index 0 as the sky.
+Generally, it is expected that only one glTF file with a sky should be instantiated at a time. This may be the main "map" glTF scene, or a glTF dedicated to holding a sky. glTF files intended to be used as individual objects that get composed into a scene should not use the `"OMI_environment_sky"` extension. Do not use `"OMI_environment_sky"` as a "preview environment" within a glTF representing an object, to avoid conflicts with the sky when that object is instantiated in a larger scene. The behavior of multiple glTF files trying to control the sky is undefined.
 
 ### glTF Object Model
 
@@ -345,7 +336,7 @@ The following JSON pointers are defined representing mutable properties defined 
 | `/extensions/OMI_environment_sky/skies/{}/physical/rayleighCoefficient` | `float`           |
 | `/extensions/OMI_environment_sky/skies/{}/physical/rayleighColor`       | `float3`          |
 | `/extensions/OMI_environment_sky/skies/{}/plain/color`                  | `float3`          |
-| `/scenes/{}/extensions/OMI_environment_sky/sky`                         | `int`             |
+| `/extensions/OMI_environment_sky/sky`                                   | `int`             |
 
 Additionally, the following JSON pointers are defined for read-only properties:
 
@@ -362,7 +353,7 @@ See [schema/glTF.OMI_environment_sky.sky.schema.json](schema/glTF.OMI_environmen
 - Physical: [schema/glTF.OMI_environment_sky.sky.physical.schema.json](schema/glTF.OMI_environment_sky.sky.physical.schema.json)
 - Plain: [schema/glTF.OMI_environment_sky.sky.plain.schema.json](schema/glTF.OMI_environment_sky.sky.plain.schema.json)
 
-See also [schema/glTF.OMI_environment_sky.schema.json](schema/glTF.OMI_environment_sky.schema.json) for the document-level schema and [schema/scene.OMI_environment_sky.schema.json](schema/scene.OMI_environment_sky.schema.json) for the scene-level schema.
+See also [schema/glTF.OMI_environment_sky.schema.json](schema/glTF.OMI_environment_sky.schema.json) for the document-level schema.
 
 ## Known Implementations
 
