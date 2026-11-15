@@ -237,9 +237,24 @@ Panorama skies use a texture or set of textures to represent the sky. The `"pano
 
 The `"cubemap"` property is an array of 6 integer indices that reference textures in the glTF document-level textures array. If not specified, this sky does not have a cubemap texture.
 
-If present, the value **MUST** be a 6-element array of integers which refer to 6 textures by index. The indices of the textures in the array are in the order +X, -X, +Y, -Y, +Z, -Z.
+If present, the value **MUST** be a 6-element array of integers which refer to 6 textures by index. The face order and the orientation of each face image **MUST** follow the cubemap conventions of the [KTX 2.0 specification](https://registry.khronos.org/KTX/specs/2.0/ktxspec.v2.html) (section 3.6 "faceCount" and Appendix A "Cubemap Orientation"): the faces are in the order +X, -X, +Y, -Y, +Z, -Z, and each face image has a top-left origin, in KTX's left-handed cubemap coordinate system. KTX's cubemap coordinate system is converted to glTF's right-handed coordinate system by negating the X axis, which is one of the conversions described in KTX 2.0 Appendix A. The Y and Z axes are unchanged. These directions are in the sky's local space, before the sky's `"rotation"` is applied.
 
-Cubemap skybox textures are not recommended because not all game engines support them. Unity does, while Unreal and Godot do not. If an engine does not support cubemap skyboxes, an importer may either convert the cubemap to an equirectangular texture, or use a mesh to represent the skybox. Additionally, if the glTF file includes both a cubemap and equirectangular texture, the equirectangular texture may be loaded as a fallback.
+Note that this makes the X labels unintuitive for glTF's right-handed coordinate system: the face labeled "+X" (index 0) is seen when looking toward glTF's -X direction, and the face labeled "-X" (index 1) is seen when looking toward glTF's +X direction. This is because the labels refer to KTX's left-handed X axis, which is negated compared to glTF. The Y and Z faces are seen in the directions their labels suggest. In exchange, the face images are not mirrored when viewed from inside the skybox, consistent with equirectangular skies, so text on the sky is readable. KTX 2.0 cubemap files and GPU cubemap textures can also be used directly, by sampling with the X component of the sampling direction negated.
+
+The following table restates the resulting orientation of each face image in glTF's coordinate system, as seen by a viewer inside the skybox:
+
+| Index | KTX label | Seen when looking toward | Image right edge toward | Image top edge toward |
+| ----- | --------- | ------------------------ | ----------------------- | --------------------- |
+| 0     | +X        | -X                       | -Z                      | +Y                    |
+| 1     | -X        | +X                       | +Z                      | +Y                    |
+| 2     | +Y        | +Y                       | -X                      | -Z                    |
+| 3     | -Y        | -Y                       | -X                      | +Z                    |
+| 4     | +Z        | +Z                       | -X                      | +Y                    |
+| 5     | -Z        | -Z                       | +X                      | +Y                    |
+
+Informative note: Tools that render cubemap faces with a right-handed camera, such as by looking along each glTF axis with +Y up, produce a face for glTF's +X direction and a face for glTF's -X direction. These must be stored at index 1 and index 0, respectively. Some engines name their cubemap faces differently; for example, Unity's 6 sided skybox labels its +X slot as "Left".
+
+Cubemap skybox textures are not recommended because not all game engines support them natively. Unity supports them with its built-in skybox shaders, while Godot and Unreal require a custom sky shader or sky material that samples the cubemap faces. If an engine does not support cubemap skyboxes, an importer may convert the cubemap to an equirectangular texture, use a custom sky shader, or use a mesh to represent the skybox. Additionally, if the glTF file includes both a cubemap and equirectangular texture, the equirectangular texture may be loaded as a fallback.
 
 #### Equirectangular
 
