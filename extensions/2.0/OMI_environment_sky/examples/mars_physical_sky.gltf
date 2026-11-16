@@ -35,6 +35,9 @@
     ],
     "buffers": [{ "byteLength": 612, "uri": "cube_mesh_data.bin" }],
     "extensions": {
+        "KHR_lights_punctual": {
+            "lights": [{ "type": "directional" }]
+        },
         "OMI_environment_sky": {
             "skies": [
                 {
@@ -51,7 +54,7 @@
             ]
         }
     },
-    "extensionsUsed": ["OMI_environment_sky"],
+    "extensionsUsed": ["KHR_lights_punctual", "OMI_environment_sky"],
     "meshes": [
         {
             "primitives": [
@@ -63,8 +66,13 @@
         }
     ],
     "nodes": [
-        { "children": [1], "name": "MarsPhysicalSky" },
-        { "mesh": 0, "name": "Box" }
+        { "children": [1, 2], "name": "MarsPhysicalSky" },
+        { "mesh": 0, "name": "Box" },
+        {
+            "extensions": { "KHR_lights_punctual": { "light": 0 } },
+            "name": "Sun",
+            "rotation": [-0.1294095516204834, 0.836516261100769, 0.4829629361629486, 0.2241438925266266]
+        }
     ],
     "scene": 0,
     "scenes": [{ "nodes": [0] }]

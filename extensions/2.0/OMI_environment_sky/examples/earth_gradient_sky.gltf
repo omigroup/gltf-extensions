@@ -1,0 +1,80 @@
+{
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 24,
+            "max": [0.5, 0.5, 0.5],
+            "min": [-0.5, -0.5, -0.5],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 24,
+            "max": [1.0, 1.0, 1.0],
+            "min": [-1.0, -1.0, -1.0],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5121,
+            "count": 36,
+            "max": [23],
+            "min": [0],
+            "type": "SCALAR"
+        }
+    ],
+    "asset": {
+        "version": "2.0"
+    },
+    "bufferViews": [
+        { "buffer": 0, "byteLength": 288, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 288, "byteOffset": 288, "byteStride": 12, "target": 34962 },
+        { "buffer": 0, "byteLength": 36, "byteOffset": 576, "target": 34963 }
+    ],
+    "buffers": [{ "byteLength": 612, "uri": "cube_mesh_data.bin" }],
+    "extensions": {
+        "KHR_lights_punctual": {
+            "lights": [{ "type": "directional" }]
+        },
+        "OMI_environment_sky": {
+            "skies": [
+                {
+                    "gradient": {
+                        "bottomColor": [0.033, 0.024, 0.016],
+                        "bottomCurve": 0.02,
+                        "horizonColor": [0.396, 0.409, 0.429],
+                        "sunAngleMax": 0.5,
+                        "sunCurve": 0.15,
+                        "topColor": [0.123, 0.174, 0.263],
+                        "topCurve": 0.15
+                    },
+                    "type": "gradient"
+                }
+            ]
+        }
+    },
+    "extensionsUsed": ["KHR_lights_punctual", "OMI_environment_sky"],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": { "NORMAL": 1, "POSITION": 0 },
+                    "indices": 2
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        { "children": [1, 2], "name": "EarthGradientSky" },
+        { "mesh": 0, "name": "Box" },
+        {
+            "extensions": { "KHR_lights_punctual": { "light": 0 } },
+            "name": "Sun",
+            "rotation": [-0.1294095516204834, 0.836516261100769, 0.4829629361629486, 0.2241438925266266]
+        }
+    ],
+    "scene": 0,
+    "scenes": [{ "nodes": [0] }]
+}

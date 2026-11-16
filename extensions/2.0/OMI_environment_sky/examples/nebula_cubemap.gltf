@@ -36,7 +36,9 @@
     ],
     "buffers": [{ "byteLength": 612, "uri": "cube_mesh_data.bin" }],
     "extensions": {
-        "KHR_lights_punctual": { "lights": [{ "type": "directional" }] },
+        "KHR_lights_punctual": {
+            "lights": [{ "type": "directional" }]
+        },
         "KHR_xmp_json_ld": {
             "packets": [
                 {
