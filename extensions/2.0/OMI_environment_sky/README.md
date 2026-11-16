@@ -16,7 +16,7 @@ Optionally depends on `KHR_lights_punctual`, which is used to define suns.
 
 ## Overview
 
-This extension allows defining the skybox of a glTF asset, and how the sky provides environment lighting. The sky can be a gradient, panorama, physical sky, or plain sky. The sky can be used to light the scene, provide a background, or both.
+This extension allows defining the skybox of a glTF asset, and how the sky provides environment lighting. The sky can be a gradient, panorama, physical sky, or plain sky. The sky can be used to provide a background, and optionally provide lighting to the scene.
 
 To add suns to the sky, use the `KHR_lights_punctual` extension to define directional lights. For sky types that display suns, every visible directional light defined with `KHR_lights_punctual` on a node is treated as a sun. Since `KHR_lights_punctual` directional lights point along their node's local -Z axis, the sun appears in the sky in the direction of the node's local +Z axis.
 
