@@ -19,6 +19,5 @@
             "$ref": "glTFid.schema.json",
             "description": "The index of an equirectangular panorama texture in the glTF `textures` array."
         }
-    },
-    "required": []
+    }
 }
